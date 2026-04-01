@@ -1,27 +1,22 @@
-# Saurav Personal Site (Vercel)
+# Saurav Personal Site
 
-Simple one-page static site for founder/funding applications.
+Minimalist founder portfolio — static HTML deployed on Vercel.
 
-## Deploy (fastest)
+## Deploy
 
-1. Push this folder to a GitHub repo (or existing repo path).
-2. In Vercel, click **Add New Project**.
-3. Import the repo.
-4. Set Root Directory to `personal-site` (if repo has multiple folders).
-5. Deploy.
+1. Push this repo to GitHub.
+2. In Vercel, click **Add New Project** and import the repo.
+3. Deploy — no build step required.
 
 ## Local Preview
 
-Open `index.html` directly in browser.
+Open `index.html` directly in a browser.
 
-## Quick Edits
+## Editing
 
-- Main copy: `index.html`
-- Routing rules: `vercel.json`
+- **Content & styling**: `index.html`
+- **Routing rules**: `vercel.json`
 
-## Suggested next upgrades
+## Adding a Headshot
 
-- Add short bio headshot
-- Add traction metrics section
-- Add one demo screenshot/video
-- Add calendly link for meetings
+To add a profile photo, place an image file (e.g., `headshot.jpg`) in the root directory and add an `<img>` tag inside the `<header>` block in `index.html`.
