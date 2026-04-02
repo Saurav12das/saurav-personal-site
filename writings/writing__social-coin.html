@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Coin: A Contribution Economy — Saurav Das</title>
+<meta name="description" content="A two-layer reward system — reputation and currency — that recognizes the $12 trillion in invisible care, creativity, and community work society already performs for free." />
+<meta property="og:title" content="Social Coin: Beyond UBI — A Contribution Economy" />
+<meta property="og:description" content="What if the act of going to the gym, helping a neighbor, or making art earned you a coin you could spend? A data-driven proposal for a contribution-based economy." />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@thedassaurav" />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #faf7f2;
+    --warm: #f0e8d8;
+    --warmer: #e8dcc8;
+    --accent: #1a5c38;    /* forest green — contribution, growth */
+    --accent2: #c47c2b;   /* amber — value, reward */
+    --accent3: #2c3e50;   /* deep navy — policy, structure */
+    --danger: #b83232;    /* for cautionary data */
+    --muted: #6b6355;
+    --rule: rgba(13,13,13,0.1);
+    --coin: #d4a843;      /* gold for the coin metaphor */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.72;
+    overflow-x: hidden;
+  }
+
+  /* ── SITE NAV ── */
+  .site-nav {
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  .site-nav-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+  }
+  .site-nav a { color: #555; text-decoration: none; font-size: 12px; letter-spacing: 0.02em; }
+  .site-nav .home-link { font-size: 13px; font-weight: 500; color: #111; display: flex; align-items: center; gap: 8px; }
+  .site-nav .home-link:hover, .site-nav a:hover { color: var(--accent); }
+  .nav-links { display: flex; gap: 20px; }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--paper);
+    border-bottom: 3px solid var(--ink);
+    padding: 18px 0 14px;
+    text-align: center;
+  }
+  .masthead::after { content: ''; display: block; height: 1px; background: var(--ink); margin-top: 10px; }
+  .pub-name {
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .pub-name a { color: inherit; text-decoration: none; }
+  .issue-line { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--muted); margin-top: 3px; }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 64px 40px 44px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .series-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 20px;
+  }
+  .series-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent2); }
+  h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(34px, 5.5vw, 68px);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+    max-width: 800px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .deck {
+    font-size: 18px;
+    font-weight: 400;
+    color: #3a3a3a;
+    max-width: 640px;
+    border-left: 3px solid var(--accent);
+    padding-left: 18px;
+    margin-bottom: 28px;
+    line-height: 1.62;
+  }
+  .byline { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; }
+
+  /* ── LAYOUT ── */
+  .content-wrap { max-width: 920px; margin: 0 auto; padding: 0 40px; }
+
+  p { font-size: 16px; margin-bottom: 18px; color: #1a1a1a; }
+  strong { font-weight: 500; }
+
+  /* ── SECTION HEADERS ── */
+  .section-header { display: flex; align-items: center; gap: 16px; margin: 60px 0 26px; }
+  .section-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--accent2); white-space: nowrap; }
+  h2 {
+    font-family: 'Lora', serif;
+    font-size: 27px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+    flex: 1;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 3.5vw, 34px);
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--accent3);
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 0;
+    margin: 44px 0;
+  }
+  .pull-quote cite {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+
+  /* ── COIN CALLOUT ── */
+  .coin-callout {
+    background: linear-gradient(135deg, #2d5a3d 0%, #1a3d28 100%);
+    color: #fff;
+    padding: 36px 40px;
+    margin: 44px 0;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .coin-callout::before {
+    content: '⬡';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    font-size: 180px;
+    opacity: 0.06;
+    color: var(--coin);
+    line-height: 1;
+  }
+  .coin-callout h3 {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #f0d990;
+  }
+  .coin-callout p { color: rgba(255,255,255,0.88); font-size: 15px; margin-bottom: 10px; }
+  .coin-callout p:last-child { margin-bottom: 0; }
+
+  /* ── FIGURES ── */
+  .figure {
+    background: white;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--ink);
+    margin: 44px 0;
+    overflow: hidden;
+  }
+  .figure-header {
+    padding: 16px 24px 10px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .figure-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent2); }
+  .figure-title { font-family: 'Lora', serif; font-size: 17px; font-weight: 700; margin-top: 4px; line-height: 1.25; }
+  .figure-source { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); white-space: nowrap; margin-top: 4px; }
+  .figure-body { padding: 24px; }
+  .figure-caption { padding: 10px 24px 16px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--rule); font-style: italic; }
+
+  /* ── STAT GRID ── */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); }
+  .stat-cell { background: white; padding: 20px 16px; text-align: center; }
+  .stat-num { font-family: 'Lora', serif; font-size: 40px; font-weight: 700; line-height: 1; display: block; }
+  .stat-num.green { color: var(--accent); }
+  .stat-num.amber { color: var(--accent2); }
+  .stat-num.navy { color: var(--accent3); }
+  .stat-num.red { color: var(--danger); }
+  .stat-num.gold { color: var(--coin); }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+  .stat-source { font-family: 'DM Mono', monospace; font-size: 9px; color: #bbb; margin-top: 4px; }
+
+  /* ── BAR CHART ── */
+  .bar-chart { width: 100%; }
+  .bar-row { display: flex; align-items: center; margin-bottom: 13px; gap: 12px; }
+  .bar-label { width: 210px; min-width: 210px; font-size: 12px; font-weight: 400; line-height: 1.3; color: #222; }
+  .bar-track { flex: 1; height: 26px; background: var(--warm); position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+  .bar-fill.animated { width: var(--tw); }
+  .bar-fill.green { background: var(--accent); }
+  .bar-fill.amber { background: var(--accent2); }
+  .bar-fill.navy { background: var(--accent3); }
+  .bar-fill.red { background: var(--danger); }
+  .bar-fill.gold { background: var(--coin); }
+  .bar-fill.dark { background: var(--ink); }
+  .bar-val { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; color: var(--ink); min-width: 52px; text-align: right; }
+
+  /* ── WAFFLE ── */
+  .waffle-wrap { display: flex; flex-wrap: wrap; gap: 3px; }
+  .waffle-cell { width: 17px; height: 17px; border-radius: 2px; opacity: 0; transition: opacity 0.35s ease; }
+  .waffle-cell.invisible-econ { background: var(--warm); border: 1px solid #d4c9b0; }
+  .waffle-cell.care { background: var(--accent); }
+  .waffle-cell.volunteer { background: var(--accent2); }
+  .waffle-cell.health { background: #4a9e6b; }
+  .waffle-cell.arts { background: var(--accent3); }
+  .waffle-legend { display: flex; gap: 18px; margin-top: 14px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #444; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+
+  /* ── TWO-LAYER DIAGRAM ── */
+  .layer-diagram { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .layer-card { padding: 24px; }
+  .layer-card.rep { background: #f5f8f5; border-top: 4px solid var(--accent); }
+  .layer-card.econ { background: #fdf8ef; border-top: 4px solid var(--coin); }
+  .layer-card h3 { font-family: 'Lora', serif; font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+  .layer-card ul { list-style: none; padding: 0; }
+  .layer-card ul li { font-size: 13px; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.06); line-height: 1.4; color: #333; }
+  .layer-card ul li::before { content: '→ '; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
+
+  /* ── PRECEDENT TABLE ── */
+  .prec-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .prec-table th { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; text-align: left; padding: 10px 14px; background: var(--ink); color: var(--paper); }
+  .prec-table td { padding: 10px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.4; }
+  .prec-table tr:hover td { background: var(--warm); }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 2px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+  .pill.success { background: #e8f5e9; color: #2e7d32; }
+  .pill.failed { background: #fde8e8; color: #b83232; }
+  .pill.partial { background: #fff3e0; color: #e65100; }
+  .pill.active { background: #e3f2fd; color: #1565c0; }
+
+  /* ── DESIGN PRINCIPLES ── */
+  .design-grid { display: grid; gap: 12px; }
+  .design-item { display: flex; gap: 16px; padding: 16px; background: var(--warm); }
+  .design-num { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; min-width: 36px; }
+  .design-item h4 { font-family: 'Lora', serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .design-item p { font-size: 13px; color: #444; line-height: 1.5; margin: 0; }
+
+  /* ── INFO BOX ── */
+  .info-box { padding: 14px 18px; margin: 18px 0; font-size: 13px; line-height: 1.6; border-left: 3px solid; }
+  .info-box.green { background: #f0f7f2; border-color: var(--accent); }
+  .info-box.amber { background: #fdf5e8; border-color: var(--accent2); }
+  .info-box.red { background: #fdf0f0; border-color: var(--danger); }
+
+  /* ── DIVIDERS ── */
+  .rule { border: none; border-top: 1px solid var(--rule); margin: 52px 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    max-width: 920px;
+    margin: 64px auto 44px;
+    padding: 24px 40px;
+    border-top: 2px solid var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .hero, .content-wrap, footer { padding-left: 20px; padding-right: 20px; }
+    .site-nav-inner { padding: 0 20px; }
+    .bar-label { width: 130px; min-width: 130px; font-size: 11px; }
+    .layer-diagram { grid-template-columns: 1fr; }
+    .stat-num { font-size: 30px; }
+    .coin-callout { padding: 24px 20px; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-in { animation: fadeUp 0.7s ease both; }
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="home-link">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Saurav Das
+    </a>
+    <div class="nav-links">
+      <a href="/#writing">Writing</a>
+      <a href="/writings/writing__post-ai-economics.html">Part I</a>
+      <a href="mailto:saurav12das@gmail.com">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="pub-name"><a href="/">Saurav Das</a> &nbsp;/&nbsp; Writing &nbsp;/&nbsp; Part II</div>
+  <div class="issue-line">Economic Analysis · AI & Society · 2026</div>
+</div>
+
+<!-- HERO -->
+<div class="hero fade-in">
+  <div class="series-tag">Part II of II &nbsp;·&nbsp; The Post-AI Economy Series</div>
+  <h1>Social Coin:<br>A <em>Contribution Economy</em><br>Beyond UBI</h1>
+  <p class="deck">Society already performs $12 trillion in invisible care, community, and creative work every year — for free. What if we built an economy that recognized it? A proposal for a two-layer reward system that keeps people moving, contributing, and connected in a world where AI is taking the jobs.</p>
+  <div class="byline">By Saurav Das &nbsp;·&nbsp; 2026</div>
+</div>
+
+<div class="content-wrap">
+
+  <div style="background:var(--warm); border-left:3px solid var(--coin); padding:22px 26px; margin:36px 0 28px; border-radius:1px;">
+    <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent2); margin-bottom:10px;">A Personal Note</div>
+    <p style="font-size:15px; color:#2a2a2a; margin-bottom:12px; font-style:italic;">I've been sitting on this idea for a while. Watching the AI wave accelerate, reading the policy debates, talking to people in my field and outside it — and feeling like something important was missing from every conversation about what comes next. The UBI proposals are well-intentioned. The retraining programs make sense on paper. But none of them address the thing that keeps bothering me: what happens to <em>people</em> when the structure of daily contribution disappears?</p>
+    <p style="font-size:15px; color:#2a2a2a; margin-bottom:12px; font-style:italic;">I think about the farmers and researchers I work with. The people who show up early, who carry knowledge in their hands and their habits, whose contribution to the world doesn't fit neatly into a job title or a salary. I think about what motivates them — and it isn't primarily money. It's the feeling that what they do matters. That someone noticed. That their effort left something behind.</p>
+    <p style="font-size:15px; color:#2a2a2a; margin-bottom:0; font-style:italic;">That's what got me thinking about a Social Coin. Not as a technocratic policy instrument, but as an answer to a genuinely human question: in a world where AI is doing more of the work, how do we keep people engaged, purposeful, and economically connected? What if the act of going to the gym, helping a neighbor, making something with your hands, or showing up for your community actually earned you something real?</p>
+  </div>
+
+  <p>In <a href="/writings/writing__post-ai-economics.html" style="color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent);">Part I of this series</a>, I mapped the disruption: 92 million jobs displaced by 2030, AI handling half of entry-level white-collar work within five years, a K-shaped economy where productivity gains flow upward while wage earners face compressed opportunity. The policy response most often proposed is Universal Basic Income — just give people money.</p>
+
+  <p>I think cash alone is not enough. Not because UBI is wrong, but because it's incomplete. It solves the income problem. It doesn't solve the purpose problem. The behavioral economics evidence is now clear: people who lose work don't just lose income. They lose structure, identity, social belonging, and the felt sense that they matter. Cash doesn't restore any of those things.</p>
+
+  <p>What follows is a proposal I've been developing: a <strong>Social Coin</strong> — a two-layer digital reward system that recognizes and economically values the contributions people already make and could make more of. Going to the gym. Creating art. Helping a neighbor. Doing care work. Teaching a skill. A coin you earn by contributing. A coin you can spend. And a coin that says, to anyone who can see it: <em>this person shows up for their community.</em></p>
+
+  <div class="pull-quote fade-in">
+    "Jobs are not just the source of money; they are the basis for the rituals, customs, and routines of working-class life. Destroy work and, in the end, working-class life cannot survive."
+    <cite>— Anne Case &amp; Angus Deaton, Princeton economists, Deaths of Despair (2020)</cite>
+  </div>
+
+  <!-- FIGURE 1: HEADLINE STATS -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 1</div>
+        <div class="figure-title">The Invisible Economy: What Goes Unrecognized Every Year</div>
+      </div>
+      <div class="figure-source">ILO · Oxfam · AmeriCorps · BEA · Lancet 2022</div>
+    </div>
+    <div class="figure-body" style="padding:0;">
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <span class="stat-num green">$11T</span>
+          <div class="stat-label">Annual unpaid care work globally — 3× the tech industry</div>
+          <div class="stat-source">ILO / Oxfam 2020</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num amber">$1.35T</span>
+          <div class="stat-label">Annual value of global volunteer work</div>
+          <div class="stat-source">ILO / UN Volunteers</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num navy">$1.2T</span>
+          <div class="stat-label">US arts & culture GDP contribution (4.2% of GDP)</div>
+          <div class="stat-source">BEA 2025</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num green">75.7M</span>
+          <div class="stat-label">Americans who formally volunteered in 2023 — record high</div>
+          <div class="stat-source">AmeriCorps 2024</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num amber">$117B</span>
+          <div class="stat-label">Annual US healthcare cost of physical inactivity</div>
+          <div class="stat-source">CDC / Lancet Global Health</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num gold">$300B</span>
+          <div class="stat-label">Loyalty points issued globally per year — proof the model works</div>
+          <div class="stat-source">Bond Brand Loyalty 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="figure-caption">The invisible economy is not a rounding error. At $13+ trillion annually, it dwarfs most measured industries. A Social Coin is, in essence, a mechanism for making this visible.</div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section-header">
+    <span class="section-num">01 —</span>
+    <h2>The Problem with Giving People Money</h2>
+  </div>
+
+  <p>The case for UBI is real: it reduces poverty, improves measured wellbeing, and doesn't produce the behavioral dependency that critics predict. Three of the most rigorous trials confirm this. Finland's 2017–2018 experiment showed recipients scored dramatically better on health, life satisfaction, and institutional trust. Stockton's SEED program showed that only 1% of transfers went to alcohol or tobacco. Kenya's GiveDirectly 12-year study found no evidence of idleness — recipients shifted to self-employment, generating a fiscal multiplier of 1.6–1.9×.</p>
+
+  <p>But a critical finding from the largest US trial quietly challenged the narrative. OpenResearch's 3,000-person study — $1,000/month for 3 years — found a 2-percentage-point <em>decrease</em> in employment and, more importantly, that <strong>stress and mental health benefits faded by years 2 and 3.</strong> The researchers concluded: "Cash alone cannot address challenges such as chronic health conditions, lack of childcare, or the high cost of housing." And, implicitly, cash alone cannot address the loss of purpose.</p>
+
+  <!-- FIGURE 2: UBI TRIAL OUTCOMES -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 2</div>
+        <div class="figure-title">What UBI Trials Actually Show: Wellbeing vs. Employment vs. Purpose</div>
+      </div>
+      <div class="figure-source">Finland 2018 · Stockton SEED 2021 · GiveDirectly 2023 · OpenResearch 2024</div>
+    </div>
+    <div class="figure-body">
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--rule); margin-bottom:20px;">
+        <div style="background:white; padding:18px; text-align:center;">
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Wellbeing</div>
+          <div style="font-size:28px; font-family:'Lora',serif; font-weight:700; color:var(--accent);">↑ Strong</div>
+          <div style="font-size:12px; color:#555; margin-top:6px; line-height:1.4;">Finland: 54.8% good health vs 46.2% control.<br>Stockton: Anxiety fell 28%.<br>GiveDirectly: +0.26 SD happiness</div>
+        </div>
+        <div style="background:white; padding:18px; text-align:center;">
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent2); margin-bottom:10px;">Employment</div>
+          <div style="font-size:28px; font-family:'Lora',serif; font-weight:700; color:var(--accent2);">→ Flat/Mixed</div>
+          <div style="font-size:12px; color:#555; margin-top:6px; line-height:1.4;">Finland: +6 days/year only.<br>Stockton: Full-time work 28%→40%.<br>OpenResearch: −2 pp employment</div>
+        </div>
+        <div style="background:white; padding:18px; text-align:center;">
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--danger); margin-bottom:10px;">Purpose & Meaning</div>
+          <div style="font-size:28px; font-family:'Lora',serif; font-weight:700; color:var(--danger);">↓ Unaddressed</div>
+          <div style="font-size:12px; color:#555; margin-top:6px; line-height:1.4;">OpenResearch: Benefits fade yrs 2–3.<br>No trial measures contribution identity.<br>Structure &amp; belonging: unmeasured</div>
+        </div>
+      </div>
+      <div class="info-box amber"><strong>The gap UBI doesn't close:</strong> Marie Jahoda's 1933 research identified five functions of employment beyond income — time structure, social contact, collective purpose, status/identity, and regular activity. A 2023 meta-analysis confirmed all five independently predict mental health. UBI restores income. It restores none of the five latent functions.</div>
+    </div>
+    <div class="figure-caption">UBI is necessary but not sufficient. The purpose deficit — what happens to identity and meaning when wage labor contracts — requires a structural response that cash alone cannot provide.</div>
+  </div>
+
+  <!-- FIGURE 3: PURPOSE COST -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 3</div>
+        <div class="figure-title">The Cost of Purposelessness: Deaths of Despair & the Purpose-Health Link</div>
+      </div>
+      <div class="figure-source">Case &amp; Deaton (Princeton) · Scheiring &amp; King · Blue Zones / Buettner · Danish Twin Study</div>
+    </div>
+    <div class="figure-body">
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">US deaths of despair per year (2017)</div>
+          <div class="bar-track"><div class="bar-fill red" style="--tw:70%"></div></div>
+          <div class="bar-val">~70,000</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Excess deaths, E. European deindustrialisation (1990–99)</div>
+          <div class="bar-track"><div class="bar-fill red" style="--tw:100%"></div></div>
+          <div class="bar-val">7.3M</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Mortality spike in year of retirement (excess deaths)</div>
+          <div class="bar-track"><div class="bar-fill amber" style="--tw:22%"></div></div>
+          <div class="bar-val">~11,000</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Longevity explained by genetics (Danish Twin Study)</div>
+          <div class="bar-track"><div class="bar-fill navy" style="--tw:20%"></div></div>
+          <div class="bar-val">20%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Longevity explained by lifestyle &amp; environment</div>
+          <div class="bar-track"><div class="bar-fill green" style="--tw:80%"></div></div>
+          <div class="bar-val">80%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Wellbeing variance explained by employment latent functions</div>
+          <div class="bar-track"><div class="bar-fill green" style="--tw:38%"></div></div>
+          <div class="bar-val">19%</div>
+        </div>
+      </div>
+    </div>
+    <div class="figure-caption">Purpose is not a soft concept. The data trail from deindustrialisation to deaths of despair is unambiguous: when people lose meaningful contribution, the consequences are physiological and lethal — not merely psychological.</div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- SECTION 2 -->
+  <div class="section-header">
+    <span class="section-num">02 —</span>
+    <h2>The Social Coin: How It Works</h2>
+  </div>
+
+  <p>The Social Coin is not a replacement for income support. It is a layer built on top of it — one that ties economic reward to contribution and builds a permanent, portable record of prosocial behavior. The architecture has two distinct components that must not be conflated.</p>
+
+  <div class="coin-callout fade-in">
+    <h3>⬡ The Social Coin Premise</h3>
+    <p>You go to the gym three times this week. You help your elderly neighbor carry groceries. You teach a free art class at the community center. You spend Saturday morning doing trail maintenance. In today's economy, these acts are economically invisible. Under Social Coin, each one earns you a verifiable, spendable token — one that carries with it a reputation signal showing that you are a contributor.</p>
+    <p>Participating vendors — grocery stores, transit agencies, local businesses, healthcare providers — accept Social Coins. They do so because the government offers them a tax incentive for participation, similar to how merchants are incentivized to accept SNAP, or how Singapore's HealthHub rewards pharmacies for health program participation. The coin circulates. The community strengthens. The data becomes a public health and social good.</p>
+  </div>
+
+  <!-- FIGURE 4: TWO-LAYER ARCHITECTURE -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 4</div>
+        <div class="figure-title">The Two-Layer Architecture of Social Coin</div>
+      </div>
+      <div class="figure-source">System design by Saurav Das, 2026</div>
+    </div>
+    <div class="figure-body" style="padding:0;">
+      <div class="layer-diagram">
+        <div class="layer-card rep">
+          <h3 style="color:var(--accent);">Layer 1 — Reputation (Non-Transferable)</h3>
+          <p style="font-size:13px; color:#444; margin-bottom:12px;">A permanent, wallet-bound credential record that cannot be bought, sold, or transferred. Inspired by Vitalik Buterin's Soulbound Token concept.</p>
+          <ul>
+            <li>Verified contribution history (care, health, creativity, community)</li>
+            <li>Cannot be purchased or gamed — only earned through verified acts</li>
+            <li>Zero-knowledge proofs preserve privacy while enabling verification</li>
+            <li>Visible to community members, potential employers, service providers</li>
+            <li>Tiered levels (Contributor → Builder → Pillar) based on sustained engagement</li>
+            <li>Proof of human contribution, not just proof of wealth</li>
+          </ul>
+        </div>
+        <div class="layer-card econ">
+          <h3 style="color:var(--coin);">Layer 2 — Economic (Transferable &amp; Spendable)</h3>
+          <p style="font-size:13px; color:#444; margin-bottom:12px;">A stable-value digital currency that can be used at participating vendors, with built-in decay to encourage circulation rather than hoarding.</p>
+          <ul>
+            <li>Pegged to a stable unit of value (prevents speculation collapse)</li>
+            <li>7–8% annual demurrage encourages circulation over hoarding (WIR model)</li>
+            <li>Accepted at government-incentivized participating vendors</li>
+            <li>Spendable on: groceries, transit, healthcare, housing, local goods</li>
+            <li>Mobile-first, gasless transactions — works on basic smartphones</li>
+            <li>Convertible to fiat at fixed rate once per month (prevents arbitrage)</li>
+          </ul>
+        </div>
+      </div>
+      <div style="padding:20px 24px;">
+        <div style="background:var(--warm); padding:14px 18px; font-size:13px; line-height:1.6; border-left:3px solid var(--accent3);">
+          <strong>The critical distinction:</strong> Reputation tokens cannot be bought. Economic tokens can be spent but decay if hoarded. This two-layer separation prevents Social Coin from becoming a speculative asset (the failure mode of 99% of crypto social tokens) while maintaining the reputational signal that makes contribution visible.
+        </div>
+      </div>
+    </div>
+    <div class="figure-caption">The separation of reputation from economics is the core design insight. Soulbound reputation + stable spendable currency + vendor tax incentives = the triangle that prior community currencies failed to complete.</div>
+  </div>
+
+  <!-- FIGURE 5: WHAT EARNS COINS -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 5</div>
+        <div class="figure-title">What Earns Social Coins: The Contribution Categories &amp; Social ROI</div>
+      </div>
+      <div class="figure-source">CDC · Baptist Health · NHS NASP · ILO · BEA · Lancet 2022</div>
+    </div>
+    <div class="figure-body">
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Physical activity (gym, walking, sport)</div>
+          <div class="bar-track"><div class="bar-fill green" style="--tw:85%"></div></div>
+          <div class="bar-val">$2,500/yr saved</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Preventive health visits &amp; screenings</div>
+          <div class="bar-track"><div class="bar-fill green" style="--tw:72%"></div></div>
+          <div class="bar-val">$3–6 ROI per $1</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Caregiving (elderly, children, disabled)</div>
+          <div class="bar-track"><div class="bar-fill amber" style="--tw:100%"></div></div>
+          <div class="bar-val">$11T global value</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Volunteering (formal, community service)</div>
+          <div class="bar-track"><div class="bar-fill amber" style="--tw:68%"></div></div>
+          <div class="bar-val">$167B US/yr</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Arts, craft &amp; cultural creation</div>
+          <div class="bar-track"><div class="bar-fill navy" style="--tw:55%"></div></div>
+          <div class="bar-val">$1.2T US/yr</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Social prescribing (NHS model, community activities)</div>
+          <div class="bar-track"><div class="bar-fill navy" style="--tw:64%"></div></div>
+          <div class="bar-val">£2.1–8.6 per £1</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Environmental acts (recycling, clean transport)</div>
+          <div class="bar-track"><div class="bar-fill green" style="--tw:48%"></div></div>
+          <div class="bar-val">Curitiba: 70% rate</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Skills teaching &amp; knowledge sharing</div>
+          <div class="bar-track"><div class="bar-fill amber" style="--tw:42%"></div></div>
+          <div class="bar-val">Unquantified</div>
+        </div>
+      </div>
+    </div>
+    <div class="figure-caption">Every category on this list already generates massive measurable social value — none of which is captured by current economic accounting. Social Coin does not create new behavior; it recognizes existing behavior that the economy currently treats as worth zero.</div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- SECTION 3 -->
+  <div class="section-header">
+    <span class="section-num">03 —</span>
+    <h2>90 Years of Evidence: What Works and What Fails</h2>
+  </div>
+
+  <p>Community currencies are not a new idea. There are over 3,400 active complementary currency systems globally. The history of these experiments is rich and instructive — and it provides a clear map of the failure modes that a Social Coin must avoid.</p>
+
+  <p>The most important lesson comes from the oldest and most successful: Switzerland's WIR Bank, founded in 1934, now serves 50,000–62,000 member businesses representing 17% of all Swiss firms, with 1.5 billion CHF in annual turnover. It has run continuously for 91 years. The feature that makes it work is the same feature most community currencies lack: <strong>institutional backing, a banking license, and a B2B credit network that creates genuine liquidity.</strong></p>
+
+  <!-- FIGURE 6: COMMUNITY CURRENCY OUTCOMES -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 6</div>
+        <div class="figure-title">Community Currency Experiments: 90 Years of Evidence</div>
+      </div>
+      <div class="figure-source">WIR Bank · Bristol Pound · Fureai Kippu · Curitiba · GiveDirectly · Sarafu · TimeBanks USA</div>
+    </div>
+    <div class="figure-body" style="padding:0; overflow-x:auto;">
+      <table class="prec-table">
+        <thead>
+          <tr>
+            <th>System</th>
+            <th>Founded</th>
+            <th>Scale</th>
+            <th>Key Finding</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>WIR Bank (Switzerland)</strong></td>
+            <td>1934</td>
+            <td>62K businesses, 1.5B CHF/yr</td>
+            <td>Countercyclical stabilizer; SMEs use more WIR in recessions. 91 years continuous.</td>
+            <td><span class="pill success">Working</span></td>
+          </tr>
+          <tr>
+            <td><strong>Curitiba Recycling Tokens (Brazil)</strong></td>
+            <td>1989</td>
+            <td>11,000 tons garbage → 1M bus tokens</td>
+            <td>Behavior-linked token achieves 70% recycling rate — one of world's highest. City GDP +75% vs state.</td>
+            <td><span class="pill success">Working</span></td>
+          </tr>
+          <tr>
+            <td><strong>Fureai Kippu (Japan)</strong></td>
+            <td>1995</td>
+            <td>~400 branches, 70,000 participants</td>
+            <td>Elderly recipients <em>prefer</em> care from Fureai Kippu volunteers over paid yen workers. Relationship quality matters.</td>
+            <td><span class="pill partial">Stagnated</span></td>
+          </tr>
+          <tr>
+            <td><strong>TimeBanks USA</strong></td>
+            <td>1995</td>
+            <td>500 banks, 37,000+ US members</td>
+            <td>Consistent social capital gains, wellbeing benefits. But can't pay taxes, rent, or utilities — fatally limited economic utility.</td>
+            <td><span class="pill partial">Limited scope</span></td>
+          </tr>
+          <tr>
+            <td><strong>Ithaca HOURS (New York)</strong></td>
+            <td>1991</td>
+            <td>Peak $110K circulation</td>
+            <td>Collapsed when founder moved away. Zero institutional resilience.</td>
+            <td><span class="pill failed">Defunct</span></td>
+          </tr>
+          <tr>
+            <td><strong>Bristol Pound (UK)</strong></td>
+            <td>2012</td>
+            <td>Peak £1M, 0.02% adoption</td>
+            <td>Velocity 0.79 vs 4.1 for sterling. Not driving localisation. Paper currency uncompetitive.</td>
+            <td><span class="pill failed">Defunct 2021</span></td>
+          </tr>
+          <tr>
+            <td><strong>Sarafu Network (Kenya)</strong></td>
+            <td>2017</td>
+            <td>55,000 users, blockchain</td>
+            <td>World's first RCT on community currency: $30 input → $93.51 wallet increase → $28 food/water gain. 17× cost multiplier.</td>
+            <td><span class="pill active">Active, scaling</span></td>
+          </tr>
+          <tr>
+            <td><strong>GoodDollar (Global)</strong></td>
+            <td>2019</td>
+            <td>910,000+ users, 210 countries</td>
+            <td>Two-layer (governance token + economic token) architecture. 24M+ transactions. Closest existing model to Social Coin.</td>
+            <td><span class="pill active">Active, scaling</span></td>
+          </tr>
+          <tr>
+            <td><strong>Rally (US, Web3)</strong></td>
+            <td>2020</td>
+            <td>$479M peak market cap</td>
+            <td>Token fell 95% to $6.8M; shut down overnight. Speculation without utility always collapses.</td>
+            <td><span class="pill failed">Shutdown 2023</span></td>
+          </tr>
+          <tr>
+            <td><strong>MiamiCoin (US, Web3)</strong></td>
+            <td>2021</td>
+            <td>City of Miami</td>
+            <td>Lost 99%+ of value. City withdrew $5.25M before collapse. Speculation ≠ utility.</td>
+            <td><span class="pill failed">Defunct</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="figure-caption">The pattern across 90 years is clear: systems with institutional backing, genuine utility, and non-speculative design endure. Paper-based, founder-dependent, or speculation-driven systems collapse. Social Coin must draw from WIR, Curitiba, and Sarafu — not from Rally or MiamiCoin.</div>
+  </div>
+
+  <!-- FIGURE 7: FAILURE MODES -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 7</div>
+        <div class="figure-title">Why Community Currencies Fail — and How Social Coin Avoids Each</div>
+      </div>
+      <div class="figure-source">Seyfang &amp; Longhurst (3,418 systems) · Marshall &amp; O'Neill · Stodder · Grassroots Economics</div>
+    </div>
+    <div class="figure-body">
+      <div class="design-grid">
+        <div class="design-item" style="border-left:4px solid var(--danger);">
+          <div class="design-num" style="color:var(--danger);">✗1</div>
+          <div>
+            <h4>Liquidity &amp; velocity collapse</h4>
+            <p>Bristol Pound velocity: 0.79/year vs 4.1 for sterling. Coins don't circulate → vendors stop accepting → users stop earning → death spiral.<br><strong>Social Coin fix:</strong> 7–8% annual demurrage (decay) forces circulation. Coins must be spent, not hoarded.</p>
+          </div>
+        </div>
+        <div class="design-item" style="border-left:4px solid var(--danger);">
+          <div class="design-num" style="color:var(--danger);">✗2</div>
+          <div>
+            <h4>Vendor participation collapse</h4>
+            <p>No vendor wants to accumulate currency they can't spend upstream. Ithaca HOURS had ~500 vendors at peak — not enough to cover basic needs.<br><strong>Social Coin fix:</strong> Government tax incentive (e.g., 15% tax credit on Social Coin transactions) modeled on SNAP's 250,000 authorized retailers.</p>
+          </div>
+        </div>
+        <div class="design-item" style="border-left:4px solid var(--danger);">
+          <div class="design-num" style="color:var(--danger);">✗3</div>
+          <div>
+            <h4>Speculation &amp; pump-dump collapse</h4>
+            <p>Rally, MiamiCoin, Friends With Benefits all: speculation dominates utility → price crashes → user trust destroyed → system dead.<br><strong>Social Coin fix:</strong> Stable peg (not floating price). Economic token = stable unit, not investment vehicle. Strict conversion limits prevent arbitrage.</p>
+          </div>
+        </div>
+        <div class="design-item" style="border-left:4px solid var(--danger);">
+          <div class="design-num" style="color:var(--danger);">✗4</div>
+          <div>
+            <h4>Founder dependency</h4>
+            <p>Ithaca HOURS collapsed when Paul Glover moved away. Most time banks die within 5 years of founding.<br><strong>Social Coin fix:</strong> Institutional backing (federal or state authority). Protocol-governed, not person-governed. DAO-style governance with community oversight.</p>
+          </div>
+        </div>
+        <div class="design-item" style="border-left:4px solid var(--danger);">
+          <div class="design-num" style="color:var(--danger);">✗5</div>
+          <div>
+            <h4>Can't pay taxes or utilities</h4>
+            <p>TimeBanks USA's fatal limitation: the currency cannot cover basic fixed obligations. Volunteers are enthusiastic but the economics don't close.<br><strong>Social Coin fix:</strong> Government acceptance for local taxes and transit (demonstrated by Curitiba model). Legitimacy from the state is non-negotiable.</p>
+          </div>
+        </div>
+        <div class="design-item" style="border-left:4px solid var(--danger);">
+          <div class="design-num" style="color:var(--danger);">✗6</div>
+          <div>
+            <h4>Technology gap</h4>
+            <p>Paper currencies cannot compete with contactless payments. Mobile apps with high friction drive 99% abandonment in low-income communities.<br><strong>Social Coin fix:</strong> Gasless mobile-first. USSD support for feature phones (Sarafu model). Offline-first architecture. QR-code vendor payments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="figure-caption">Every failure mode in community currency history has a known solution. The question is whether the political will exists to implement them with institutional support — and whether AI-era urgency provides that catalyst.</div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- SECTION 4 -->
+  <div class="section-header">
+    <span class="section-num">04 —</span>
+    <h2>Governments Already Do This — They Just Don't Connect It</h2>
+  </div>
+
+  <p>The Social Coin is not a radical utopian proposal. Governments already run behavior-linked incentive programs at large scale. What's missing is a unified architecture, a common currency layer, and the economic theory that connects health behavior, care work, arts contribution, and community service into a single coherent system. The components exist. The integration doesn't.</p>
+
+  <!-- FIGURE 8: GOVERNMENT PROGRAMS -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 8</div>
+        <div class="figure-title">Government Behavior-Incentive Programs Already at Scale</div>
+      </div>
+      <div class="figure-source">Singapore HPB · South Korea NHIS · NYC MDRC · Bologna Municipality · Vienna Kultur-Token · EU ETS</div>
+    </div>
+    <div class="figure-body">
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Singapore National Steps Challenge participants</div>
+          <div class="bar-track"><div class="bar-fill green" style="--tw:68%"></div></div>
+          <div class="bar-val">696,907</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Singapore Healthy 365 app total users</div>
+          <div class="bar-track"><div class="bar-fill green" style="--tw:100%"></div></div>
+          <div class="bar-val">1M+</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">South Korea Health Practice app downloads</div>
+          <div class="bar-track"><div class="bar-fill amber" style="--tw:80%"></div></div>
+          <div class="bar-val">2M+</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">NYC Family Rewards: poverty reduction (30%→17%)</div>
+          <div class="bar-track"><div class="bar-fill navy" style="--tw:43%"></div></div>
+          <div class="bar-val">−13 pp</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">EU ETS auction revenue raised since 2013</div>
+          <div class="bar-track"><div class="bar-fill amber" style="--tw:90%"></div></div>
+          <div class="bar-val">€245B+</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">EU ETS covered-sector emission reduction since 2005</div>
+          <div class="bar-track"><div class="bar-fill green" style="--tw:100%"></div></div>
+          <div class="bar-val">−50%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Carbon credit market projected by 2035</div>
+          <div class="bar-track"><div class="bar-fill gold" style="--tw:85%"></div></div>
+          <div class="bar-val">$17–20T</div>
+        </div>
+      </div>
+      <div class="info-box green" style="margin-top:18px;"><strong>The carbon credit parallel:</strong> The EU's Emissions Trading System created an entirely new asset class from behavioral change — reducing emissions by 50% while generating €245 billion in value. Social Coin proposes the same mechanism for human contribution: create a market for prosocial behavior that government policy gives economic reality. The carbon credit market projected at $17–20 trillion by 2035 is proof that "intangible" behavioral value can become a major asset class when institutional backing is provided.</div>
+    </div>
+    <div class="figure-caption">Singapore's million-user health points system, NYC's conditional cash transfer program, and the EU's carbon credit market all demonstrate that government-backed behavior-incentive systems work at scale. Social Coin unifies the pattern.</div>
+  </div>
+
+  <!-- FIGURE 9: LOYALTY POINTS PROOF -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 9</div>
+        <div class="figure-title">The Loyalty Economy: Proof That Non-Cash Incentives Change Behavior at Scale</div>
+      </div>
+      <div class="figure-source">Bond Brand Loyalty · Aerospace Global News 2026 · DontPayFull Loyalty Statistics 2026</div>
+    </div>
+    <div class="figure-body">
+      <div class="stat-grid" style="margin-bottom:20px;">
+        <div class="stat-cell">
+          <span class="stat-num gold">$300B</span>
+          <div class="stat-label">Loyalty points issued globally per year</div>
+          <div class="stat-source">Bond Brand Loyalty</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num amber">17.4</span>
+          <div class="stat-label">Average loyalty programs per American consumer</div>
+          <div class="stat-source">DontPayFull 2026</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num green">66%</span>
+          <div class="stat-label">Consumers who say earning rewards changes their spending behavior</div>
+          <div class="stat-source">Bond Brand Loyalty</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num navy">$83.7B</span>
+          <div class="stat-label">Combined value: top 3 US airline loyalty programs (Delta, AA, United)</div>
+          <div class="stat-source">Aerospace Global News 2026</div>
+        </div>
+      </div>
+      <div class="info-box amber"><strong>The behavioral infrastructure already exists:</strong> During COVID, airlines used loyalty programs as financial collateral — United raised $6.8B, Delta borrowed $9B, American secured $10B against their programs. If airline miles can function as a $10 billion asset class, a government-backed contribution token with genuine utility has every structural advantage those programs lack. People will change behavior for points. The question is only what behavior we choose to reward.</div>
+    </div>
+    <div class="figure-caption">The $300 billion loyalty economy is the most powerful proof-of-concept for Social Coin. Hundreds of millions of people already modify behavior for non-cash tokens. Social Coin applies this proven mechanism to contributions that generate genuine social value.</div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- SECTION 5 -->
+  <div class="section-header">
+    <span class="section-num">05 —</span>
+    <h2>The Cautionary Tale: What Not to Build</h2>
+  </div>
+
+  <p>The most important design constraint for Social Coin is the line between a democratic contribution reward system and an authoritarian surveillance apparatus. China's Social Credit System provides the clearest marker of where that line is — and crossing it would be fatal not only for the system's legitimacy but for civil society itself.</p>
+
+  <!-- FIGURE 10: DEMOCRATIC vs AUTHORITARIAN -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 10</div>
+        <div class="figure-title">The Critical Distinction: Democratic Contribution vs. Authoritarian Control</div>
+      </div>
+      <div class="figure-source">China SCS analysis · Bologna Smart Citizen Wallet · Vienna Kultur-Token · SDT / Deci &amp; Ryan</div>
+    </div>
+    <div class="figure-body" style="padding:0;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule);">
+        <div style="background:#fdf0f0; padding:20px; border-top:4px solid var(--danger);">
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--danger); margin-bottom:10px;">What to AVOID — China SCS Model</div>
+          <ul style="list-style:none; font-size:13px; line-height:1.7; color:#333;">
+            <li>❌ Mandatory participation — no opt-out</li>
+            <li>❌ Punishments for non-participation (blacklists)</li>
+            <li>❌ 23M people banned from travel by 2019</li>
+            <li>❌ Journalists penalized for reporting</li>
+            <li>❌ Children denied university for parents' debts</li>
+            <li>❌ Cross-domain consequences restricting fundamental rights</li>
+            <li>❌ Opaque algorithmic criteria with no appeal</li>
+            <li>❌ Government surveillance of private behavior</li>
+          </ul>
+        </div>
+        <div style="background:#f0f7f3; padding:20px; border-top:4px solid var(--accent);">
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Social Coin — Democratic Design Principles</div>
+          <ul style="list-style:none; font-size:13px; line-height:1.7; color:#333;">
+            <li>✓ Fully voluntary — no penalty for non-participation</li>
+            <li>✓ Rewards only, never punishments</li>
+            <li>✓ Transparent, democratically-set contribution criteria</li>
+            <li>✓ Due process and appeals for every decision</li>
+            <li>✓ Zero-knowledge privacy — verify without surveilling</li>
+            <li>✓ Data minimization — only what's needed to verify contribution</li>
+            <li>✓ No cross-domain consequences (can't affect housing, credit, voting)</li>
+            <li>✓ Independent oversight body with public accountability</li>
+          </ul>
+        </div>
+      </div>
+      <div style="padding:20px 24px;">
+        <div class="info-box amber">SDT (Self-Determination Theory) predicts that controlling rewards undermine intrinsic motivation — but <em>informational</em> rewards that validate competence and autonomy enhance it. Social Coin must function as the latter: not "do this or lose points" but "you did this — it mattered — here's recognition." Bologna's Smart Citizen Wallet explicitly chose the "supermarket points" framing over any scoring mechanism precisely to avoid authoritarian associations.</div>
+      </div>
+    </div>
+    <div class="figure-caption">The behavioral science is unambiguous: systems that feel controlling destroy intrinsic motivation. Systems that feel recognizing amplify it. Social Coin must be experienced as a thank-you, not a grade.</div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- SECTION 6 -->
+  <div class="section-header">
+    <span class="section-num">06 —</span>
+    <h2>The Invisible Economy: What We're Already Leaving on the Table</h2>
+  </div>
+
+  <p>The strongest argument for Social Coin is not theoretical. It is empirical. Society already performs an enormous amount of valuable, prosocial work — and receives zero economic recognition for it. The following waffle chart makes this concrete.</p>
+
+  <!-- FIGURE 11: INVISIBLE ECONOMY WAFFLE -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 11</div>
+        <div class="figure-title">The Invisible Economy: $13.5T in Annual Value That Current Systems Ignore</div>
+      </div>
+      <div class="figure-source">ILO · Oxfam · AmeriCorps · BEA · NHS NASP · Lancet 2022</div>
+    </div>
+    <div class="figure-body">
+      <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Each square = ~$100 billion. 135 total squares shown.</p>
+      <div class="waffle-wrap" id="waffle-invisible"></div>
+      <div class="waffle-legend" style="margin-top:16px;">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Unpaid care work ($11T — ILO)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div> Global volunteering ($1.35T — ILO/UNV)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#4a9e6b"></div> Preventive health value ($0.5T — CDC est.)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--accent3)"></div> Community arts ($0.65T — BEA + informal)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--warm); border:1px solid #ccc"></div> Currently recognized by economy</div>
+      </div>
+    </div>
+    <div class="figure-caption">The invisible economy at ~$13.5 trillion is not marginal. It is approximately the size of China's entire GDP — generated annually, entirely outside the measured economy. Social Coin is a mechanism for ending this invisibility.</div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- SECTION 7 -->
+  <div class="section-header">
+    <span class="section-num">07 —</span>
+    <h2>How to Build It: The Implementation Roadmap</h2>
+  </div>
+
+  <p>The Social Coin is not a technology problem. The blockchain and verification primitives already exist — GoodDollar runs at 910,000 users, Sarafu has published peer-reviewed RCT evidence, zero-knowledge proofs are production-ready. The challenge is institutional: getting government backing, vendor networks, and democratic oversight structures in place before the AI displacement wave arrives.</p>
+
+  <!-- FIGURE 12: IMPLEMENTATION ROADMAP -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 12</div>
+        <div class="figure-title">Social Coin Implementation Roadmap: Three Phases</div>
+      </div>
+      <div class="figure-source">Based on: Singapore Steps Challenge · NYC Family Rewards · Curitiba · GoodDollar · EU ETS</div>
+    </div>
+    <div class="figure-body">
+      <div class="design-grid">
+        <div class="design-item" style="border-left:4px solid var(--accent2);">
+          <div class="design-num" style="color:var(--accent2);">P1</div>
+          <div>
+            <h4>Phase 1 — City Pilots (Years 1–2)</h4>
+            <p><strong>Model:</strong> 3–5 cities, 10,000–50,000 participants each. Focused on 3 contribution categories (health, caregiving, community service). Single-layer economic token only, accepted at city-operated venues (transit, parks, community centers). Government funds the entire program at ~$50/participant/month → $6–30M per city per year. Measure: activity levels, wellbeing, social cohesion, vendor satisfaction, fraud rates. <strong>Target cities:</strong> Those with existing app infrastructure (Singapore, Seoul, NYC, Denver, Austin).</p>
+          </div>
+        </div>
+        <div class="design-item" style="border-left:4px solid var(--accent);">
+          <div class="design-num" style="color:var(--accent);">P2</div>
+          <div>
+            <h4>Phase 2 — Vendor Network + Reputation Layer (Years 3–5)</h4>
+            <p><strong>Model:</strong> Introduce 15% tax credit for businesses accepting Social Coin (modeled on SNAP retailer program). Add non-transferable reputation layer using soulbound tokens. Expand contribution categories to arts, volunteering, environmental acts. Target 100,000+ participants per city, 200+ vendor participants. Introduce ZK-proof privacy architecture. Connect to healthcare data for preventive behavior verification. Begin federal enabling legislation. <strong>Financial model:</strong> Tax credit cost ~$0.15 per dollar of Social Coin spent → self-financing once social ROI on healthcare savings is measured.</p>
+          </div>
+        </div>
+        <div class="design-item" style="border-left:4px solid var(--accent3);">
+          <div class="design-num" style="color:var(--accent3);">P3</div>
+          <div>
+            <h4>Phase 3 — National Architecture + AI Integration (Years 5–10)</h4>
+            <p><strong>Model:</strong> Federal legislation creating Social Coin as a recognized complementary currency. AI-verified contribution (gym check-ins via wearables, care work via care recipient confirmation, arts via community platform). Integration with existing social safety net — Social Coin supplements rather than replaces. National oversight board with democratic accountability. Target 10–20% of population participating within 10 years. <strong>End state:</strong> The invisible $13.5T economy becomes partially visible, measurable, and rewarded — and the social contract for the AI era is written not around what you own but what you contribute.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="figure-caption">The path from concept to national system follows a well-documented precedent trajectory: Singapore's health points program took 10 years from pilot to 1M users. The EU ETS went from proposal to €245B asset class in 15 years. The timeline is achievable if political will precedes the displacement wave.</div>
+  </div>
+
+  <div class="pull-quote">
+    "The real question of the 21st century is not whether AI will replace human labor — it's whether we have the imagination to recognize that human contribution is larger than labor ever was."
+    <cite>— Saurav Das, 2026</cite>
+  </div>
+
+  <!-- FIGURE 13: SOCIAL COIN vs UBI COMPARISON -->
+  <div class="figure fade-in">
+    <div class="figure-header">
+      <div>
+        <div class="figure-label">Figure 13</div>
+        <div class="figure-title">Social Coin vs. Pure UBI: What Each Solves and Doesn't</div>
+      </div>
+      <div class="figure-source">Synthesis across all cited sources</div>
+    </div>
+    <div class="figure-body" style="padding:0; overflow-x:auto;">
+      <table class="prec-table">
+        <thead>
+          <tr>
+            <th>Challenge</th>
+            <th>Pure UBI</th>
+            <th>Social Coin (standalone)</th>
+            <th>UBI + Social Coin (combined)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Income floor</strong></td>
+            <td>✅ Directly addresses</td>
+            <td>⚠️ Partial — contribution-dependent</td>
+            <td>✅ Both layers reinforce</td>
+          </tr>
+          <tr>
+            <td><strong>Purpose &amp; meaning</strong></td>
+            <td>❌ Not addressed (fades yr 2–3)</td>
+            <td>✅ Core design goal</td>
+            <td>✅ UBI provides floor; Coin provides structure</td>
+          </tr>
+          <tr>
+            <td><strong>Social connection</strong></td>
+            <td>❌ Individual transfer only</td>
+            <td>✅ Community contribution creates bonds</td>
+            <td>✅ Strong</td>
+          </tr>
+          <tr>
+            <td><strong>Health behavior</strong></td>
+            <td>⚠️ Indirect (more cash → better food)</td>
+            <td>✅ Direct reward for gym, preventive care</td>
+            <td>✅ Strongest combination</td>
+          </tr>
+          <tr>
+            <td><strong>Fiscal cost</strong></td>
+            <td>❌ $2.8–8.5T/year depending on scale</td>
+            <td>✅ Partially self-financing via healthcare ROI</td>
+            <td>⚠️ Requires careful structuring</td>
+          </tr>
+          <tr>
+            <td><strong>Political feasibility</strong></td>
+            <td>❌ "Free money" is politically toxic</td>
+            <td>✅ "Reward for contribution" is broadly popular</td>
+            <td>✅ Coin makes UBI more politically viable</td>
+          </tr>
+          <tr>
+            <td><strong>Invisible economy recognition</strong></td>
+            <td>❌ Care work still unrecognized</td>
+            <td>✅ Core mechanism for recognition</td>
+            <td>✅ Transforms the invisible economy</td>
+          </tr>
+          <tr>
+            <td><strong>Dependency &amp; harmful consumption</strong></td>
+            <td>⚠️ Evidence mixed — not as bad as feared but present</td>
+            <td>✅ Contribution-linked spending steers toward positive goods</td>
+            <td>✅ Coin shapes behavior; UBI removes desperation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="figure-caption">The strongest case is not UBI vs. Social Coin. It's UBI + Social Coin: the unconditional floor prevents desperation and the contribution layer provides structure, purpose, and community. Neither alone is sufficient. Together they address both the income problem and the meaning problem.</div>
+  </div>
+
+  <div class="pull-quote" style="margin-bottom:48px;">
+    "What if we designed an economy not around what AI produces, but around what humans contribute — and made those contributions count?"
+    <cite>— The Social Coin premise</cite>
+  </div>
+
+</div><!-- /content-wrap -->
+
+<footer>
+  <strong>This is Part II in the Post-AI Economy series.</strong> Read <a href="/writings/writing__post-ai-economics.html" style="color:inherit; text-decoration:underline;">Part I: The Economics of a Post-AI World</a>.<br><br>
+  <strong>Research sources:</strong> ILO Care Work Report 2018 · Oxfam Time to Care 2020 · AmeriCorps Volunteering Report 2024 · BEA Arts &amp; Cultural Satellite Account 2025 · Lancet Global Health Physical Inactivity Cost 2022 · CDC Healthcare Cost of Inactivity · Bond Brand Loyalty 2025 · Anne Case &amp; Angus Deaton, Deaths of Despair (2020) · Marie Jahoda, Employment and Unemployment (1982) · PMC Meta-analysis on Latent Deprivation (2023) · OpenResearch UBI Trial (2024) · Finland Basic Income Experiment Final Report (2020) · Stockton SEED Program Report (2021) · GiveDirectly Kenya Study (2023) · Evans &amp; Popova, Cash Transfers &amp; Temptation Goods (SSRN) · Deci &amp; Ryan Self-Determination Theory · WIR Bank Switzerland (Wikipedia / Stodder 2009) · Seyfang &amp; Longhurst 3,418 Currency Systems Review · Grassroots Economics Sarafu RCT (Nature Scientific Data) · GoodDollar project data · Buterin, Weyl &amp; Ohlhaver, Decentralized Society (SSRN 2022) · Singapore HPB National Steps Challenge (PMC 2022) · NYC Family Rewards MDRC Evaluation · EU ETS European Commission 2025 · Bologna Smart Citizen Wallet · Precedence Research Carbon Credit Market 2025 · Aerospace Global News Loyalty Programs 2026 · China Social Credit System analysis<br><br>
+  <strong>Author:</strong> Saurav Das · 2026 &nbsp;·&nbsp; <a href="/" style="color:inherit;">sauravdas.me</a> · <a href="https://saurav-personal-site.vercel.app" style="color:inherit;">saurav-personal-site.vercel.app</a>
+</footer>
+
+<script>
+  // ── Animate bar charts on scroll ──
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.bar-fill').forEach(b => b.classList.add('animated'));
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.figure').forEach(f => barObs.observe(f));
+
+  // ── Build invisible economy waffle ──
+  const waffle = document.getElementById('waffle-invisible');
+  // 135 squares: care=110 ($11T), volunteer=13 ($1.35T), health=5 ($0.5T), arts=7 ($0.65T)
+  const wCells = [];
+  for (let i = 0; i < 110; i++) wCells.push('care');
+  for (let i = 0; i < 14; i++) wCells.push('volunteer');
+  for (let i = 0; i < 5; i++) wCells.push('health');
+  for (let i = 0; i < 6; i++) wCells.push('arts');
+  // Shuffle
+  for (let i = wCells.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [wCells[i], wCells[j]] = [wCells[j], wCells[i]];
+  }
+  wCells.forEach((type, i) => {
+    const d = document.createElement('div');
+    d.className = `waffle-cell ${type}`;
+    d.style.transitionDelay = `${i * 5}ms`;
+    waffle.appendChild(d);
+  });
+
+  const waffleObs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      document.querySelectorAll('.waffle-cell').forEach(c => c.style.opacity = '1');
+      waffleObs.disconnect();
+    }
+  }, { threshold: 0.1 });
+  waffleObs.observe(waffle);
+</script>
+</body>
+</html>
