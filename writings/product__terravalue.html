@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TerraValue — Saurav Das</title>
+<meta name="description" content="TerraValue: Building the measurement layer for $125 billion in invisible farm value. A natural capital valuation platform for agriculture." />
+<meta property="og:title" content="TerraValue — Building the measurement layer for $125 billion in invisible farm value" />
+<meta property="og:description" content="U.S. farmland generates $125B in ecosystem services annually. Less than 2% is monetized. TerraValue is building the infrastructure to measure and value the rest." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sauravdas.me/writings/product__terravalue.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@thedassaurav" />
+<meta name="twitter:title" content="TerraValue — Building the measurement layer for $125 billion in invisible farm value" />
+<meta name="twitter:description" content="U.S. farmland generates $125B in ecosystem services annually. Less than 2% is monetized. TerraValue is building the infrastructure to measure and value the rest." />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --warm: #e8dfc8;
+    --accent: #c0392b;
+    --accent2: #e67e22;
+    --accent3: #2c3e50;
+    --muted: #7a7060;
+    --rule: rgba(13,13,13,0.12);
+    --green: #27ae60;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    border-bottom: 3px solid var(--ink);
+    padding: 18px 0 14px;
+    text-align: center;
+    background: var(--paper);
+    position: relative;
+  }
+  .masthead::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--ink);
+    margin-top: 10px;
+  }
+  .pub-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .pub-name a { color: var(--muted); text-decoration: none; }
+  .pub-name a:hover { text-decoration: underline; }
+  .issue-line {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* HERO */
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 54px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    max-width: 780px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .deck {
+    font-size: 18px;
+    font-weight: 400;
+    color: #3a3a3a;
+    max-width: 660px;
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .byline {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* LAYOUT */
+  .content-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3.5vw, 30px);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--accent3);
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 30px 0;
+    margin: 40px 0;
+  }
+  .pull-quote cite {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 36px 0;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .stat-card {
+    padding: 24px;
+    border-bottom: 1px solid var(--rule);
+    background: white;
+  }
+  .stat-card:nth-child(odd) {
+    border-right: 1px solid var(--rule);
+  }
+  .stat-card:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .stat-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .stat-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  .stat-source {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 56px 0 24px;
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+    flex: 1;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 18px;
+    color: #1a1a1a;
+  }
+
+  strong { font-weight: 500; }
+
+  /* DIMENSION CARDS */
+  .dim-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin: 36px 0;
+  }
+  .dim-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--ink);
+    padding: 24px;
+  }
+  .dim-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .dim-card .dim-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .dim-card p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* PIPELINE */
+  .pipeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    margin: 36px 0;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .pipeline-stage {
+    padding: 28px 24px;
+    background: white;
+    border-right: 1px solid var(--rule);
+  }
+  .pipeline-stage:last-child { border-right: none; }
+  .pipeline-stage .stage-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .pipeline-stage h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .pipeline-stage ul {
+    list-style: none;
+    padding: 0;
+  }
+  .pipeline-stage li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 4px 0;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pipeline-stage li:last-child { border-bottom: none; }
+
+  /* VS GRID */
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 36px 0;
+  }
+  .vs-card {
+    border: 1px solid var(--rule);
+    padding: 24px;
+    background: white;
+  }
+  .vs-card h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .vs-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* STATUS TABLE */
+  .status-table {
+    margin: 36px 0;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .status-row {
+    display: flex;
+    border-bottom: 1px solid var(--rule);
+    background: white;
+  }
+  .status-row:last-child { border-bottom: none; }
+  .status-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    padding: 14px 20px;
+    min-width: 160px;
+    border-right: 1px solid var(--rule);
+    background: var(--paper);
+  }
+  .status-val {
+    font-size: 14px;
+    color: var(--ink);
+    padding: 14px 20px;
+    flex: 1;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 48px 0;
+    margin-top: 56px;
+    border-top: 3px solid var(--ink);
+  }
+  .cta-section h2 {
+    border-bottom: none;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+  .cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .cta-link {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1.5px solid var(--accent);
+    padding: 12px 32px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .cta-link:hover {
+    background: var(--accent);
+    color: white;
+  }
+  .cta-link.secondary {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+  .cta-link.secondary:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* FOOTER */
+  .article-footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 40px 60px;
+    border-top: 1px solid var(--rule);
+    margin-top: 48px;
+  }
+  .back-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .back-link:hover { color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .hero { padding: 40px 20px 30px; }
+    .content-wrap { padding: 0 20px; }
+    .stats-bar { grid-template-columns: 1fr; }
+    .stat-card:nth-child(odd) { border-right: none; }
+    .stat-card { border-bottom: 1px solid var(--rule); }
+    .stat-card:last-child { border-bottom: none; }
+    .dim-grid { grid-template-columns: 1fr; }
+    .pipeline { grid-template-columns: 1fr; }
+    .pipeline-stage { border-right: none; border-bottom: 1px solid var(--rule); }
+    .pipeline-stage:last-child { border-bottom: none; }
+    .vs-grid { grid-template-columns: 1fr; }
+    .status-row { flex-direction: column; }
+    .status-key { border-right: none; border-bottom: 1px solid var(--rule); min-width: auto; }
+    .article-footer { padding: 24px 20px 48px; }
+    h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="pub-name"><a href="/">Saurav Das</a></div>
+  <div class="issue-line">Platform &middot; Natural Capital Valuation &middot; Pre-launch</div>
+</div>
+
+<div class="hero">
+  <div class="kicker">Platform &middot; Natural Capital Valuation &middot; Pre-launch</div>
+  <h1>TerraValue: <em>Building the measurement layer for $125 billion in invisible farm value</em></h1>
+  <p class="deck">U.S. farmland generates an estimated $125 billion in ecosystem services annually &mdash; clean water filtration, carbon sequestration, biodiversity support, yield resilience. Less than 2% of that value is currently captured by any market. The infrastructure to measure, verify, and monetize the other 98% does not yet exist. TerraValue is building it.</p>
+  <p class="byline">Saurav Das, PhD &middot; Founder &middot; Independent Researcher in Agricultural Systems &amp; AI</p>
+</div>
+
+<div class="content-wrap">
+
+  <div class="pull-quote">
+    "FAO estimated at least $10 trillion a year in hidden agrifood costs. The valuation layer to address this does not exist yet. That is what we are building."
+    <cite>TerraValue founding thesis</cite>
+  </div>
+
+  <!-- SECTION 1: THE MARKET -->
+  <div class="section-header">
+    <span class="section-num">SECTION I</span>
+    <h2>The market forming around this problem</h2>
+  </div>
+
+  <p>Several independent market forces are converging simultaneously: carbon credit markets maturing toward verified soil-based protocols, water quality trading programs expanding under USDA and EPA pressure, biodiversity net gain frameworks emerging from COP commitments, and regenerative agriculture financing growing at double-digit annual rates. Each market needs the same thing &mdash; a credible, standardized way to measure what farms actually produce beyond commodity yield. That measurement infrastructure is the missing layer.</p>
+
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-num">$9.7B</div>
+      <div class="stat-title">Agriculture carbon credit market, 2026</div>
+      <p class="stat-desc">Growing at 28.5% CAGR to $26.35B by 2030 &mdash; yet soil carbon credits remain under-verified and under-traded.</p>
+      <div class="stat-source">Source: The Business Research Company, 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">$20.7B</div>
+      <div class="stat-title">Regenerative agriculture market by 2031</div>
+      <p class="stat-desc">14.5% CAGR driven by corporate net-zero pledges and climate-smart policy. Measurement credibility is the primary adoption bottleneck.</p>
+      <div class="stat-source">Source: Mordor Intelligence, 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">$23B</div>
+      <div class="stat-title">Water trading market projected by 2033</div>
+      <p class="stat-desc">Agriculture controls 70% of global freshwater use but is only beginning to participate in water quality and quantity credit markets.</p>
+      <div class="stat-source">Source: Zion Market Research, 2024</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">&lt;2%</div>
+      <div class="stat-title">Of farm ecosystem value currently monetized</div>
+      <p class="stat-desc">US farmland generates $125B+ in annual ecosystem services. The gap between what farms produce and what markets pay for represents the platform's core opportunity.</p>
+      <div class="stat-source">Source: USDA OEM</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: WHY SIX DIMENSIONS -->
+  <div class="section-header">
+    <span class="section-num">SECTION II</span>
+    <h2>Why six dimensions &mdash; not one</h2>
+  </div>
+
+  <p>Most ag-climate platforms solve for one credit type. They measure soil carbon in isolation, generate a single certificate, and leave water filtration value, biodiversity outcomes, and yield resilience entirely off the balance sheet. This is not a minor omission &mdash; it means the farmer sees a fraction of the value their management practices actually create, and the market cannot price what it cannot see.</p>
+
+  <p>TerraValue's architecture integrates six measurement modules, each grounded in published scientific frameworks and designed to produce dollar-denominated outputs that farmers, investors, and conservation finance partners can act on directly.</p>
+
+  <div class="dim-grid">
+    <div class="dim-card">
+      <h3>Soil carbon</h3>
+      <div class="dim-value">0.5&ndash;1.5t CO&#8322;/ha/yr</div>
+      <p>RothC-inspired decomposition dynamics, IPCC Tier 2 stock change factors. Outputs sequestration rate and carbon credit value (USD/ha/yr).</p>
+    </div>
+    <div class="dim-card">
+      <h3>Water quality</h3>
+      <div class="dim-value">$30&ndash;95/acre/yr</div>
+      <p>Nitrate reduction, phosphorus runoff control, watershed-level filtration value. Cover crops reduce nitrate loading 25&ndash;50%. Sources: USDA ERS, EPA.</p>
+    </div>
+    <div class="dim-card">
+      <h3>Water quantity</h3>
+      <div class="dim-value">+20,000 gal/acre</div>
+      <p>Irrigation efficiency, groundwater recharge, aquifer sustainability tracking. Per 1% OM increase. Addresses a $23B market by 2033.</p>
+    </div>
+    <div class="dim-card">
+      <h3>Biodiversity</h3>
+      <div class="dim-value">$100+/acre/yr</div>
+      <p>Pollinator support, habitat quality, pest control value. Biodiverse farms host 3&ndash;5&times; more species than conventional systems. Sources: IPBES, TEEB.</p>
+    </div>
+    <div class="dim-card">
+      <h3>Yield resilience</h3>
+      <div class="dim-value">+15&ndash;25% drought yield</div>
+      <p>Crop stability under weather stress, soil health buffering, long-term productivity trends. Regenerative systems show 20&ndash;40% less yield variance.</p>
+    </div>
+    <div class="dim-card">
+      <h3>ROI &amp; economics</h3>
+      <div class="dim-value">$150&ndash;500/acre/yr</div>
+      <p>Stacked revenue potential across all ecosystem service streams. Input cost reduction of 15&ndash;30% modeled across regenerative practice scenarios.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: PIPELINE -->
+  <div class="section-header">
+    <span class="section-num">SECTION III</span>
+    <h2>From field data to financial signal: the three-stage pipeline</h2>
+  </div>
+
+  <p>TerraValue is not a reporting tool &mdash; it is a decision tool. The architecture produces outputs in the currency that financial and policy decisions are made in: dollars per acre, per year, with scenario comparison built in from the start.</p>
+
+  <div class="pipeline">
+    <div class="pipeline-stage">
+      <div class="stage-num">Stage 01</div>
+      <h3>Farm data inputs</h3>
+      <ul>
+        <li>Soil samples &amp; organic matter</li>
+        <li>Weather &amp; climate data</li>
+        <li>Management practices &amp; history</li>
+        <li>Crop system &amp; rotation</li>
+        <li>Landscape &amp; hydrologic context</li>
+      </ul>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-num">Stage 02</div>
+      <h3>Six model layers</h3>
+      <ul>
+        <li>Carbon</li>
+        <li>Water quality</li>
+        <li>Water quantity</li>
+        <li>Biodiversity</li>
+        <li>Yield resilience</li>
+        <li>Economic &amp; ROI</li>
+      </ul>
+    </div>
+    <div class="pipeline-stage">
+      <div class="stage-num">Stage 03</div>
+      <h3>Decision-ready outputs</h3>
+      <ul>
+        <li>Ecosystem performance scores</li>
+        <li>Estimated value ($/acre)</li>
+        <li>Scenario comparison</li>
+        <li>ROI insights &amp; payback timeline</li>
+        <li>Credit &amp; payment pathways</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 4: FOUNDER -->
+  <div class="section-header">
+    <span class="section-num">SECTION IV</span>
+    <h2>The founder's research advantage</h2>
+  </div>
+
+  <p>TerraValue is founded by an independent researcher with a PhD in Microbiology and over a decade of applied work in agricultural systems science &mdash; including long-term field experimentation, peer-reviewed publication in soil health and farming systems, and direct engagement with agricultural policy at congressional and FAO levels.</p>
+
+  <p>The platform's quantitative benchmarks &mdash; yield resilience curves, soil carbon sequestration ranges, input cost trajectories in regenerative systems &mdash; are not assembled from secondary literature alone. They reflect calibration against primary long-term field data and peer-reviewed findings accumulated over years of hands-on systems research. That grounding is a material difference from platforms built by engineering teams without agronomic research depth.</p>
+
+  <!-- SECTION 5: COMPARISON -->
+  <div class="section-header">
+    <span class="section-num">SECTION V</span>
+    <h2>How it differs from existing platforms</h2>
+  </div>
+
+  <div class="vs-grid">
+    <div class="vs-card">
+      <h3>vs. carbon-only MRV tools</h3>
+      <p>Single-dimension platforms capture one credit type and leave the remaining five ecosystem service streams unvalued. A farmer using only a carbon MRV tool may be seeing less than 20% of the value their practices actually create.</p>
+    </div>
+    <div class="vs-card">
+      <h3>vs. precision ag platforms</h3>
+      <p>Precision ag optimizes inputs and yield but treats water filtration, biodiversity, and carbon sequestration as externalities. TerraValue makes those externalities legible and dollar-denominated for the first time.</p>
+    </div>
+    <div class="vs-card">
+      <h3>vs. sustainability reporting tools</h3>
+      <p>Sustainability reports are backward-looking and compliance-driven. TerraValue is decision-forward: scenario comparison, ROI modeling, and revenue pathway identification for management choices not yet made.</p>
+    </div>
+    <div class="vs-card">
+      <h3>vs. ESG data providers</h3>
+      <p>ESG platforms aggregate disclosed corporate data. TerraValue generates primary measurement from working farms &mdash; the upstream source that downstream ESG reporting ultimately depends on.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6: STATUS -->
+  <div class="section-header">
+    <span class="section-num">SECTION VI</span>
+    <h2>Current platform status</h2>
+  </div>
+
+  <div class="status-table">
+    <div class="status-row">
+      <div class="status-key">Stage</div>
+      <div class="status-val">Pre-launch &middot; Waitlist open</div>
+    </div>
+    <div class="status-row">
+      <div class="status-key">Prototype</div>
+      <div class="status-val">Interactive dashboard live</div>
+    </div>
+    <div class="status-row">
+      <div class="status-key">Architecture</div>
+      <div class="status-val">Modular &mdash; each layer upgradeable to validated scientific models</div>
+    </div>
+    <div class="status-row">
+      <div class="status-key">Data sources</div>
+      <div class="status-val">World Bank, FAO, UNEP, USGS, IPCC, IPBES, EPA, USDA</div>
+    </div>
+  </div>
+
+  <p>TerraValue is pre-revenue and pre-launch. The interactive prototype demonstrates the full valuation workflow. Early access is open for farms, research institutions, and conservation finance partners interested in shaping the measurement standard before public launch.</p>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>TerraValue</h2>
+    <div class="cta-links">
+      <a class="cta-link" href="https://terravalue.tech/" target="_blank" rel="noopener noreferrer">Visit TerraValue &nearr;</a>
+      <a class="cta-link secondary" href="https://terravalue.tech/" target="_blank" rel="noopener noreferrer">Try the dashboard &nearr;</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="article-footer">
+  <a class="back-link" href="/">&larr; Back to sauravdas.me</a>
+</div>
+
+</body>
+</html>
