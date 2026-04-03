@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FarmDeck — Saurav Das</title>
+<meta name="description" content="FarmDeck: Everything a farm needs to run — in one place. A farm operating marketplace with comparison infrastructure, competitive bidding, and rental aggregation." />
+<meta property="og:title" content="FarmDeck — Everything a farm needs to run, in one place" />
+<meta property="og:description" content="A farm operating marketplace with comparison infrastructure, competitive bidding, and rental aggregation across every input category." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sauravdas.me/writings/product__farmdeck.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@thedassaurav" />
+<meta name="twitter:title" content="FarmDeck — Everything a farm needs to run, in one place" />
+<meta name="twitter:description" content="A farm operating marketplace with comparison infrastructure, competitive bidding, and rental aggregation across every input category." />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --warm: #e8dfc8;
+    --accent: #c0392b;
+    --accent2: #e67e22;
+    --accent3: #2c3e50;
+    --muted: #7a7060;
+    --rule: rgba(13,13,13,0.12);
+    --green: #27ae60;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    border-bottom: 3px solid var(--ink);
+    padding: 18px 0 14px;
+    text-align: center;
+    background: var(--paper);
+    position: relative;
+  }
+  .masthead::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--ink);
+    margin-top: 10px;
+  }
+  .pub-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .pub-name a { color: var(--muted); text-decoration: none; }
+  .pub-name a:hover { text-decoration: underline; }
+  .issue-line {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* HERO */
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 54px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    max-width: 780px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .deck {
+    font-size: 18px;
+    font-weight: 400;
+    color: #3a3a3a;
+    max-width: 660px;
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .byline {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* LAYOUT */
+  .content-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.3;
+    color: var(--accent3);
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 30px 0;
+    margin: 40px 0;
+  }
+  .pull-quote cite {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 56px 0 24px;
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+    flex: 1;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 18px;
+    color: #1a1a1a;
+  }
+
+  strong { font-weight: 500; }
+
+  /* NUMBERED PROBLEMS */
+  .problem-list {
+    margin: 36px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .problem-item {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .problem-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--accent);
+    min-width: 40px;
+    line-height: 1;
+    padding-top: 4px;
+  }
+  .problem-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .problem-item p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* CATEGORY CARDS */
+  .category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 36px 0;
+  }
+  .category-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--ink);
+    padding: 24px;
+  }
+  .category-card .cat-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .category-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .category-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* MARKET STATS */
+  .market-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    margin: 36px 0;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .market-stat {
+    padding: 24px;
+    background: white;
+    border-right: 1px solid var(--rule);
+  }
+  .market-stat:last-child { border-right: none; }
+  .market-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .market-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .market-stat p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+  .market-source {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* MECHANIC CARDS */
+  .mechanic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin: 36px 0;
+  }
+  .mechanic-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--ink);
+    padding: 24px;
+  }
+  .mechanic-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .mechanic-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* STACK FLOW */
+  .stack-flow {
+    margin: 36px 0;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .stack-item {
+    display: flex;
+    border-bottom: 1px solid var(--rule);
+    background: white;
+  }
+  .stack-item:last-child { border-bottom: none; }
+  .stack-item.active {
+    background: var(--paper);
+    border-left: 4px solid var(--accent);
+  }
+  .stack-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    color: var(--ink);
+    padding: 20px;
+    min-width: 180px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+  }
+  .stack-item.active .stack-name {
+    color: var(--accent);
+  }
+  .stack-desc {
+    font-size: 14px;
+    color: var(--muted);
+    padding: 20px;
+    flex: 1;
+    line-height: 1.6;
+  }
+
+  /* DEFENSIBILITY */
+  .defense-list {
+    margin: 36px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .defense-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .defense-item p {
+    font-size: 15px;
+    color: #1a1a1a;
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+  .defense-item p strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* STATUS TABLE */
+  .status-table {
+    margin: 36px 0;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .status-row {
+    display: flex;
+    border-bottom: 1px solid var(--rule);
+    background: white;
+  }
+  .status-row:last-child { border-bottom: none; }
+  .status-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    padding: 14px 20px;
+    min-width: 160px;
+    border-right: 1px solid var(--rule);
+    background: var(--paper);
+  }
+  .status-val {
+    font-size: 14px;
+    color: var(--ink);
+    padding: 14px 20px;
+    flex: 1;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 48px 0;
+    margin-top: 56px;
+    border-top: 3px solid var(--ink);
+  }
+  .cta-section h2 {
+    border-bottom: none;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  .cta-section p {
+    max-width: 600px;
+    margin: 0 auto 24px;
+    color: var(--muted);
+  }
+  .cta-link {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1.5px solid var(--accent);
+    padding: 12px 32px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .cta-link:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  /* FOOTER */
+  .article-footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 40px 60px;
+    border-top: 1px solid var(--rule);
+    margin-top: 48px;
+  }
+  .back-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .back-link:hover { color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .hero { padding: 40px 20px 30px; }
+    .content-wrap { padding: 0 20px; }
+    .problem-item { flex-direction: column; gap: 8px; }
+    .category-grid { grid-template-columns: 1fr; }
+    .market-bar { grid-template-columns: 1fr; }
+    .market-stat { border-right: none; border-bottom: 1px solid var(--rule); }
+    .market-stat:last-child { border-bottom: none; }
+    .mechanic-grid { grid-template-columns: 1fr; }
+    .stack-item { flex-direction: column; }
+    .stack-name { border-right: none; border-bottom: 1px solid var(--rule); min-width: auto; }
+    .status-row { flex-direction: column; }
+    .status-key { border-right: none; border-bottom: 1px solid var(--rule); min-width: auto; }
+    .article-footer { padding: 24px 20px 48px; }
+    h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="pub-name"><a href="/">Saurav Das</a></div>
+  <div class="issue-line">Platform &middot; Farm Operating Marketplace &middot; Concept Stage</div>
+</div>
+
+<div class="hero">
+  <div class="kicker">Platform &middot; Farm Operating Marketplace &middot; Concept Stage</div>
+  <h1>FarmDeck: <em>Everything a farm needs to run &mdash; in one place</em></h1>
+  <p class="deck">Running a farm means sourcing seed, securing equipment, renting machinery for a three-week harvest window, comparing technology tools, and negotiating with a dozen vendors &mdash; none of whom are in the same place, none of whose pricing is transparent, and none of whose products are easy to compare against alternatives. FarmDeck is the platform that puts every input, tool, and piece of equipment a farm needs onto a single deck &mdash; with comparison infrastructure, a bidding marketplace, and rental and leasing built in from the start.</p>
+  <p class="byline">Saurav Das, PhD &middot; Founder &middot; Independent Researcher in Agricultural Systems &amp; AI</p>
+</div>
+
+<div class="content-wrap">
+
+  <!-- FOUNDING MOMENT -->
+  <div class="pull-quote">
+    "I spent an entire day calling distributors one by one, asking their agents what organic seed varieties would work in my specific agroecology. No comparison tool. No aggregated trial data. No price transparency. Just phone calls, PDFs, and guesswork &mdash; for a decision that should take ten minutes."
+    <cite>The founding moment</cite>
+  </div>
+
+  <p>That experience is not exceptional. It is the standard procurement workflow for farmers across every input category &mdash; seed, equipment, technology, services. The infrastructure to do it better does not exist yet. FarmDeck is being built to change that across the full spectrum of farm inputs, not just seed.</p>
+
+  <!-- SECTION 1: THE PROBLEM -->
+  <div class="section-header">
+    <span class="section-num">SECTION I</span>
+    <h2>The problem runs deeper than seed discovery</h2>
+  </div>
+
+  <p>The friction that triggered this platform exists at every stage of farm input procurement &mdash; and compounds as operations scale. Each failure point is discrete, but all three have to be solved together for the workflow to actually improve.</p>
+
+  <div class="problem-list">
+    <div class="problem-item">
+      <div class="problem-num">01</div>
+      <div>
+        <h3>Discovery &mdash; no single directory across input categories</h3>
+        <p>Seed suppliers, equipment dealers, rental operations, precision ag technology vendors, and service providers are scattered across regional catalogs, trade directories, and word-of-mouth networks. No platform aggregates them in one searchable, filterable directory &mdash; organized by what a farm actually needs, where it operates, and what certification or regulatory requirements apply.</p>
+      </div>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">02</div>
+      <div>
+        <h3>Comparison &mdash; performance data fragmented or nonexistent</h3>
+        <p>University variety trial data is buried in PDFs. Equipment specifications are inconsistently formatted across manufacturers. Rental terms vary wildly and are rarely disclosed upfront. Technology tool performance benchmarks are almost entirely absent from any neutral platform. A farmer trying to make a data-driven input decision across any category faces the same core problem: the information exists, but is not aggregated into any usable comparison interface.</p>
+      </div>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">03</div>
+      <div>
+        <h3>Transaction &mdash; no price transparency, no competitive bidding, no rental infrastructure</h3>
+        <p>Input prices across categories are opaque, posted prices are rarely negotiated, and the rental and leasing market for farm equipment is almost entirely un-digitized. A farmer needing a combine for three weeks has no platform to compare rental availability across vendors, no way to submit a rental request that multiple operators bid on, and no transparent pricing infrastructure to evaluate whether what they're being charged is fair.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CATEGORIES -->
+  <div class="section-header">
+    <span class="section-num">SECTION II</span>
+    <h2>What FarmDeck covers &mdash; the full input deck</h2>
+  </div>
+
+  <p>FarmDeck is scoped to everything a farm needs to operate &mdash; organized into five categories, each with its own comparison logic, transaction mechanic, and data infrastructure requirements.</p>
+
+  <div class="category-grid">
+    <div class="category-card">
+      <div class="cat-type">Buy &middot; Recurring</div>
+      <h3>Seed &amp; consumables</h3>
+      <p>Seed varieties, fertilizers, biologicals, crop protection, soil amendments. High-frequency purchases where variety comparison, certification status, regional performance data, and price transparency matter most. The founding use case &mdash; and the category with the deepest data gap.</p>
+    </div>
+    <div class="category-card">
+      <div class="cat-type">Buy &middot; Rent &middot; Lease</div>
+      <h3>Capital equipment</h3>
+      <p>Tractors, planters, harvesters, irrigation systems, grain handling. High-ticket, infrequent purchases or long-term leases where specification comparison, dealer proximity, financing terms, and resale value all factor into the decision. Rental aggregation for seasonal equipment is the most underbuilt piece of this category.</p>
+    </div>
+    <div class="category-card">
+      <div class="cat-type">Buy &middot; Subscribe</div>
+      <h3>Precision ag &amp; technology</h3>
+      <p>Sensors, drones, soil monitoring equipment, farm management software, satellite imagery subscriptions. A fast-growing category with almost no neutral comparison infrastructure &mdash; vendors self-report performance claims with no standardized benchmarking framework.</p>
+    </div>
+    <div class="category-card">
+      <div class="cat-type">Hire &middot; Contract</div>
+      <h3>Services</h3>
+      <p>Custom application, crop scouting, aerial spraying, soil testing, agronomic consulting, harvest contracting. Often bundled with equipment but valuable as a standalone procurement category &mdash; particularly for beginning farmers and smaller operations that contract rather than own.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: MARKET -->
+  <div class="section-header">
+    <span class="section-num">SECTION III</span>
+    <h2>The market FarmDeck serves</h2>
+  </div>
+
+  <div class="market-bar">
+    <div class="market-stat">
+      <div class="market-num">$129B</div>
+      <div class="market-title">U.S. farm input market annually</div>
+      <p>Seed alone represents $25B+.</p>
+      <div class="market-source">Source: USDA ERS</div>
+    </div>
+    <div class="market-stat">
+      <div class="market-num">$38B</div>
+      <div class="market-title">U.S. farm equipment market</div>
+      <p>Rental &amp; leasing represents a fast-growing but un-digitized segment.</p>
+      <div class="market-source">Source: IBISWorld</div>
+    </div>
+    <div class="market-stat">
+      <div class="market-num">$67B</div>
+      <div class="market-title">U.S. organic food &amp; beverage market</div>
+      <p>The buyer base most underserved by existing input procurement platforms.</p>
+      <div class="market-source">Source: OTA</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: MECHANICS -->
+  <div class="section-header">
+    <span class="section-num">SECTION IV</span>
+    <h2>How FarmDeck works &mdash; three core mechanics</h2>
+  </div>
+
+  <div class="mechanic-grid">
+    <div class="mechanic-card">
+      <h3>Unified vendor directory</h3>
+      <p>Every vendor across all five input categories searchable in one place &mdash; filterable by category, geography, certification status, service area, and product type. The directory a farmer would build after years of calls, built once and maintained collectively.</p>
+    </div>
+    <div class="mechanic-card">
+      <h3>Evidence-connected comparison</h3>
+      <p>University seed trial data, equipment specification sheets, technology performance benchmarks, and user-reported field results aggregated into category-specific head-to-head comparison interfaces. Not just listing specs side by side &mdash; contextualizing performance by region, crop system, and operating conditions.</p>
+    </div>
+    <div class="mechanic-card">
+      <h3>Bid &amp; purchase order engine</h3>
+      <p>Buyers submit a structured purchase intent or rental request &mdash; category, specifications, quantity, timeline, certification requirements &mdash; and receive competitive bids from qualified vendors. Price transparency replaces opaque catalog pricing. Competitive bidding replaces take-it-or-leave-it terms. Rental availability is surfaced across operators in real time.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5: STACK -->
+  <div class="section-header">
+    <span class="section-num">SECTION V</span>
+    <h2>How FarmDeck completes the stack</h2>
+  </div>
+
+  <p>FarmDeck is the transaction layer of a four-platform agricultural intelligence infrastructure &mdash; the point where research, guidance, and valuation all converge into an actual purchase decision.</p>
+
+  <div class="stack-flow">
+    <div class="stack-item">
+      <div class="stack-name">OpenAgData</div>
+      <div class="stack-desc">Indexes 768 peer-reviewed studies geographically. Seed trial data, equipment performance research, technology assessments &mdash; all searchable by location. FarmDeck draws on this evidence layer to power its comparison infrastructure.</div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-name">Soil Health Exchange</div>
+      <div class="stack-desc">Expert agronomists respond to specific farm questions with evidence-based recommendations &mdash; including variety, equipment, and input suggestions. FarmDeck is one click from any expert recommendation to a vendor comparison and bid request for exactly that product.</div>
+    </div>
+    <div class="stack-item active">
+      <div class="stack-name">FarmDeck</div>
+      <div class="stack-desc">The purchasing layer. Every input a farm needs &mdash; discovered, compared, and procured through a single platform with competitive bidding and rental infrastructure built in. The transaction the rest of the stack was always building toward.</div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-name">TerraValue</div>
+      <div class="stack-desc">Measures and monetizes the ecosystem outcomes of what was purchased and planted. What a farmer buys on FarmDeck becomes the input data TerraValue converts into carbon, water, biodiversity, and yield resilience value &mdash; closing the loop from purchase to outcome.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: DEFENSIBILITY -->
+  <div class="section-header">
+    <span class="section-num">SECTION VI</span>
+    <h2>Why FarmDeck is defensible</h2>
+  </div>
+
+  <div class="defense-list">
+    <div class="defense-item">
+      <p><strong>Evidence-connected comparison is the moat.</strong> Aggregating university trial data and benchmarking technology performance requires agronomic research literacy that software-first marketplace companies do not have. Domain expertise is the barrier, not capital.</p>
+    </div>
+    <div class="defense-item">
+      <p><strong>Rental aggregation is the most underbuilt gap.</strong> Farm equipment rental is a large, recurring, seasonal market that is almost entirely un-digitized. No major platform has solved it. FarmDeck enters this category before incumbents notice it.</p>
+    </div>
+    <div class="defense-item">
+      <p><strong>Recommendation-to-purchase integration is unique.</strong> SoilHealthExchange users arrive already knowing what they need. That advisory-to-transaction flow is a conversion advantage no standalone marketplace can replicate without owning the advisory layer.</p>
+    </div>
+    <div class="defense-item">
+      <p><strong>Organic and specialty is structurally underserved.</strong> Major input procurement platforms were built for conventional commodity agriculture. Certification complexity, regional specificity, and the depth of the organic input landscape remain friction points incumbents have not solved.</p>
+    </div>
+    <div class="defense-item">
+      <p><strong>The founder has lived every layer of this problem.</strong> FarmDeck is not a market research insight &mdash; it is a direct response to a documented, specific, recurring experience of broken procurement workflows across input categories. That origin is the clearest possible signal that the problem is real and the solution is correctly scoped.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 7: STATUS -->
+  <div class="section-header">
+    <span class="section-num">SECTION VII</span>
+    <h2>Current status</h2>
+  </div>
+
+  <div class="status-table">
+    <div class="status-row">
+      <div class="status-key">Stage</div>
+      <div class="status-val">Concept &mdash; architecture in development</div>
+    </div>
+    <div class="status-row">
+      <div class="status-key">Initial wedge</div>
+      <div class="status-val">Organic &amp; specialty seed, U.S. market</div>
+    </div>
+    <div class="status-row">
+      <div class="status-key">Full scope</div>
+      <div class="status-val">Seed &middot; Equipment &middot; Rentals &middot; Technology &middot; Services</div>
+    </div>
+    <div class="status-row">
+      <div class="status-key">Stack position</div>
+      <div class="status-val">Transaction layer &mdash; completes the evidence-to-outcome loop</div>
+    </div>
+  </div>
+
+  <p>FarmDeck is pre-build. The architecture is being defined and the problem is validated by direct experience. If you are a potential co-founder, vendor partner, equipment dealer, or early collaborator interested in shaping what this becomes &mdash; the conversation starts here.</p>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Interested in FarmDeck?</h2>
+    <p>If you are a potential co-founder, vendor partner, equipment dealer, or early collaborator &mdash; let's talk.</p>
+    <a class="cta-link" href="mailto:saurav12das@gmail.com">saurav12das@gmail.com &nearr;</a>
+  </div>
+
+</div>
+
+<div class="article-footer">
+  <a class="back-link" href="/">&larr; Back to sauravdas.me</a>
+</div>
+
+</body>
+</html>
