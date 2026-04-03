@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OpenAgData — Saurav Das</title>
-<meta name="description" content="OpenAgData: agricultural research, searchable by where it happened. A map-first platform indexing studies to their geographic origin." />
-<meta property="og:title" content="OpenAgData — Agricultural research, searchable by where it happened" />
-<meta property="og:description" content="A map-first platform indexing agricultural research studies to the actual location where the work was conducted." />
+<meta name="description" content="OpenAgData: 768 agricultural studies, searchable by where they happened. A geographic research intelligence platform for farmers, researchers, advisors, and policy analysts." />
+<meta property="og:title" content="OpenAgData — 768 agricultural studies, searchable by where they happened" />
+<meta property="og:description" content="A geographic research intelligence platform indexing peer-reviewed agricultural studies by their physical location." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sauravdas.me/writings/product__open-ag-data.html" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@thedassaurav" />
-<meta name="twitter:title" content="OpenAgData — Agricultural research, searchable by where it happened" />
-<meta name="twitter:description" content="A map-first platform indexing agricultural research studies to the actual location where the work was conducted." />
+<meta name="twitter:title" content="OpenAgData — 768 agricultural studies, searchable by where they happened" />
+<meta name="twitter:description" content="A geographic research intelligence platform indexing peer-reviewed agricultural studies by their physical location." />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -88,7 +88,7 @@
   }
   h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 6vw, 64px);
+    font-size: clamp(32px, 5.5vw, 58px);
     font-weight: 900;
     line-height: 1.05;
     letter-spacing: -0.02em;
@@ -103,7 +103,7 @@
     font-size: 18px;
     font-weight: 400;
     color: #3a3a3a;
-    max-width: 620px;
+    max-width: 660px;
     border-left: 3px solid var(--accent);
     padding-left: 16px;
     margin-bottom: 24px;
@@ -124,38 +124,33 @@
     padding: 0 40px;
   }
 
-  /* CORE MECHANISM */
-  .mechanism-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
-    margin: 36px 0;
-    padding: 32px 0;
-    border-top: 1px solid var(--rule);
+  /* STATS BAR */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 40px;
+    max-width: 900px;
+    margin: 0 auto;
     border-bottom: 1px solid var(--rule);
   }
-  .mechanism-item {
+  .stat {
     text-align: center;
   }
-  .mechanism-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-  .mechanism-item h3 {
+  .stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.1;
   }
-  .mechanism-item p {
-    font-size: 14px;
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 0;
-    line-height: 1.5;
+    margin-top: 4px;
   }
 
   /* SECTION HEADERS */
@@ -215,67 +210,80 @@
     line-height: 1.6;
   }
 
-  /* BEFORE/AFTER COMPARISON */
-  .comparison {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    margin: 36px 0;
-    border: 1px solid var(--rule);
-    overflow: hidden;
-  }
-  .comparison-col {
-    padding: 28px;
-  }
-  .comparison-col.before {
-    background: #f0ebe0;
-    border-right: 1px solid var(--rule);
-  }
-  .comparison-col.after {
-    background: white;
-  }
-  .comparison-col h3 {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .comparison-col.before h3 { color: var(--muted); }
-  .comparison-col.after h3 { color: var(--green); }
-  .comparison-col ul {
-    list-style: none;
-    padding: 0;
-  }
-  .comparison-col li {
-    font-size: 14px;
-    color: #1a1a1a;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--rule);
-    line-height: 1.5;
-  }
-  .comparison-col li:last-child { border-bottom: none; }
-
-  /* AUDIENCE GRID */
-  .audience-grid {
+  /* TOOL CARDS */
+  .tool-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     margin: 36px 0;
   }
-  .audience-card {
+  .tool-card {
     background: white;
     border: 1px solid var(--rule);
     border-top: 3px solid var(--ink);
     padding: 24px;
   }
-  .audience-card h3 {
+  .tool-card .tool-route {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .tool-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 8px;
   }
-  .audience-card p {
+  .tool-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* TOPIC ELEMENTS */
+  .topic-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0 36px;
+  }
+  .topic-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    padding: 8px 16px;
+    border: 1px solid var(--rule);
+    background: white;
+    color: var(--ink);
+  }
+
+  /* HUB CARDS */
+  .hub-list {
+    margin: 36px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .hub-card {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hub-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .hub-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .hub-card p {
     font-size: 14px;
     color: var(--muted);
     margin-bottom: 0;
@@ -362,14 +370,12 @@
   @media (max-width: 640px) {
     .hero { padding: 40px 20px 30px; }
     .content-wrap { padding: 0 20px; }
-    .mechanism-grid { grid-template-columns: 1fr; }
+    .stats-bar { flex-wrap: wrap; gap: 24px; padding: 28px 20px; }
     .problem-grid { grid-template-columns: 1fr; }
-    .comparison { grid-template-columns: 1fr; }
-    .comparison-col.before { border-right: none; border-bottom: 1px solid var(--rule); }
-    .audience-grid { grid-template-columns: 1fr; }
+    .tool-grid { grid-template-columns: 1fr; }
     .vs-grid { grid-template-columns: 1fr; }
     .article-footer { padding: 24px 20px 48px; }
-    h1 { font-size: 32px; }
+    h1 { font-size: 28px; }
   }
 </style>
 </head>
@@ -377,46 +383,46 @@
 
 <div class="masthead">
   <div class="pub-name"><a href="/">Saurav Das</a></div>
-  <div class="issue-line">Product Pitch &middot; AgTech &middot; Data Infrastructure</div>
+  <div class="issue-line">Platform &middot; Open Research Infrastructure &middot; AgTech</div>
 </div>
 
 <div class="hero">
-  <div class="kicker">Product Pitch &middot; AgTech</div>
-  <h1>OpenAgData:<br><em>Agricultural research, searchable by where it happened</em></h1>
-  <p class="deck">Every agricultural study has a location. A cover crop trial in Iowa produces different results than the same trial in Georgia. OpenAgData is built on a different premise: location is the primary axis, and everything else follows from it.</p>
+  <div class="kicker">Platform &middot; Open Research Infrastructure &middot; AgTech</div>
+  <h1>OpenAgData: <em>768 agricultural studies, searchable by where they happened</em></h1>
+  <p class="deck">The agricultural research literature is vast, geographically dispersed, and functionally inaccessible to most of the people it was designed to help. OpenAgData is a geographic research intelligence platform that indexes peer-reviewed agricultural studies by their physical location &mdash; not by journal, author, or funding agency &mdash; and makes them searchable, filterable, and spatially comparable for farmers, researchers, advisors, and policy analysts.</p>
   <p class="byline">Saurav Das, PhD &middot; Independent Researcher</p>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">768</div>
+    <div class="stat-label">Peer-reviewed papers indexed</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">20+</div>
+    <div class="stat-label">U.S. states with mapped evidence</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">6</div>
+    <div class="stat-label">Active research hubs</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">4,800+</div>
+    <div class="stat-label">Citations across indexed hubs</div>
+  </div>
 </div>
 
 <div class="content-wrap">
 
-  <!-- CORE MECHANISM -->
-  <div class="mechanism-grid">
-    <div class="mechanism-item">
-      <div class="mechanism-label">Core mechanism</div>
-      <h3>Map-first search</h3>
-      <p>Every indexed study is pinned to the location where the research occurred &mdash; not where it was published.</p>
-    </div>
-    <div class="mechanism-item">
-      <div class="mechanism-label">Primary output</div>
-      <h3>Place-relevant evidence</h3>
-      <p>Users find studies from their state, county, or agroecological zone in seconds rather than weeks.</p>
-    </div>
-    <div class="mechanism-item">
-      <div class="mechanism-label">Secondary output</div>
-      <h3>Research gap mapping</h3>
-      <p>Funders and researchers see exactly where agricultural evidence is concentrated &mdash; and where it is absent.</p>
-    </div>
-  </div>
-
   <!-- SECTION 1: THE PROBLEM -->
   <div class="section-header">
     <span class="section-num">SECTION I</span>
-    <h2>The problem with how agricultural research is currently organized</h2>
+    <h2>The structural problem this platform addresses</h2>
   </div>
 
-  <p>Agricultural science produces an enormous volume of field-level evidence each year. The USDA, land-grant universities, and international research bodies collectively publish thousands of peer-reviewed studies annually on soil health, crop management, nutrient cycling, and climate adaptation. By any bibliometric measure, the knowledge exists.</p>
+  <p>Agricultural research is not scarce. The USDA, land-grant universities, and international bodies collectively produce thousands of peer-reviewed field studies each year. The problem is one of organization, not volume. Published research is indexed by discipline and journal &mdash; not by where the work was done or who can apply it. A cover crop trial in Pennsylvania and a cover crop trial in Georgia may yield contradictory findings, but no standard discovery tool surfaces that geographic distinction systematically.</p>
 
-  <p>The problem is structural, not scientific. Published research is organized by journal, discipline, and author &mdash; not by where it was conducted or who can use it. A Nebraska extension agronomist searching for cover crop evidence relevant to sandy loam soils in the Platte River Valley must manually compile studies from dozens of disconnected sources, filter by geography using crude keyword searches, and assess relevance without any spatial visualization. The same problem applies to USDA program officers writing conservation funding justifications, policy analysts building evidence briefs, and farmers trying to validate a practice change before committing acreage to it.</p>
+  <p>The consequences are concrete: advisors spend weeks manually compiling regional evidence for funding proposals. Farmers adopt practices validated in different agroecological zones. Funders cannot see where research investment is spatially concentrated &mdash; or where it is absent. OpenAgData was built to fix each of these failure modes at the infrastructure level.</p>
 
   <div class="problem-grid">
     <div class="problem-card">
@@ -433,100 +439,140 @@
     </div>
   </div>
 
-  <!-- SECTION 2: WHAT IT DOES -->
+  <!-- SECTION 2: FIVE TOOLS -->
   <div class="section-header">
     <span class="section-num">SECTION II</span>
-    <h2>What OpenAgData does differently</h2>
+    <h2>Five tools, one coherent system</h2>
   </div>
 
-  <p>OpenAgData indexes agricultural research studies and maps them to their geographic origin &mdash; the actual field, county, or watershed where the work was conducted. Users navigate by map first: zoom into a region, and see what has been studied there. Every study is filterable by topic, practice, outcome type, and funding agency.</p>
+  <p>OpenAgData is not a single search interface. It is a layered research intelligence system with five interconnected entry points, each designed for a different moment in the evidence-to-decision workflow.</p>
 
-  <div class="comparison">
-    <div class="comparison-col before">
-      <h3>Before OpenAgData</h3>
-      <ul>
-        <li>Keyword search across disconnected journals</li>
-        <li>Manual geography filtering by state name in abstract</li>
-        <li>No visibility into research concentration or gaps</li>
-        <li>Weeks to compile a regional evidence brief</li>
-        <li>Published studies sit in journals, unreachable to practitioners</li>
-      </ul>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-route">/explore</div>
+      <h3>Explore &mdash; geographic map</h3>
+      <p>The primary interface. Every indexed study is pinned to its research location. Users zoom into a state or county and see what has been studied there &mdash; no keyword search required. Geography is the search.</p>
     </div>
-    <div class="comparison-col after">
-      <h3>With OpenAgData</h3>
-      <ul>
-        <li>Map-first navigation &mdash; zoom to your region, see what exists</li>
-        <li>Studies indexed to actual research location, not publication origin</li>
-        <li>Funding agency and investment flow visualized spatially</li>
-        <li>Evidence brief compiled in minutes, not weeks</li>
-        <li>Open submission &mdash; researchers add their own work directly</li>
-      </ul>
+    <div class="tool-card">
+      <div class="tool-route">/topics</div>
+      <h3>Topics &mdash; periodic table of agroecology</h3>
+      <p>A visual taxonomy of sustainable agriculture research domains &mdash; cover crops, nitrogen management, grazing, benchmarking, farming systems &mdash; organized as an interactive periodic table. Each element opens a full research dashboard for that domain.</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-route">/research</div>
+      <h3>Research library</h3>
+      <p>The full index of 768 papers, filterable by topic, state, funder, and outcome type. Structured for rapid evidence compilation &mdash; what took weeks now takes minutes.</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-route">/hubs</div>
+      <h3>Research hubs</h3>
+      <p>Institution and lab-level aggregations with evidence scores, citation momentum, geographic footprint, and funding context.</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-route">/analytics</div>
+      <h3>Analytics</h3>
+      <p>Funding flow visualization and knowledge gap mapping &mdash; showing where agricultural research investment is spatially concentrated and, critically, where it is not. Built for funders and research strategists.</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-route">/submit</div>
+      <h3>Open submission</h3>
+      <p>Researchers submit their own published work directly. The platform grows through community contribution, not editorial curation &mdash; creating a self-reinforcing index tied to the people who produce and use the evidence.</p>
     </div>
   </div>
 
-  <!-- SECTION 3: WHO IT'S FOR -->
+  <!-- SECTION 3: PERIODIC TABLE -->
   <div class="section-header">
     <span class="section-num">SECTION III</span>
-    <h2>Who it's built for</h2>
+    <h2>The periodic table of agroecology</h2>
   </div>
 
-  <div class="audience-grid">
-    <div class="audience-card">
-      <h3>Farmers &amp; producers</h3>
-      <p>Find studies conducted on soils, crops, and climates like theirs &mdash; not generic national summaries &mdash; before making practice changes.</p>
-    </div>
-    <div class="audience-card">
-      <h3>Agricultural researchers</h3>
-      <p>Map where evidence is concentrated, identify genuine geographic gaps, and make published work discoverable to the people who can use it.</p>
-    </div>
-    <div class="audience-card">
-      <h3>Policy &amp; extension advisors</h3>
-      <p>Pull regionally-specific evidence for conservation program justifications, funding proposals, and farmer education materials &mdash; in minutes.</p>
-    </div>
-    <div class="audience-card">
-      <h3>Funders &amp; institutions</h3>
-      <p>Visualize their research footprint, identify where investment is absent, and make evidence-based decisions about where to direct resources next.</p>
-    </div>
+  <p>The Topics interface deserves particular attention as a design concept. Rather than a conventional tag cloud or filter menu, OpenAgData organizes agricultural research domains as a periodic table &mdash; each element representing a practice category or soil health indicator, each clickable into its own full evidence dashboard. The metaphor is deliberate: like chemical elements, agroecological practices have fundamental properties, combine in predictable ways, and interact with the systems around them.</p>
+
+  <p><strong>Active topic elements in the index</strong> &mdash; each element links to a dedicated research dashboard showing geographic distribution, study count, citation weight, and funding sources for that practice domain.</p>
+
+  <div class="topic-list">
+    <span class="topic-tag">Cover crops</span>
+    <span class="topic-tag">Nitrogen management</span>
+    <span class="topic-tag">Soil health</span>
+    <span class="topic-tag">Soil carbon</span>
+    <span class="topic-tag">Farming systems</span>
+    <span class="topic-tag">Grazing</span>
+    <span class="topic-tag">Benchmarking</span>
+    <span class="topic-tag">Semi-arid systems</span>
+    <span class="topic-tag">Perennial grains</span>
+    <span class="topic-tag">Pastureland</span>
+    <span class="topic-tag">Soil fertility</span>
+    <span class="topic-tag">Yield data</span>
   </div>
 
-  <!-- SECTION 4: WHY NOW -->
+  <!-- SECTION 4: RESEARCH HUBS -->
   <div class="section-header">
     <span class="section-num">SECTION IV</span>
-    <h2>Why this problem is worth solving at infrastructure scale</h2>
+    <h2>Active research hubs</h2>
   </div>
 
-  <p>The gap between what agricultural science knows and what farmers practice is not primarily a science problem. It is a knowledge infrastructure problem. The evidence exists. The distribution system is broken.</p>
+  <p>Research hubs are institution and lab-level aggregations that show the full evidence footprint of an organization &mdash; papers, contributors, topic concentration, geographic scope, and citation momentum. They give researchers a way to assess collaborative potential and give funders a way to evaluate investment density before committing resources.</p>
 
-  <p>Estimates from USDA Economic Research Service and FAO consistently find that accelerating the adoption of evidence-based soil and crop management practices &mdash; even incrementally &mdash; would produce measurable gains in yield stability, input efficiency, and soil carbon storage at national scale. The bottleneck is not the research. It is the time and friction required to find it, assess its geographic relevance, and translate it into a decision.</p>
-
-  <p>OpenAgData removes that friction systematically. It does not replace peer review, extension services, or agronomic expertise &mdash; it makes all three more findable, faster, and spatially anchored to the actual geography of agricultural decision-making.</p>
+  <div class="hub-list">
+    <div class="hub-card">
+      <div class="hub-meta">Network &middot; South</div>
+      <h3>Pastureland Conservation Assessment Studies</h3>
+      <p>26 papers &middot; 4,439 citations &middot; 9 new papers added this week &mdash; the highest-momentum hub in the current index, demonstrating the platform's capacity to surface active research clusters in real time.</p>
+    </div>
+    <div class="hub-card">
+      <div class="hub-meta">Institute &middot; Northeast</div>
+      <h3>Rodale Institute</h3>
+      <p>17 papers &middot; 1,712 citations &middot; Directly linked to the Farming Systems Trial data that underpins the platform's founding research standards.</p>
+    </div>
+    <div class="hub-card">
+      <div class="hub-meta">Lab &middot; Midwest</div>
+      <h3>Maharjan Lab</h3>
+      <p>9 papers &middot; 216 citations &middot; Evidence score 72 &middot; Focused on soil health, fertility, and nitrogen management in Nebraska &mdash; an active contributor adding papers weekly.</p>
+    </div>
+    <div class="hub-card">
+      <div class="hub-meta">Network &middot; West</div>
+      <h3>NMSU Clovis</h3>
+      <p>8 papers &middot; 379 citations &middot; Priority topics: semi-arid systems and soil carbon &mdash; filling a geographic coverage gap that most eastern-dominated research databases leave unaddressed.</p>
+    </div>
+    <div class="hub-card">
+      <div class="hub-meta">Institute &middot; Midwest</div>
+      <h3>Land Institute</h3>
+      <p>1 paper &middot; 97 citations &middot; Perennial grain crop systems &mdash; high-citation-density research relative to paper count, indicating foundational work in an emerging field.</p>
+    </div>
+  </div>
 
   <!-- SECTION 5: COMPARISON -->
   <div class="section-header">
     <span class="section-num">SECTION V</span>
-    <h2>What makes this different from existing tools</h2>
+    <h2>How this differs from existing tools</h2>
   </div>
 
   <div class="vs-grid">
     <div class="vs-card">
       <h3>vs. Google Scholar</h3>
-      <p>Scholar indexes by text and citation; location is buried in abstracts. OpenAgData indexes by research origin as the primary axis, making geography a first-class search dimension.</p>
+      <p>Scholar indexes by text and citation graph. Geography is buried in abstracts and requires manual filtering. OpenAgData makes location the primary index axis &mdash; a fundamentally different information architecture, not a feature add-on.</p>
     </div>
     <div class="vs-card">
       <h3>vs. USDA portals</h3>
-      <p>Agency portals are siloed by program and funding stream. OpenAgData aggregates across agencies and visualizes investment geography &mdash; something no single agency portal can do.</p>
+      <p>Agency portals are siloed by funding stream and program. OpenAgData aggregates across agencies and visualizes investment geography &mdash; including gaps &mdash; which no single-agency portal can do structurally.</p>
     </div>
     <div class="vs-card">
-      <h3>vs. AgriSearch tools</h3>
-      <p>Most agricultural databases are subscription-gated and institution-facing. OpenAgData is open-access by design &mdash; any farmer or advisor can use it without credentials or cost.</p>
+      <h3>vs. subscription databases</h3>
+      <p>Most agricultural research databases are institution-gated. OpenAgData is open-access by design: any farmer, advisor, or beginning researcher can use the full index without credentials or cost.</p>
     </div>
     <div class="vs-card">
-      <h3>vs. AI literature tools</h3>
-      <p>AI summarization tools answer questions but cannot map evidence geographically or reveal where research is absent. OpenAgData is an infrastructure layer, not a summarization endpoint.</p>
+      <h3>vs. AI summarization tools</h3>
+      <p>AI tools answer questions but cannot map the spatial distribution of evidence or reveal where research is structurally absent. OpenAgData is an infrastructure layer &mdash; it makes AI tools more useful by providing geographically grounded evidence sets as inputs.</p>
     </div>
   </div>
 
-  <p>OpenAgData is early-stage infrastructure. The index is growing, the map is live, and the submission pipeline is open. The long-term vision is a platform where any farmer, advisor, or researcher can ask "what does the evidence say for my area?" and get a verified, spatially-grounded answer in seconds &mdash; not weeks.</p>
+  <!-- PLATFORM VISION -->
+  <div class="section-header">
+    <span class="section-num">SECTION VI</span>
+    <h2>Platform vision</h2>
+  </div>
+
+  <p>Any farmer, advisor, or researcher should be able to ask "what does the evidence say for my area?" and receive a verified, spatially-grounded answer in seconds &mdash; not weeks. OpenAgData is the infrastructure layer that makes that possible: 768 studies indexed today, with every new submission compounding the value of everything already in the system.</p>
 
   <!-- CTA -->
   <div class="cta-section">
