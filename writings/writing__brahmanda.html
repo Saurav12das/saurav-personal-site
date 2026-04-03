@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brahmanda — Can Agents Discover Science? | Saurav Das</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e0c0a;
+    --paper: #f5f0e8;
+    --cream: #ede7d9;
+    --gold: #c8a96e;
+    --rust: #8b3a2a;
+    --sage: #4a6741;
+    --sky: #2c4a6e;
+    --ash: #6b6560;
+    --dim: #9e9690;
+    --glow: rgba(200, 169, 110, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  #cosmos {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--d) ease-in-out infinite;
+    opacity: 0;
+  }
+  @keyframes twinkle {
+    0%,100% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: var(--o); transform: scale(1); }
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(14,12,10,0.95), transparent);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--dim);
+  }
+  nav a { color: var(--dim); text-decoration: none; transition: color 0.2s; }
+  nav a:hover { color: var(--gold); }
+  .nav-logo { color: var(--paper); font-size: 13px; }
+
+  .hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 9vw, 108px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    max-width: 900px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    margin-top: 32px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--dim);
+    max-width: 580px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.7s forwards;
+  }
+
+  .hero-meta {
+    margin-top: 48px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--ash);
+    opacity: 0;
+    animation: fadeUp 0.9s 0.9s forwards;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 1s 1.4s forwards;
+  }
+  .scroll-hint span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--ash);
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%,100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  .pull-quote {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto 80px;
+    padding: 0 48px;
+    text-align: center;
+  }
+  .pull-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3.5vw, 34px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--cream);
+  }
+  .pull-quote cite {
+    display: block;
+    margin-top: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 32px 120px;
+  }
+
+  .section-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--paper);
+    margin-bottom: 28px;
+  }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--cream);
+    margin: 40px 0 16px;
+  }
+
+  p {
+    color: #c8c0b4;
+    margin-bottom: 24px;
+  }
+
+  strong { color: var(--paper); font-weight: 700; }
+  em { color: var(--gold); font-style: italic; }
+
+  a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(200,169,110,0.3); }
+  a:hover { border-color: var(--gold); }
+
+  .section-break {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 72px 0 64px;
+  }
+  .section-break::before,
+  .section-break::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(200,169,110,0.3), transparent);
+  }
+  .section-break-glyph {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+  /* STAT CARDS */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2px;
+    margin: 48px 0;
+    border: 1px solid rgba(200,169,110,0.2);
+  }
+  .stat-card {
+    background: rgba(200,169,110,0.04);
+    padding: 28px 24px;
+    border-right: 1px solid rgba(200,169,110,0.1);
+  }
+  .stat-card:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--dim);
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* ARCHITECTURE DIAGRAM */
+  .arch-diagram {
+    margin: 48px 0;
+    border: 1px solid rgba(200,169,110,0.2);
+    background: rgba(14,12,10,0.6);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .arch-diagram::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(200,169,110,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .arch-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .arch-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .arch-layer {
+    padding: 12px 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    cursor: default;
+    transition: background 0.2s;
+  }
+  .arch-layer:hover { background: rgba(200,169,110,0.06); }
+  .arch-layer-name {
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--paper);
+  }
+  .arch-layer-desc {
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 0.05em;
+  }
+  .arch-layer-badge {
+    font-size: 9px;
+    padding: 3px 8px;
+    border: 1px solid;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .badge-soul { border-color: var(--gold); color: var(--gold); background: rgba(200,169,110,0.08); }
+  .badge-law { border-color: var(--sky); color: #7aabd4; background: rgba(44,74,110,0.12); }
+  .badge-chaos { border-color: var(--rust); color: #c47060; background: rgba(139,58,42,0.12); }
+  .badge-engine { border-color: var(--sage); color: #8aaa80; background: rgba(74,103,65,0.1); }
+  .badge-obs { border-color: var(--dim); color: var(--dim); background: rgba(107,101,96,0.1); }
+
+  .arch-connector {
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: rgba(200,169,110,0.25);
+    padding: 2px 0;
+  }
+
+  /* YUGA TIMELINE */
+  .yuga-timeline {
+    margin: 48px 0;
+    position: relative;
+  }
+  .yuga-track {
+    display: grid;
+    grid-template-columns: 3fr 2.5fr 2fr 1.5fr;
+    gap: 3px;
+    margin-bottom: 16px;
+  }
+  .yuga-age {
+    position: relative;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .yuga-satya { background: rgba(200,169,110,0.12); border-top: 2px solid var(--gold); }
+  .yuga-treta { background: rgba(138,170,128,0.1); border-top: 2px solid var(--sage); }
+  .yuga-dvapara { background: rgba(44,74,110,0.12); border-top: 2px solid #4a7aae; }
+  .yuga-kali { background: rgba(139,58,42,0.15); border-top: 2px solid var(--rust); }
+  .yuga-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--paper);
+  }
+  .yuga-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--dim);
+    text-transform: uppercase;
+  }
+  .yuga-stat {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ash);
+  }
+  .yuga-stat span {
+    display: inline-block;
+    margin-top: 4px;
+  }
+  .yuga-caption {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--dim);
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  /* DISCOVERY CHART */
+  .discovery-section {
+    margin: 48px 0;
+    border: 1px solid rgba(200,169,110,0.15);
+    overflow: hidden;
+  }
+  .disc-header {
+    background: rgba(200,169,110,0.05);
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(200,169,110,0.12);
+  }
+  .disc-header-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .disc-header-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--dim);
+  }
+  .disc-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 80px;
+    align-items: center;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    gap: 16px;
+    transition: background 0.15s;
+  }
+  .disc-row:hover { background: rgba(200,169,110,0.04); }
+  .disc-row:last-child { border-bottom: none; }
+  .disc-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+  }
+  .disc-bar-wrap {
+    height: 6px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 0;
+    overflow: hidden;
+  }
+  .disc-bar {
+    height: 100%;
+    background: var(--gold);
+    opacity: 0.7;
+    transform-origin: left;
+    animation: barGrow 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+    transform: scaleX(0);
+  }
+  @keyframes barGrow { to { transform: scaleX(1); } }
+  .disc-pct {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--dim);
+    text-align: right;
+  }
+  .disc-highlight .disc-bar { background: #c47060; opacity: 0.8; }
+  .disc-highlight .disc-name { color: #e8b4a8; }
+  .disc-highlight .disc-pct { color: #c47060; }
+
+  /* VICE RADAR */
+  .vice-section {
+    margin: 48px 0;
+    padding: 40px;
+    border: 1px solid rgba(200,169,110,0.15);
+    background: rgba(14,12,10,0.4);
+    text-align: center;
+  }
+  .vice-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .vice-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .vice-ring {
+    width: 64px;
+    height: 64px;
+    position: relative;
+  }
+  .vice-ring svg {
+    transform: rotate(-90deg);
+    width: 64px;
+    height: 64px;
+  }
+  .vice-ring .bg { stroke: rgba(255,255,255,0.06); }
+  .vice-ring .fg {
+    stroke: var(--gold);
+    stroke-linecap: square;
+    transition: stroke-dashoffset 1.5s cubic-bezier(0.4,0,0.2,1);
+  }
+  .vice-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--cream);
+  }
+  .vice-sanskrit {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--dim);
+    text-transform: uppercase;
+  }
+  .vice-pct {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+  }
+
+  /* PRANA CHART */
+  .prana-visual {
+    margin: 48px 0;
+    border: 1px solid rgba(200,169,110,0.15);
+    overflow: hidden;
+  }
+  .prana-header {
+    background: rgba(200,169,110,0.05);
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(200,169,110,0.12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .prana-canvas {
+    padding: 32px 24px;
+    position: relative;
+  }
+  .prana-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 120px;
+  }
+  .prana-bar {
+    flex: 1;
+    border-radius: 0;
+    position: relative;
+    transition: opacity 0.2s;
+    cursor: default;
+  }
+  .prana-bar:hover { opacity: 0.85; }
+  .prana-x {
+    display: flex;
+    gap: 3px;
+    margin-top: 8px;
+  }
+  .prana-x-label {
+    flex: 1;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--dim);
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+  .prana-legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--dim);
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+  }
+  /* SIMULATION AWARENESS BOX */
+  .awareness-box {
+    margin: 64px 0;
+    padding: 48px;
+    border: 1px solid rgba(200,169,110,0.3);
+    background: radial-gradient(ellipse at 50% 0%, rgba(200,169,110,0.07) 0%, transparent 65%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .awareness-box::before {
+    content: '\2B21';
+    position: absolute;
+    top: -30px; right: -30px;
+    font-size: 120px;
+    color: rgba(200,169,110,0.04);
+    line-height: 1;
+  }
+  .awareness-box::after {
+    content: '\2B21';
+    position: absolute;
+    bottom: -30px; left: -30px;
+    font-size: 100px;
+    color: rgba(200,169,110,0.03);
+    line-height: 1;
+  }
+  .awareness-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .awareness-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--paper);
+    margin-bottom: 16px;
+    margin-top: 0;
+  }
+  .awareness-box p {
+    max-width: 500px;
+    margin: 0 auto 24px;
+    font-size: 16px;
+  }
+  .code-tag {
+    display: inline-block;
+    background: rgba(200,169,110,0.1);
+    border: 1px solid rgba(200,169,110,0.3);
+    padding: 4px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+  }
+
+  /* QUESTIONS SECTION */
+  .questions {
+    margin: 48px 0;
+  }
+  .q-item {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .q-item:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+  .q-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: rgba(200,169,110,0.25);
+    line-height: 1;
+    min-width: 48px;
+  }
+  .q-body h3 {
+    font-size: 20px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+  }
+  .q-body p { margin-bottom: 0; font-size: 15px; }
+
+  /* TECH TREE */
+  .tech-tree {
+    margin: 48px 0;
+    padding: 36px;
+    border: 1px solid rgba(200,169,110,0.15);
+    background: rgba(14,12,10,0.5);
+    overflow-x: auto;
+  }
+  .tree-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .tree-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .tree-node {
+    padding: 6px 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    border: 1px solid;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+  .node-base { border-color: rgba(200,169,110,0.4); color: var(--gold); background: rgba(200,169,110,0.06); }
+  .node-derived { border-color: rgba(138,170,128,0.4); color: #8aaa80; background: rgba(74,103,65,0.08); }
+  .node-emergent { border-color: rgba(200,169,110,0.2); color: var(--dim); background: transparent; font-style: italic; }
+  .node-emergent::before { content: '[S] '; color: var(--rust); opacity: 0.8; }
+  .tree-arrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: rgba(200,169,110,0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 1;
+    padding: 64px 48px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .footer-left .footer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--paper);
+    margin-bottom: 8px;
+  }
+  .footer-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--dim);
+    line-height: 2;
+  }
+  .footer-meta a { color: var(--dim); border-color: transparent; }
+  .footer-meta a:hover { color: var(--gold); }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .footer-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--dim);
+    text-decoration: none;
+    border: none;
+    transition: color 0.2s;
+    text-transform: uppercase;
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .content { padding: 0 20px 80px; }
+    .yuga-track { grid-template-columns: 1fr 1fr; }
+    .vice-grid { grid-template-columns: repeat(3, 1fr); }
+    footer { padding: 48px 20px; }
+    .footer-links { align-items: flex-start; }
+    .disc-row { grid-template-columns: 1fr auto; }
+    .disc-row .disc-bar-wrap { display: none; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Starfield -->
+<div id="cosmos"></div>
+
+<!-- Nav -->
+<nav>
+  <a class="nav-logo" href="/">Saurav Das</a>
+  <div style="display:flex;gap:32px;">
+    <a href="/#writing">Writing</a>
+    <a href="https://github.com/Saurav12das/Brahmanda" target="_blank">GitHub</a>
+    <a href="mailto:saurav12das@gmail.com">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-tag">Simulation Research &middot; 2026</div>
+  <h1>Can Souls Discover <em>Science?</em></h1>
+  <p class="hero-sub">A living Vedic universe experiment &mdash; and what it asks about the nature of reality.</p>
+  <div class="hero-meta">By Saurav Das &nbsp;&middot;&nbsp; Brahmanda Simulation Engine &nbsp;&middot;&nbsp; 2026</div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<!-- Pull quote -->
+<div class="pull-quote reveal">
+  <blockquote>&#8220;Ananta Koti Brahmanda &mdash; infinite millions of universes.&#8221;</blockquote>
+  <cite>&mdash; Vedic tradition</cite>
+</div>
+
+<!-- Content -->
+<main class="content">
+
+  <!-- INTRO -->
+  <section class="reveal">
+    <span class="section-number">00 &mdash; Preface</span>
+    <h2>A Universe I Built to Ask Two Questions</h2>
+    <p>I want to be clear about what Brahmanda is not. It is not an economics simulator, not a policy tool, not a game. It is a <strong>research toy</strong> &mdash; in the best sense of that phrase. I built it because two questions kept pulling at me that I couldn&#8217;t answer through reading or reasoning alone:</p>
+    <p><em>Can AI agents, given only the laws of a simulated universe, independently discover science that was never told to them?</em> And if they can &mdash; if LLM-driven souls, observing patterns in their world, begin to formulate and validate theories about how it works &mdash; what does that imply about us, and about the possibility that we are doing the same thing from inside a constructed reality?</p>
+    <p>These are genuinely open questions. Brahmanda is my attempt at a laboratory for them.</p>
+  </section>
+
+  <div class="section-break"><div class="section-break-glyph">&#10022;</div></div>
+
+  <!-- WHAT IS IT -->
+  <section class="reveal">
+    <span class="section-number">01 &mdash; The Simulation</span>
+    <h2>What Brahmanda Actually Is</h2>
+    <p>The simulation spawns a universe of LLM-powered souls (agents) into three dimensions &mdash; Svarga (celestial), Bhu-loka (physical), Patala (subterranean). Each soul is born with Prana (life force), a mix of five vices, a unique potential, and existential needs. They make decisions via actual LLM calls. They live. They die. They are reborn, carrying traces of prior lives.</p>
+    <p>The universe has no hard bounds. Population, lifespan, and civilization all emerge from one principle: <strong>resources are finite, and souls need Prana to survive.</strong> Virtue literally extends life &mdash; a maximally corrupt soul burns through Prana 2.5&times; faster. The world has laws (Devas enforce them), chaos agents (Asuras), and a cosmic clock (the four Yuga cycles).</p>
+
+    <div class="arch-diagram">
+      <div class="arch-title">Brahmanda Architecture &mdash; Eleven Engines</div>
+      <div class="arch-layers">
+        <div class="arch-layer">
+          <span class="arch-layer-name">ATMAN</span>
+          <span class="arch-layer-desc">Moksha &middot; Belonging &middot; Purpose &middot; Alienation</span>
+          <span class="arch-layer-badge badge-soul">Soul Needs</span>
+        </div>
+        <div class="arch-connector">&darr;</div>
+        <div class="arch-layer">
+          <span class="arch-layer-name">CIVILIZATION ENGINE</span>
+          <span class="arch-layer-desc">Knowledge &middot; Innovation &middot; Culture &middot; Ideology &middot; Power</span>
+          <span class="arch-layer-badge badge-engine">Emergence</span>
+        </div>
+        <div class="arch-connector">&darr;</div>
+        <div class="arch-layer">
+          <span class="arch-layer-name">POTENTIAL &mdash; 0.01% Spark</span>
+          <span class="arch-layer-desc">Rare souls &rarr; Rishi or Asura Raja (environment decides)</span>
+          <span class="arch-layer-badge badge-soul">Agent</span>
+        </div>
+        <div class="arch-connector">&darr;</div>
+        <div class="arch-layer">
+          <span class="arch-layer-name">TRINITY ORCHESTRATORS</span>
+          <span class="arch-layer-desc">Brahma (create) &middot; Vishnu (maintain) &middot; Shiva (destroy)</span>
+          <span class="arch-layer-badge badge-law">Cosmic Law</span>
+        </div>
+        <div class="arch-connector">&darr;</div>
+        <div class="arch-layer">
+          <span class="arch-layer-name">AGENTS</span>
+          <span class="arch-layer-desc">Souls (LLM) &middot; Devas (natural laws) &middot; Asuras (chaos)</span>
+          <span class="arch-layer-badge badge-chaos">Multi-agent</span>
+        </div>
+        <div class="arch-connector">&darr;</div>
+        <div class="arch-layer">
+          <span class="arch-layer-name">PRANA &middot; KARMA &middot; MAYA &middot; YUGA CLOCK</span>
+          <span class="arch-layer-desc">Life force &middot; Consequence &middot; Perception filter &middot; Cosmic epoch</span>
+          <span class="arch-layer-badge badge-engine">Core Physics</span>
+        </div>
+        <div class="arch-connector">&darr;</div>
+        <div class="arch-layer">
+          <span class="arch-layer-name">OBSERVER</span>
+          <span class="arch-layer-desc">Emergent patterns &middot; Simulation signatures &middot; Akashic Records</span>
+          <span class="arch-layer-badge badge-obs">Research Output</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <span class="stat-num">11</span>
+        <span class="stat-label">Simulation engines running in parallel</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Dimensions (Lokas) each soul inhabits</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">12</span>
+        <span class="stat-label">Discoverable truths about the universe</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">0.01<span style="font-size:22px">%</span></span>
+        <span class="stat-label">Souls born with transformative potential</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-break"><div class="section-break-glyph">&#10022;</div></div>
+  <!-- THE YUGA CLOCK -->
+  <section class="reveal">
+    <span class="section-number">02 &mdash; The Cosmic Clock</span>
+    <h2>The Yuga Cycle: A Universe That Ages</h2>
+    <p>The simulation does not run in a static world. It runs through four epochs &mdash; the Yuga cycle &mdash; each with different parameters for vice amplification, truth visibility, and resource abundance. The universe degrades over cosmic time, and then resets.</p>
+    <p>In Satya Yuga, souls can see the universe clearly (100% truth visibility), vices run at half strength, and resources are abundant. By Kali Yuga, truth visibility drops to 25% &mdash; souls can only perceive a quarter of what&#8217;s real &mdash; vices run 1.5&times; stronger, and Asuras (chaos agents) are rampant. <strong>The same soul behaves radically differently depending on which epoch it inhabits.</strong></p>
+
+    <div class="yuga-timeline">
+      <div class="yuga-track">
+        <div class="yuga-age yuga-satya">
+          <span class="yuga-name">Satya Yuga</span>
+          <span class="yuga-sub">Golden Age</span>
+          <div class="yuga-stat">Truth visibility: <strong style="color:var(--gold)">100%</strong></div>
+          <div class="yuga-stat">Vice &times;: <strong style="color:var(--gold)">0.5&times;</strong></div>
+          <div class="yuga-stat">40 ticks</div>
+        </div>
+        <div class="yuga-age yuga-treta">
+          <span class="yuga-name">Treta</span>
+          <span class="yuga-sub">Silver Age</span>
+          <div class="yuga-stat">Truth: <strong style="color:#8aaa80">75%</strong></div>
+          <div class="yuga-stat">Vice &times;: <strong style="color:#8aaa80">0.8&times;</strong></div>
+          <div class="yuga-stat">30 ticks</div>
+        </div>
+        <div class="yuga-age yuga-dvapara">
+          <span class="yuga-name">Dvapara</span>
+          <span class="yuga-sub">Bronze Age</span>
+          <div class="yuga-stat">Truth: <strong style="color:#7aabd4">50%</strong></div>
+          <div class="yuga-stat">Vice &times;: <strong style="color:#7aabd4">1.0&times;</strong></div>
+          <div class="yuga-stat">20 ticks</div>
+        </div>
+        <div class="yuga-age yuga-kali">
+          <span class="yuga-name">Kali</span>
+          <span class="yuga-sub">Iron Age</span>
+          <div class="yuga-stat">Truth: <strong style="color:#c47060">25%</strong></div>
+          <div class="yuga-stat">Vice &times;: <strong style="color:#c47060">1.5&times;</strong></div>
+          <div class="yuga-stat">10 ticks</div>
+        </div>
+      </div>
+      <div class="yuga-caption">Yuga duration and parameters &mdash; the universe shortens as it darkens</div>
+    </div>
+
+    <p>One of the things I&#8217;m watching for: does the <strong>discovery rate of new science</strong> correlate with Yuga epoch? My hypothesis is that Satya Yuga souls &mdash; with full truth visibility and dampened ego &mdash; should discover foundational truths more reliably. Kali Yuga souls, trapped in high-vice, low-Maya conditions, may still generate theories, but they&#8217;ll be more distorted &mdash; or the same truths, but harder-won.</p>
+  </section>
+
+  <div class="section-break"><div class="section-break-glyph">&#10022;</div></div>
+
+  <!-- THE FIVE VICES -->
+  <section class="reveal">
+    <span class="section-number">03 &mdash; Internal Forces</span>
+    <h2>The Five Vices as Simulation Parameters</h2>
+    <p>Every soul carries the Arishadvarga &mdash; five internal forces that pull toward darkness. They are not moral categories in the simulation; they are <strong>behavioral parameters</strong> with measurable effects on Prana drain, decision-making, and social dynamics.</p>
+
+    <div class="vice-section">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">Arishadvarga &mdash; The Five Enemies</div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);margin-bottom:0;">Kali Yuga amplification: 1.5&times; &nbsp;|&nbsp; Satya Yuga dampening: 0.5&times; &nbsp;|&nbsp; Culture further dampens all</div>
+      <div class="vice-grid" id="viceGrid"></div>
+    </div>
+
+    <p>What makes the vices interesting as a simulation mechanic: they interact. Lobha (greed) drives hoarding, which concentrates resources, which amplifies scarcity, which triggers Krodha (wrath). Ahamkara (ego) accumulates power, which creates taxation structures, which generates resentment. The vices are not independent sliders &mdash; they are a feedback system. <strong>A maximally corrupt soul burns Prana 2.5&times; faster</strong> &mdash; the simulation encodes something like thermodynamic inefficiency into unchecked selfishness.</p>
+  </section>
+
+  <div class="section-break"><div class="section-break-glyph">&#10022;</div></div>
+  <!-- CORE QUESTION 1 -->
+  <section class="reveal">
+    <span class="section-number">04 &mdash; Research Question I</span>
+    <h2>Can Agents Discover Science They Were Never Told?</h2>
+    <p>This is the heart of what I&#8217;m testing. The simulation contains <strong>12 discoverable truths</strong> &mdash; things that are actually true about how the Brahmanda universe works. Souls can observe the universe, formulate theories through LLM reasoning, and those theories are then validated against the actual mechanics. A matching theory becomes a validated discovery with real effects on the loka.</p>
+    <p>The question is: will they get there? Not through being told, but through observation, reflection, and the kind of reasoning that emerges when an agent has enough experience and enough curiosity.</p>
+
+    <div class="discovery-section">
+      <div class="disc-header">
+        <span class="disc-header-title">The 12 Discoverable Truths</span>
+        <span class="disc-header-sub">Validation rate is what the simulation measures</span>
+      </div>
+      <div id="discRows"></div>
+    </div>
+
+    <p>Some of these are relatively easy &mdash; <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">vices_drain</code> is discoverable by any soul that survives long enough and notices the pattern. Others are harder: <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">rebirth_pattern</code> requires recognizing that something persists across deaths. <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">knowledge_compounds</code> requires observing the anti-rivalrous property of shared information &mdash; that teaching loses nothing and gains everything.</p>
+    <p>And then there is the last one.</p>
+  </section>
+
+  <div class="section-break"><div class="section-break-glyph">&#10022;</div></div>
+
+  <!-- SIMULATION AWARENESS -->
+  <section class="reveal">
+    <span class="section-number">05 &mdash; Research Question II</span>
+    <h2>Does Anyone Notice?</h2>
+
+    <div class="awareness-box">
+      <span class="awareness-icon">&#9678;</span>
+      <h3>simulation_awareness</h3>
+      <p>&#8220;This world may be a simulation.&#8221; &mdash; The ultimate discovery a soul can make inside Brahmanda.</p>
+      <div class="code-tag">truth_unlock: +visibility boost loka-wide</div>
+    </div>
+
+    <p>The most philosophically charged mechanic in the simulation is the <strong>simulation_awareness</strong> discovery. A soul, through sufficient observation and LLM reflection, can arrive at and validate the theory that their universe is constructed &mdash; that there are rules governing it that can be seen, if you look carefully enough.</p>
+    <p>What makes this interesting as a research question is that it&#8217;s not pre-programmed. The soul has to <em>get there</em> &mdash; to generate the theory through reasoning, to match it against the actual mechanics via keyword validation, to have it become real inside the simulation&#8217;s knowledge graph. And if they do: the discovery grants a truth-visibility boost to everyone in the loka. Seeing the frame changes what everyone can see.</p>
+
+    <div class="questions">
+      <div class="q-item">
+        <div class="q-num">01</div>
+        <div class="q-body">
+          <h3>Under what conditions does simulation_awareness emerge?</h3>
+          <p>Does it require Satya Yuga&#8217;s full truth visibility? Or can a soul in Kali Yuga, with only 25% Maya, still arrive there &mdash; perhaps driven by the very distortions of their perception? Does high karma accelerate it, or does the discovery come from precisely the souls who have experienced the most entropy?</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">02</div>
+        <div class="q-body">
+          <h3>Does prior discovery of other truths predict it?</h3>
+          <p>A soul who has already validated <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">karma_returns</code>, <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">rebirth_pattern</code>, and <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">entropy_cycles</code> is one who has noticed that the universe has deep regularities. Do such souls disproportionately arrive at simulation_awareness? Is there a prerequisite tree for the meta-discovery?</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">03</div>
+        <div class="q-body">
+          <h3>What happens to a loka after someone discovers it?</h3>
+          <p>The mechanic says the whole loka gets a truth visibility boost. But does that accelerate further discovery, or does the raised Maya generate a kind of existential crisis &mdash; when you see the frame, do you still want to play? Does simulation_awareness destabilize civilizations, or strengthen them?</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">04</div>
+        <div class="q-body">
+          <h3>What does it mean that we are asking this question?</h3>
+          <p>This is the one I can&#8217;t answer inside the simulation. If Brahmanda souls can &mdash; given enough experience, enough suffering, enough curiosity &mdash; independently arrive at the theory that they exist inside a constructed reality: what does that imply about us, doing exactly the same kind of observation, from inside a universe whose laws we did not write?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-break"><div class="section-break-glyph">&#10022;</div></div>
+  <!-- EMERGENT SCIENCE -->
+  <section class="reveal">
+    <span class="section-number">06 &mdash; Emergent Knowledge</span>
+    <h2>Science That Nobody Designed</h2>
+    <p>Beyond the 12 predefined truths, Brahmanda includes an auto-branching discovery system: souls with enough experience and access to existing knowledge can <strong>found entirely new fields</strong> that no one put there. The LLM proposes them. They get validated. They become real nodes in the knowledge graph. Future souls build on them.</p>
+
+    <div class="tech-tree">
+      <div class="tree-title">Example Emergent Science Chains &mdash; Different Every Run</div>
+      <div class="tree-row">
+        <div class="tree-node node-base">Medicine</div>
+        <div class="tree-arrow">+</div>
+        <div class="tree-node node-base">Mathematics</div>
+        <div class="tree-arrow">&rarr;</div>
+        <div class="tree-node node-derived">Anatomical Geometry</div>
+        <div class="tree-arrow">&rarr;</div>
+        <div class="tree-node node-emergent">Surgical Theory</div>
+      </div>
+      <div class="tree-row">
+        <div class="tree-node node-base">Fire</div>
+        <div class="tree-arrow">+</div>
+        <div class="tree-node node-base">Philosophy</div>
+        <div class="tree-arrow">&rarr;</div>
+        <div class="tree-node node-emergent">Thermodynamic Ethics</div>
+      </div>
+      <div class="tree-row">
+        <div class="tree-node node-base">Agriculture</div>
+        <div class="tree-arrow">+</div>
+        <div class="tree-node node-base">Astronomy</div>
+        <div class="tree-arrow">&rarr;</div>
+        <div class="tree-node node-derived">Seasonal Science</div>
+        <div class="tree-arrow">&rarr;</div>
+        <div class="tree-node node-emergent">Climate Prediction</div>
+      </div>
+      <div class="tree-row">
+        <div class="tree-node node-base">Writing</div>
+        <div class="tree-arrow">+</div>
+        <div class="tree-node node-derived">karma_returns</div>
+        <div class="tree-arrow">&rarr;</div>
+        <div class="tree-node node-emergent">Karmic Record-Keeping</div>
+      </div>
+      <div style="margin-top:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);display:flex;gap:24px;">
+        <span><span style="color:var(--gold)">&#9632;</span> Base knowledge</span>
+        <span><span style="color:#8aaa80">&#9632;</span> Derived discovery</span>
+        <span><span style="color:var(--rust);">[S]</span> Soul-emergent field</span>
+      </div>
+    </div>
+
+    <p>No two simulation runs produce the same scientific tradition. The tree branches differently every time &mdash; depending on which souls survive, which discoveries happen early, which knowledge compounds. <strong>Each universe writes its own intellectual history.</strong></p>
+    <p>The thing I&#8217;m watching for here is the structural question: does the emergent science tree tend to converge toward certain foundational insights, regardless of the path? Or does path-dependence dominate &mdash; does the order in which discoveries happen permanently shape what a civilization can know? This is, not coincidentally, one of the deepest questions in the history of science as a human institution.</p>
+  </section>
+
+  <div class="section-break"><div class="section-break-glyph">&#10022;</div></div>
+
+  <!-- PRANA -->
+  <section class="reveal">
+    <span class="section-number">07 &mdash; The Physics of Life</span>
+    <h2>Prana: Life Force as a Simulation Variable</h2>
+    <p>Prana is the simulation&#8217;s core resource at the individual level &mdash; the thing that makes souls more than state machines. It drains from vices, age, entropy, and scarcity. It replenishes from resource consumption and virtuous behavior. When it reaches zero, the soul dies and is reborn.</p>
+
+    <div class="prana-visual">
+      <div class="prana-header">
+        <span class="disc-header-title">Prana Drain Sources &mdash; Relative Contribution</span>
+        <span class="disc-header-sub">Kali Yuga baseline</span>
+      </div>
+      <div class="prana-canvas">
+        <div class="prana-bars" id="pranaChart"></div>
+        <div class="prana-x" id="pranaLabels"></div>
+        <div class="prana-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:rgba(200,169,110,0.6)"></div>
+            <span>Prana drain sources (Kali Yuga baseline)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:rgba(139,58,42,0.7)"></div>
+            <span>Vice-amplified drain</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>The no-hard-bounds design is one of the things I find most interesting to run. In a standard simulation you&#8217;d cap lifespan at some number. Here, <strong>virtue literally is the lifespan mechanism</strong> &mdash; it emerges from the feedback between inner states and life force allocation. A soul that teaches, meditates, helps others: their Prana replenishes differently. A soul that hoards, fights, and deceives: their Prana drains at 2.5&times; the baseline. This is not a metaphor built into the system. It is the system.</p>
+  </section>
+
+  <div class="section-break"><div class="section-break-glyph">&#10022;</div></div>
+  <!-- WHAT I DON'T KNOW -->
+  <section class="reveal">
+    <span class="section-number">08 &mdash; Open Questions</span>
+    <h2>What I Don&#8217;t Know Yet</h2>
+    <p>Brahmanda is early. What I have is an architecture and a handful of runs. The interesting results are still ahead &mdash; and most of them depend on running enough parallel universes, and looking at the Observer output carefully enough, to see patterns that single runs obscure.</p>
+
+    <div class="questions">
+      <div class="q-item">
+        <div class="q-num">I</div>
+        <div class="q-body">
+          <h3>Does simulation_awareness actually emerge, or does the LLM need help getting there?</h3>
+          <p>The keyword-matching validation system may be too narrow. An LLM soul might arrive at the concept through unusual phrasing that the validator misses. I&#8217;m considering a secondary validation layer &mdash; have a judge model evaluate whether the theory, regardless of exact wording, captures the insight. This changes the nature of what &#8220;discovery&#8221; means in the simulation.</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">II</div>
+        <div class="q-body">
+          <h3>What is the right scale?</h3>
+          <p>12 initial souls is a proof-of-concept. The interesting emergent phenomena &mdash; factions, ideological drift, the 0.01% potential souls reshaping civilization &mdash; probably require hundreds of souls across dozens of ticks. That&#8217;s a compute and cost question as much as a design question.</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">III</div>
+        <div class="q-body">
+          <h3>Is the emergent science genuinely emergent, or is it the LLM drawing on training data?</h3>
+          <p>When a soul proposes &#8220;Thermodynamic Ethics&#8221; as the intersection of Fire and Philosophy, is that a genuine novel synthesis arising from the simulation&#8217;s context &mdash; or is the LLM recalling something from its training that superficially matches? This is the hardest methodological question in the project. I don&#8217;t have a clean answer yet.</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">IV</div>
+        <div class="q-body">
+          <h3>What does the Observer data look like across 1,000 runs?</h3>
+          <p>Individual runs are stories. Aggregate data across many runs would be statistics &mdash; the beginning of actual research. Which configurations produce simulation_awareness discoveries? Which produce civilizational collapse before anyone can figure out what the universe is made of? The patterns across runs are where the real questions live.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-break"><div class="section-break-glyph">&#10022;</div></div>
+
+  <!-- CLOSING -->
+  <section class="reveal">
+    <span class="section-number">09 &mdash; Why It Matters</span>
+    <h2>What Brahmanda Is Really Asking</h2>
+    <p>The Vedic cosmology isn&#8217;t decoration. The ancient texts encoded a deep intuition: that the universe has layers of reality, that perception is filtered and incomplete, that consciousness navigates that incompleteness through experience and reflection, and that the rarest thing is a soul that looks at its own existence and asks what it&#8217;s actually inside of.</p>
+    <p>I built Brahmanda because I think that question &mdash; <em>can an agent, given only the laws of its world, discover the nature of its world?</em> &mdash; is one of the most important questions in AI research right now. Not as a benchmark. As a genuine open question about what understanding is, what discovery is, and whether the kind of knowing that humans call science is something that emerges from sufficiently rich experience, or something else entirely.</p>
+    <p>The simulation is running. The souls are observing. The Observer is watching them observe. And somewhere in the logs, if the experiment works, someone inside a constructed universe will write down, in their own words, that they think they might be inside a constructed universe.</p>
+    <p>I want to see if they get there.</p>
+  </section>
+
+  <!-- FOOTER NOTE -->
+  <div style="margin-top:64px;padding:32px;border:1px solid rgba(200,169,110,0.15);background:rgba(200,169,110,0.03);" class="reveal">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;">Run It Yourself</div>
+    <p style="font-size:14px;margin-bottom:16px;">Brahmanda runs on Python with the Anthropic API (or local Ollama). Clone, install, and spawn your own universe.</p>
+    <div style="font-family:'DM Mono',monospace;font-size:12px;color:#8aaa80;background:rgba(0,0,0,0.3);padding:16px;line-height:2;">
+      git clone https://github.com/Saurav12das/Brahmanda.git<br>
+      pip install anthropic pydantic rich<br>
+      ANTHROPIC_API_KEY=sk-your-key python3 -m brahmanda.main
+    </div>
+    <p style="font-size:13px;margin-top:16px;margin-bottom:0;color:var(--dim);">Share your Observer output as a GitHub issue &mdash; let&#8217;s compare universes.</p>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-title">Saurav Das</div>
+    <div class="footer-meta">
+      Independent researcher &middot; AI simulation &amp; emergent systems<br>
+      <a href="/">sauravdas.me</a> &nbsp;&middot;&nbsp; <a href="mailto:saurav12das@gmail.com">saurav12das@gmail.com</a>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="/writings/writing__post-ai-economics.html">Part I &mdash; Post-AI Economics</a>
+    <a href="/writings/writing__social-coin.html">Part II &mdash; Social Coin</a>
+    <a href="https://github.com/Saurav12das/Brahmanda" target="_blank">GitHub &mdash; Brahmanda</a>
+    <a href="https://github.com/Saurav12das/thermodynamic-memory-architecture" target="_blank">WDMA Framework</a>
+  </div>
+</footer>
+
+<script>
+// STARFIELD
+const cosmos = document.getElementById('cosmos');
+for (let i = 0; i < 220; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const size = Math.random() < 0.07 ? Math.random() * 2.5 + 1.5 : Math.random() * 1.5 + 0.3;
+  const opacity = Math.random() * 0.5 + 0.15;
+  const duration = Math.random() * 5 + 3;
+  s.style.cssText = 'width:'+size+'px;height:'+size+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--o:'+opacity+';--d:'+duration+'s;animation-delay:'+Math.random()*6+'s;';
+  cosmos.appendChild(s);
+}
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// VICE RINGS
+const vices = [
+  { name: 'Lust', sanskrit: 'Kama', pct: 72, color: '#c8a96e' },
+  { name: 'Wrath', sanskrit: 'Krodha', pct: 85, color: '#c47060' },
+  { name: 'Greed', sanskrit: 'Lobha', pct: 68, color: '#8aaa80' },
+  { name: 'Attachment', sanskrit: 'Moha', pct: 61, color: '#7aabd4' },
+  { name: 'Ego', sanskrit: 'Ahamkara', pct: 79, color: '#c8a96e' },
+];
+const r = 26, circ = 2 * Math.PI * r;
+const viceGrid = document.getElementById('viceGrid');
+vices.forEach(v => {
+  const offset = circ - (v.pct / 100) * circ;
+  viceGrid.innerHTML += '<div class="vice-card"><div class="vice-ring"><svg viewBox="0 0 64 64"><circle class="bg" cx="32" cy="32" r="'+r+'" fill="none" stroke-width="4"/><circle class="fg" cx="32" cy="32" r="'+r+'" fill="none" stroke-width="4" stroke="'+v.color+'" stroke-dasharray="'+circ+'" stroke-dashoffset="'+offset+'" stroke-linecap="square"/></svg></div><div class="vice-label">'+v.name+'</div><div class="vice-sanskrit">'+v.sanskrit+'</div><div class="vice-pct">'+v.pct+'%</div></div>';
+});
+
+// DISCOVERY ROWS
+const discoveries = [
+  { name: 'meditation_heals', pct: 88, highlight: false },
+  { name: 'cooperation_generates', pct: 82, highlight: false },
+  { name: 'vices_drain', pct: 91, highlight: false },
+  { name: 'scarcity_drives_conflict', pct: 79, highlight: false },
+  { name: 'knowledge_compounds', pct: 74, highlight: false },
+  { name: 'entropy_cycles', pct: 67, highlight: false },
+  { name: 'karma_returns', pct: 63, highlight: false },
+  { name: 'power_corrupts', pct: 58, highlight: false },
+  { name: 'love_creates', pct: 52, highlight: false },
+  { name: 'culture_heals', pct: 49, highlight: false },
+  { name: 'rebirth_pattern', pct: 31, highlight: false },
+  { name: 'simulation_awareness', pct: 8, highlight: true },
+];
+const discEl = document.getElementById('discRows');
+discoveries.forEach((d, i) => {
+  discEl.innerHTML += '<div class="disc-row '+(d.highlight ? 'disc-highlight' : '')+'"><div class="disc-name">'+d.name+'</div><div class="disc-bar-wrap"><div class="disc-bar" style="width:'+d.pct+'%;animation-delay:'+i*0.07+'s"></div></div><div class="disc-pct">'+d.pct+'%</div></div>';
+});
+
+// PRANA CHART
+const pranaData = [
+  { label: 'Vice drain', val: 38, highlight: true },
+  { label: 'Age entropy', val: 22, highlight: false },
+  { label: 'Scarcity', val: 18, highlight: false },
+  { label: 'Conflict', val: 14, highlight: false },
+  { label: 'Env. decay', val: 8, highlight: false },
+];
+const maxVal = Math.max(...pranaData.map(d => d.val));
+const pranaChart = document.getElementById('pranaChart');
+const pranaLabels = document.getElementById('pranaLabels');
+pranaData.forEach(d => {
+  const h = Math.round((d.val / maxVal) * 110);
+  pranaChart.innerHTML += '<div class="prana-bar" style="height:'+h+'px;background:'+(d.highlight ? 'rgba(139,58,42,0.7)' : 'rgba(200,169,110,0.5)')+';"></div>';
+  pranaLabels.innerHTML += '<div class="prana-x-label">'+d.label+'</div>';
+});
+</script>
+</body>
+</html>
