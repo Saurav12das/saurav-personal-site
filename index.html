@@ -51,7 +51,7 @@
       :root { --text:#0d0d0d; --muted:#7a7060; --line:rgba(13,13,13,0.10); --accent:#c0392b; }
       html,body { margin:0; padding:0; background:#fafafa; color:var(--text); }
       body { font: 300 17px/1.7 'DM Sans', sans-serif; }
-      .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; position: relative; }
       h1 { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
       h2 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin: 44px 0 12px; letter-spacing: -0.01em; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
       p { margin: 0 0 14px; color: var(--text); font-weight: 300; }
@@ -70,6 +70,44 @@
       .year { display: inline-block; min-width: 56px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
       footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.02em; }
       footer a { color: var(--muted); }
+
+      /* THREAD */
+      .thread { position: absolute; left: -28px; top: 0; bottom: 0; width: 1px; }
+      .thread-line { position: absolute; left: 0; top: 140px; bottom: 80px; width: 1px; background: linear-gradient(to bottom, transparent, var(--line) 40px, rgba(13,13,13,0.08) calc(100% - 40px), transparent); }
+      .threaded { position: relative; }
+      .threaded::before {
+        content: attr(data-thread);
+        position: absolute;
+        left: -44px;
+        top: 48px;
+        font-family: 'DM Mono', monospace;
+        font-size: 9px;
+        letter-spacing: 0.1em;
+        color: rgba(13,13,13,0.18);
+        width: 20px;
+        text-align: right;
+      }
+      .threaded::after {
+        content: '';
+        position: absolute;
+        left: -32px;
+        top: 52px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #fafafa;
+        border: 1.5px solid rgba(13,13,13,0.15);
+        transition: border-color 0.3s, background 0.3s;
+      }
+      .threaded.active::after {
+        border-color: var(--accent);
+        background: var(--accent);
+      }
+
+      @media (max-width: 840px) {
+        .thread { display: none; }
+        .threaded::before, .threaded::after { display: none; }
+      }
       @media (max-width: 640px) {
         .wrap { padding: 36px 20px 60px; }
         h1 { font-size: 32px; }
@@ -78,6 +116,7 @@
   </head>
   <body>
     <main class="wrap">
+      <div class="thread"><div class="thread-line"></div></div>
       <header>
         <h1>Dr. Saurav Das</h1>
         <p class="muted">Researcher & founder building AI infrastructure for agriculture.</p>
@@ -100,7 +139,7 @@
         </nav>
       </header>
 
-      <section aria-label="Bio">
+      <section aria-label="Bio" class="threaded" data-thread="01">
         <h2>Bio</h2>
         <p>
           I hold a Ph.D. in Microbiology with a focus on soil and water science in agricultural systems. My research background drives how I think about building technology — grounded in real science, designed for real operations.
@@ -110,7 +149,7 @@
         </p>
       </section>
 
-      <section aria-label="What I'm Building">
+      <section aria-label="What I'm Building" class="threaded" data-thread="02">
         <h2>What I'm Building</h2>
         <ul class="timeline">
           <li>
@@ -132,7 +171,7 @@
         </ul>
       </section>
 
-      <section aria-label="Products">
+      <section aria-label="Products" class="threaded" data-thread="03">
         <h2>Products</h2>
         <div class="links">
           <a href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">soilhealthexchange.com</a>
@@ -141,7 +180,7 @@
         </div>
       </section>
 
-      <section aria-label="Side Projects">
+      <section aria-label="Side Projects" class="threaded" data-thread="04">
         <h2>Side Projects</h2>
         <ul class="timeline">
           <li>
@@ -155,7 +194,7 @@
         </ul>
       </section>
 
-      <section id="writing" aria-label="Writing">
+      <section id="writing" aria-label="Writing" class="threaded" data-thread="05">
         <h2>Writing</h2>
         <ul class="timeline">
           <li>
@@ -176,12 +215,12 @@
         </ul>
       </section>
 
-      <section aria-label="Watching">
+      <section aria-label="Watching" class="threaded" data-thread="06">
         <h2>Watching</h2>
         <p>Movies, TV, and anime I love — <a class="inline" href="/writings/watching.html">see the full list with reviews</a>.</p>
       </section>
 
-      <section aria-label="Contact">
+      <section aria-label="Contact" class="threaded" data-thread="07">
         <h2>Contact</h2>
         <p>
           Open to funding conversations, partnerships, and collaboration:
@@ -191,6 +230,15 @@
 
       <footer>© <span id="y"></span> Saurav Das · <a class="inline" href="https://sauravdas.me" style="color:var(--muted);">sauravdas.me</a> · <a class="inline" href="https://saurav-personal-site.vercel.app" style="color:var(--muted);">saurav-personal-site.vercel.app</a></footer>
     </main>
-    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+      const sections = document.querySelectorAll('.threaded');
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          e.target.classList.toggle('active', e.isIntersecting);
+        });
+      }, { rootMargin: '-20% 0px -60% 0px' });
+      sections.forEach(s => obs.observe(s));
+    </script>
   </body>
 </html>
