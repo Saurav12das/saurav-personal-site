@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAgData — Saurav Das</title>
+<meta name="description" content="OpenAgData: agricultural research, searchable by where it happened. A map-first platform indexing studies to their geographic origin." />
+<meta property="og:title" content="OpenAgData — Agricultural research, searchable by where it happened" />
+<meta property="og:description" content="A map-first platform indexing agricultural research studies to the actual location where the work was conducted." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sauravdas.me/writings/product__open-ag-data.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@thedassaurav" />
+<meta name="twitter:title" content="OpenAgData — Agricultural research, searchable by where it happened" />
+<meta name="twitter:description" content="A map-first platform indexing agricultural research studies to the actual location where the work was conducted." />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --warm: #e8dfc8;
+    --accent: #c0392b;
+    --accent2: #e67e22;
+    --accent3: #2c3e50;
+    --muted: #7a7060;
+    --rule: rgba(13,13,13,0.12);
+    --green: #27ae60;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    border-bottom: 3px solid var(--ink);
+    padding: 18px 0 14px;
+    text-align: center;
+    background: var(--paper);
+    position: relative;
+  }
+  .masthead::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--ink);
+    margin-top: 10px;
+  }
+  .pub-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .pub-name a { color: var(--muted); text-decoration: none; }
+  .pub-name a:hover { text-decoration: underline; }
+  .issue-line {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* HERO */
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    max-width: 780px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .deck {
+    font-size: 18px;
+    font-weight: 400;
+    color: #3a3a3a;
+    max-width: 620px;
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .byline {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* LAYOUT */
+  .content-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* CORE MECHANISM */
+  .mechanism-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin: 36px 0;
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .mechanism-item {
+    text-align: center;
+  }
+  .mechanism-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .mechanism-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .mechanism-item p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 56px 0 24px;
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+    flex: 1;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 18px;
+    color: #1a1a1a;
+  }
+
+  strong { font-weight: 500; }
+
+  /* PROBLEM CARDS */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin: 36px 0;
+  }
+  .problem-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    padding: 24px;
+  }
+  .problem-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .problem-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* BEFORE/AFTER COMPARISON */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 36px 0;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .comparison-col {
+    padding: 28px;
+  }
+  .comparison-col.before {
+    background: #f0ebe0;
+    border-right: 1px solid var(--rule);
+  }
+  .comparison-col.after {
+    background: white;
+  }
+  .comparison-col h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .comparison-col.before h3 { color: var(--muted); }
+  .comparison-col.after h3 { color: var(--green); }
+  .comparison-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  .comparison-col li {
+    font-size: 14px;
+    color: #1a1a1a;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.5;
+  }
+  .comparison-col li:last-child { border-bottom: none; }
+
+  /* AUDIENCE GRID */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 36px 0;
+  }
+  .audience-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--ink);
+    padding: 24px;
+  }
+  .audience-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .audience-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* VS TABLE */
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 36px 0;
+  }
+  .vs-card {
+    border: 1px solid var(--rule);
+    padding: 24px;
+    background: white;
+  }
+  .vs-card h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .vs-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 48px 0;
+    margin-top: 56px;
+    border-top: 3px solid var(--ink);
+  }
+  .cta-section h2 {
+    border-bottom: none;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .cta-section p {
+    max-width: 560px;
+    margin: 0 auto 24px;
+    color: var(--muted);
+  }
+  .cta-link {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1.5px solid var(--accent);
+    padding: 12px 32px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .cta-link:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  /* FOOTER */
+  .article-footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 40px 60px;
+    border-top: 1px solid var(--rule);
+    margin-top: 48px;
+  }
+  .back-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .back-link:hover { color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .hero { padding: 40px 20px 30px; }
+    .content-wrap { padding: 0 20px; }
+    .mechanism-grid { grid-template-columns: 1fr; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .comparison { grid-template-columns: 1fr; }
+    .comparison-col.before { border-right: none; border-bottom: 1px solid var(--rule); }
+    .audience-grid { grid-template-columns: 1fr; }
+    .vs-grid { grid-template-columns: 1fr; }
+    .article-footer { padding: 24px 20px 48px; }
+    h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="pub-name"><a href="/">Saurav Das</a></div>
+  <div class="issue-line">Product Pitch &middot; AgTech &middot; Data Infrastructure</div>
+</div>
+
+<div class="hero">
+  <div class="kicker">Product Pitch &middot; AgTech</div>
+  <h1>OpenAgData:<br><em>Agricultural research, searchable by where it happened</em></h1>
+  <p class="deck">Every agricultural study has a location. A cover crop trial in Iowa produces different results than the same trial in Georgia. OpenAgData is built on a different premise: location is the primary axis, and everything else follows from it.</p>
+  <p class="byline">Saurav Das, PhD &middot; Independent Researcher</p>
+</div>
+
+<div class="content-wrap">
+
+  <!-- CORE MECHANISM -->
+  <div class="mechanism-grid">
+    <div class="mechanism-item">
+      <div class="mechanism-label">Core mechanism</div>
+      <h3>Map-first search</h3>
+      <p>Every indexed study is pinned to the location where the research occurred &mdash; not where it was published.</p>
+    </div>
+    <div class="mechanism-item">
+      <div class="mechanism-label">Primary output</div>
+      <h3>Place-relevant evidence</h3>
+      <p>Users find studies from their state, county, or agroecological zone in seconds rather than weeks.</p>
+    </div>
+    <div class="mechanism-item">
+      <div class="mechanism-label">Secondary output</div>
+      <h3>Research gap mapping</h3>
+      <p>Funders and researchers see exactly where agricultural evidence is concentrated &mdash; and where it is absent.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: THE PROBLEM -->
+  <div class="section-header">
+    <span class="section-num">SECTION I</span>
+    <h2>The problem with how agricultural research is currently organized</h2>
+  </div>
+
+  <p>Agricultural science produces an enormous volume of field-level evidence each year. The USDA, land-grant universities, and international research bodies collectively publish thousands of peer-reviewed studies annually on soil health, crop management, nutrient cycling, and climate adaptation. By any bibliometric measure, the knowledge exists.</p>
+
+  <p>The problem is structural, not scientific. Published research is organized by journal, discipline, and author &mdash; not by where it was conducted or who can use it. A Nebraska extension agronomist searching for cover crop evidence relevant to sandy loam soils in the Platte River Valley must manually compile studies from dozens of disconnected sources, filter by geography using crude keyword searches, and assess relevance without any spatial visualization. The same problem applies to USDA program officers writing conservation funding justifications, policy analysts building evidence briefs, and farmers trying to validate a practice change before committing acreage to it.</p>
+
+  <div class="problem-grid">
+    <div class="problem-card">
+      <h3>Scattered across hundreds of sources</h3>
+      <p>Useful findings are buried in disconnected journals, agency portals, and institutional repositories. Most never reach practitioners at the moment of decision.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Geography treated as an afterthought</h3>
+      <p>Existing tools index by topic, author, and date. What works in the Corn Belt may fail in the Southeast &mdash; but no tool makes that distinction systematic.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Research investment is invisible</h3>
+      <p>No public tool shows where agricultural funding is spatially concentrated, making it impossible to systematically identify evidence gaps before they become policy failures.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: WHAT IT DOES -->
+  <div class="section-header">
+    <span class="section-num">SECTION II</span>
+    <h2>What OpenAgData does differently</h2>
+  </div>
+
+  <p>OpenAgData indexes agricultural research studies and maps them to their geographic origin &mdash; the actual field, county, or watershed where the work was conducted. Users navigate by map first: zoom into a region, and see what has been studied there. Every study is filterable by topic, practice, outcome type, and funding agency.</p>
+
+  <div class="comparison">
+    <div class="comparison-col before">
+      <h3>Before OpenAgData</h3>
+      <ul>
+        <li>Keyword search across disconnected journals</li>
+        <li>Manual geography filtering by state name in abstract</li>
+        <li>No visibility into research concentration or gaps</li>
+        <li>Weeks to compile a regional evidence brief</li>
+        <li>Published studies sit in journals, unreachable to practitioners</li>
+      </ul>
+    </div>
+    <div class="comparison-col after">
+      <h3>With OpenAgData</h3>
+      <ul>
+        <li>Map-first navigation &mdash; zoom to your region, see what exists</li>
+        <li>Studies indexed to actual research location, not publication origin</li>
+        <li>Funding agency and investment flow visualized spatially</li>
+        <li>Evidence brief compiled in minutes, not weeks</li>
+        <li>Open submission &mdash; researchers add their own work directly</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 3: WHO IT'S FOR -->
+  <div class="section-header">
+    <span class="section-num">SECTION III</span>
+    <h2>Who it's built for</h2>
+  </div>
+
+  <div class="audience-grid">
+    <div class="audience-card">
+      <h3>Farmers &amp; producers</h3>
+      <p>Find studies conducted on soils, crops, and climates like theirs &mdash; not generic national summaries &mdash; before making practice changes.</p>
+    </div>
+    <div class="audience-card">
+      <h3>Agricultural researchers</h3>
+      <p>Map where evidence is concentrated, identify genuine geographic gaps, and make published work discoverable to the people who can use it.</p>
+    </div>
+    <div class="audience-card">
+      <h3>Policy &amp; extension advisors</h3>
+      <p>Pull regionally-specific evidence for conservation program justifications, funding proposals, and farmer education materials &mdash; in minutes.</p>
+    </div>
+    <div class="audience-card">
+      <h3>Funders &amp; institutions</h3>
+      <p>Visualize their research footprint, identify where investment is absent, and make evidence-based decisions about where to direct resources next.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: WHY NOW -->
+  <div class="section-header">
+    <span class="section-num">SECTION IV</span>
+    <h2>Why this problem is worth solving at infrastructure scale</h2>
+  </div>
+
+  <p>The gap between what agricultural science knows and what farmers practice is not primarily a science problem. It is a knowledge infrastructure problem. The evidence exists. The distribution system is broken.</p>
+
+  <p>Estimates from USDA Economic Research Service and FAO consistently find that accelerating the adoption of evidence-based soil and crop management practices &mdash; even incrementally &mdash; would produce measurable gains in yield stability, input efficiency, and soil carbon storage at national scale. The bottleneck is not the research. It is the time and friction required to find it, assess its geographic relevance, and translate it into a decision.</p>
+
+  <p>OpenAgData removes that friction systematically. It does not replace peer review, extension services, or agronomic expertise &mdash; it makes all three more findable, faster, and spatially anchored to the actual geography of agricultural decision-making.</p>
+
+  <!-- SECTION 5: COMPARISON -->
+  <div class="section-header">
+    <span class="section-num">SECTION V</span>
+    <h2>What makes this different from existing tools</h2>
+  </div>
+
+  <div class="vs-grid">
+    <div class="vs-card">
+      <h3>vs. Google Scholar</h3>
+      <p>Scholar indexes by text and citation; location is buried in abstracts. OpenAgData indexes by research origin as the primary axis, making geography a first-class search dimension.</p>
+    </div>
+    <div class="vs-card">
+      <h3>vs. USDA portals</h3>
+      <p>Agency portals are siloed by program and funding stream. OpenAgData aggregates across agencies and visualizes investment geography &mdash; something no single agency portal can do.</p>
+    </div>
+    <div class="vs-card">
+      <h3>vs. AgriSearch tools</h3>
+      <p>Most agricultural databases are subscription-gated and institution-facing. OpenAgData is open-access by design &mdash; any farmer or advisor can use it without credentials or cost.</p>
+    </div>
+    <div class="vs-card">
+      <h3>vs. AI literature tools</h3>
+      <p>AI summarization tools answer questions but cannot map evidence geographically or reveal where research is absent. OpenAgData is an infrastructure layer, not a summarization endpoint.</p>
+    </div>
+  </div>
+
+  <p>OpenAgData is early-stage infrastructure. The index is growing, the map is live, and the submission pipeline is open. The long-term vision is a platform where any farmer, advisor, or researcher can ask "what does the evidence say for my area?" and get a verified, spatially-grounded answer in seconds &mdash; not weeks.</p>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Explore OpenAgData</h2>
+    <p>Agricultural research, indexed by where it happened &mdash; not where it was published.</p>
+    <a class="cta-link" href="https://open-ag-data.com/" target="_blank" rel="noopener noreferrer">open-ag-data.com &nearr;</a>
+  </div>
+
+</div>
+
+<div class="article-footer">
+  <a class="back-link" href="/">&larr; Back to sauravdas.me</a>
+</div>
+
+</body>
+</html>
