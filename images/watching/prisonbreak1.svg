@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="600" height="900">
+  <defs>
+    <radialGradient id="bg1" cx="50%" cy="50%" r="70%" >
+      <stop offset="0%" stop-color="#1a2a40"/>
+      <stop offset="100%" stop-color="#050a10"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="none"/>
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2a4563" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="900" fill="url(#bg1)"/>
+  <rect width="600" height="900" fill="url(#grid)"/>
+  <g transform="translate(300, 450) scale(1.5)" fill="none" stroke="#608ab5" stroke-width="2" stroke-linejoin="round">
+    <polygon points="0,20 -50,-20 0,-60 50,-20" fill="rgba(96, 138, 181, 0.1)"/>
+    <polygon points="0,20 -20,60 0,30 20,60" fill="rgba(96, 138, 181, 0.2)"/>
+    <polygon points="-50,-20 -90,-40 0,-30" fill="rgba(96, 138, 181, 0.1)"/>
+    <polygon points="50,-20 90,-40 0,-30" fill="rgba(96, 138, 181, 0.1)"/>
+    <path d="M 0,-60 L -30,-90 L -10,-50"/>
+    <path d="M 0,-60 L 30,-90 L 10,-50"/>
+    <path d="M -30,-90 L -40,-80 L -25,-75"/>
+  </g>
+</svg>
