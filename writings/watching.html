@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watching — Saurav Das</title>
+<meta name="description" content="Movies, TV series, and anime I love — with short reviews and honest ratings." />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0c;
+    --surface: #121215;
+    --card: #1a1a1f;
+    --border: rgba(255,255,255,0.06);
+    --text: #e8e6e1;
+    --muted: #7a7773;
+    --gold: #d4a843;
+    --accent: #c0392b;
+    --blue: #4a8fe7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    background: rgba(10,10,12,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+  }
+  nav a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  nav a:hover { color: var(--text); }
+  .nav-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a { font-size: 12px; letter-spacing: 0.02em; }
+
+  /* HERO */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 40px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* SECTION */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-icon {
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* CARD GRID */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.12);
+  }
+
+  /* POSTER */
+  .poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+  .poster-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.15;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+    position: relative;
+    z-index: 1;
+  }
+  .poster::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+    z-index: 0;
+  }
+
+  /* POSTER GRADIENTS */
+  .poster-interstellar { background: linear-gradient(135deg, #0c1445 0%, #1a3a5c 40%, #4a2c1a 100%); }
+  .poster-inception { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+  .poster-begins { background: linear-gradient(135deg, #1a1205 0%, #2c1f0e 50%, #0d0d0d 100%); }
+  .poster-tdk { background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 40%, #2d1b4e 100%); }
+  .poster-tdkr { background: linear-gradient(135deg, #1a1008 0%, #2c2010 50%, #0d0d0d 100%); }
+  .poster-batman2022 { background: linear-gradient(135deg, #1a0808 0%, #2e1010 50%, #0a0a0a 100%); }
+  .poster-3body { background: linear-gradient(135deg, #0a1628 0%, #162d50 40%, #0d2818 100%); }
+  .poster-fallout { background: linear-gradient(135deg, #2a1f0a 0%, #4a3510 40%, #1a2a10 100%); }
+  .poster-lastofus { background: linear-gradient(135deg, #0a1a0a 0%, #1a2e14 40%, #2a1a0a 100%); }
+  .poster-naruto { background: linear-gradient(135deg, #1a2a4a 0%, #e67e22 60%, #c0392b 100%); }
+  .poster-bleach { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #2c1b4e 100%); }
+  .poster-deathnote { background: linear-gradient(135deg, #0d0d0d 0%, #1a0a0a 50%, #2e0a0a 100%); }
+  .poster-pluto { background: linear-gradient(135deg, #1a2030 0%, #2a3040 50%, #0a1520 100%); }
+  .poster-pantheon { background: linear-gradient(135deg, #0a1828 0%, #102040 50%, #1a0828 100%); }
+
+  /* CARD BODY */
+  .card-body {
+    padding: 14px 16px 16px;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .card-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+  .card-stars {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .card-review {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .card-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+  .tag-mustwatch { background: rgba(212,168,67,0.15); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
+  .tag-alltime { background: rgba(192,57,43,0.15); color: #e74c3c; border: 1px solid rgba(192,57,43,0.3); }
+  .tag-gem { background: rgba(74,143,231,0.15); color: var(--blue); border: 1px solid rgba(74,143,231,0.3); }
+  .tag-solid { background: rgba(255,255,255,0.06); color: var(--muted); border: 1px solid var(--border); }
+
+  /* FOOTER */
+  footer {
+    max-width: 1100px;
+    margin: 48px auto 0;
+    padding: 24px 40px 40px;
+    border-top: 1px solid var(--border);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .hero, .section, footer { padding-left: 20px; padding-right: 20px; }
+    .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+    .nav-inner { padding: 0 20px; }
+  }
+
+  /* ANIMATE */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .card {
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-back" href="/">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Saurav Das
+    </a>
+    <div class="nav-links">
+      <a href="/#writing">Writing</a>
+      <a href="mailto:saurav12das@gmail.com">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Personal &middot; Entertainment</div>
+  <h1>What I&#8217;m Watching</h1>
+  <p>Movies, TV series, and anime that shaped how I think, or just gave me a really good time. Honest ratings, short takes.</p>
+</div>
+
+<!-- ═══════════ MOVIES ═══════════ -->
+<hr class="section-divider">
+<div class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Movies</div>
+      <div class="section-title">Cinema</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card" style="animation-delay:0.05s">
+      <div class="poster poster-interstellar">
+        <div class="poster-title">Interstellar</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2014</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="card-review">The movie that made me feel small and infinite at the same time. Nolan turned physics into poetry. The docking scene still gets me.</p>
+        <span class="card-tag tag-alltime">All-Time Favorite</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.1s">
+      <div class="poster poster-inception">
+        <div class="poster-title">Inception</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2010</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="card-review">Layers within layers. The spinning top ending is one of the greatest final shots in cinema. Rewatchable endlessly.</p>
+        <span class="card-tag tag-mustwatch">Must Watch</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.15s">
+      <div class="poster poster-tdk">
+        <div class="poster-title">The Dark Knight</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2008</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="card-review">Ledger&#8217;s Joker redefined what a villain could be. This isn&#8217;t a superhero movie &#8212; it&#8217;s a crime thriller that happens to have a cape in it.</p>
+        <span class="card-tag tag-alltime">All-Time Favorite</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.2s">
+      <div class="poster poster-begins">
+        <div class="poster-title">Batman Begins</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2005</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+        </div>
+        <p class="card-review">The origin story that proved you could make a grounded, serious Batman. Nolan built the foundation here for everything that followed.</p>
+        <span class="card-tag tag-mustwatch">Must Watch</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.25s">
+      <div class="poster poster-tdkr">
+        <div class="poster-title">The Dark Knight Rises</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2012</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+        </div>
+        <p class="card-review">Not as tight as TDK, but Bane&#8217;s voice and the pit scene are iconic. A proper ending to the trilogy. The stock exchange scene is wildly underrated.</p>
+        <span class="card-tag tag-solid">Solid</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.3s">
+      <div class="poster poster-batman2022">
+        <div class="poster-title">The Batman</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2022</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+        </div>
+        <p class="card-review">Pattinson as a detective-first Batman was the right call. The Nirvana needle-drop, the Batmobile chase &#8212; pure noir energy. Reeves understood the assignment.</p>
+        <span class="card-tag tag-mustwatch">Must Watch</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ═══════════ TV SERIES ═══════════ -->
+<hr class="section-divider">
+<div class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">TV Series</div>
+      <div class="section-title">Long Form</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card" style="animation-delay:0.05s">
+      <div class="poster poster-3body">
+        <div class="poster-title">3 Body Problem</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2024</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="card-review">Hard sci-fi that doesn&#8217;t dumb itself down. The VR sequences are haunting. Benioff and Weiss redeemed themselves. Liu Cixin&#8217;s ideas translated beautifully.</p>
+        <span class="card-tag tag-mustwatch">Must Watch</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.1s">
+      <div class="poster poster-fallout">
+        <div class="poster-title">Fallout</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2024</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+        </div>
+        <p class="card-review">Best video game adaptation ever made. The Ghoul is one of the best TV characters in years. Walton Goggins absolutely owns every scene. Somehow nails the tone of the games.</p>
+        <span class="card-tag tag-mustwatch">Must Watch</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.15s">
+      <div class="poster poster-lastofus">
+        <div class="poster-title">The Last of Us</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2023</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="card-review">Episode 3 alone is worth the entire series. Pedro Pascal brings a quiet devastation to Joel that the game only hinted at. This is how you adapt a story.</p>
+        <span class="card-tag tag-alltime">All-Time Favorite</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════ ANIME ═══════════ -->
+<hr class="section-divider">
+<div class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Anime</div>
+      <div class="section-title">Animation</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card" style="animation-delay:0.05s">
+      <div class="poster poster-naruto">
+        <div class="poster-title">Naruto</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2002&#8211;2017</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="card-review">The anime that defined perseverance for an entire generation. Pain arc is peak fiction. Believe it. Skip the filler, though.</p>
+        <span class="card-tag tag-alltime">All-Time Favorite</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.1s">
+      <div class="poster poster-deathnote">
+        <div class="poster-title">Death Note</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2006&#8211;2007</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="card-review">The greatest cat-and-mouse thriller ever animated. Light vs. L is intellectual combat at its finest. The potato chip scene is unironically peak cinema.</p>
+        <span class="card-tag tag-mustwatch">Must Watch</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.15s">
+      <div class="poster poster-bleach">
+        <div class="poster-title">Bleach</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2004&#8211;2024</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+        </div>
+        <p class="card-review">Soul Society arc is one of the best arcs in all of anime. TYBW brought it back with insane animation quality. Ichigo&#8217;s Bankai reveal still gives chills.</p>
+        <span class="card-tag tag-mustwatch">Must Watch</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.2s">
+      <div class="poster poster-pluto">
+        <div class="poster-title">Pluto</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2023</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+        </div>
+        <p class="card-review">Urasawa&#8217;s reimagining of Astro Boy as a murder mystery is brilliant. The question it asks &#8212; what makes a robot grieve? &#8212; hit different in the AI era.</p>
+        <span class="card-tag tag-gem">Hidden Gem</span>
+      </div>
+    </div>
+
+    <div class="card" style="animation-delay:0.25s">
+      <div class="poster poster-pantheon">
+        <div class="poster-title">Pantheon</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-year">2022&#8211;2023</span>
+          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+        </div>
+        <p class="card-review">Uploaded consciousness, geopolitics, and what it means to be human. Criminally underrated. If you work in AI, this one will keep you up at night.</p>
+        <span class="card-tag tag-gem">Hidden Gem</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    Saurav Das &middot; 2026 &nbsp;&middot;&nbsp;
+    <a href="/">Home</a> &nbsp;&middot;&nbsp;
+    <a href="/#writing">Writing</a>
+  </div>
+  <div>
+    <a href="/writings/writing__post-ai-economics.html">Post-AI Economics</a> &nbsp;&middot;&nbsp;
+    <a href="/writings/writing__social-coin.html">Social Coin</a> &nbsp;&middot;&nbsp;
+    <a href="/writings/writing__brahmanda.html">Brahmanda</a>
+  </div>
+</footer>
+
+<script>
+// Stagger card animations on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = 'running';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card').forEach(card => {
+  card.style.animationPlayState = 'paused';
+  observer.observe(card);
+});
+</script>
+</body>
+</html>
