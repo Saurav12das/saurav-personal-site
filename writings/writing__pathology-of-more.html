@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pathology of More — Saurav Das</title>
+<meta name="description" content="From 'feed 10 billion' to 'more carbon more carbon' — how single-metric maximization became the organizing ideology of modern food systems, and why it must end." />
+<link rel="canonical" href="https://sauravdas.me/writings/writing__pathology-of-more" />
+<meta property="og:title" content="The Pathology of More: Why Agriculture's Dominant Paradigm Has Outlived Its Logic" />
+<meta property="og:description" content="How single-metric maximization became the organizing ideology of modern food systems, and why it must end." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sauravdas.me/writings/writing__pathology-of-more" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@thedassaurav" />
+<meta name="twitter:title" content="The Pathology of More" />
+<meta name="twitter:description" content="How single-metric maximization became the organizing ideology of modern food systems, and why it must end." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Pathology of More: Why Agriculture's Dominant Paradigm Has Outlived Its Logic",
+  "description": "How single-metric maximization became the organizing ideology of modern food systems, and why it must end.",
+  "author": { "@type": "Person", "name": "Saurav Das", "url": "https://sauravdas.me" },
+  "publisher": { "@type": "Person", "name": "Saurav Das" },
+  "url": "https://sauravdas.me/writings/writing__pathology-of-more",
+  "mainEntityOfPage": "https://sauravdas.me/writings/writing__pathology-of-more"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --ink-mid: #3d3a33;
+    --ink-muted: #7a756a;
+    --ink-faint: #b5b0a6;
+    --paper: #faf8f4;
+    --paper-warm: #f4f0e8;
+    --paper-rule: #e8e2d8;
+    --accent: #8b2e12;
+    --accent-light: #c4401a;
+    --teal: #1D9E75;
+    --coral: #D85A30;
+    --amber: #BA7517;
+    --slate: #888780;
+    --purple: #3C3489;
+    --blue: #185FA5;
+    --col-width: 680px;
+  }
+
+  html { font-size: 18px; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── MASTHEAD ─── */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.02) 40px,
+      rgba(255,255,255,0.02) 41px
+    );
+  }
+  .masthead-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--paper);
+    max-width: 800px;
+    margin: 0 auto 1.2rem;
+    position: relative;
+  }
+  .masthead h1 em {
+    font-style: italic;
+    color: #e8a87c;
+  }
+  .masthead-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(250,248,244,0.65);
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    position: relative;
+  }
+  .byline {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    position: relative;
+  }
+  .byline span { color: rgba(250,248,244,0.5); margin: 0 0.5rem; }
+
+  /* ─── LAYOUT ─── */
+  .container {
+    max-width: var(--col-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .container-wide {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ─── ABSTRACT ─── */
+  .abstract {
+    background: var(--paper-warm);
+    border-top: 3px solid var(--accent);
+    padding: 2.5rem 2rem;
+    margin: 3rem auto;
+    max-width: var(--col-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .abstract-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .abstract p {
+    font-size: 0.94rem;
+    line-height: 1.75;
+    color: var(--ink-mid);
+  }
+
+  /* ─── PROSE ─── */
+  .prose { padding: 0 0 2rem; }
+
+  .section-header {
+    margin: 4rem 0 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--paper-rule);
+  }
+  .section-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .prose p {
+    margin-bottom: 1.4rem;
+    font-size: 1rem;
+    color: var(--ink-mid);
+  }
+  .prose p:first-child::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem;
+    font-weight: 600;
+    float: left;
+    line-height: 0.75;
+    margin: 0.1rem 0.1rem 0 0;
+    color: var(--accent);
+  }
+
+  .prose h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 2.5rem 0 1rem;
+    color: var(--ink);
+  }
+
+  /* ─── PULLQUOTE ─── */
+  .pullquote {
+    border-left: 3px solid var(--accent);
+    margin: 2.5rem 0;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+  }
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 0.5rem !important;
+  }
+  .pullquote cite {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-style: normal;
+  }
+
+  /* ─── DATA CALLOUT ─── */
+  .data-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--paper-rule);
+    border: 1px solid var(--paper-rule);
+    margin: 2rem 0;
+  }
+  .data-cell {
+    background: var(--paper);
+    padding: 1.2rem 1rem;
+    text-align: center;
+  }
+  .data-cell .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+    display: block;
+  }
+  .data-cell .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: block;
+    margin-top: 0.4rem;
+    line-height: 1.4;
+  }
+
+  /* ─── FIGURE ─── */
+  .figure {
+    margin: 3rem 0;
+    background: var(--paper-warm);
+    border: 1px solid var(--paper-rule);
+    padding: 1.5rem;
+  }
+  .figure-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .figure-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .figure-note {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .chart-wrap {
+    position: relative;
+    width: 100%;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .legend-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .legend-dash {
+    width: 20px;
+    height: 0;
+    border-top: 2px dashed var(--slate);
+    flex-shrink: 0;
+  }
+
+  /* ─── SEPARATOR ─── */
+  .sep {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--ink-faint);
+    letter-spacing: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: rgba(250,248,244,0.45);
+    padding: 2.5rem 2rem;
+    margin-top: 5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+    text-align: center;
+  }
+  footer strong { color: rgba(250,248,244,0.7); }
+
+  /* ─── PRINT ─── */
+  @media print {
+    .masthead { background: #1a1814; -webkit-print-color-adjust: exact; }
+    .figure { break-inside: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    html { font-size: 16px; }
+    .masthead { padding: 2rem 1.2rem 2rem; }
+    .abstract { margin: 1.5rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <p class="masthead-label">Independent Analysis &nbsp;·&nbsp; April 2026</p>
+  <h1>The Pathology of <em>More</em>: Why Agriculture's Dominant Paradigm Has Outlived Its Logic</h1>
+  <p class="masthead-sub">From "feed 10 billion" to "more carbon more carbon" — how single-metric maximization became the organizing ideology of modern food systems, and why it must end.</p>
+  <p class="byline">Saurav Das, PhD <span>·</span> Independent Researcher</p>
+</header>
+
+<!-- ABSTRACT -->
+<div class="container">
+<div class="abstract">
+  <p class="abstract-label">Abstract</p>
+  <p>The world already produces enough food to feed 10–15 billion people, yet 673 million go hungry. Global food supply averages nearly 3,000 kcal per person per day — well above the human dietary requirement of roughly 2,350 kcal. The constraint is not production; it is distribution, waste, inequality, and the allocation of calories to livestock and biofuels. Meanwhile, the yield-maximization paradigm born of the Green Revolution generates an estimated $10–12.7 trillion in hidden annual externalities while degrading the soil, water, and biodiversity on which all food production depends. This essay argues that the "more and more" paradigm — now replicating itself in the rush toward soil carbon sequestration — is not a solution to food insecurity but a structural impediment to it. The alternative is a sufficiency framework: measuring agricultural success by nutritional outcomes, system health, equity, and ecological integrity rather than tonnes of commodity output per hectare.</p>
+</div>
+</div>
+
+<!-- BODY -->
+<div class="container">
+<div class="prose">
+
+<!-- INTRO -->
+<div class="section-header">
+  <span class="section-number">Preamble</span>
+  <h2>A sentence that opens almost every agricultural research paper</h2>
+</div>
+
+<p>Open almost any agricultural research paper published in the last two decades and you will find some version of the same sentence within the first three paragraphs: <em>We must feed 10 billion people by 2050.</em> It appears in grant applications, policy briefs, FAO reports, university press releases, and TED talks. It is the foundational claim of modern food systems thinking — the premise from which every recommendation for more yield, more land, more fertilizer, more technology follows as a logical necessity. The problem is that it is not true, or at least not in any sense that makes the production imperative the obvious response.</p>
+
+<p>I have spent a career studying soil, farming systems, and the microbiology that underlies agricultural productivity. Increasingly, I find myself preoccupied by a different kind of problem — not whether we can grow more, but whether "more" is the right question at all. This essay is an attempt to think through that question systematically: where the "more" paradigm came from, what it has cost, and where it is headed now that carbon sequestration has become the newest maximization target in the field I know best.</p>
+
+<p>I want to be precise about what I am and am not arguing. The Green Revolution was a genuine humanitarian achievement. Norman Borlaug's semi-dwarf wheat varieties almost certainly prevented mass famine in South Asia in the 1960s and 70s. The question is not whether increasing food production has ever been the right goal — it clearly has been, in specific contexts, at specific moments. The question is whether it remains the right organizing principle for agricultural science and policy in 2026, and whether the institutions that emerged from that moment have calcified around a metric whose usefulness has expired.</p>
+
+<div class="pullquote">
+  <p>"We already grow enough food for 10 billion people — and still can't end hunger."</p>
+  <cite>Holt-Giménez et al., Journal of Sustainable Agriculture, 2012</cite>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section-header">
+  <span class="section-number">Section I</span>
+  <h2>The arithmetic of abundance we refuse to acknowledge</h2>
+</div>
+
+<p>The numbers are not subtle. According to Berners-Lee and colleagues, writing in <em>Elementa: Science of the Anthropocene</em> in 2018, global crop production in 2013 amounted to 5,935 kilocalories per person per day. The global population-weighted average dietary energy requirement is approximately 2,353 kilocalories per person per day. We are producing, in raw terms, more than 2.5 times what the world's population needs to survive. A 2025 University of Minnesota preprint puts the figure even higher: global croplands in 2020 produced enough calories to feed 15 billion people.</p>
+
+<div class="data-row">
+  <div class="data-cell">
+    <span class="number">5,935</span>
+    <span class="label">kcal produced per person / day (2013)</span>
+  </div>
+  <div class="data-cell">
+    <span class="number">2,353</span>
+    <span class="label">kcal needed per person / day (avg requirement)</span>
+  </div>
+  <div class="data-cell">
+    <span class="number">2.5×</span>
+    <span class="label">production surplus over human dietary need</span>
+  </div>
+  <div class="data-cell">
+    <span class="number">~⅓</span>
+    <span class="label">of all food produced is lost or wasted</span>
+  </div>
+</div>
+
+<p>Where do those 5,935 kilocalories go? Of the total, 1,738 kilocalories per person per day — roughly 41% — are fed to farmed animals, which return only 594 kilocalories in the form of meat, dairy, and fish: a conversion efficiency of about 11%. Another 808 kilocalories go to biofuels, cosmetics, and industrial uses. Harvest and post-harvest losses consume roughly 670 kilocalories. Only 2,531 kilocalories per person per day actually reach human mouths — barely above the global requirement. The food gap, in other words, is an allocation gap and a poverty gap. It is not a production gap.</p>
+
+</div><!-- close prose for wide figure -->
+</div><!-- close container -->
+
+<div class="container-wide">
+<div class="figure">
+  <p class="figure-label">Figure 1</p>
+  <p class="figure-title">Where do global food calories actually go? (kcal / person / day)</p>
+  <p class="figure-note">Source: Berners-Lee et al. (2018), <em>Elementa</em>. Global crop production: 5,935 kcal/person/day. Human dietary requirement: ~2,353 kcal/person/day. The gap between what is produced and what reaches people is not a production failure — it is a distribution and allocation failure.</p>
+  <div class="chart-wrap" style="height:320px">
+    <canvas id="fig1"></canvas>
+  </div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-swatch" style="background:#1D9E75"></span>Reaches human mouths (2,531 kcal)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#D85A30"></span>Fed to livestock — returns only 594 kcal (1,738 kcal in)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#BA7517"></span>Biofuels &amp; industrial use (808 kcal)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#888780"></span>Harvest &amp; post-harvest losses (858 kcal)</span>
+  </div>
+</div>
+</div>
+
+<div class="container">
+<div class="prose">
+
+<p>Food waste compounds this enormously. The FAO's landmark 2011 study estimated that roughly one-third of food produced globally — 1.3 billion tonnes annually — is lost or wasted. When farm-stage losses are fully counted, the fraction approaches 40% by weight. The World Wildlife Fund's 2021 "Driven to Waste" report estimated 1.2 billion tonnes of food lost at farm level alone. These wasted calories generate 8–10% of global greenhouse gas emissions — nearly five times the aviation sector.</p>
+
+<p>Amartya Sen established the intellectual foundation for understanding this more than four decades ago. His analysis of the 1943 Bengal famine showed that food production that year was actually 13% higher than in 1941, when no famine occurred. Starvation was an entitlement failure — people lacked purchasing power to access food that existed — not a production failure. This insight remains devastatingly relevant: in 2024, 2.3 billion people were moderately or severely food insecure, and 2.6 billion could not afford a healthy diet, all while global food supply averaged approximately 2,900 kilocalories per person per day.</p>
+
+<h3>Why the "feed 10 billion" narrative persists despite the evidence</h3>
+
+<p>If the data are this clear, why does the crisis framing dominate? The FAO's 2009 report "How to Feed the World in 2050" projected a 70% production increase requirement by mid-century — a figure that was widely cited and broadly contested. Jonathan Latham, in "The Myth of a Food Crisis," showed that the FAO's model counted biofuels as food demand, assumed current systems operate at their productive limits, and omitted roughly 12.5 billion persons' worth of food annually through methodological choices. The World Resources Institute's closely related "food gap" analysis became canonical before its assumptions could be adequately scrutinized. The round number — 10 billion — entered policy discourse and stuck, because round numbers do.</p>
+
+<p>The persistence of the narrative serves identifiable institutional interests: agribusiness corporations that sell the seed-fertilizer-pesticide package; international institutions whose legitimacy depends on framing food security as a production problem; and policymakers who prefer technological solutions over confronting structural inequality. A ClimateWorks Foundation analysis found that these narratives "are driven by just a handful of multinational agrifood companies" that shape food and agriculture policies and public perception. The point is not conspiracy — it is structural alignment. When your business model depends on selling more inputs, you need a crisis that more inputs can solve.</p>
+
+<!-- SECTION 2 -->
+<div class="section-header">
+  <span class="section-number">Section II</span>
+  <h2>The demographic reality that no longer supports panic</h2>
+</div>
+
+<p>The population projections underlying the "feed 10 billion" narrative have shifted substantially, and the revisions tell an important story. The UN World Population Prospects 2024 projects a global peak of approximately 10.3 billion in 2084 — 700 million lower than projections from a decade earlier. The 2022 edition was actually the first UN assessment ever to project any 21st-century peak; previous editions projected populations exceeding 11 billion with no peak before 2100.</p>
+
+<p>More significantly, the Institute for Health Metrics and Evaluation, publishing in <em>The Lancet</em>, projects a peak of 9.73 billion in 2064 followed by decline to 8.79 billion by 2100. An updated 2024 IHME study projects the global total fertility rate declining from 2.23 in 2021 to 1.83 by 2050 and 1.59 by 2100. By 2100, 198 of 204 countries are projected to have fertility below replacement level of 2.1 births per woman.</p>
+
+</div>
+</div>
+
+<div class="container-wide">
+<div class="figure">
+  <p class="figure-label">Figure 2</p>
+  <p class="figure-title">Peak population projections have fallen — repeatedly</p>
+  <p class="figure-note">UN World Population Prospects 2024 median vs. IHME/Lancet 2020 reference scenario. The "10 billion by 2050" threshold embedded in agricultural policy planning is not a settled scientific consensus — it is a policy artifact that has drifted from the evolving demographic evidence base.</p>
+  <div class="chart-wrap" style="height:300px">
+    <canvas id="fig2"></canvas>
+  </div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-swatch" style="background:#185FA5"></span>UN WPP 2024 median</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#D85A30"></span>IHME / Lancet 2020 reference</span>
+    <span class="legend-item"><span class="legend-dash"></span>"Feed 10 billion" policy threshold</span>
+  </div>
+</div>
+</div>
+
+<div class="container">
+<div class="prose">
+
+<p>The fertility collapse is accelerating far faster than mainstream demographic models anticipated. South Korea's total fertility rate hit 0.72 in 2023 — the lowest ever recorded for a sovereign state — despite more than $270 billion spent on pronatalist policies since 2006. China's population has declined for four consecutive years. India dropped below replacement fertility around 2019–2020. Latin America's regional total fertility rate reached 1.8 in 2024, with 76% of countries below replacement. Even Sub-Saharan Africa has seen Nigeria's 2100 population projection revised from 914 million (WPP 2012) to 477 million (WPP 2024).</p>
+
+<p>The "10 billion by 2050" framing conflates two numbers: the UN projects approximately 9.7 billion in 2050 (not 10 billion), with any peak occurring roughly three decades after that. The round number persists because it entered policy discourse before the revisions, and because the institutions it animates have strong incentives not to update it.</p>
+
+<!-- SECTION 3 -->
+<div class="section-header">
+  <span class="section-number">Section III</span>
+  <h2>How yield became the only metric that mattered — and what it destroyed</h2>
+</div>
+
+<p>The Green Revolution's achievements were real and should be acknowledged honestly before they are critiqued. Norman Borlaug's semi-dwarf wheat varieties transformed Mexican agriculture from the 1940s onward, with wheat yields quadrupling by 1970. India's wheat output surged from 12 million tonnes in 1965 to 20 million in 1970. IR8 rice, developed at the International Rice Research Institute, increased yields roughly tenfold under optimal conditions. World grain output grew more than 150% from 1950 to 1992. These were genuine humanitarian accomplishments, achieved under genuine humanitarian pressure.</p>
+
+<p>But Borlaug himself called the Green Revolution "a temporary success in man's war against hunger" — a qualification his institutional successors largely ignored. The productivist paradigm — the assumption that more food production equals less hunger — became entrenched through the CGIAR international research centers, national agricultural research systems, and a funding architecture dominated by private sector R&D. The combined research budgets of the six largest seed companies are now six times greater than the entire USDA agricultural research allocation and twenty times greater than international agricultural research centers. All of it is directed toward yield improvement within a system that takes the yield metric as given.</p>
+
+<div class="pullquote">
+  <p>"Farmers get paid by the weight of a crop, not by the amount of nutrients."</p>
+  <cite>Donald Davis, biochemist, on the "genetic dilution effect"</cite>
+</div>
+
+<h3>The nutrient density paradox</h3>
+
+<p>As yields rose, nutritional value fell. Donald Davis and colleagues, in a 2004 study in the <em>Journal of the American College of Nutrition</em>, documented statistically significant declines in six of thirteen nutrients across 43 garden crops between 1950 and 1999 — ranging from 6% for protein to 38% for riboflavin. Wheat varieties developed over the past century show mineral declines of 22–39%, with some contemporary varieties containing only half the protein of older cultivars. The mechanism is what Davis called the "genetic dilution effect": selecting for yield means selecting for larger cells and more water, which dilutes the concentration of everything else per unit weight.</p>
+
+</div>
+</div>
+
+<div class="container-wide">
+<div class="figure">
+  <p class="figure-label">Figure 3</p>
+  <p class="figure-title">Nutrient density decline in 43 crops, 1950–1999</p>
+  <p class="figure-note">Source: Davis et al. (2004), <em>Journal of the American College of Nutrition</em>. As yields rose through variety selection and intensification, nutrient concentrations per unit weight fell systematically. The metric we optimized for (yield) actively degraded the metric we actually needed (nutrition).</p>
+  <div class="chart-wrap" style="height:280px">
+    <canvas id="fig3"></canvas>
+  </div>
+</div>
+</div>
+
+<div class="container">
+<div class="prose">
+
+<h3>Soil, water, and the long balance sheet</h3>
+
+<p>Soil degradation represents the paradigm's most fundamental self-contradiction: the system is consuming the resource base it depends on. Global soil erosion removes approximately 75 billion tonnes annually, causing roughly $400 billion in losses. Soil is eroding 16 to 300 times faster than it forms. Nearly one-third of the world's farmable land has been degraded in the last four decades. In Punjab, India — the Green Revolution's showcase — water tables fell 0.3 to 1.0 meters annually through the 1990s and 2000s.</p>
+
+<p>The Ogallala Aquifer, which supports $35 billion in annual crop production across the American Great Plains, has lost more than 273 million acre-feet since 1900, with some areas dropping 100 to 200 feet. It is projected to be 70% depleted within 50 years. The American Bar Association has documented that the U.S. government effectively subsidizes this depletion through crop insurance and commodity programs that make high-water irrigation economically rational for individual farmers even as it is collectively catastrophic.</p>
+
+<h3>Genetic erosion and the seeds we have lost</h3>
+
+<p>The FAO estimates that approximately 75% of crop genetic diversity was lost between 1900 and 2000. More than 90% of crop varieties have disappeared from farmers' fields. A RAFI survey found 97% of varieties listed in old USDA catalogs are now extinct. Today, just 30 crops provide 95% of the world's calorie and protein demands, with wheat, rice, and maize alone supplying more than half of global plant-derived energy. This is not just an aesthetic loss. It is a catastrophic reduction in the adaptive capacity of food systems to face climate variability, new pathogens, and the stresses we have not yet imagined.</p>
+
+<h3>The hidden costs that make the balance sheet negative</h3>
+
+<p>The FAO's State of Food and Agriculture 2023 attempted what had rarely been done: a full true-cost accounting of the global agrifood system. The result was $10 to 12.7 trillion in hidden annual costs — nearly 10% of global GDP. Health-related costs (obesity, non-communicable diseases, productivity losses) account for over $9 trillion, or 73% of the total. Environmental costs — nitrogen emissions, greenhouse gases, land degradation, water use — add approximately $2.9 trillion. The Rockefeller Foundation's 2021 True Cost of Food report found that U.S. consumers spent $1.1 trillion on food in 2019 but generated at least $2.1 trillion in negative externalities: roughly $2 in hidden costs for every $1 spent.</p>
+
+</div>
+</div>
+
+<div class="container-wide">
+<div class="figure">
+  <p class="figure-label">Figure 4</p>
+  <p class="figure-title">Hidden externalities of global agrifood systems: $10–12.7 trillion per year</p>
+  <p class="figure-note">Source: FAO State of Food and Agriculture 2023. Hidden costs represent nearly 10% of global GDP — dwarfing the $1.1 trillion in direct US food spending. The food system that appears cheap at the checkout is extraordinarily expensive when full costs are counted.</p>
+  <div class="chart-wrap" style="height:280px">
+    <canvas id="fig4"></canvas>
+  </div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-swatch" style="background:#D85A30"></span>Health costs — obesity, NCDs, productivity ($9.3T)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#1D9E75"></span>Environmental costs — GHG, land, water, nitrogen ($2.9T)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#888780"></span>Social costs — poverty, livelihoods ($0.5T)</span>
+  </div>
+</div>
+</div>
+
+<div class="container">
+<div class="prose">
+
+<!-- SECTION 4 -->
+<div class="section-header">
+  <span class="section-number">Section IV</span>
+  <h2>Soil carbon sequestration: the newest iteration of the same trap</h2>
+</div>
+
+<p>I want to be careful here, because soil health matters enormously to me, and the impulse behind the soil carbon agenda is not wrong. Degraded soils are a genuine crisis. Building organic matter improves water retention, fertility, aggregate stability, and biological activity in ways that are well-established and largely uncontroversial. These are real benefits that matter for farmers and ecosystems.</p>
+
+<p>The problem is what happens when a good ecological outcome gets converted into a single maximization target, assigned a market price, and attached to corporate offsetting strategies. That is precisely what has happened with soil carbon sequestration, and it is replicating the logic of yield maximization with troubling fidelity.</p>
+
+<p>The 4 per 1000 initiative, launched by the French government at COP21 in December 2015, proposed that increasing soil organic carbon stocks by 0.4% annually could theoretically offset all fossil fuel CO₂ emissions. The arithmetic is elegant: the global soil carbon pool (roughly 1,500–2,400 gigatons of carbon to one meter depth) dwarfs annual fossil fuel emissions (8.9–9.4 Gt C/year). But the biology is far more constrained than the arithmetic suggests.</p>
+
+<div class="pullquote">
+  <p>"Carbon for soils, not soils for carbon."</p>
+  <cite>Moinet et al., Global Change Biology, 2023</cite>
+</div>
+
+<h3>What the science actually shows</h3>
+
+<p>Minasny and colleagues, surveying 20 world regions, found that while 4‰ rates are achievable in some conditions — particularly soils with low initial carbon stocks — realistic achievable rates are 0.2 to 0.5 tonnes of carbon per hectare per year, falling well short of the target. Rates decrease over time as soils approach new equilibrium. Poulton and colleagues at Rothamsted, drawing on experiments dating to 1843, demonstrated that rates of increase slow as equilibrium approaches, and that adding farmyard manure could increase nitrous oxide emissions by 33%, potentially offsetting the carbon benefit.</p>
+
+<p>The most rigorous recent assessment, by Moinet and colleagues in <em>Global Change Biology</em> (2023), shows that ignoring soil carbon saturation overestimates sequestration potential by 53 to 81% by 2100. With realistic saturation dynamics, the contribution to climate mitigation is less than 1 to 4% of needed reductions. The total additional carbon storage potential in global cropland topsoil is estimated at 29–65 petagrams of carbon — equivalent to just 3 to 7 years of current emissions.</p>
+
+</div>
+</div>
+
+<div class="container-wide">
+<div class="figure">
+  <p class="figure-label">Figure 5</p>
+  <p class="figure-title">Soil carbon sequestration: the gap between ambition and physical reality</p>
+  <p class="figure-note">Sources: Minasny et al. (2017), Moinet et al. (2023). The 4‰ initiative target assumes soil systems with unlimited capacity; saturation dynamics change the calculation fundamentally. The realistic contribution to climate mitigation is &lt;1–4% of needed reductions — significant for soil health, but not the climate solution it has been framed as.</p>
+  <div class="chart-wrap" style="height:300px">
+    <canvas id="fig5"></canvas>
+  </div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-swatch" style="background:#3C3489"></span>4‰ initiative implied target (4.4 Gt C/yr)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#1D9E75"></span>Optimistic achievable (Minasny et al.)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#D85A30"></span>Realistic with saturation (Moinet et al. 2023)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#444441"></span>Annual fossil fuel emissions (reference)</span>
+  </div>
+</div>
+</div>
+
+<div class="container">
+<div class="prose">
+
+<h3>The carbon market experiment has already partially collapsed</h3>
+
+<p>The agricultural carbon credit market passed through a boom-bust cycle with instructive speed. Voluntary carbon market startups attracted significant investment and corporate buyers. The voluntary agriculture carbon credit segment fell from $84.9 million in 2023 to $36.1 million in 2024 — a 57% decline. Nori, one of the pioneering platforms, shut down in September 2024. The structural problems were precisely those predicted by single-metric optimization theory: measurement uncertainty running 15–30% for soil carbon; most protocols sampling only to 30 centimeters, potentially capturing redistribution rather than net gain; additionality failures (paying farmers who were already implementing beneficial practices); and value extraction by technology providers and aggregators leaving farmers thin margins on modest credits.</p>
+
+<p>The permanence problem is fundamental. Sequestered soil carbon can be reversed by tillage, drought, land-use change, and — critically — climate change itself, which accelerates microbial decomposition. A 2022 study estimated soil carbon potential could be reduced by 14% by 2040 under business-as-usual climate scenarios. As Philippe Baveye of AgroParisTech warned, the carbon sequestration promise is "music to the ears of policy-makers, since it means clearly that they can largely or even entirely sidestep the transition to renewable forms of energy." The promise of carbon in soils is becoming, like the promise of yield, a way to defer the harder structural changes.</p>
+
+<!-- SECTION 5 -->
+<div class="section-header">
+  <span class="section-number">Section V</span>
+  <h2>The "more" pathology is not unique to agriculture</h2>
+</div>
+
+<p>The pattern of single-metric optimization leading to system degradation appears across every complex system we have tried to manage this way. Charles Goodhart formulated the principle in 1975, later popularized by Marilyn Strathern: "When a measure becomes a target, it ceases to be a good measure." Donald Campbell stated the complementary law in 1976: the more any quantitative indicator is used for social decision-making, the more it will be corrupted and the more it will distort the processes it is meant to monitor. These are not abstract academic observations. They are descriptions of what happens, with reliable regularity, when we optimize complex systems for simple numbers.</p>
+
+<p>GDP is the paradigmatic example. Simon Kuznets, who developed national income accounting in 1934, explicitly warned Congress: "The welfare of a nation can scarcely be inferred from a measurement of national income." Robert Kennedy's 1968 speech at the University of Kansas remains the most eloquent articulation of what GDP cannot measure: it counts "air pollution and cigarette advertising and ambulances to clear our highways of carnage" but measures nothing "that makes life worthwhile." The Genuine Progress Indicator, which adjusts GDP for inequality, household work, and environmental costs, shows that global GPI per capita peaked in 1978 and has declined since, even as GDP more than tripled.</p>
+
+</div>
+</div>
+
+<div class="container-wide">
+<div class="figure">
+  <p class="figure-label">Figure 6</p>
+  <p class="figure-title">The "more" paradigm across systems: a recognizable collapse pattern</p>
+  <p class="figure-note">Grand Banks cod biomass as % of 1962 peak (left scale, coral) vs. global Genuine Progress Indicator per capita indexed to 1978 peak (right scale, teal dashed). Different systems, same optimization logic, same trajectory. The moratorium on Grand Banks cod fishing came in 1992 — 30 years after the data began signaling collapse.</p>
+  <div class="chart-wrap" style="height:300px">
+    <canvas id="fig6"></canvas>
+  </div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-swatch" style="background:#D85A30"></span>Grand Banks cod spawning biomass (% of 1962 peak)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#1D9E75"></span>Global GPI per capita (indexed, 1978 = 100)</span>
+  </div>
+</div>
+</div>
+
+<div class="container">
+<div class="prose">
+
+<p>The collapse of the Grand Banks cod fishery is perhaps the clearest ecological case study in optimizing for the wrong metric. Spawning biomass dropped 93% in 30 years — from 1.6 million tonnes in 1962 to 72,000–110,000 tonnes in 1992. Governments consistently set quotas higher than scientists advised, guided by maximum sustainable yield models whose assumptions were violated by the very exploitation they were meant to manage. The 1992 moratorium cost 30,000 jobs and lasted 32 years. When it was partially lifted in June 2024, the allowable catch was less than 10% of the pre-collapse quota.</p>
+
+<p>The Aral Sea — once the world's fourth-largest inland lake — lost approximately 90% of its volume after Soviet irrigation diversions for cotton production beginning in the 1960s. The goal was maximum cotton output. The result was the destruction of an entire regional ecosystem, the extinction of more than 20 fish species, and a public health disaster from salt and pesticide dust across the desiccated lakebed. Germany's post-WWII spruce monocultures — planted for maximum timber yield — showed the same pattern: productive for decades, then catastrophically fragile when the 2018 drought hit simplified forests with no ecological resilience.</p>
+
+<!-- SECTION 6 -->
+<div class="section-header">
+  <span class="section-number">Section VI</span>
+  <h2>A different way of organizing agricultural knowledge</h2>
+</div>
+
+<p>Thomas Princen's <em>The Logic of Sufficiency</em>, published by MIT Press in 2005, provides what I think is the most useful conceptual framework for what comes next. Sufficiency, Princen argues, is "the sense that, as one does more and more of an activity, there can be enough and there can be too much." It is not deprivation. It is not primitivism. It is a design principle: given that we already produce enough food for 10–15 billion people, what would it mean to organize agriculture around system health rather than maximum output?</p>
+
+<p>A pivotal 2022 paper in <em>Nature Sustainability</em> by McGreevy, Rupprecht, Niles, Wiek, Carolan, Kallis, and colleagues articulates five principles for agrifood systems in a post-growth world: sufficiency, regeneration, distribution, commons, and care. It has attracted over 218 citations and 51,000 accesses in three years — substantial evidence that the research community is ready for a paradigm shift that the funding landscape has not yet caught up with.</p>
+
+<h3>What the evidence shows about alternatives</h3>
+
+<p>The 2008 International Assessment of Agricultural Knowledge, Science and Technology for Development, involving 400 scientists from 110 countries and co-sponsored by the FAO, World Bank, UNDP, and WHO, concluded unambiguously: "Business as usual is not an option." Olivier De Schutter, as UN Special Rapporteur on the Right to Food, reported in 2011 that agroecology could "double food production in entire regions within 10 years," citing Jules Pretty's study of 286 projects across 57 countries showing an average crop yield gain of 79%.</p>
+
+<p>Cuba's post-Soviet agroecological transition is instructive: from 200 agroecological farmers in 1999 to 200,000 by 2018 through the Farmer-to-Farmer Movement, with small farmers on 20% of agricultural land producing over 40% of domestic food. Brazil's Zero Hunger program demonstrated that ending hunger is primarily a distribution challenge: under renewed political commitment in 2023, severe food insecurity fell from 9.9% to 3.4% — a two-thirds reduction — through public procurement from family farms, cash transfers, and school feeding mandates, not production increases. India's Andhra Pradesh Community Managed Natural Farming program, engaging roughly 580,000 farmers, was assessed in a 2025 <em>Nature Ecology &amp; Evolution</em> study — the first large-scale causal inference analysis of such a program — and found to deliver biodiversity and economic benefits without lowering yields, with 50–60% less water use and dramatically reduced input costs.</p>
+
+<h3>The funding mismatch that tells you who is in charge</h3>
+
+<p>The gap between the evidence for alternative paradigms and the research funding directed toward them reveals where institutional power actually sits. DeLonge, Miles, and Carlisle, writing in <em>Environmental Science &amp; Policy</em> in 2016, found that agroecological research represented only 0.6 to 1.5% of the 2014 USDA research budget. Systems-based projects received just 4% of analyzed funds. UK overseas aid for agroecological projects accounts for less than 0.5% of total UK aid.</p>
+
+</div>
+</div>
+
+<div class="container-wide">
+<div class="figure">
+  <p class="figure-label">Figure 7</p>
+  <p class="figure-title">Agricultural R&amp;D funding: who decides what gets studied?</p>
+  <p class="figure-note">Sources: DeLonge et al. (2016); USDA budget data; CGIAR annual report. Agroecological research receives approximately 1.5% of USDA's allocation. Private seed &amp; agrochemical R&D runs 6× the USDA total and 20× CGIAR. The funding landscape is not neutral — it systematically reproduces the yield-maximization paradigm.</p>
+  <div class="chart-wrap" style="height:280px">
+    <canvas id="fig7"></canvas>
+  </div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-swatch" style="background:#444441"></span>Top 6 seed companies (private R&amp;D, ~$12B)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#185FA5"></span>USDA agricultural research (~$2B)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#3C3489"></span>CGIAR portfolio (~$0.9B)</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:#1D9E75"></span>Agroecological research (~$0.03B, ~1.5% of USDA)</span>
+  </div>
+</div>
+</div>
+
+<div class="container">
+<div class="prose">
+
+<!-- CONCLUSION -->
+<div class="section-header">
+  <span class="section-number">Conclusion</span>
+  <h2>Carbon for soils, not soils for carbon — and food for people, not people for food systems</h2>
+</div>
+
+<p>The Green Revolution bought time. It prevented mass famine in South Asia when the stakes were genuine and the alternatives were limited. Those achievements were real and the humanitarian stakes were genuine. Norman Borlaug's own characterization of the work as "a temporary success in man's war against hunger" was both honest and prescient.</p>
+
+<p>The pathology lies not in the original intervention but in the institutional ossification that followed. A crisis response became a permanent ideology. Yield-per-hectare, like GDP, was a useful wartime metric that metastasized into a totalizing framework — optimizing for one output while degrading every system it depends on: soil, water, biodiversity, nutrition, farmer livelihoods, and climate stability. The "feed 10 billion" narrative persists not because the evidence supports it but because it serves the business model of a $45 billion seed industry, a multi-billion-dollar agrochemical complex, and the institutional logic of organizations that need production crises to justify their existence.</p>
+
+<p>The deepest lesson may come from Moinet and colleagues' reframing of the carbon sequestration debate: carbon for soils, not soils for carbon. Applied broadly, the principle is this: food for people, not people for food systems. Sufficiency for thriving, not growth for its own sake. The measure must serve the system, not the other way around.</p>
+
+<p>I believe the intellectual foundations for a different kind of agricultural science already exist — in Princen, in Raworth, in Daly, in the IAASTD, in the IPES-Food reports, in agroecology's decades of experimental evidence. The practical demonstrations exist too, in Cuba, in Brazil, in Andhra Pradesh, in long-term farming systems experiments around the world. The demographic trajectory no longer supports panic — peak population is coming sooner and lower than the canonical narrative assumes.</p>
+
+<p>What remains is the political and institutional challenge of redirecting research funding, reforming the metrics by which we judge success, and dismantling the structural lock-ins that keep a paradigm in place long after its logic has expired. This is harder than growing more wheat. But it is the work that actually needs doing.</p>
+
+<div class="sep">· · ·</div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>The Pathology of More: Why Agriculture's Dominant Paradigm Has Outlived Its Logic</strong></p>
+  <p style="margin-top:0.5rem;">Saurav Das, PhD &nbsp;·&nbsp; Independent Researcher &nbsp;·&nbsp; April 2026</p>
+  <p style="margin-top:1rem;">Key sources: Berners-Lee et al. (2018) <em>Elementa</em>; UN WPP 2024; IHME/Lancet 2020; FAO SOFA 2023; Davis et al. (2004) <em>JACN</em>; Moinet et al. (2023) <em>Global Change Biology</em>; Minasny et al. (2017) <em>Geoderma</em>; Holt-Giménez et al. (2012) <em>J. Sustainable Agriculture</em>; DeLonge et al. (2016) <em>Environmental Science &amp; Policy</em>; McGreevy et al. (2022) <em>Nature Sustainability</em>; Princen (2005) <em>The Logic of Sufficiency</em> MIT Press.</p>
+</footer>
+
+<!-- CHARTS SCRIPT -->
+<script>
+const textColor = '#7a756a';
+const gridColor = 'rgba(122,117,106,0.15)';
+
+const baseScales = {
+  x: { grid:{color:gridColor}, ticks:{color:textColor,font:{size:11,family:'DM Mono, monospace'}} },
+  y: { grid:{color:gridColor}, ticks:{color:textColor,font:{size:11,family:'DM Mono, monospace'}} }
+};
+const basePlugins = { legend:{display:false} };
+
+/* Fig 1 — calorie flow */
+new Chart(document.getElementById('fig1'), {
+  type:'bar',
+  data:{
+    labels:['Reaches human mouths','Fed to livestock','Biofuels & industrial','Lost or wasted'],
+    datasets:[{
+      data:[2531,1738,808,858],
+      backgroundColor:['#1D9E75','#D85A30','#BA7517','#888780'],
+      borderRadius:3,borderSkipped:false
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.raw} kcal/person/day`}}},
+    scales:{
+      x:{grid:{color:gridColor},ticks:{color:textColor,font:{size:11}}},
+      y:{grid:{color:gridColor},ticks:{color:textColor,font:{size:11},callback:v=>v+' kcal'},
+        title:{display:true,text:'kcal / person / day',color:textColor,font:{size:10}}}
+    }
+  }
+});
+
+/* Fig 2 — population */
+new Chart(document.getElementById('fig2'), {
+  type:'line',
+  data:{
+    labels:['2024','2030','2040','2050','2060','2070','2080','2090','2100'],
+    datasets:[
+      {label:'UN WPP 2024',data:[8.2,8.5,9.0,9.7,10.1,10.2,10.3,10.2,10.2],
+       borderColor:'#185FA5',tension:0.4,fill:false,borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#185FA5'},
+      {label:'IHME/Lancet',data:[8.2,8.5,8.9,9.5,9.6,9.5,9.2,8.9,8.8],
+       borderColor:'#D85A30',tension:0.4,fill:false,borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#D85A30'},
+      {label:'10B threshold',data:[10,10,10,10,10,10,10,10,10],
+       borderColor:'#b5b0a6',borderDash:[6,4],borderWidth:1.5,pointRadius:0,fill:false}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{mode:'index'}},
+    scales:{
+      x:{grid:{color:gridColor},ticks:{color:textColor,font:{size:11}}},
+      y:{min:7.5,max:11,grid:{color:gridColor},
+        ticks:{color:textColor,font:{size:11},callback:v=>v.toFixed(1)+'B'},
+        title:{display:true,text:'global population (billions)',color:textColor,font:{size:10}}}
+    }
+  }
+});
+
+/* Fig 3 — nutrient decline */
+new Chart(document.getElementById('fig3'), {
+  type:'bar',
+  data:{
+    labels:['Riboflavin','Calcium','Iron','Vitamin C','Phosphorus','Protein'],
+    datasets:[{
+      label:'% decline 1950–1999',
+      data:[-38,-16,-15,-15,-9,-6],
+      backgroundColor:['#8b2e12','#D85A30','#D85A30','#D85A30','#BA7517','#888780'],
+      borderRadius:3,borderSkipped:false
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,indexAxis:'y',
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.raw}% change`}}},
+    scales:{
+      x:{grid:{color:gridColor},min:-45,max:0,ticks:{color:textColor,font:{size:11},callback:v=>v+'%'}},
+      y:{grid:{color:gridColor},ticks:{color:textColor,font:{size:11}}}
+    }
+  }
+});
+
+/* Fig 4 — hidden costs donut */
+new Chart(document.getElementById('fig4'), {
+  type:'doughnut',
+  data:{
+    labels:['Health costs','Environmental costs','Social costs'],
+    datasets:[{
+      data:[9300,2900,500],
+      backgroundColor:['#D85A30','#1D9E75','#888780'],
+      borderWidth:3,borderColor:'#faf8f4',hoverOffset:6
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,cutout:'60%',
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` $${ctx.raw.toLocaleString()}B/year`}}}
+  }
+});
+
+/* Fig 5 — carbon comparison */
+new Chart(document.getElementById('fig5'), {
+  type:'bar',
+  data:{
+    labels:['4‰ initiative target','Optimistic achievable\n(Minasny et al.)','With saturation\n(Moinet et al. 2023)','Annual fossil fuel\nemissions (reference)'],
+    datasets:[{
+      data:[4.4,0.9,0.28,9.4],
+      backgroundColor:['#3C3489','#1D9E75','#D85A30','#444441'],
+      borderRadius:3,borderSkipped:false
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.raw} Gt C/yr`}}},
+    scales:{
+      x:{grid:{color:gridColor},ticks:{color:textColor,font:{size:10}}},
+      y:{grid:{color:gridColor},ticks:{color:textColor,font:{size:11},callback:v=>v+' Gt C'},
+        title:{display:true,text:'gigatons of carbon per year',color:textColor,font:{size:10}}}
+    }
+  }
+});
+
+/* Fig 6 — collapse pattern */
+new Chart(document.getElementById('fig6'), {
+  type:'line',
+  data:{
+    labels:['1962','1966','1970','1974','1978','1982','1986','1990','1994','1998','2002','2006','2010','2014','2018','2022'],
+    datasets:[
+      {label:'Grand Banks cod biomass',
+       data:[100,105,110,100,90,80,65,45,7,6,6,7,8,9,9,10],
+       borderColor:'#D85A30',tension:0.3,fill:false,borderWidth:2.5,pointRadius:2,pointBackgroundColor:'#D85A30'},
+      {label:'Global GPI/capita',
+       data:[58,65,78,90,100,96,94,90,88,85,82,80,78,75,73,72],
+       borderColor:'#1D9E75',tension:0.3,fill:false,borderWidth:2.5,borderDash:[5,3],pointRadius:2,pointBackgroundColor:'#1D9E75'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false}},
+    scales:{
+      x:{grid:{color:gridColor},ticks:{color:textColor,font:{size:10},maxRotation:45,autoSkip:false}},
+      y:{min:0,max:120,grid:{color:gridColor},ticks:{color:textColor,font:{size:11}}}
+    }
+  }
+});
+
+/* Fig 7 — funding */
+new Chart(document.getElementById('fig7'), {
+  type:'bar',
+  data:{
+    labels:['Top 6 seed cos.\n(private R&D)','USDA ag\nresearch','CGIAR\nportfolio','Agroecology\n(~1.5% of USDA)'],
+    datasets:[{
+      data:[12.0,2.0,0.9,0.03],
+      backgroundColor:['#444441','#185FA5','#3C3489','#1D9E75'],
+      borderRadius:3,borderSkipped:false
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` $${ctx.raw.toFixed(2)}B / year`}}},
+    scales:{
+      x:{grid:{color:gridColor},ticks:{color:textColor,font:{size:10}}},
+      y:{grid:{color:gridColor},ticks:{color:textColor,font:{size:11},callback:v=>'$'+v+'B'},
+        title:{display:true,text:'USD billions per year (approximate)',color:textColor,font:{size:10}}}
+    }
+  }
+});
+</script>
+
+</body>
+</html>
