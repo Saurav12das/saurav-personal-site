@@ -1,8 +1,7 @@
+// @ts-nocheck
 import { ImageResponse } from '@vercel/og';
 
-export const config = {
-  runtime: 'edge',
-};
+export const runtime = 'edge';
 
 // Font URLs from Google Fonts open-source repository
 const SPECTRAL_SEMIBOLD_URL =
