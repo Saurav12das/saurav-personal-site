@@ -11,10 +11,10 @@
         will still track views but won't display a number.
 */
 (function () {
-  var GOATCOUNTER_CODE = 'YOUR_GOATCOUNTER_CODE';
+  var GOATCOUNTER_CODE = 'sauravdas';
 
   if (typeof window === 'undefined') return;
-  if (!GOATCOUNTER_CODE || GOATCOUNTER_CODE === 'YOUR_GOATCOUNTER_CODE') return;
+  if (!GOATCOUNTER_CODE) return;
 
   var host = 'https://' + GOATCOUNTER_CODE + '.goatcounter.com';
   var path = location.pathname + location.search;
