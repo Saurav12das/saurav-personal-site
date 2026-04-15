@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "/usr/bin/ruby",
+      "runtimeArgs": ["-rwebrick", "-e", "WEBrick::HTTPServer.new(:Port=>8080,:DocumentRoot=>'.').start"],
+      "port": 8080
+    }
+  ]
+}
