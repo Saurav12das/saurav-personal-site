@@ -87,7 +87,7 @@
         --toggle-hover: rgba(39,42,45,0.98);
         --shadow: 0 12px 34px rgba(0,0,0,0.24);
       }
-      html { color-scheme: light dark; }
+      html { color-scheme: light dark; scroll-behavior: smooth; }
       html[data-theme="light"] { color-scheme: light; }
       html[data-theme="dark"] { color-scheme: dark; }
       html,body { margin:0; padding:0; color:var(--text); transition: background-color 0.25s ease, color 0.25s ease; }
@@ -147,6 +147,14 @@
         color: #fff9f4;
       }
       .hero-actions a.primary:hover { background: color-mix(in srgb, var(--accent) 88%, black); }
+      .scroll-note {
+        margin-top: 14px;
+        color: var(--muted);
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
       .links a, a.inline { color: var(--accent); text-decoration: none; }
       .links a:hover, a.inline:hover { text-decoration: underline; }
       .links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; }
@@ -261,11 +269,12 @@
             <h1>Saurav Das</h1>
             <p class="muted">Founder &middot; Ph.D. Soil Microbiology &middot; Building AI infrastructure for agriculture</p>
             <p class="lede">I’m building an agricultural intelligence stack that turns scattered research, soil signals, and farm decisions into connected products people can actually use.</p>
-            <p class="hero-note">The flagship is <a class="inline" href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">Soil Health Exchange</a>, with <a class="inline" href="https://open-ag-data.com/" target="_blank" rel="noopener noreferrer">OpenAgData</a> as the research layer beneath it and a wider product ecosystem expanding into operations, land valuation, and field execution.</p>
+            <p class="hero-note">The flagship is Soil Health Exchange, with OpenAgData as the research layer beneath it and a wider product ecosystem expanding into operations, land valuation, and field execution.</p>
             <div class="hero-actions">
-              <a class="primary" href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">Explore Soil Health Exchange</a>
-              <a href="/writings/research-journey.html">See Research Journey</a>
+              <a class="primary" href="#stack">See What I’m Building</a>
+              <a href="#founder-story">Why Me, Why This</a>
             </div>
+            <div class="scroll-note">Scroll for thesis, momentum, stack, and research</div>
           </div>
           <button class="theme-toggle" type="button" aria-label="Toggle color theme" aria-live="polite">Theme</button>
         </div>
@@ -288,7 +297,7 @@
         </nav>
       </header>
 
-      <section aria-label="Thesis" class="threaded">
+      <section id="thesis" aria-label="Thesis" class="threaded">
         <h2>Thesis</h2>
         <p>
           Agriculture still lacks a coherent intelligence layer. Research lives in PDFs, soil decisions live in fragmented advice, input buying still happens through disconnected channels, and a farm’s ecological value is mostly invisible to markets. I’m building a connected stack to close those gaps.
@@ -298,7 +307,17 @@
         </p>
       </section>
 
-      <section aria-label="Momentum" class="threaded">
+      <section id="founder-story" aria-label="Founder Story" class="threaded">
+        <h2>Founder Story</h2>
+        <p>
+          I’m not approaching this as a generic software founder looking for an agriculture market. I came into it through soil systems, microbial ecology, carbon and nitrogen dynamics, and years of seeing how hard it is for real agricultural knowledge to move from papers and institutions into everyday decisions.
+        </p>
+        <p>
+          That is the founder portfolio beneath all of this: research depth, systems thinking, and product instinct pointed at the same problem. The ambition is not to build five unrelated things. It is to build one coherent intelligence layer for agriculture from multiple entry points.
+        </p>
+      </section>
+
+      <section id="momentum" aria-label="Momentum" class="threaded">
         <h2>Momentum</h2>
         <div class="signal-grid">
           <article class="signal-card">
@@ -324,7 +343,7 @@
         </div>
       </section>
 
-      <section aria-label="Ag Intelligence Stack" class="threaded">
+      <section id="stack" aria-label="Ag Intelligence Stack" class="threaded">
         <h2>Ag Intelligence Stack</h2>
         <p>
           These products are connected by design, not by coincidence. <a class="inline" href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">Soil Health Exchange</a> is the flagship and <a class="inline" href="https://open-ag-data.com/" target="_blank" rel="noopener noreferrer">OpenAgData</a> is the research substrate beneath it. The rest of the stack extends that same logic into transactions, valuation, and field-level workflow.
