@@ -206,6 +206,55 @@
 
       /* HERO */
       .hero { padding: 24px 0 56px; position: relative; }
+      .hero-id {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 28px;
+      }
+      .avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, var(--text), #2a2a2a);
+        color: var(--bg);
+        display: grid;
+        place-items: center;
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        flex-shrink: 0;
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+      .avatar::after {
+        content: '';
+        position: absolute;
+        right: -3px;
+        bottom: -3px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #22c55e;
+        border: 3px solid var(--bg);
+      }
+      html[data-theme="dark"] .avatar { background: linear-gradient(135deg, #f4f4f4, #c4c4c4); }
+      .hero-id-meta { min-width: 0; }
+      .hero-id-meta .name-line {
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin-bottom: 4px;
+      }
+      .hero-id-meta .role-line {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
       .status-pill {
         display: inline-flex;
         align-items: center;
@@ -677,68 +726,74 @@
           <span>Saurav Das</span>
         </div>
         <div class="nav-links">
-          <a href="#stack">Building</a>
-          <a href="#research">Research</a>
+          <a href="#work">Work</a>
           <a href="#writing">Writing</a>
+          <a href="#research">Research</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </div>
         <button class="theme-toggle" type="button" aria-label="Toggle color theme" aria-live="polite">Theme</button>
       </nav>
 
       <section class="hero">
-        <div class="status-pill">
-          <span class="pulse-dot" aria-hidden="true"></span>
-          <span>Building &mdash; Open to funding &amp; collaboration</span>
+        <div class="hero-id">
+          <div class="avatar" aria-hidden="true">SD</div>
+          <div class="hero-id-meta">
+            <div class="name-line">Saurav Das</div>
+            <div class="role-line">Available · Based in the U.S.</div>
+          </div>
         </div>
-        <h1>Building the <span class="accent">agricultural intelligence</span> stack American farming is missing.</h1>
+        <h1>Soil microbiologist, founder, and writer working at the intersection of <span class="accent">agriculture, science, and AI</span>.</h1>
         <p class="lede">
-          I'm a soil microbiologist turned founder. I'm connecting research, soil signals, and farm decisions into one coherent product layer &mdash; and shipping the pieces.
+          I have a Ph.D. in soil microbiology and a long research arc through Assam, Nebraska, and the Rodale Institute. These days I build products, write essays, and explore side experiments &mdash; all pointed at making agricultural knowledge more useful in the real world.
         </p>
         <p class="hero-sub">
-          Farmer-facing: Soil Health Exchange. Research substrate: OpenAgData. Plus operations, valuation, and field execution &mdash; one layer at a time, all equally load-bearing.
+          This page is a running index of what I'm working on: <a class="inline" href="#work">products</a>, <a class="inline" href="#writing">writing</a>, <a class="inline" href="#research">research</a>, and <a class="inline" href="#side">side experiments</a>.
         </p>
         <div class="hero-actions">
-          <a class="btn primary" href="#stack">
-            <span>See what I'm building</span>
+          <a class="btn primary" href="#work">
+            <span>See the work</span>
             <span class="arrow">→</span>
           </a>
-          <a class="btn" href="#research">Research journey</a>
-          <a class="btn" href="#writing">Read the writing</a>
+          <a class="btn" href="#writing">Read essays</a>
+          <a class="btn" href="mailto:saurav12das@gmail.com">Get in touch</a>
         </div>
-        <div class="marquee" aria-label="Quick stats">
-          <span><strong>5</strong> connected products</span>
-          <span class="sep">/</span>
+        <div class="marquee" aria-label="Quick facts">
           <span><strong>Ph.D.</strong> Soil microbiology</span>
           <span class="sep">/</span>
-          <span><strong>USA</strong> ⌁ farm-first</span>
+          <span><strong>5</strong> products shipping</span>
           <span class="sep">/</span>
-          <span><strong>Building</strong> in public</span>
+          <span><strong>6</strong> essays</span>
+          <span class="sep">/</span>
+          <span><strong>2</strong> side experiments</span>
+          <span class="sep">/</span>
+          <span><strong>Open</strong> to collaboration</span>
         </div>
       </section>
 
-      <section id="thesis" class="section" aria-label="Thesis">
+      <section id="about" class="section" aria-label="About">
         <div class="section-head">
           <div>
-            <div class="section-eyebrow">01 &mdash; Thesis</div>
-            <h2>Agriculture still lacks a coherent intelligence layer.</h2>
+            <div class="section-eyebrow">About</div>
+            <h2>I'm Saurav. I work on agriculture from a few angles at once.</h2>
           </div>
-          <div class="section-meta">Why this · Why now</div>
+          <div class="section-meta">A bit of context</div>
         </div>
         <p class="body">
-          Research lives in PDFs. Soil decisions live in fragmented advice. Input buying happens through disconnected channels. A farm's ecological value is mostly invisible to markets. I'm building a connected stack to close those gaps &mdash; pointed at one problem from multiple entry points.
+          I came up through soil systems &mdash; environmental microbiology in Assam, soil health and carbon-nitrogen dynamics at Nebraska, and applied systems research at the Rodale Institute's Farming Systems Trial. That long detour through field science is the foundation everything else here sits on.
         </p>
         <p class="body">
-          That direction comes directly from my background in soil microbiology and agricultural systems research. I care about making science legible, field decisions better, and agricultural infrastructure more useful for the people who actually work the land.
+          Now I'm a founder. I build products that try to move real agricultural knowledge from papers and institutions into everyday decisions. I also write essays on the systems beneath food, AI, and the economy &mdash; and run side experiments when something pulls at me. This page is where it all lives.
         </p>
       </section>
 
-      <section id="stack" class="section" aria-label="Ag Intelligence Stack">
+      <section id="work" class="section" aria-label="Work">
         <div class="section-head">
           <div>
-            <div class="section-eyebrow">02 &mdash; The Stack</div>
-            <h2>Five products. One coherent intelligence layer.</h2>
+            <div class="section-eyebrow">Work</div>
+            <h2>Products I'm shipping.</h2>
           </div>
-          <div class="section-meta">Connected by design</div>
+          <div class="section-meta">5 / connected by design</div>
         </div>
         <div class="bento">
           <a class="tile narrow" href="/writings/product__open-ag-data.html">
@@ -774,26 +829,10 @@
         </div>
       </section>
 
-      <section id="founder-story" class="section" aria-label="Founder Story">
-        <div class="section-head">
-          <div>
-            <div class="section-eyebrow">03 &mdash; Why me</div>
-            <h2>Not a generic software founder hunting an ag market.</h2>
-          </div>
-          <div class="section-meta">Founder portfolio</div>
-        </div>
-        <p class="body">
-          I came into this through soil systems, microbial ecology, carbon and nitrogen dynamics, and years of seeing how hard it is for real agricultural knowledge to move from papers and institutions into everyday decisions.
-        </p>
-        <p class="body">
-          That's the founder portfolio beneath all of this: research depth, systems thinking, and product instinct pointed at the same problem. The ambition is not five unrelated things. It's one coherent intelligence layer for agriculture &mdash; from multiple entry points.
-        </p>
-      </section>
-
       <section id="research" class="section" aria-label="Research">
         <div class="section-head">
           <div>
-            <div class="section-eyebrow">04 &mdash; Research</div>
+            <div class="section-eyebrow">Research</div>
             <h2>From arsenic biogeochemistry in Assam to the Rodale Farming Systems Trial.</h2>
           </div>
           <div class="section-meta">Open to collaboration</div>
@@ -809,8 +848,8 @@
       <section id="products" class="section" aria-label="Live Products">
         <div class="section-head">
           <div>
-            <div class="section-eyebrow">05 &mdash; Live</div>
-            <h2>Visit the live products.</h2>
+            <div class="section-eyebrow">Live links</div>
+            <h2>Visit the products.</h2>
           </div>
         </div>
         <div class="product-pills">
@@ -825,8 +864,8 @@
       <section id="side" class="section" aria-label="Side Projects">
         <div class="section-head">
           <div>
-            <div class="section-eyebrow">06 &mdash; Side quests</div>
-            <h2>Things I'm exploring outside the stack.</h2>
+            <div class="section-eyebrow">Experiments</div>
+            <h2>Side projects I'm tinkering with.</h2>
           </div>
         </div>
         <div class="sideproj">
@@ -844,9 +883,10 @@
       <section id="writing" class="section" aria-label="Writing">
         <div class="section-head">
           <div>
-            <div class="section-eyebrow">07 &mdash; Writing</div>
+            <div class="section-eyebrow">Writing</div>
             <h2>Essays on agriculture, AI, and the systems beneath both.</h2>
           </div>
+          <div class="section-meta">6 essays</div>
         </div>
         <ul class="writing-list">
           <li>
@@ -915,7 +955,7 @@
       <section class="section" aria-label="Watching">
         <div class="section-head">
           <div>
-            <div class="section-eyebrow">08 &mdash; Off-hours</div>
+            <div class="section-eyebrow">Off-hours</div>
             <h2>Watching.</h2>
           </div>
         </div>
@@ -925,10 +965,11 @@
       <section id="contact" class="section" aria-label="Contact">
         <div class="section-head">
           <div>
-            <div class="section-eyebrow">09 &mdash; Get in touch</div>
-            <h2>Open to funding, partnerships, and good conversations.</h2>
+            <div class="section-eyebrow">Contact</div>
+            <h2>Say hi.</h2>
           </div>
         </div>
+        <p class="body">Open to research collaborations, partnerships, funding conversations, or just a good email back-and-forth about soil, AI, or building things.</p>
         <div class="hero-actions" style="margin-bottom:18px;">
           <a class="btn primary" href="mailto:saurav12das@gmail.com">
             <span>saurav12das@gmail.com</span>
