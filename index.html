@@ -678,6 +678,26 @@
       .socials a:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
       .socials svg { width: 16px; height: 16px; }
 
+      /* LAYER DIVIDER */
+      .layer-divider {
+        margin: 80px 0 0;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .layer-divider::before,
+      .layer-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+
       /* FOOTER */
       footer {
         margin-top: 80px;
@@ -727,9 +747,9 @@
         </div>
         <div class="nav-links">
           <a href="#work">Work</a>
-          <a href="#writing">Writing</a>
           <a href="#research">Research</a>
           <a href="#about">About</a>
+          <a href="#writing">Writing</a>
           <a href="#contact">Contact</a>
         </div>
         <button class="theme-toggle" type="button" aria-label="Toggle color theme" aria-live="polite">Theme</button>
@@ -740,51 +760,37 @@
           <div class="avatar" aria-hidden="true">SD</div>
           <div class="hero-id-meta">
             <div class="name-line">Saurav Das</div>
-            <div class="role-line">Available · Based in the U.S.</div>
+            <div class="role-line">Founder · Ph.D. Soil Microbiology · U.S.</div>
           </div>
         </div>
-        <h1>Soil microbiologist, founder, and writer working at the intersection of <span class="accent">agriculture, science, and AI</span>.</h1>
+        <div class="status-pill">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span>Building &mdash; Open to funding &amp; partnerships</span>
+        </div>
+        <h1>Founder building the <span class="accent">agricultural intelligence stack</span> American farming is missing.</h1>
         <p class="lede">
-          I have a Ph.D. in soil microbiology and a long research arc through Assam, Nebraska, and the Rodale Institute. These days I build products, write essays, and explore side experiments &mdash; all pointed at making agricultural knowledge more useful in the real world.
+          Five connected products turning research, soil signals, and farm decisions into infrastructure people can actually use. Backed by a Ph.D. in soil microbiology and a research arc through Assam, Nebraska, and the Rodale Institute &mdash; so the depth is real, not retrofitted.
         </p>
         <p class="hero-sub">
-          This page is a running index of what I'm working on: <a class="inline" href="#work">products</a>, <a class="inline" href="#writing">writing</a>, <a class="inline" href="#research">research</a>, and <a class="inline" href="#side">side experiments</a>.
+          Below: <a class="inline" href="#work">the products I'm shipping</a>, <a class="inline" href="#research">the research that backs them</a>, and a bit of <a class="inline" href="#writing">how I think</a>.
         </p>
         <div class="hero-actions">
           <a class="btn primary" href="#work">
-            <span>See the work</span>
+            <span>See what I'm building</span>
             <span class="arrow">→</span>
           </a>
-          <a class="btn" href="#writing">Read essays</a>
+          <a class="btn" href="#research">Research credentials</a>
           <a class="btn" href="mailto:saurav12das@gmail.com">Get in touch</a>
         </div>
         <div class="marquee" aria-label="Quick facts">
-          <span><strong>Ph.D.</strong> Soil microbiology</span>
-          <span class="sep">/</span>
           <span><strong>5</strong> products shipping</span>
           <span class="sep">/</span>
-          <span><strong>6</strong> essays</span>
+          <span><strong>Ph.D.</strong> Soil microbiology</span>
           <span class="sep">/</span>
-          <span><strong>2</strong> side experiments</span>
+          <span><strong>Rodale</strong> &middot; <strong>Nebraska</strong> &middot; <strong>Assam</strong></span>
           <span class="sep">/</span>
-          <span><strong>Open</strong> to collaboration</span>
+          <span><strong>Open</strong> to funding</span>
         </div>
-      </section>
-
-      <section id="about" class="section" aria-label="About">
-        <div class="section-head">
-          <div>
-            <div class="section-eyebrow">About</div>
-            <h2>I'm Saurav. I work on agriculture from a few angles at once.</h2>
-          </div>
-          <div class="section-meta">A bit of context</div>
-        </div>
-        <p class="body">
-          I came up through soil systems &mdash; environmental microbiology in Assam, soil health and carbon-nitrogen dynamics at Nebraska, and applied systems research at the Rodale Institute's Farming Systems Trial. That long detour through field science is the foundation everything else here sits on.
-        </p>
-        <p class="body">
-          Now I'm a founder. I build products that try to move real agricultural knowledge from papers and institutions into everyday decisions. I also write essays on the systems beneath food, AI, and the economy &mdash; and run side experiments when something pulls at me. This page is where it all lives.
-        </p>
       </section>
 
       <section id="work" class="section" aria-label="Work">
@@ -829,22 +835,6 @@
         </div>
       </section>
 
-      <section id="research" class="section" aria-label="Research">
-        <div class="section-head">
-          <div>
-            <div class="section-eyebrow">Research</div>
-            <h2>From arsenic biogeochemistry in Assam to the Rodale Farming Systems Trial.</h2>
-          </div>
-          <div class="section-meta">Open to collaboration</div>
-        </div>
-        <p class="body">
-          My work in startups grows out of a longer research journey &mdash; environmental microbiology and arsenic biogeochemistry in Assam, soil health benchmarking and carbon-nitrogen dynamics in Nebraska, and applied systems research at Rodale Institute's Farming Systems Trial.
-        </p>
-        <p class="body">
-          The dedicated <a class="inline" href="/writings/research-journey.html">Research Journey</a> page is for university collaborations, research conversations, and professional outreach &mdash; tracing the scientific questions, field contexts, and publications that shaped how I build.
-        </p>
-      </section>
-
       <section id="products" class="section" aria-label="Live Products">
         <div class="section-head">
           <div>
@@ -861,24 +851,41 @@
         </div>
       </section>
 
-      <section id="side" class="section" aria-label="Side Projects">
+      <section id="research" class="section" aria-label="Research">
         <div class="section-head">
           <div>
-            <div class="section-eyebrow">Experiments</div>
-            <h2>Side projects I'm tinkering with.</h2>
+            <div class="section-eyebrow">Research credentials</div>
+            <h2>The science depth beneath the build.</h2>
           </div>
+          <div class="section-meta">Open to collaboration</div>
         </div>
-        <div class="sideproj">
-          <a href="https://github.com/Saurav12das/thermodynamic-memory-architecture" target="_blank" rel="noopener noreferrer">
-            <strong>Thermodynamic Memory Architecture</strong>
-            <span>Self-evolving memory system for LLM agents that maximizes decision quality per unit compute.</span>
-          </a>
-          <a href="https://github.com/Saurav12das/Brahmanda" target="_blank" rel="noopener noreferrer">
-            <strong>Brahmanda</strong>
-            <span>A Vedic universe simulation engine with LLM-powered conscious agents exploring emergent civilizations and belief systems.</span>
-          </a>
-        </div>
+        <p class="body">
+          My founder work grows out of a longer research arc &mdash; environmental microbiology and arsenic biogeochemistry in Assam, soil health benchmarking and carbon-nitrogen dynamics in Nebraska, and applied systems research at Rodale Institute's Farming Systems Trial. That field experience is what makes the products real instead of speculative.
+        </p>
+        <p class="body">
+          The dedicated <a class="inline" href="/writings/research-journey.html">Research Journey</a> page traces the scientific questions, field contexts, and publications that shaped how I build &mdash; useful for funders, university collaborators, and anyone evaluating depth.
+        </p>
       </section>
+
+      <section id="about" class="section" aria-label="About">
+        <div class="section-head">
+          <div>
+            <div class="section-eyebrow">Background</div>
+            <h2>Why I'm the one building this.</h2>
+          </div>
+          <div class="section-meta">A bit of context</div>
+        </div>
+        <p class="body">
+          I'm not a generic software founder hunting an ag market. I came in through soil systems, microbial ecology, and years of seeing how hard it is for real agricultural knowledge to move from papers and institutions into everyday decisions. The ambition isn't five disconnected products &mdash; it's one coherent intelligence layer for agriculture, built from multiple entry points.
+        </p>
+        <p class="body">
+          Below this line is where I keep the more personal layer of how I think &mdash; essays, side experiments, and a few things I love &mdash; for anyone curious about the philosophy beneath the work.
+        </p>
+      </section>
+
+      <div class="layer-divider" aria-hidden="true">
+        <span>The personal layer &mdash; how I think</span>
+      </div>
 
       <section id="writing" class="section" aria-label="Writing">
         <div class="section-head">
@@ -952,6 +959,25 @@
         </ul>
       </section>
 
+      <section id="side" class="section" aria-label="Side Projects">
+        <div class="section-head">
+          <div>
+            <div class="section-eyebrow">Experiments</div>
+            <h2>Side projects I'm tinkering with.</h2>
+          </div>
+        </div>
+        <div class="sideproj">
+          <a href="https://github.com/Saurav12das/thermodynamic-memory-architecture" target="_blank" rel="noopener noreferrer">
+            <strong>Thermodynamic Memory Architecture</strong>
+            <span>Self-evolving memory system for LLM agents that maximizes decision quality per unit compute.</span>
+          </a>
+          <a href="https://github.com/Saurav12das/Brahmanda" target="_blank" rel="noopener noreferrer">
+            <strong>Brahmanda</strong>
+            <span>A Vedic universe simulation engine with LLM-powered conscious agents exploring emergent civilizations and belief systems.</span>
+          </a>
+        </div>
+      </section>
+
       <section class="section" aria-label="Watching">
         <div class="section-head">
           <div>
@@ -966,10 +992,10 @@
         <div class="section-head">
           <div>
             <div class="section-eyebrow">Contact</div>
-            <h2>Say hi.</h2>
+            <h2>Funding, partnerships, and good conversations.</h2>
           </div>
         </div>
-        <p class="body">Open to research collaborations, partnerships, funding conversations, or just a good email back-and-forth about soil, AI, or building things.</p>
+        <p class="body">Actively raising and open to partnerships, university collaborations, and operator intros. Email is the fastest way to reach me &mdash; I read everything that comes in.</p>
         <div class="hero-actions" style="margin-bottom:18px;">
           <a class="btn primary" href="mailto:saurav12das@gmail.com">
             <span>saurav12das@gmail.com</span>
