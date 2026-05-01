@@ -46,6 +46,11 @@
     }
     </script>
 
+    <!-- Fonts: Fraunces (display serif) + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <!-- Vercel Web Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
     <script>
@@ -58,735 +63,602 @@
 
     <style>
       :root {
-        --bg: #ffffff;
-        --bg-soft: #fafafa;
-        --card: #ffffff;
-        --text: #0a0a0a;
-        --muted: #6b6b6b;
-        --line: rgba(10,10,10,0.08);
-        --line-strong: rgba(10,10,10,0.14);
-        --accent: #ff5722;
-        --accent-soft: rgba(255,87,34,0.08);
-        --grid-dot: rgba(10,10,10,0.07);
-        --shadow-sm: 0 1px 2px rgba(10,10,10,0.04);
-        --shadow: 0 4px 24px rgba(10,10,10,0.06);
-        --shadow-lg: 0 24px 60px -20px rgba(10,10,10,0.18);
-        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-        --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-        --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        /* Earth palette — cream paper, deep umber, terracotta, ochre */
+        --bg: #f5efe1;
+        --bg-tint: #ede5d2;
+        --paper: #faf6ec;
+        --text: #1f1814;
+        --muted: #6e604f;
+        --line: rgba(31,24,20,0.14);
+        --line-soft: rgba(31,24,20,0.08);
+        --rule: rgba(31,24,20,0.22);
+        --accent: #b34a26;          /* terracotta */
+        --accent-deep: #7a2f15;
+        --ochre: #c0902f;
+        --moss: #5c6634;
+
+        /* Soil-horizon palette (used in the soil profile diagram) */
+        --h-o: #6b5a36;   /* O — organic */
+        --h-a: #3f2c1d;   /* A — topsoil */
+        --h-b: #8b4a23;   /* B — subsoil */
+        --h-c: #b4885a;   /* C — parent material */
+        --h-r: #4a3f33;   /* R — bedrock */
+
+        --font-display: "Fraunces", "Iowan Old Style", "Hoefler Text", Georgia, serif;
+        --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+        --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+        --shadow-soft: 0 1px 0 rgba(31,24,20,0.05), 0 8px 24px -12px rgba(31,24,20,0.18);
       }
       html[data-theme="dark"] {
-        --bg: #0a0a0a;
-        --bg-soft: #111111;
-        --card: #121212;
-        --text: #f4f4f4;
-        --muted: #9a9a9a;
-        --line: rgba(244,244,244,0.10);
-        --line-strong: rgba(244,244,244,0.18);
-        --accent: #ff7043;
-        --accent-soft: rgba(255,112,67,0.12);
-        --grid-dot: rgba(244,244,244,0.07);
-        --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
-        --shadow: 0 4px 24px rgba(0,0,0,0.45);
-        --shadow-lg: 0 24px 60px -20px rgba(0,0,0,0.6);
+        --bg: #15110d;
+        --bg-tint: #1c1814;
+        --paper: #1a1612;
+        --text: #efe6d2;
+        --muted: #9d8d75;
+        --line: rgba(239,230,210,0.14);
+        --line-soft: rgba(239,230,210,0.08);
+        --rule: rgba(239,230,210,0.24);
+        --accent: #d96a3e;
+        --accent-deep: #b34a26;
+        --ochre: #d8a64a;
+        --moss: #8a9c52;
+
+        --h-o: #6b5a36;
+        --h-a: #2a1d12;
+        --h-b: #7a3e1c;
+        --h-c: #92704a;
+        --h-r: #3a3128;
+
+        --shadow-soft: 0 1px 0 rgba(0,0,0,0.4), 0 14px 30px -14px rgba(0,0,0,0.6);
       }
+
+      *, *::before, *::after { box-sizing: border-box; }
       html { color-scheme: light dark; scroll-behavior: smooth; }
       html[data-theme="light"] { color-scheme: light; }
       html[data-theme="dark"] { color-scheme: dark; }
-      *, *::before, *::after { box-sizing: border-box; }
       html, body { margin: 0; padding: 0; color: var(--text); }
       body {
         background: var(--bg);
-        background-image:
-          radial-gradient(circle at 1px 1px, var(--grid-dot) 1px, transparent 0);
-        background-size: 28px 28px;
-        background-position: 0 0;
-        font: 400 16px/1.65 var(--font-sans);
+        font: 400 16.5px/1.65 var(--font-sans);
         letter-spacing: -0.005em;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        transition: background-color 0.4s ease, color 0.4s ease;
         overflow-x: hidden;
+        position: relative;
       }
-
-      /* Ambient glow blob */
-      .ambient {
+      /* Subtle paper grain — hand-tuned SVG noise, very low opacity */
+      body::before {
+        content: '';
         position: fixed;
-        top: -200px;
-        right: -200px;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, var(--accent-soft), transparent 60%);
+        inset: 0;
         pointer-events: none;
         z-index: 0;
-        filter: blur(40px);
-        animation: floaty 18s ease-in-out infinite alternate;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.42'/></svg>");
+        opacity: 0.35;
+        mix-blend-mode: multiply;
       }
-      .ambient.bottom {
-        top: auto;
-        bottom: -300px;
-        left: -200px;
-        right: auto;
-        animation-delay: -9s;
-      }
-      @keyframes floaty {
-        from { transform: translate(0, 0) scale(1); }
-        to   { transform: translate(60px, 40px) scale(1.1); }
+      html[data-theme="dark"] body::before { mix-blend-mode: screen; opacity: 0.25; }
+
+      /* The soil-horizon band fixed at the very bottom of the viewport — your "ground" */
+      .soilband {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 6px;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(to right,
+            var(--h-o) 0%, var(--h-o) 18%,
+            var(--h-a) 18%, var(--h-a) 38%,
+            var(--h-b) 38%, var(--h-b) 60%,
+            var(--h-c) 60%, var(--h-c) 82%,
+            var(--h-r) 82%, var(--h-r) 100%);
+        opacity: 0.85;
       }
 
-      .wrap { max-width: 1080px; margin: 0 auto; padding: 32px 24px 80px; position: relative; z-index: 1; }
+      /* Container */
+      .wrap {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 28px 100px;
+        position: relative;
+        z-index: 1;
+      }
 
-      /* TOP NAV */
-      .topnav {
+      /* Editorial top header — wordmark left, theme toggle right. No pill. */
+      .masthead {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 14px 18px;
+        padding: 6px 0 32px;
+        border-bottom: 1px solid var(--line);
         margin-bottom: 64px;
-        background: color-mix(in srgb, var(--bg) 78%, transparent);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        position: sticky;
-        top: 18px;
-        z-index: 50;
       }
-      .brand {
+      .wordmark {
         display: flex;
-        align-items: center;
-        gap: 10px;
+        align-items: baseline;
+        gap: 14px;
+        font-family: var(--font-display);
         font-weight: 600;
-        font-size: 14px;
-        letter-spacing: -0.01em;
+        font-size: 20px;
+        letter-spacing: -0.02em;
+        font-feature-settings: "ss01", "ss02";
       }
-      .brand-mark {
-        width: 24px;
-        height: 24px;
-        border-radius: 6px;
-        background: var(--text);
-        color: var(--bg);
-        display: grid;
-        place-items: center;
+      .wordmark .dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: var(--accent);
+        border-radius: 50%;
+        margin-right: 8px;
+        transform: translateY(-2px);
+      }
+      .wordmark-meta {
         font-family: var(--font-mono);
-        font-size: 12px;
-        font-weight: 700;
-      }
-      .nav-links {
-        display: flex;
-        gap: 4px;
-        align-items: center;
-      }
-      .nav-links a {
-        color: var(--muted);
-        text-decoration: none;
-        font-size: 13px;
+        font-size: 11px;
         font-weight: 500;
-        padding: 8px 14px;
-        border-radius: 999px;
-        transition: color 0.15s, background-color 0.15s;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        text-transform: uppercase;
       }
-      .nav-links a:hover { color: var(--text); background: var(--accent-soft); }
+
       .theme-toggle {
         appearance: none;
         border: 1px solid var(--line);
-        background: var(--card);
+        background: transparent;
         color: var(--text);
-        font: 500 12px/1 var(--font-mono);
-        letter-spacing: 0.04em;
+        font: 500 11px/1 var(--font-mono);
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        padding: 9px 12px;
-        border-radius: 999px;
+        padding: 9px 13px;
+        border-radius: 4px;
         cursor: pointer;
-        transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
-        white-space: nowrap;
+        transition: border-color 0.2s, background-color 0.2s;
       }
-      .theme-toggle:hover { border-color: var(--accent); transform: translateY(-1px); }
+      .theme-toggle:hover { border-color: var(--accent); background: var(--bg-tint); }
       .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
       /* HERO */
-      .hero { padding: 24px 0 56px; position: relative; }
-      .hero-id {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        margin-bottom: 28px;
-      }
-      .avatar {
-        width: 64px;
-        height: 64px;
-        border-radius: 18px;
-        background: linear-gradient(135deg, var(--text), #2a2a2a);
-        color: var(--bg);
-        display: grid;
-        place-items: center;
-        font-family: var(--font-display);
-        font-size: 22px;
-        font-weight: 600;
-        letter-spacing: -0.02em;
-        flex-shrink: 0;
-        box-shadow: var(--shadow);
-        position: relative;
-      }
-      .avatar::after {
-        content: '';
-        position: absolute;
-        right: -3px;
-        bottom: -3px;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: #22c55e;
-        border: 3px solid var(--bg);
-      }
-      html[data-theme="dark"] .avatar { background: linear-gradient(135deg, #f4f4f4, #c4c4c4); }
-      .hero-id-meta { min-width: 0; }
-      .hero-id-meta .name-line {
-        font-family: var(--font-display);
-        font-size: 15px;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        margin-bottom: 4px;
-      }
-      .hero-id-meta .role-line {
+      .hero { position: relative; padding: 8px 0 48px; }
+      .eyebrow {
         font-family: var(--font-mono);
         font-size: 11px;
-        letter-spacing: 0.1em;
+        font-weight: 500;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
         color: var(--muted);
-      }
-      .status-pill {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        padding: 7px 14px 7px 12px;
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 999px;
+        margin-bottom: 24px;
+      }
+      .eyebrow::before {
+        content: '';
+        width: 26px;
+        height: 1.5px;
+        background: var(--accent);
+      }
+      .hero-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         font-family: var(--font-mono);
         font-size: 11px;
+        font-weight: 500;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--muted);
         margin-bottom: 28px;
-        box-shadow: var(--shadow-sm);
       }
-      .pulse-dot {
-        position: relative;
-        width: 8px;
-        height: 8px;
+      .hero-status .dot {
+        width: 7px;
+        height: 7px;
         border-radius: 50%;
-        background: #22c55e;
-        flex-shrink: 0;
+        background: var(--moss);
+        position: relative;
       }
-      .pulse-dot::after {
+      .hero-status .dot::after {
         content: '';
         position: absolute;
-        inset: -4px;
+        inset: -3px;
         border-radius: 50%;
-        background: #22c55e;
-        opacity: 0.5;
-        animation: pulse 1.8s ease-out infinite;
+        background: var(--moss);
+        opacity: 0.4;
+        animation: pulse 2.4s ease-out infinite;
       }
-      @keyframes pulse {
-        0%   { transform: scale(0.6); opacity: 0.6; }
-        100% { transform: scale(2.2); opacity: 0; }
-      }
+      @keyframes pulse { 0% { transform: scale(0.6); opacity: 0.5; } 100% { transform: scale(2.6); opacity: 0; } }
 
-      h1 {
+      h1.display {
         font-family: var(--font-display);
-        font-size: clamp(42px, 7vw, 84px);
-        font-weight: 600;
-        line-height: 0.98;
-        letter-spacing: -0.045em;
-        margin: 0 0 24px;
-        max-width: 960px;
+        font-size: clamp(44px, 6.4vw, 78px);
+        font-weight: 500;
+        line-height: 1.02;
+        letter-spacing: -0.025em;
+        margin: 0 0 28px;
+        font-feature-settings: "ss01", "ss02";
+        text-wrap: balance;
       }
-      h1 .accent {
-        background: linear-gradient(120deg, var(--accent) 0%, #c2410c 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        font-weight: 600;
+      h1.display em {
+        font-style: italic;
+        font-weight: 500;
+        color: var(--accent);
       }
+      h1.display .dash { color: var(--accent); font-style: normal; }
+
       .lede {
-        font-size: clamp(17px, 1.6vw, 20px);
-        line-height: 1.55;
-        color: var(--muted);
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(19px, 2vw, 23px);
+        line-height: 1.5;
         max-width: 660px;
         margin: 0 0 18px;
+        color: var(--text);
+        letter-spacing: -0.005em;
+      }
+      .lede::first-letter {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 2.6em;
+        float: left;
+        line-height: 0.9;
+        padding: 6px 10px 0 0;
+        color: var(--accent);
       }
       .hero-sub {
-        max-width: 640px;
+        max-width: 620px;
         color: var(--muted);
-        font-size: 15px;
+        font-size: 15.5px;
+        line-height: 1.65;
         margin: 0 0 32px;
       }
+
+      /* Inline links — like reading a book */
+      a.inline {
+        color: var(--text);
+        text-decoration: none;
+        background-image: linear-gradient(to right, var(--accent) 0, var(--accent) 100%);
+        background-repeat: no-repeat;
+        background-size: 100% 1.5px;
+        background-position: 0 100%;
+        padding-bottom: 1px;
+        transition: background-size 0.25s, color 0.2s;
+      }
+      a.inline:hover { color: var(--accent); }
+
+      /* Hero CTAs — editorial, not SaaS */
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 40px;
+        gap: 8px 26px;
+        align-items: center;
+        margin-bottom: 36px;
       }
-      .btn {
+      .cta {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        padding: 12px 18px;
-        border: 1px solid var(--line-strong);
-        border-radius: 12px;
+        gap: 10px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
         text-decoration: none;
         color: var(--text);
-        background: var(--card);
-        font-size: 14px;
-        font-weight: 500;
-        letter-spacing: -0.005em;
-        transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
-        box-shadow: var(--shadow-sm);
+        padding: 13px 18px;
+        border: 1px solid var(--text);
+        border-radius: 0;
+        background: transparent;
+        transition: background 0.2s, color 0.2s;
+        position: relative;
       }
-      .btn:hover {
-        transform: translateY(-2px);
-        border-color: var(--accent);
-        box-shadow: var(--shadow);
+      .cta::after {
+        content: '→';
+        font-family: var(--font-display);
+        font-style: italic;
+        transition: transform 0.2s;
       }
-      .btn.primary {
-        background: var(--text);
-        color: var(--bg);
-        border-color: var(--text);
-      }
-      .btn.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
-      .btn .arrow { transition: transform 0.2s; }
-      .btn:hover .arrow { transform: translateX(2px); }
+      .cta:hover { background: var(--text); color: var(--bg); }
+      .cta:hover::after { transform: translateX(3px); }
+      .cta.solid { background: var(--text); color: var(--bg); }
+      .cta.solid:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
 
-      .marquee {
+      .cta-link {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-decoration: none;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 4px;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      .cta-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+      .hero-meta {
         display: flex;
-        gap: 24px;
         flex-wrap: wrap;
+        gap: 0 28px;
         padding: 14px 0;
-        border-top: 1px dashed var(--line);
-        border-bottom: 1px dashed var(--line);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
         font-family: var(--font-mono);
         font-size: 11px;
-        letter-spacing: 0.12em;
+        font-weight: 500;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--muted);
       }
-      .marquee strong { color: var(--text); font-weight: 600; }
-      .marquee .sep { opacity: 0.4; }
+      .hero-meta strong { color: var(--text); font-weight: 600; }
 
-      /* SECTION HEADERS — threaded architecture */
+      /* SECTIONS — threaded with a hand-drawn-feeling line */
       .threadwrap {
         position: relative;
-        padding-left: 28px;
+        padding-left: 32px;
+        margin-top: 24px;
       }
       .threadwrap::before {
         content: '';
         position: absolute;
-        left: 7px;
-        top: 24px;
-        bottom: 24px;
+        left: 6px;
+        top: 32px;
+        bottom: 32px;
         width: 1.5px;
-        background: linear-gradient(
-          to bottom,
-          transparent 0,
-          var(--line-strong) 40px,
-          var(--line-strong) calc(100% - 40px),
-          transparent 100%
-        );
+        background:
+          linear-gradient(to bottom,
+            transparent 0,
+            var(--rule) 40px,
+            var(--rule) calc(100% - 40px),
+            transparent 100%);
       }
       .section {
-        padding: 60px 0 12px;
+        padding: 56px 0 8px;
         position: relative;
       }
       .section::before {
         content: '';
         position: absolute;
-        left: -29px;
+        left: -32px;
         top: 80px;
-        width: 12px;
-        height: 12px;
+        width: 13px;
+        height: 13px;
         border-radius: 50%;
         background: var(--bg);
-        border: 1.5px solid var(--line-strong);
-        box-shadow: 0 0 0 4px var(--bg);
-        transition: border-color 0.2s, transform 0.2s;
+        border: 1.5px solid var(--rule);
+        box-shadow: 0 0 0 5px var(--bg);
+        transition: border-color 0.3s, transform 0.3s, background 0.3s;
       }
-      .section:hover::before { border-color: var(--accent); transform: scale(1.15); }
+      .section:hover::before { border-color: var(--accent); background: var(--accent); transform: scale(1.2); }
+
       .section-head {
         display: flex;
-        justify-content: space-between;
         align-items: baseline;
-        gap: 18px;
+        gap: 24px;
         margin-bottom: 28px;
         flex-wrap: wrap;
-      }
-      @media (max-width: 640px) {
-        .threadwrap { padding-left: 0; }
-        .threadwrap::before, .section::before { display: none; }
       }
       .section-eyebrow {
         font-family: var(--font-mono);
         font-size: 11px;
-        letter-spacing: 0.16em;
+        font-weight: 500;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
         color: var(--muted);
-        margin-bottom: 8px;
+        flex-shrink: 0;
+        padding-top: 14px;
       }
       h2 {
         font-family: var(--font-display);
         font-size: clamp(28px, 3.4vw, 40px);
-        font-weight: 600;
-        line-height: 1.1;
-        letter-spacing: -0.025em;
+        font-weight: 500;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
         margin: 0;
-        max-width: 720px;
+        max-width: 640px;
+        font-feature-settings: "ss01";
+        text-wrap: balance;
       }
+      h2 em { font-style: italic; color: var(--accent); }
       .section-meta {
+        margin-left: auto;
         font-family: var(--font-mono);
         font-size: 11px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--muted);
+        padding-top: 14px;
       }
-      p { margin: 0 0 14px; color: var(--text); }
-      p.body { color: var(--muted); font-size: 15px; max-width: 700px; line-height: 1.7; }
 
-      /* STACK DIAGRAM */
-      .stack-frame {
+      p { margin: 0 0 16px; color: var(--text); }
+      p.body {
+        color: var(--text);
+        font-size: 16.5px;
+        max-width: 660px;
+        line-height: 1.75;
+      }
+      p.body strong { color: var(--text); font-weight: 600; }
+      p.body em { font-style: italic; }
+
+      /* SOIL PROFILE — the connected stack rendered as actual soil horizons */
+      .profile-frame {
         position: relative;
-        padding: 8px 0;
+        margin: 12px 0 6px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        box-shadow: var(--shadow-soft);
       }
-      .stack-loop {
-        position: absolute;
-        top: 60px;
-        bottom: 60px;
-        right: -8px;
-        width: 36px;
-        pointer-events: none;
-        display: none;
-      }
-      @media (min-width: 720px) { .stack-loop { display: block; } }
-      .stack-loop::before {
-        content: '';
-        position: absolute;
-        top: 0; bottom: 0; right: 16px;
-        width: 1.5px;
-        background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--accent) 30%, transparent));
-        border-radius: 2px;
-      }
-      .stack-loop-label {
-        position: absolute;
-        top: 50%;
-        right: 30px;
-        transform: rotate(-90deg) translateX(50%);
-        transform-origin: right center;
+      .profile-caption {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 18px;
+        border-bottom: 1px solid var(--line-soft);
         font-family: var(--font-mono);
-        font-size: 10px;
+        font-size: 10.5px;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--muted);
-        white-space: nowrap;
       }
-      .stack-loop::after {
-        content: '↑';
-        position: absolute;
-        top: -10px;
-        right: 11px;
-        color: var(--accent);
-        font-size: 14px;
-        line-height: 1;
+      .profile-caption .legend {
+        display: inline-flex;
+        gap: 16px;
+        align-items: center;
       }
-      .layer {
-        position: relative;
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 22px 26px;
+      .profile-caption .legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .profile-caption .swatch {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        border: 1px solid rgba(0,0,0,0.2);
+      }
+
+      .horizon {
+        display: grid;
+        grid-template-columns: 84px 1fr auto;
+        gap: 28px;
+        align-items: center;
+        padding: 26px 26px 26px 0;
         text-decoration: none;
         color: var(--text);
-        display: grid;
-        grid-template-columns: 140px 1fr auto;
-        gap: 24px;
-        align-items: center;
-        transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
-        margin-bottom: 4px;
-        overflow: hidden;
+        position: relative;
+        border-bottom: 1px solid var(--line-soft);
+        transition: background 0.25s;
       }
-      .layer:hover {
-        transform: translateX(4px);
-        border-color: var(--line-strong);
-        box-shadow: var(--shadow-lg);
-      }
-      .layer::before {
-        content: '';
-        position: absolute;
-        left: 0; top: 0; bottom: 0;
-        width: 4px;
-        background: var(--accent);
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
-      .layer:hover::before { opacity: 1; }
-      .layer-tag {
-        font-family: var(--font-mono);
-        font-size: 10px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      .layer-tag .ord {
-        display: inline-block;
-        margin-right: 8px;
-        padding: 3px 7px;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        color: var(--text);
-        font-weight: 600;
-      }
-      .layer-body { min-width: 0; }
-      .layer-title {
-        font-family: var(--font-display);
-        font-size: 22px;
-        font-weight: 600;
-        letter-spacing: -0.02em;
-        line-height: 1.15;
-        margin: 0 0 6px;
-      }
-      .layer-desc {
-        font-size: 14px;
-        line-height: 1.55;
-        color: var(--muted);
-        margin: 0;
-      }
-      .layer-arrow {
-        font-family: var(--font-mono);
-        font-size: 12px;
-        color: var(--muted);
-        transition: color 0.2s, transform 0.2s;
-      }
-      .layer:hover .layer-arrow { color: var(--accent); transform: translateX(3px); }
-      .stack-connector {
-        height: 24px;
+      .horizon:last-child { border-bottom: 0; }
+      .horizon:hover { background: var(--bg-tint); }
+      .horizon-band {
+        height: 100%;
+        min-height: 96px;
         position: relative;
         display: flex;
-        justify-content: center;
         align-items: center;
-        color: var(--muted);
-        font-size: 14px;
-      }
-      .stack-connector::before {
-        content: '';
-        width: 1.5px;
-        height: 100%;
-        background: var(--line-strong);
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .stack-connector span {
-        position: relative;
-        background: var(--bg);
-        padding: 0 8px;
-        font-family: var(--font-mono);
-        font-size: 10px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-
-      @media (max-width: 700px) {
-        .layer { grid-template-columns: 1fr; gap: 8px; padding: 18px 20px; }
-        .layer-arrow { display: none; }
-      }
-
-      /* SIGNALS */
-      .signals {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
-      }
-      .signal {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 22px;
-        position: relative;
-        overflow: hidden;
-      }
-      .signal::before {
-        content: '';
-        position: absolute;
-        left: 0; top: 0; bottom: 0;
-        width: 3px;
-        background: var(--accent);
-        opacity: 0.7;
-      }
-      .signal-num {
-        display: block;
+        justify-content: center;
         font-family: var(--font-display);
-        font-size: 38px;
+        font-style: italic;
         font-weight: 600;
-        line-height: 1;
-        letter-spacing: -0.04em;
-        margin-bottom: 10px;
+        font-size: 32px;
+        color: var(--paper);
+        letter-spacing: -0.01em;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.25);
       }
-      .signal-label {
+      .horizon-band::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 6px;
+        right: 8px;
         font-family: var(--font-mono);
-        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 9px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.7);
+        text-shadow: none;
+      }
+      .horizon-body { min-width: 0; }
+      .horizon-tag {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        font-weight: 500;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--muted);
-        margin-bottom: 8px;
+        margin-bottom: 6px;
       }
-      .signal p {
+      .horizon-title {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: 23px;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
+        margin: 0 0 6px;
+      }
+      .horizon-desc {
+        font-size: 14.5px;
+        line-height: 1.6;
         color: var(--muted);
-        font-size: 13px;
-        line-height: 1.55;
         margin: 0;
+        max-width: 440px;
       }
+      .horizon-link {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        white-space: nowrap;
+        transition: color 0.2s, transform 0.2s;
+      }
+      .horizon:hover .horizon-link { color: var(--accent); transform: translateX(3px); }
 
-      /* WRITING / TIMELINE */
-      .writing-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-      .writing-item {
-        display: grid;
-        grid-template-columns: 80px 1fr auto;
-        gap: 20px;
-        align-items: baseline;
-        padding: 18px 18px;
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        text-decoration: none;
-        color: inherit;
-        background: var(--card);
-        transition: border-color 0.2s, transform 0.2s, background 0.2s;
-      }
-      .writing-item:hover { border-color: var(--line-strong); transform: translateX(4px); background: var(--bg-soft); }
-      .writing-year {
+      .horizon[data-h="O"] .horizon-band { background: var(--h-o); }
+      .horizon[data-h="A"] .horizon-band { background: var(--h-a); }
+      .horizon[data-h="B"] .horizon-band { background: var(--h-b); }
+      .horizon[data-h="C"] .horizon-band { background: var(--h-c); color: #2a1d12; text-shadow: none; }
+      .horizon[data-h="C"] .horizon-band::after { color: rgba(42,29,18,0.7); }
+      .horizon[data-h="R"] .horizon-band { background: var(--h-r); }
+
+      /* Loop annotation under the profile */
+      .profile-loop {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        padding: 14px 22px;
+        border-top: 1px solid var(--line-soft);
         font-family: var(--font-mono);
         font-size: 11px;
         letter-spacing: 0.1em;
-        color: var(--muted);
         text-transform: uppercase;
-      }
-      .writing-body strong {
-        font-size: 16px;
-        font-weight: 600;
-        letter-spacing: -0.015em;
-        display: block;
-        margin-bottom: 4px;
-      }
-      .writing-body span {
         color: var(--muted);
-        font-size: 14px;
-        line-height: 1.55;
       }
-      .writing-arrow {
-        color: var(--muted);
-        font-family: var(--font-mono);
-        font-size: 14px;
-        transition: transform 0.2s, color 0.2s;
-      }
-      .writing-item:hover .writing-arrow { color: var(--accent); transform: translateX(4px); }
+      .profile-loop svg { flex-shrink: 0; }
+      .profile-loop strong { color: var(--text); font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 15px; }
 
-      /* PRODUCTS pills */
+      /* Live links — newspaper-style index */
       .product-pills {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 0;
+        margin-top: 8px;
+        font-family: var(--font-mono);
+        font-size: 13px;
       }
       .product-pills a {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 10px 16px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
+        padding: 12px 18px;
         text-decoration: none;
         color: var(--text);
-        background: var(--card);
-        font-family: var(--font-mono);
-        font-size: 12px;
-        letter-spacing: 0.02em;
-        transition: border-color 0.15s, transform 0.15s, color 0.15s;
+        border: 1px solid var(--line);
+        margin: -1px 0 0 -1px;
+        background: var(--paper);
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+        letter-spacing: 0.01em;
       }
-      .product-pills a::before {
-        content: '↗';
-        color: var(--muted);
-        transition: transform 0.2s, color 0.2s;
-      }
-      .product-pills a:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-        transform: translateY(-2px);
-      }
+      .product-pills a::before { content: '↗'; color: var(--muted); transition: color 0.2s, transform 0.2s; }
+      .product-pills a:hover { color: var(--accent); border-color: var(--accent); z-index: 1; position: relative; }
       .product-pills a:hover::before { color: var(--accent); transform: translate(2px, -2px); }
 
-      /* Side projects */
-      .sideproj {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      .sideproj a {
-        display: block;
-        padding: 22px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: var(--card);
-        text-decoration: none;
-        color: inherit;
-        transition: border-color 0.2s, transform 0.2s;
-      }
-      .sideproj a:hover { border-color: var(--accent); transform: translateY(-2px); }
-      .sideproj strong {
-        display: block;
-        font-size: 17px;
-        font-weight: 600;
-        letter-spacing: -0.015em;
-        margin-bottom: 6px;
-      }
-      .sideproj span {
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.55;
-      }
-
-      /* Inline links */
-      a.inline { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
-      a.inline:hover { border-bottom-color: var(--accent); }
-
-      /* SOCIALS row */
-      .socials {
-        display: flex;
-        gap: 14px;
-        align-items: center;
-        margin-top: 4px;
-      }
-      .socials a {
-        width: 38px;
-        height: 38px;
-        display: grid;
-        place-items: center;
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        color: var(--muted);
-        background: var(--card);
-        transition: color 0.15s, border-color 0.15s, transform 0.15s;
-      }
-      .socials a:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
-      .socials svg { width: 16px; height: 16px; }
-
-      /* LAYER DIVIDER */
+      /* Layer divider — between founder layer and personal layer */
       .layer-divider {
-        margin: 80px 0 0;
+        margin: 96px 0 0;
         display: flex;
         align-items: center;
-        gap: 18px;
+        gap: 22px;
         color: var(--muted);
-        font-family: var(--font-mono);
-        font-size: 11px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+        font-size: 16px;
       }
       .layer-divider::before,
       .layer-divider::after {
@@ -795,169 +667,280 @@
         height: 1px;
         background: var(--line);
       }
+      .layer-divider span { padding: 0 4px; }
+
+      /* WRITING list — editorial */
+      .writing-list { list-style: none; padding: 0; margin: 0; }
+      .writing-item {
+        display: grid;
+        grid-template-columns: 64px 1fr auto;
+        gap: 22px;
+        align-items: baseline;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line-soft);
+        text-decoration: none;
+        color: inherit;
+        transition: padding 0.25s;
+      }
+      .writing-item:last-child { border-bottom: 0; }
+      .writing-item:hover { padding-left: 8px; }
+      .writing-year {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+      .writing-body strong {
+        font-family: var(--font-display);
+        font-size: 19px;
+        font-weight: 500;
+        letter-spacing: -0.012em;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .writing-body span {
+        color: var(--muted);
+        font-size: 14.5px;
+        line-height: 1.55;
+      }
+      .writing-body em { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+      .writing-arrow {
+        font-family: var(--font-display);
+        font-style: italic;
+        color: var(--muted);
+        font-size: 18px;
+        transition: color 0.2s, transform 0.2s;
+      }
+      .writing-item:hover .writing-arrow { color: var(--accent); transform: translateX(4px); }
+
+      /* SIDE PROJECTS */
+      .sideproj {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border-top: 1px solid var(--line-soft);
+      }
+      .sideproj a {
+        display: block;
+        padding: 24px 4px 24px 24px;
+        text-decoration: none;
+        color: inherit;
+        border-bottom: 1px solid var(--line-soft);
+        border-right: 1px solid var(--line-soft);
+        transition: background 0.2s, padding-left 0.25s;
+      }
+      .sideproj a:nth-child(2n) { border-right: 0; }
+      .sideproj a:hover { background: var(--bg-tint); padding-left: 30px; }
+      .sideproj strong {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: -0.012em;
+        margin-bottom: 6px;
+      }
+      .sideproj span {
+        color: var(--muted);
+        font-size: 14.5px;
+        line-height: 1.55;
+      }
+
+      /* SOCIALS */
+      .socials {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        margin-top: 8px;
+      }
+      .socials a {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        background: var(--paper);
+        text-decoration: none;
+        transition: color 0.15s, border-color 0.15s, background 0.2s;
+      }
+      .socials a:hover { color: var(--accent); border-color: var(--accent); background: var(--bg-tint); }
+      .socials svg { width: 16px; height: 16px; }
 
       /* FOOTER */
       footer {
-        margin-top: 80px;
+        margin-top: 96px;
         padding-top: 28px;
         border-top: 1px solid var(--line);
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
+        align-items: baseline;
         gap: 12px;
+        flex-wrap: wrap;
         color: var(--muted);
         font-family: var(--font-mono);
         font-size: 11px;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.06em;
       }
-      footer a { color: var(--muted); text-decoration: none; }
-      footer a:hover { color: var(--text); }
+      footer .colophon {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+        letter-spacing: 0;
+        font-size: 14px;
+      }
+      footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+      footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+      /* Selection */
+      ::selection { background: var(--accent); color: var(--paper); }
 
       /* RESPONSIVE */
-      @media (max-width: 900px) {
-        .bento { grid-template-columns: repeat(2, 1fr); }
-        .tile.wide, .tile.med, .tile.narrow, .tile.full { grid-column: span 2; }
-        .signals { grid-template-columns: repeat(2, 1fr); }
+      @media (max-width: 720px) {
+        .wrap { padding: 24px 22px 80px; }
+        .masthead { margin-bottom: 40px; }
+        .horizon { grid-template-columns: 60px 1fr; }
+        .horizon-link { display: none; }
+        .horizon-band { font-size: 26px; }
         .sideproj { grid-template-columns: 1fr; }
-      }
-      @media (max-width: 640px) {
-        .wrap { padding: 20px 18px 60px; }
-        .topnav { padding: 10px 14px; margin-bottom: 40px; }
-        .nav-links { display: none; }
-        .hero { padding: 16px 0 32px; }
-        .writing-item { grid-template-columns: 1fr; gap: 6px; padding: 16px; }
+        .sideproj a, .sideproj a:nth-child(2n) { border-right: 0; }
+        .threadwrap { padding-left: 0; }
+        .threadwrap::before, .section::before { display: none; }
+        .writing-item { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
         .writing-arrow { display: none; }
-        .marquee { gap: 12px; font-size: 10px; }
-        footer { flex-direction: column; align-items: flex-start; }
+        .section-head { gap: 12px; }
+        .section-meta { margin-left: 0; }
       }
     </style>
   </head>
   <body>
-    <div class="ambient" aria-hidden="true"></div>
-    <div class="ambient bottom" aria-hidden="true"></div>
+    <div class="soilband" aria-hidden="true"></div>
 
     <main class="wrap">
-      <nav class="topnav" aria-label="Primary">
-        <div class="brand">
-          <span class="brand-mark">SD</span>
-          <span>Saurav Das</span>
-        </div>
-        <div class="nav-links">
-          <a href="#work">Work</a>
-          <a href="#research">Research</a>
-          <a href="#about">About</a>
-          <a href="#writing">Writing</a>
-          <a href="#contact">Contact</a>
+      <header class="masthead">
+        <div class="wordmark">
+          <span><span class="dot" aria-hidden="true"></span>Saurav Das</span>
+          <span class="wordmark-meta">Field Notebook · 2026</span>
         </div>
         <button class="theme-toggle" type="button" aria-label="Toggle color theme" aria-live="polite">Theme</button>
-      </nav>
+      </header>
 
       <section class="hero">
-        <div class="hero-id">
-          <div class="avatar" aria-hidden="true">SD</div>
-          <div class="hero-id-meta">
-            <div class="name-line">Saurav Das</div>
-            <div class="role-line">Founder · Ph.D. Soil Microbiology · U.S.</div>
-          </div>
-        </div>
-        <div class="status-pill">
-          <span class="pulse-dot" aria-hidden="true"></span>
-          <span>Building &mdash; Open to funding &amp; partnerships</span>
-        </div>
-        <h1>Founder building the <span class="accent">agricultural intelligence stack</span> American farming is missing.</h1>
-        <p class="lede">
-          Five connected products turning research, soil signals, and farm decisions into infrastructure people can actually use. Backed by a Ph.D. in soil microbiology and a research arc through Assam, Nebraska, and the Rodale Institute &mdash; so the depth is real, not retrofitted.
-        </p>
+        <div class="eyebrow">Founder · Ph.D. Soil Microbiology · United States</div>
+
+        <h1 class="display">Building the agricultural intelligence stack American farming is <em>missing</em>.</h1>
+
+        <p class="lede">A soil microbiologist by training, a founder by practice. Five connected products — research, soil guidance, market, valuation, and field — pointed at one stubborn problem: getting agricultural knowledge out of papers and into the hands that work the land.</p>
+
         <p class="hero-sub">
-          Below: <a class="inline" href="#work">the products I'm shipping</a>, <a class="inline" href="#research">the research that backs them</a>, and a bit of <a class="inline" href="#writing">how I think</a>.
+          Below is a working index of what I'm building, the science it stands on, and the way I think. Read it like a field notebook &mdash; <a class="inline" href="#work">products</a>, <a class="inline" href="#research">research</a>, <a class="inline" href="#about">background</a>, <a class="inline" href="#writing">writing</a>.
         </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#work">
-            <span>See what I'm building</span>
-            <span class="arrow">→</span>
-          </a>
-          <a class="btn" href="#research">Research credentials</a>
-          <a class="btn" href="mailto:saurav12das@gmail.com">Get in touch</a>
+
+        <div class="hero-status">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Currently &mdash; building, &amp; open to funding &amp; partnerships</span>
         </div>
-        <div class="marquee" aria-label="Quick facts">
+
+        <div class="hero-actions">
+          <a class="cta solid" href="#work">See the stack</a>
+          <a class="cta-link" href="#research">Research credentials</a>
+          <a class="cta-link" href="mailto:saurav12das@gmail.com">Get in touch</a>
+        </div>
+
+        <div class="hero-meta">
           <span><strong>5</strong> products shipping</span>
-          <span class="sep">/</span>
           <span><strong>Ph.D.</strong> Soil microbiology</span>
-          <span class="sep">/</span>
           <span><strong>1</strong> connected stack</span>
-          <span class="sep">/</span>
           <span><strong>Open</strong> to funding</span>
         </div>
       </section>
 
       <div class="threadwrap">
+
       <section id="work" class="section" aria-label="Work">
         <div class="section-head">
-          <div>
-            <div class="section-eyebrow">Work</div>
-            <h2>Products I'm shipping.</h2>
-          </div>
-          <div class="section-meta">5 / connected by design</div>
+          <div class="section-eyebrow">§ Work</div>
+          <h2>The stack, drawn as a <em>soil profile</em>.</h2>
+          <div class="section-meta">5 layers / one loop</div>
         </div>
-        <p class="body" style="margin-bottom:24px;">Five layers, one connected stack. Research feeds farmer guidance, guidance drives input choices, choices play out on the ground, ground-truth gets valued, and field data flows back into the research layer. <strong style="color:var(--text);">It's a loop, not a list.</strong></p>
-        <div class="stack-frame">
-          <div class="stack-loop" aria-hidden="true">
-            <span class="stack-loop-label">Field data → Research</span>
+        <p class="body">
+          Five products, one connected stack &mdash; rendered the way a soil scientist would draw a field site. Research at the bedrock. Field above. Each layer feeds the ones below it, and field data flows back up through every layer to the substrate. <strong>It is a loop, not a list.</strong>
+        </p>
+
+        <div class="profile-frame">
+          <div class="profile-caption">
+            <span>Profile · The Ag Intelligence Stack</span>
+            <span class="legend">
+              <span class="legend-item"><span class="swatch" style="background:var(--h-o)"></span>O</span>
+              <span class="legend-item"><span class="swatch" style="background:var(--h-a)"></span>A</span>
+              <span class="legend-item"><span class="swatch" style="background:var(--h-b)"></span>B</span>
+              <span class="legend-item"><span class="swatch" style="background:var(--h-c)"></span>C</span>
+              <span class="legend-item"><span class="swatch" style="background:var(--h-r)"></span>R</span>
+            </span>
           </div>
-          <a class="layer" href="https://fieldlog.info/" target="_blank" rel="noopener noreferrer">
-            <div class="layer-tag"><span class="ord">05</span>Field layer</div>
-            <div class="layer-body">
-              <h3 class="layer-title">FieldLog</h3>
-              <p class="layer-desc">Captures what's actually happening on the ground &mdash; the source of truth that flows back up the stack.</p>
+
+          <a class="horizon" data-h="O" href="https://fieldlog.info/" target="_blank" rel="noopener noreferrer">
+            <div class="horizon-band" data-label="O · Organic">O</div>
+            <div class="horizon-body">
+              <div class="horizon-tag">Field layer · the surface</div>
+              <h3 class="horizon-title">FieldLog</h3>
+              <p class="horizon-desc">Captures what's actually happening on the ground &mdash; the source of truth that flows back through the rest of the stack.</p>
             </div>
-            <span class="layer-arrow">fieldlog.info ↗</span>
+            <span class="horizon-link">fieldlog.info ↗</span>
           </a>
-          <div class="stack-connector"><span>↑↓ feeds</span></div>
-          <a class="layer" href="/writings/product__terravalue.html">
-            <div class="layer-tag"><span class="ord">04</span>Valuation layer</div>
-            <div class="layer-body">
-              <h3 class="layer-title">TerraValue</h3>
-              <p class="layer-desc">Translates field outcomes into market value — making soil, water, biodiversity, and resilience legible to capital.</p>
+
+          <a class="horizon" data-h="A" href="/writings/product__terravalue.html">
+            <div class="horizon-band" data-label="A · Topsoil">A</div>
+            <div class="horizon-body">
+              <div class="horizon-tag">Valuation layer · where life is valued</div>
+              <h3 class="horizon-title">TerraValue</h3>
+              <p class="horizon-desc">Translates field outcomes into market value &mdash; making soil, water, biodiversity, and resilience legible to capital.</p>
             </div>
-            <span class="layer-arrow">terravalue.tech ↗</span>
+            <span class="horizon-link">terravalue.tech ↗</span>
           </a>
-          <div class="stack-connector"><span>↑↓ feeds</span></div>
-          <a class="layer" href="/writings/product__farmdeck.html">
-            <div class="layer-tag"><span class="ord">03</span>Market layer</div>
-            <div class="layer-body">
-              <h3 class="layer-title">FarmDeck</h3>
-              <p class="layer-desc">Where input &amp; equipment buying happens — informed by public trial data from the layers below.</p>
+
+          <a class="horizon" data-h="B" href="/writings/product__farmdeck.html">
+            <div class="horizon-band" data-label="B · Subsoil">B</div>
+            <div class="horizon-body">
+              <div class="horizon-tag">Market layer · where decisions accumulate</div>
+              <h3 class="horizon-title">FarmDeck</h3>
+              <p class="horizon-desc">A marketplace for inputs and equipment built on public trial data &mdash; replacing phone-call agriculture with comparable evidence.</p>
             </div>
-            <span class="layer-arrow">farmdeck.co ↗</span>
+            <span class="horizon-link">farmdeck.co ↗</span>
           </a>
-          <div class="stack-connector"><span>↑↓ feeds</span></div>
-          <a class="layer" href="/writings/product__soil-health-exchange.html">
-            <div class="layer-tag"><span class="ord">02</span>Farmer-facing</div>
-            <div class="layer-body">
-              <h3 class="layer-title">Soil Health Exchange</h3>
-              <p class="layer-desc">Where farmers ask questions and translate science into field decisions — the human interface to the research layer.</p>
+
+          <a class="horizon" data-h="C" href="/writings/product__soil-health-exchange.html">
+            <div class="horizon-band" data-label="C · Parent">C</div>
+            <div class="horizon-body">
+              <div class="horizon-tag">Farmer-facing · where science meets practice</div>
+              <h3 class="horizon-title">Soil Health Exchange</h3>
+              <p class="horizon-desc">The human interface to the research substrate &mdash; where farmers ask better questions and translate science into field decisions.</p>
             </div>
-            <span class="layer-arrow">soilhealthexchange.com ↗</span>
+            <span class="horizon-link">soilhealthexchange.com ↗</span>
           </a>
-          <div class="stack-connector"><span>↑↓ feeds</span></div>
-          <a class="layer" href="/writings/product__open-ag-data.html">
-            <div class="layer-tag"><span class="ord">01</span>Research substrate</div>
-            <div class="layer-body">
-              <h3 class="layer-title">OpenAgData</h3>
-              <p class="layer-desc">Geographic agricultural research intelligence — the knowledge foundation everything else is built on.</p>
+
+          <a class="horizon" data-h="R" href="/writings/product__open-ag-data.html">
+            <div class="horizon-band" data-label="R · Bedrock">R</div>
+            <div class="horizon-body">
+              <div class="horizon-tag">Research substrate · the foundation</div>
+              <h3 class="horizon-title">OpenAgData</h3>
+              <p class="horizon-desc">Geographic agricultural research intelligence &mdash; turning scattered studies into searchable regional evidence everything else is built on.</p>
             </div>
-            <span class="layer-arrow">open-ag-data.com ↗</span>
+            <span class="horizon-link">open-ag-data.com ↗</span>
           </a>
+
+          <div class="profile-loop">
+            <svg width="22" height="40" viewBox="0 0 22 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M11 4 v32 M4 30 l7 7 7-7 M4 11 l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+            </svg>
+            <span><strong>Field data flows up.</strong> &nbsp; Research wisdom flows down. &nbsp; Each layer is load-bearing.</span>
+          </div>
         </div>
       </section>
 
       <section id="products" class="section" aria-label="Live Products">
         <div class="section-head">
-          <div>
-            <div class="section-eyebrow">Live links</div>
-            <h2>Visit the products.</h2>
-          </div>
+          <div class="section-eyebrow">§ Live</div>
+          <h2>Visit the products.</h2>
         </div>
         <div class="product-pills">
           <a href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">soilhealthexchange.com</a>
@@ -970,14 +953,12 @@
 
       <section id="research" class="section" aria-label="Research">
         <div class="section-head">
-          <div>
-            <div class="section-eyebrow">Research credentials</div>
-            <h2>The science depth beneath the build.</h2>
-          </div>
+          <div class="section-eyebrow">§ Research</div>
+          <h2>The science <em>depth</em> beneath the build.</h2>
           <div class="section-meta">Open to collaboration</div>
         </div>
         <p class="body">
-          My founder work grows out of a longer research arc &mdash; environmental microbiology and arsenic biogeochemistry in Assam, soil health benchmarking and carbon-nitrogen dynamics in Nebraska, and applied systems research at Rodale Institute's Farming Systems Trial. That field experience is what makes the products real instead of speculative.
+          My founder work grows out of a longer research arc &mdash; environmental microbiology and arsenic biogeochemistry in <strong>Assam</strong>, soil health benchmarking and carbon-nitrogen dynamics at <strong>Nebraska</strong>, applied systems research at the <strong>Rodale Institute's Farming Systems Trial</strong>. That field experience is what makes the products real instead of speculative.
         </p>
         <p class="body">
           The dedicated <a class="inline" href="/writings/research-journey.html">Research Journey</a> page traces the scientific questions, field contexts, and publications that shaped how I build &mdash; useful for funders, university collaborators, and anyone evaluating depth.
@@ -986,30 +967,26 @@
 
       <section id="about" class="section" aria-label="About">
         <div class="section-head">
-          <div>
-            <div class="section-eyebrow">Background</div>
-            <h2>Why I'm the one building this.</h2>
-          </div>
+          <div class="section-eyebrow">§ Background</div>
+          <h2>Why I'm the one building this.</h2>
           <div class="section-meta">A bit of context</div>
         </div>
         <p class="body">
-          I'm not a generic software founder hunting an ag market. I came in through soil systems, microbial ecology, and years of seeing how hard it is for real agricultural knowledge to move from papers and institutions into everyday decisions. The ambition isn't five disconnected products &mdash; it's one coherent intelligence layer for agriculture, built from multiple entry points.
+          I'm not a generic software founder hunting an ag market. I came in through soil systems, microbial ecology, and years of seeing how hard it is for real agricultural knowledge to move from papers and institutions into everyday decisions. The ambition isn't five disconnected products &mdash; it's <em>one coherent intelligence layer</em> for agriculture, built from multiple entry points.
         </p>
         <p class="body">
-          Below this line is where I keep the more personal layer of how I think &mdash; essays, side experiments, and a few things I love &mdash; for anyone curious about the philosophy beneath the work.
+          Below the line is the more personal layer of how I think &mdash; essays, side experiments, and a few things I love &mdash; for anyone curious about the philosophy beneath the work.
         </p>
       </section>
 
       <div class="layer-divider" aria-hidden="true">
-        <span>The personal layer &mdash; how I think</span>
+        <span>The personal layer · how I think</span>
       </div>
 
       <section id="writing" class="section" aria-label="Writing">
         <div class="section-head">
-          <div>
-            <div class="section-eyebrow">Writing</div>
-            <h2>Essays on agriculture, AI, and the systems beneath both.</h2>
-          </div>
+          <div class="section-eyebrow">§ Writing</div>
+          <h2>Essays on agriculture, AI, and the systems beneath both.</h2>
           <div class="section-meta">6 essays</div>
         </div>
         <ul class="writing-list">
@@ -1076,12 +1053,10 @@
         </ul>
       </section>
 
-      <section id="side" class="section" aria-label="Side Projects">
+      <section id="side" class="section" aria-label="Experiments">
         <div class="section-head">
-          <div>
-            <div class="section-eyebrow">Experiments</div>
-            <h2>Side projects I'm tinkering with.</h2>
-          </div>
+          <div class="section-eyebrow">§ Experiments</div>
+          <h2>Side projects I'm tinkering with.</h2>
         </div>
         <div class="sideproj">
           <a href="https://github.com/Saurav12das/thermodynamic-memory-architecture" target="_blank" rel="noopener noreferrer">
@@ -1097,27 +1072,20 @@
 
       <section class="section" aria-label="Watching">
         <div class="section-head">
-          <div>
-            <div class="section-eyebrow">Off-hours</div>
-            <h2>Watching.</h2>
-          </div>
+          <div class="section-eyebrow">§ Watching</div>
+          <h2>Off the clock.</h2>
         </div>
         <p class="body">Movies, TV, and anime I love &mdash; <a class="inline" href="/writings/watching.html">see the full list with reviews</a>.</p>
       </section>
 
       <section id="contact" class="section" aria-label="Contact">
         <div class="section-head">
-          <div>
-            <div class="section-eyebrow">Contact</div>
-            <h2>Funding, partnerships, and good conversations.</h2>
-          </div>
+          <div class="section-eyebrow">§ Contact</div>
+          <h2>Funding, partnerships, &amp; good <em>conversations</em>.</h2>
         </div>
         <p class="body">Actively raising and open to partnerships, university collaborations, and operator intros. Email is the fastest way to reach me &mdash; I read everything that comes in.</p>
-        <div class="hero-actions" style="margin-bottom:18px;">
-          <a class="btn primary" href="mailto:saurav12das@gmail.com">
-            <span>saurav12das@gmail.com</span>
-            <span class="arrow">→</span>
-          </a>
+        <div class="hero-actions" style="margin-top:18px; margin-bottom:18px;">
+          <a class="cta solid" href="mailto:saurav12das@gmail.com">saurav12das@gmail.com</a>
         </div>
         <nav class="socials" aria-label="Social and professional links">
           <a href="https://www.linkedin.com/in/dr-saurav-das-019343b4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -1137,11 +1105,12 @@
           </a>
         </nav>
       </section>
+
       </div>
 
       <footer>
-        <span>© <span id="y"></span> Saurav Das &middot; Building in public</span>
-        <span><a href="https://sauravdas.me">sauravdas.me</a></span>
+        <span class="colophon">Set in Fraunces &amp; JetBrains Mono. Built in public.</span>
+        <span>© <span id="y"></span> Saurav Das · <a href="https://sauravdas.me">sauravdas.me</a></span>
       </footer>
     </main>
 
@@ -1157,7 +1126,7 @@
 
         const updateButton = () => {
           const theme = getTheme();
-          button.textContent = theme === 'dark' ? 'Light' : 'Dark';
+          button.textContent = theme === 'dark' ? 'Day' : 'Dusk';
           button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
         };
 
