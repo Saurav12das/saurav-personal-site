@@ -450,42 +450,47 @@
       }
       .hero-meta strong { color: var(--text); font-weight: 600; }
 
-      /* SECTIONS — threaded with a hand-drawn-feeling line */
+      /* SECTIONS — eyebrow on the left of the thread, dot on the line, h2 starts at the bullet */
       .threadwrap {
         position: relative;
-        padding-left: 32px;
         margin-top: 24px;
       }
       .threadwrap::before {
         content: '';
         position: absolute;
-        left: 6px;
-        top: 32px;
-        bottom: 32px;
+        left: 116px;
+        top: 78px;
+        bottom: 56px;
         width: 1.5px;
         background:
           linear-gradient(to bottom,
             transparent 0,
-            var(--rule) 40px,
-            var(--rule) calc(100% - 40px),
+            var(--rule) 28px,
+            var(--rule) calc(100% - 28px),
             transparent 100%);
+        pointer-events: none;
       }
       .section {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        column-gap: 36px;
         padding: 56px 0 8px;
         position: relative;
       }
+      .section > *:not(.section-eyebrow) { grid-column: 2; min-width: 0; }
       .section::before {
         content: '';
         position: absolute;
-        left: -32px;
-        top: 80px;
-        width: 13px;
-        height: 13px;
+        left: 109px;
+        top: 73px;
+        width: 14px;
+        height: 14px;
         border-radius: 50%;
         background: var(--bg);
         border: 1.5px solid var(--rule);
         box-shadow: 0 0 0 5px var(--bg);
         transition: border-color 0.3s, transform 0.3s, background 0.3s;
+        z-index: 2;
       }
       .section:hover::before { border-color: var(--accent); background: var(--accent); transform: scale(1.2); }
 
@@ -497,14 +502,16 @@
         flex-wrap: wrap;
       }
       .section-eyebrow {
+        grid-column: 1;
+        text-align: right;
         font-family: var(--font-mono);
         font-size: 11px;
         font-weight: 500;
         letter-spacing: 0.18em;
         text-transform: uppercase;
         color: var(--muted);
-        flex-shrink: 0;
-        padding-top: 14px;
+        padding-top: 18px;
+        align-self: start;
       }
       h2 {
         font-family: var(--font-display);
@@ -863,8 +870,10 @@
         .horizon-band { font-size: 26px; }
         .sideproj { grid-template-columns: 1fr; }
         .sideproj a, .sideproj a:nth-child(2n) { border-right: 0; }
-        .threadwrap { padding-left: 0; }
         .threadwrap::before, .section::before { display: none; }
+        .section { grid-template-columns: 1fr; column-gap: 0; }
+        .section > *:not(.section-eyebrow) { grid-column: 1; }
+        .section-eyebrow { grid-column: 1; text-align: left; padding-top: 0; margin-bottom: 10px; }
         .writing-item { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
         .writing-arrow { display: none; }
         .section-head { gap: 12px; }
@@ -928,8 +937,8 @@
       <div class="threadwrap">
 
       <section id="work" class="section" aria-label="Work">
+        <div class="section-eyebrow">§ Work</div>
         <div class="section-head">
-          <div class="section-eyebrow">§ Work</div>
           <h2>The stack, drawn as a <em>soil profile</em>.</h2>
           <div class="section-meta">5 layers / one loop</div>
         </div>
@@ -1009,8 +1018,8 @@
       </section>
 
       <section id="products" class="section" aria-label="Live Products">
+        <div class="section-eyebrow">§ Live</div>
         <div class="section-head">
-          <div class="section-eyebrow">§ Live</div>
           <h2>Visit the products.</h2>
         </div>
         <div class="product-pills">
@@ -1023,8 +1032,8 @@
       </section>
 
       <section id="research" class="section" aria-label="Research">
+        <div class="section-eyebrow">§ Research</div>
         <div class="section-head">
-          <div class="section-eyebrow">§ Research</div>
           <h2>Soil systems &amp; <em>human systems</em>.</h2>
           <div class="section-meta">Active work</div>
         </div>
@@ -1037,8 +1046,8 @@
       </section>
 
       <section id="about" class="section" aria-label="About">
+        <div class="section-eyebrow">§ Background</div>
         <div class="section-head">
-          <div class="section-eyebrow">§ Background</div>
           <h2>Why I'm the one building this.</h2>
           <div class="section-meta">A bit of context</div>
         </div>
@@ -1055,8 +1064,8 @@
       </div>
 
       <section id="writing" class="section" aria-label="Writing">
+        <div class="section-eyebrow">§ Writing</div>
         <div class="section-head">
-          <div class="section-eyebrow">§ Writing</div>
           <h2>Essays on agriculture, AI, and the systems beneath both.</h2>
           <div class="section-meta">7 essays</div>
         </div>
@@ -1135,8 +1144,8 @@
       </section>
 
       <section id="side" class="section" aria-label="Experiments">
+        <div class="section-eyebrow">§ Experiments</div>
         <div class="section-head">
-          <div class="section-eyebrow">§ Experiments</div>
           <h2>Side projects I'm tinkering with.</h2>
         </div>
         <div class="sideproj">
@@ -1152,16 +1161,16 @@
       </section>
 
       <section class="section" aria-label="Watching">
+        <div class="section-eyebrow">§ Watching</div>
         <div class="section-head">
-          <div class="section-eyebrow">§ Watching</div>
           <h2>Off the clock.</h2>
         </div>
         <p class="body">Movies, TV, and anime I love &mdash; <a class="inline" href="/writings/watching.html">see the full list with reviews</a>.</p>
       </section>
 
       <section id="contact" class="section" aria-label="Contact">
+        <div class="section-eyebrow">§ Contact</div>
         <div class="section-head">
-          <div class="section-eyebrow">§ Contact</div>
           <h2>Funding, partnerships, &amp; good <em>conversations</em>.</h2>
         </div>
         <p class="body">Actively raising and open to partnerships, university collaborations, and operator intros. Email is the fastest way to reach me &mdash; I read everything that comes in.</p>
