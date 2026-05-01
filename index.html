@@ -374,11 +374,44 @@
       .marquee strong { color: var(--text); font-weight: 600; }
       .marquee .sep { opacity: 0.4; }
 
-      /* SECTION HEADERS */
+      /* SECTION HEADERS — threaded architecture */
+      .threadwrap {
+        position: relative;
+        padding-left: 28px;
+      }
+      .threadwrap::before {
+        content: '';
+        position: absolute;
+        left: 7px;
+        top: 24px;
+        bottom: 24px;
+        width: 1.5px;
+        background: linear-gradient(
+          to bottom,
+          transparent 0,
+          var(--line-strong) 40px,
+          var(--line-strong) calc(100% - 40px),
+          transparent 100%
+        );
+      }
       .section {
         padding: 60px 0 12px;
         position: relative;
       }
+      .section::before {
+        content: '';
+        position: absolute;
+        left: -29px;
+        top: 80px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 1.5px solid var(--line-strong);
+        box-shadow: 0 0 0 4px var(--bg);
+        transition: border-color 0.2s, transform 0.2s;
+      }
+      .section:hover::before { border-color: var(--accent); transform: scale(1.15); }
       .section-head {
         display: flex;
         justify-content: space-between;
@@ -386,6 +419,10 @@
         gap: 18px;
         margin-bottom: 28px;
         flex-wrap: wrap;
+      }
+      @media (max-width: 640px) {
+        .threadwrap { padding-left: 0; }
+        .threadwrap::before, .section::before { display: none; }
       }
       .section-eyebrow {
         font-family: var(--font-mono);
@@ -414,92 +451,153 @@
       p { margin: 0 0 14px; color: var(--text); }
       p.body { color: var(--muted); font-size: 15px; max-width: 700px; line-height: 1.7; }
 
-      /* BENTO STACK GRID */
-      .bento {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 14px;
-      }
-      .tile {
+      /* STACK DIAGRAM */
+      .stack-frame {
         position: relative;
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 22px;
-        text-decoration: none;
-        color: var(--text);
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        overflow: hidden;
-        transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-        min-height: 180px;
+        padding: 8px 0;
       }
-      .tile:hover {
-        transform: translateY(-3px);
-        border-color: var(--line-strong);
-        box-shadow: var(--shadow-lg);
+      .stack-loop {
+        position: absolute;
+        top: 60px;
+        bottom: 60px;
+        right: -8px;
+        width: 36px;
+        pointer-events: none;
+        display: none;
       }
-      .tile::after {
+      @media (min-width: 720px) { .stack-loop { display: block; } }
+      .stack-loop::before {
         content: '';
         position: absolute;
-        right: -40px;
-        top: -40px;
-        width: 140px;
-        height: 140px;
-        background: radial-gradient(circle, var(--accent-soft), transparent 70%);
-        opacity: 0;
-        transition: opacity 0.3s;
-        pointer-events: none;
+        top: 0; bottom: 0; right: 16px;
+        width: 1.5px;
+        background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--accent) 30%, transparent));
+        border-radius: 2px;
       }
-      .tile:hover::after { opacity: 1; }
-      .tile-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
+      .stack-loop-label {
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: rotate(-90deg) translateX(50%);
+        transform-origin: right center;
         font-family: var(--font-mono);
         font-size: 10px;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--muted);
-        align-self: flex-start;
-        padding: 4px 10px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
+        white-space: nowrap;
       }
-      .tile-title {
+      .stack-loop::after {
+        content: '↑';
+        position: absolute;
+        top: -10px;
+        right: 11px;
+        color: var(--accent);
+        font-size: 14px;
+        line-height: 1;
+      }
+      .layer {
+        position: relative;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 22px 26px;
+        text-decoration: none;
+        color: var(--text);
+        display: grid;
+        grid-template-columns: 140px 1fr auto;
+        gap: 24px;
+        align-items: center;
+        transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+        margin-bottom: 4px;
+        overflow: hidden;
+      }
+      .layer:hover {
+        transform: translateX(4px);
+        border-color: var(--line-strong);
+        box-shadow: var(--shadow-lg);
+      }
+      .layer::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 4px;
+        background: var(--accent);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .layer:hover::before { opacity: 1; }
+      .layer-tag {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .layer-tag .ord {
+        display: inline-block;
+        margin-right: 8px;
+        padding: 3px 7px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        color: var(--text);
+        font-weight: 600;
+      }
+      .layer-body { min-width: 0; }
+      .layer-title {
         font-family: var(--font-display);
         font-size: 22px;
         font-weight: 600;
         letter-spacing: -0.02em;
-        line-height: 1.2;
-        margin: 4px 0 0;
+        line-height: 1.15;
+        margin: 0 0 6px;
       }
-      .tile-desc {
+      .layer-desc {
         font-size: 14px;
         line-height: 1.55;
         color: var(--muted);
         margin: 0;
       }
-      .tile-foot {
-        margin-top: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      .layer-arrow {
         font-family: var(--font-mono);
-        font-size: 11px;
-        letter-spacing: 0.08em;
+        font-size: 12px;
+        color: var(--muted);
+        transition: color 0.2s, transform 0.2s;
+      }
+      .layer:hover .layer-arrow { color: var(--accent); transform: translateX(3px); }
+      .stack-connector {
+        height: 24px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .stack-connector::before {
+        content: '';
+        width: 1.5px;
+        height: 100%;
+        background: var(--line-strong);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .stack-connector span {
+        position: relative;
+        background: var(--bg);
+        padding: 0 8px;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--muted);
       }
-      .tile-foot .arrow { transition: transform 0.2s; }
-      .tile:hover .tile-foot .arrow { transform: translate(3px, -3px); }
 
-      /* Bento sizing */
-      .tile.wide { grid-column: span 4; }
-      .tile.med { grid-column: span 3; }
-      .tile.narrow { grid-column: span 2; }
-      .tile.full { grid-column: span 6; }
+      @media (max-width: 700px) {
+        .layer { grid-template-columns: 1fr; gap: 8px; padding: 18px 20px; }
+        .layer-arrow { display: none; }
+      }
 
       /* SIGNALS */
       .signals {
@@ -787,12 +885,13 @@
           <span class="sep">/</span>
           <span><strong>Ph.D.</strong> Soil microbiology</span>
           <span class="sep">/</span>
-          <span><strong>Rodale</strong> &middot; <strong>Nebraska</strong> &middot; <strong>Assam</strong></span>
+          <span><strong>1</strong> connected stack</span>
           <span class="sep">/</span>
           <span><strong>Open</strong> to funding</span>
         </div>
       </section>
 
+      <div class="threadwrap">
       <section id="work" class="section" aria-label="Work">
         <div class="section-head">
           <div>
@@ -801,36 +900,54 @@
           </div>
           <div class="section-meta">5 / connected by design</div>
         </div>
-        <div class="bento">
-          <a class="tile narrow" href="/writings/product__open-ag-data.html">
-            <span class="tile-tag">Research layer</span>
-            <h3 class="tile-title">OpenAgData</h3>
-            <p class="tile-desc">Geographic ag-research intelligence — turning scattered studies into searchable regional evidence.</p>
-            <div class="tile-foot"><span>open-ag-data.com</span><span class="arrow">↗</span></div>
+        <p class="body" style="margin-bottom:24px;">Five layers, one connected stack. Research feeds farmer guidance, guidance drives input choices, choices play out on the ground, ground-truth gets valued, and field data flows back into the research layer. <strong style="color:var(--text);">It's a loop, not a list.</strong></p>
+        <div class="stack-frame">
+          <div class="stack-loop" aria-hidden="true">
+            <span class="stack-loop-label">Field data → Research</span>
+          </div>
+          <a class="layer" href="https://fieldlog.info/" target="_blank" rel="noopener noreferrer">
+            <div class="layer-tag"><span class="ord">05</span>Field layer</div>
+            <div class="layer-body">
+              <h3 class="layer-title">FieldLog</h3>
+              <p class="layer-desc">Captures what's actually happening on the ground &mdash; the source of truth that flows back up the stack.</p>
+            </div>
+            <span class="layer-arrow">fieldlog.info ↗</span>
           </a>
-          <a class="tile narrow" href="/writings/product__soil-health-exchange.html">
-            <span class="tile-tag">Farmer-facing</span>
-            <h3 class="tile-title">Soil Health Exchange</h3>
-            <p class="tile-desc">Science-backed soil guidance that helps farmers ask better questions and translate research into field decisions.</p>
-            <div class="tile-foot"><span>soilhealthexchange.com</span><span class="arrow">↗</span></div>
+          <div class="stack-connector"><span>↑↓ feeds</span></div>
+          <a class="layer" href="/writings/product__terravalue.html">
+            <div class="layer-tag"><span class="ord">04</span>Valuation layer</div>
+            <div class="layer-body">
+              <h3 class="layer-title">TerraValue</h3>
+              <p class="layer-desc">Translates field outcomes into market value — making soil, water, biodiversity, and resilience legible to capital.</p>
+            </div>
+            <span class="layer-arrow">terravalue.tech ↗</span>
           </a>
-          <a class="tile narrow" href="/writings/product__farmdeck.html">
-            <span class="tile-tag">Market layer</span>
-            <h3 class="tile-title">FarmDeck</h3>
-            <p class="tile-desc">A marketplace for farm inputs &amp; equipment built on public trial data — replacing phone-call agriculture.</p>
-            <div class="tile-foot"><span>farmdeck.co</span><span class="arrow">↗</span></div>
+          <div class="stack-connector"><span>↑↓ feeds</span></div>
+          <a class="layer" href="/writings/product__farmdeck.html">
+            <div class="layer-tag"><span class="ord">03</span>Market layer</div>
+            <div class="layer-body">
+              <h3 class="layer-title">FarmDeck</h3>
+              <p class="layer-desc">Where input &amp; equipment buying happens — informed by public trial data from the layers below.</p>
+            </div>
+            <span class="layer-arrow">farmdeck.co ↗</span>
           </a>
-          <a class="tile med" href="/writings/product__terravalue.html">
-            <span class="tile-tag">Valuation layer</span>
-            <h3 class="tile-title">TerraValue</h3>
-            <p class="tile-desc">Natural-capital valuation infrastructure for farmland — making soil, water, biodiversity, and resilience legible to markets.</p>
-            <div class="tile-foot"><span>terravalue.tech</span><span class="arrow">↗</span></div>
+          <div class="stack-connector"><span>↑↓ feeds</span></div>
+          <a class="layer" href="/writings/product__soil-health-exchange.html">
+            <div class="layer-tag"><span class="ord">02</span>Farmer-facing</div>
+            <div class="layer-body">
+              <h3 class="layer-title">Soil Health Exchange</h3>
+              <p class="layer-desc">Where farmers ask questions and translate science into field decisions — the human interface to the research layer.</p>
+            </div>
+            <span class="layer-arrow">soilhealthexchange.com ↗</span>
           </a>
-          <a class="tile med" href="https://fieldlog.info/" target="_blank" rel="noopener noreferrer">
-            <span class="tile-tag">Field layer</span>
-            <h3 class="tile-title">FieldLog</h3>
-            <p class="tile-desc">A field-management layer for capturing what's actually happening on the ground &mdash; feeding intelligence back into the wider stack.</p>
-            <div class="tile-foot"><span>fieldlog.info</span><span class="arrow">↗</span></div>
+          <div class="stack-connector"><span>↑↓ feeds</span></div>
+          <a class="layer" href="/writings/product__open-ag-data.html">
+            <div class="layer-tag"><span class="ord">01</span>Research substrate</div>
+            <div class="layer-body">
+              <h3 class="layer-title">OpenAgData</h3>
+              <p class="layer-desc">Geographic agricultural research intelligence — the knowledge foundation everything else is built on.</p>
+            </div>
+            <span class="layer-arrow">open-ag-data.com ↗</span>
           </a>
         </div>
       </section>
@@ -1020,6 +1137,7 @@
           </a>
         </nav>
       </section>
+      </div>
 
       <footer>
         <span>© <span id="y"></span> Saurav Das &middot; Building in public</span>
