@@ -63,19 +63,21 @@
 
     <style>
       :root {
-        /* Earth palette — cream paper, deep umber, terracotta, ochre */
-        --bg: #f5efe1;
-        --bg-tint: #ede5d2;
-        --paper: #faf6ec;
-        --text: #1f1814;
-        --muted: #6e604f;
-        --line: rgba(31,24,20,0.14);
-        --line-soft: rgba(31,24,20,0.08);
-        --rule: rgba(31,24,20,0.22);
-        --accent: #b34a26;          /* terracotta */
-        --accent-deep: #7a2f15;
+        /* White paper, deep umber type, dark orange accent, moss green for ag */
+        --bg: #ffffff;
+        --bg-tint: #faf7f0;
+        --paper: #ffffff;
+        --text: #1a1611;
+        --muted: #6e6357;
+        --line: rgba(26,22,17,0.10);
+        --line-soft: rgba(26,22,17,0.06);
+        --rule: rgba(26,22,17,0.20);
+        --accent: #c4541d;          /* dark orange */
+        --accent-deep: #8a3a14;
+        --accent-soft: rgba(196,84,29,0.10);
         --ochre: #c0902f;
-        --moss: #5c6634;
+        --moss: #5a7d3a;            /* agriculture green — strategic use only */
+        --moss-soft: rgba(90,125,58,0.12);
 
         /* Soil-horizon palette (used in the soil profile diagram) */
         --h-o: #6b5a36;   /* O — organic */
@@ -91,18 +93,20 @@
         --shadow-soft: 0 1px 0 rgba(31,24,20,0.05), 0 8px 24px -12px rgba(31,24,20,0.18);
       }
       html[data-theme="dark"] {
-        --bg: #15110d;
-        --bg-tint: #1c1814;
-        --paper: #1a1612;
-        --text: #efe6d2;
-        --muted: #9d8d75;
-        --line: rgba(239,230,210,0.14);
-        --line-soft: rgba(239,230,210,0.08);
-        --rule: rgba(239,230,210,0.24);
-        --accent: #d96a3e;
-        --accent-deep: #b34a26;
+        --bg: #14110d;
+        --bg-tint: #1c1916;
+        --paper: #18150f;
+        --text: #f0e8d6;
+        --muted: #9d917b;
+        --line: rgba(240,232,214,0.12);
+        --line-soft: rgba(240,232,214,0.06);
+        --rule: rgba(240,232,214,0.22);
+        --accent: #e26830;
+        --accent-deep: #c4541d;
+        --accent-soft: rgba(226,104,48,0.14);
         --ochre: #d8a64a;
-        --moss: #8a9c52;
+        --moss: #8aa856;
+        --moss-soft: rgba(138,168,86,0.16);
 
         --h-o: #6b5a36;
         --h-a: #2a1d12;
@@ -128,18 +132,18 @@
         overflow-x: hidden;
         position: relative;
       }
-      /* Subtle paper grain — hand-tuned SVG noise, very low opacity */
+      /* Very faint grain — keeps white from feeling sterile but doesn't muddy it */
       body::before {
         content: '';
         position: fixed;
         inset: 0;
         pointer-events: none;
         z-index: 0;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.42'/></svg>");
-        opacity: 0.35;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0 0.06  0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+        opacity: 0.10;
         mix-blend-mode: multiply;
       }
-      html[data-theme="dark"] body::before { mix-blend-mode: screen; opacity: 0.25; }
+      html[data-theme="dark"] body::before { mix-blend-mode: screen; opacity: 0.20; }
 
       /* The soil-horizon band fixed at the very bottom of the viewport — your "ground" */
       .soilband {
@@ -192,10 +196,11 @@
         display: inline-block;
         width: 7px;
         height: 7px;
-        background: var(--accent);
+        background: var(--moss);
         border-radius: 50%;
         margin-right: 8px;
         transform: translateY(-2px);
+        box-shadow: 0 0 0 3px var(--moss-soft);
       }
       .wordmark-meta {
         font-family: var(--font-mono);
@@ -625,12 +630,14 @@
       }
       .horizon-title {
         font-family: var(--font-display);
-        font-weight: 500;
+        font-weight: 600;
         font-size: 23px;
         letter-spacing: -0.015em;
         line-height: 1.2;
         margin: 0 0 6px;
+        color: var(--accent);
       }
+      .horizon:hover .horizon-title { color: var(--accent-deep); }
       .horizon-desc {
         font-size: 14.5px;
         line-height: 1.6;
@@ -662,14 +669,15 @@
         align-items: center;
         padding: 14px 22px;
         border-top: 1px solid var(--line-soft);
+        background: var(--moss-soft);
         font-family: var(--font-mono);
         font-size: 11px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         color: var(--muted);
       }
-      .profile-loop svg { flex-shrink: 0; }
-      .profile-loop strong { color: var(--text); font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 15px; }
+      .profile-loop svg { flex-shrink: 0; color: var(--moss); }
+      .profile-loop strong { color: var(--moss); font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 15px; }
 
       /* Live links — newspaper-style index */
       .product-pills {
