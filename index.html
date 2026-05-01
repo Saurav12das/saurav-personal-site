@@ -223,7 +223,14 @@
       .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
       /* HERO */
-      .hero { position: relative; padding: 8px 0 48px; }
+      .hero { position: relative; padding: 8px 0 40px; }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 92px;
+        gap: 40px;
+        align-items: start;
+      }
+      .hero-text { min-width: 0; }
       .eyebrow {
         font-family: var(--font-mono);
         font-size: 11px;
@@ -234,7 +241,7 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        margin-bottom: 24px;
+        margin-bottom: 22px;
       }
       .eyebrow::before {
         content: '';
@@ -252,7 +259,7 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--muted);
-        margin-bottom: 28px;
+        margin-bottom: 24px;
       }
       .hero-status .dot {
         width: 7px;
@@ -274,47 +281,89 @@
 
       h1.display {
         font-family: var(--font-display);
-        font-size: clamp(44px, 6.4vw, 78px);
+        font-size: clamp(34px, 4.6vw, 54px);
         font-weight: 500;
-        line-height: 1.02;
-        letter-spacing: -0.025em;
-        margin: 0 0 28px;
+        line-height: 1.06;
+        letter-spacing: -0.022em;
+        margin: 0 0 22px;
         font-feature-settings: "ss01", "ss02";
         text-wrap: balance;
+        max-width: 16ch;
       }
       h1.display em {
         font-style: italic;
         font-weight: 500;
         color: var(--accent);
       }
-      h1.display .dash { color: var(--accent); font-style: normal; }
 
       .lede {
-        font-family: var(--font-display);
+        font-family: var(--font-sans);
         font-weight: 400;
-        font-size: clamp(19px, 2vw, 23px);
-        line-height: 1.5;
-        max-width: 660px;
-        margin: 0 0 18px;
-        color: var(--text);
-        letter-spacing: -0.005em;
-      }
-      .lede::first-letter {
-        font-family: var(--font-display);
-        font-weight: 600;
-        font-size: 2.6em;
-        float: left;
-        line-height: 0.9;
-        padding: 6px 10px 0 0;
-        color: var(--accent);
-      }
-      .hero-sub {
-        max-width: 620px;
-        color: var(--muted);
-        font-size: 15.5px;
+        font-size: 16.5px;
         line-height: 1.65;
-        margin: 0 0 32px;
+        max-width: 580px;
+        margin: 0 0 24px;
+        color: var(--muted);
       }
+      .lede strong { color: var(--text); font-weight: 600; }
+
+      /* Soil core sample — tiny visual showing what the page is about */
+      .core-sample {
+        position: relative;
+        width: 92px;
+        margin-top: 32px;
+      }
+      .core-tube {
+        width: 100%;
+        height: 280px;
+        border: 1.5px solid var(--rule);
+        background: var(--paper);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+      }
+      .core-tube::before,
+      .core-tube::after {
+        content: '';
+        position: absolute;
+        left: -6px;
+        right: -6px;
+        height: 4px;
+        background: var(--text);
+      }
+      .core-tube::before { top: 0; }
+      .core-tube::after { bottom: 0; }
+      .core-band {
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--paper);
+        text-shadow: 0 1px 1px rgba(0,0,0,0.25);
+      }
+      .core-band[data-h="O"] { background: var(--h-o); }
+      .core-band[data-h="A"] { background: var(--h-a); }
+      .core-band[data-h="B"] { background: var(--h-b); }
+      .core-band[data-h="C"] { background: var(--h-c); color: #2a1d12; text-shadow: none; }
+      .core-band[data-h="R"] { background: var(--h-r); }
+      .core-label {
+        margin-top: 10px;
+        font-family: var(--font-mono);
+        font-size: 9.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-align: center;
+        line-height: 1.4;
+      }
+      .core-label strong { color: var(--text); font-weight: 600; }
 
       /* Inline links — like reading a book */
       a.inline {
@@ -798,6 +847,9 @@
       @media (max-width: 720px) {
         .wrap { padding: 24px 22px 80px; }
         .masthead { margin-bottom: 40px; }
+        .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+        .core-sample { width: 80px; margin-top: 8px; }
+        .core-tube { height: 200px; }
         .horizon { grid-template-columns: 60px 1fr; }
         .horizon-link { display: none; }
         .horizon-band { font-size: 26px; }
@@ -825,25 +877,36 @@
       </header>
 
       <section class="hero">
-        <div class="eyebrow">Founder · Ph.D. Soil Microbiology · United States</div>
+        <div class="hero-grid">
+          <div class="hero-text">
+            <div class="eyebrow">Founder · Ph.D. Soil Microbiology · United States</div>
 
-        <h1 class="display">Building the agricultural intelligence stack American farming is <em>missing</em>.</h1>
+            <h1 class="display">Building the agricultural intelligence stack American farming is <em>missing</em>.</h1>
 
-        <p class="lede">A soil microbiologist by training, a founder by practice. Five connected products — research, soil guidance, market, valuation, and field — pointed at one stubborn problem: getting agricultural knowledge out of papers and into the hands that work the land.</p>
+            <p class="lede"><strong>Five connected products</strong> &mdash; research, soil guidance, market, valuation, and field. Backed by a Ph.D. and a decade in soil systems, so the depth is real, not retrofitted.</p>
 
-        <p class="hero-sub">
-          Below is a working index of what I'm building, the science it stands on, and the way I think. Read it like a field notebook &mdash; <a class="inline" href="#work">products</a>, <a class="inline" href="#research">research</a>, <a class="inline" href="#about">background</a>, <a class="inline" href="#writing">writing</a>.
-        </p>
+            <div class="hero-status">
+              <span class="dot" aria-hidden="true"></span>
+              <span>Currently building &mdash; open to funding &amp; partnerships</span>
+            </div>
 
-        <div class="hero-status">
-          <span class="dot" aria-hidden="true"></span>
-          <span>Currently &mdash; building, &amp; open to funding &amp; partnerships</span>
-        </div>
+            <div class="hero-actions">
+              <a class="cta solid" href="#work">See the stack</a>
+              <a class="cta-link" href="#research">Research credentials</a>
+              <a class="cta-link" href="mailto:saurav12das@gmail.com">Get in touch</a>
+            </div>
+          </div>
 
-        <div class="hero-actions">
-          <a class="cta solid" href="#work">See the stack</a>
-          <a class="cta-link" href="#research">Research credentials</a>
-          <a class="cta-link" href="mailto:saurav12das@gmail.com">Get in touch</a>
+          <aside class="core-sample" aria-hidden="true">
+            <div class="core-tube">
+              <div class="core-band" data-h="O">O</div>
+              <div class="core-band" data-h="A">A</div>
+              <div class="core-band" data-h="B">B</div>
+              <div class="core-band" data-h="C">C</div>
+              <div class="core-band" data-h="R">R</div>
+            </div>
+            <div class="core-label"><strong>The Stack</strong><br>Core sample · v1</div>
+          </aside>
         </div>
 
         <div class="hero-meta">
