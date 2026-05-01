@@ -679,6 +679,74 @@
       .profile-loop svg { flex-shrink: 0; color: var(--moss); }
       .profile-loop strong { color: var(--moss); font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 15px; }
 
+      /* Research arc — past stop → present product */
+      .research-arc {
+        list-style: none;
+        padding: 0;
+        margin: 22px 0 18px;
+        border-top: 1px solid var(--line-soft);
+      }
+      .research-arc li {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 28px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line-soft);
+        align-items: start;
+      }
+      .ra-where {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--text);
+        padding-top: 5px;
+        position: relative;
+      }
+      .ra-where::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: var(--moss);
+        border-radius: 50%;
+        margin-right: 10px;
+        transform: translateY(-2px);
+      }
+      .ra-what {
+        font-family: var(--font-display);
+        font-size: 17px;
+        font-style: italic;
+        font-weight: 500;
+        line-height: 1.4;
+        color: var(--text);
+        margin: 0 0 6px;
+      }
+      .ra-into {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--muted);
+        margin: 0;
+      }
+      .ra-into strong {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--accent);
+        margin-right: 1px;
+      }
+      .ra-arrow {
+        color: var(--accent);
+        font-family: var(--font-display);
+        font-style: italic;
+        margin-right: 6px;
+      }
+      @media (max-width: 640px) {
+        .research-arc li { grid-template-columns: 1fr; gap: 8px; }
+      }
+
       /* Live links — newspaper-style index */
       .product-pills {
         display: flex;
@@ -1025,14 +1093,39 @@
       <section id="research" class="section" aria-label="Research">
         <div class="section-head">
           <div class="section-eyebrow">§ Research</div>
-          <h2>The science <em>depth</em> beneath the build.</h2>
-          <div class="section-meta">Open to collaboration</div>
+          <h2>Past research, threaded into the <em>stack</em>.</h2>
+          <div class="section-meta">3 stops → 5 products</div>
         </div>
         <p class="body">
-          My founder work grows out of a longer research arc &mdash; environmental microbiology and arsenic biogeochemistry in <strong>Assam</strong>, soil health benchmarking and carbon-nitrogen dynamics at <strong>Nebraska</strong>, applied systems research at the <strong>Rodale Institute's Farming Systems Trial</strong>. That field experience is what makes the products real instead of speculative.
+          The field-science years aren't r&eacute;sum&eacute; &mdash; they're blueprint. Each research stop pushed a real conviction into a product layer.
         </p>
+
+        <ol class="research-arc">
+          <li>
+            <div class="ra-where">Assam</div>
+            <div>
+              <p class="ra-what">Environmental microbiology &middot; arsenic biogeochemistry &mdash; how life persists in stressed soils.</p>
+              <p class="ra-into"><span class="ra-arrow">→</span>Lives now in <strong>OpenAgData</strong> &mdash; research as geographically grounded, not generic.</p>
+            </div>
+          </li>
+          <li>
+            <div class="ra-where">Nebraska</div>
+            <div>
+              <p class="ra-what">Soil-health benchmarking &middot; carbon-nitrogen dynamics &mdash; soil quantified at scale.</p>
+              <p class="ra-into"><span class="ra-arrow">→</span>Lives now in <strong>TerraValue</strong> &mdash; making soil, water, and biology legible to capital.</p>
+            </div>
+          </li>
+          <li>
+            <div class="ra-where">Rodale</div>
+            <div>
+              <p class="ra-what">Farming Systems Trial &middot; long-term comparative agriculture in the field.</p>
+              <p class="ra-into"><span class="ra-arrow">→</span>Lives now in <strong>Soil Health Exchange</strong> &amp; <strong>FarmDeck</strong> &mdash; products built on trial data, not anecdote.</p>
+            </div>
+          </li>
+        </ol>
+
         <p class="body">
-          The dedicated <a class="inline" href="/writings/research-journey.html">Research Journey</a> page traces the scientific questions, field contexts, and publications that shaped how I build &mdash; useful for funders, university collaborators, and anyone evaluating depth.
+          Full arc &mdash; publications, field contexts, and the science questions that shaped how I think &mdash; on the <a class="inline" href="/writings/research-journey.html">Research Journey</a> page.
         </p>
       </section>
 
