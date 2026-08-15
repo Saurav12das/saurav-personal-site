@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hop Explorer — A personal beer journal for iPhone</title>
+  <meta name="description" content="Hop Explorer is a private, on-device beer journal for iPhone. Log what you drink, map where you found it, and watch your palate take shape." />
+  <link rel="canonical" href="https://sauravdas.me/hop-explorer/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hop Explorer — A personal beer journal for iPhone" />
+  <meta property="og:description" content="A private, on-device beer journal for iPhone. No accounts, no tracking — just you and your palate." />
+  <meta property="og:url" content="https://sauravdas.me/hop-explorer/" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    (() => {
+      const storedTheme = localStorage.getItem('theme-preference');
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = storedTheme || systemTheme;
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-tint: #faf7f0;
+      --text: #1a1611;
+      --muted: #6e6357;
+      --line: rgba(26,22,17,0.10);
+      --accent: #c4541d;
+      --accent-deep: #8a3a14;
+      --hop: #5a7d3a;
+      --hop-soft: rgba(90,125,58,0.12);
+      --font-display: "Fraunces", Georgia, serif;
+      --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    html[data-theme="dark"] {
+      --bg: #14110d;
+      --bg-tint: #1c1916;
+      --text: #f0e8d6;
+      --muted: #9d917b;
+      --line: rgba(240,232,214,0.12);
+      --accent: #e26830;
+      --accent-deep: #c4541d;
+      --hop: #8aa856;
+      --hop-soft: rgba(138,168,86,0.16);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.7; font-size: 16px; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    header { border-bottom: 1px solid var(--line); }
+    .header-inner {
+      max-width: 720px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .header-inner a {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+    }
+    .header-inner a:hover { color: var(--accent); }
+    .hero { padding: 72px 0 48px; text-align: center; }
+    .hero img { width: 108px; height: 108px; border-radius: 25px; box-shadow: 0 12px 32px -14px rgba(0,0,0,0.45); margin-bottom: 24px; }
+    .eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--hop); margin-bottom: 12px; }
+    h1 { font-family: var(--font-display); font-size: clamp(38px, 7vw, 60px); font-weight: 700; line-height: 1.02; letter-spacing: -0.02em; }
+    .deck { color: var(--muted); font-size: 19px; max-width: 520px; margin: 18px auto 0; }
+    .soon {
+      display: inline-block; margin-top: 28px; font-family: var(--font-mono); font-size: 12px;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+      border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px; background: var(--bg-tint);
+    }
+    main { padding-bottom: 80px; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-top: 16px; }
+    .feature { background: var(--bg-tint); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+    .feature h3 { font-family: var(--font-display); font-size: 19px; font-weight: 600; margin-bottom: 8px; }
+    .feature p { font-size: 14.5px; color: var(--muted); }
+    .privacy-strip {
+      margin-top: 40px; background: var(--hop-soft); border-left: 3px solid var(--hop);
+      border-radius: 0 10px 10px 0; padding: 18px 22px; font-size: 16px;
+    }
+    .privacy-strip a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .privacy-strip a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0 48px; }
+    footer .wrap { display: flex; gap: 20px; flex-wrap: wrap; }
+    footer a { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/">← sauravdas.me</a>
+      <a href="/hop-explorer/support">Support</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero">
+      <img src="/hop-explorer/icon.png" alt="Hop Explorer app icon — a green hop cone" />
+      <div class="eyebrow">For iPhone · iOS 17+</div>
+      <h1>Hop Explorer</h1>
+      <p class="deck">A personal beer journal. Log what you drink, map where you found it, and watch your palate take shape.</p>
+      <span class="soon">Coming soon to the App Store</span>
+    </section>
+
+    <main>
+      <div class="features">
+        <div class="feature">
+          <h3>Journal every pour</h3>
+          <p>Photos, ratings, tasting notes, and a flavor wheel for each beer you try.</p>
+        </div>
+        <div class="feature">
+          <h3>Map your discoveries</h3>
+          <p>Optionally tag where you found each beer and build a personal map of your explorations.</p>
+        </div>
+        <div class="feature">
+          <h3>Know your palate</h3>
+          <p>Stats and style breakdowns reveal what you actually love — and recommend what to try next.</p>
+        </div>
+      </div>
+
+      <p class="privacy-strip">Everything stays on your iPhone. No accounts, no servers, no tracking — read the full <a href="/hop-explorer/privacy">privacy policy</a>.</p>
+    </main>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <a href="/hop-explorer/support">Support</a>
+      <a href="/hop-explorer/privacy">Privacy policy</a>
+      <a href="/">sauravdas.me</a>
+    </div>
+  </footer>
+</body>
+</html>

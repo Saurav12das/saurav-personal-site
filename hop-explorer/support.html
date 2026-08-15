@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hop Explorer — Support</title>
+  <meta name="description" content="Support for Hop Explorer, the personal beer journal for iPhone. FAQs and contact information." />
+  <link rel="canonical" href="https://sauravdas.me/hop-explorer/support" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hop Explorer — Support" />
+  <meta property="og:description" content="Support and FAQs for Hop Explorer, the personal beer journal for iPhone." />
+  <meta property="og:url" content="https://sauravdas.me/hop-explorer/support" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    (() => {
+      const storedTheme = localStorage.getItem('theme-preference');
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = storedTheme || systemTheme;
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-tint: #faf7f0;
+      --text: #1a1611;
+      --muted: #6e6357;
+      --line: rgba(26,22,17,0.10);
+      --accent: #c4541d;
+      --accent-deep: #8a3a14;
+      --hop: #5a7d3a;
+      --hop-soft: rgba(90,125,58,0.12);
+      --font-display: "Fraunces", Georgia, serif;
+      --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    html[data-theme="dark"] {
+      --bg: #14110d;
+      --bg-tint: #1c1916;
+      --text: #f0e8d6;
+      --muted: #9d917b;
+      --line: rgba(240,232,214,0.12);
+      --accent: #e26830;
+      --accent-deep: #c4541d;
+      --hop: #8aa856;
+      --hop-soft: rgba(138,168,86,0.16);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    header { border-bottom: 1px solid var(--line); }
+    .header-inner {
+      max-width: 720px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .header-inner a {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+    }
+    .header-inner a:hover { color: var(--accent); }
+    .hero { padding: 64px 0 40px; }
+    .app-row { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
+    .app-row img { width: 72px; height: 72px; border-radius: 17px; box-shadow: 0 8px 24px -12px rgba(0,0,0,0.4); }
+    .eyebrow {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--hop);
+    }
+    h1 { font-family: var(--font-display); font-size: clamp(34px, 6vw, 52px); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+    .deck { color: var(--muted); font-size: 18px; max-width: 560px; margin-top: 14px; }
+    main { padding-bottom: 96px; }
+    h2 {
+      font-family: var(--font-display); font-size: 26px; font-weight: 600;
+      margin: 48px 0 16px; padding-top: 32px; border-top: 1px solid var(--line);
+    }
+    .contact-card {
+      background: var(--bg-tint); border: 1px solid var(--line); border-radius: 12px;
+      padding: 24px; margin-top: 8px;
+    }
+    .contact-card p { margin-bottom: 10px; }
+    .contact-card a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .contact-card a:hover { color: var(--accent-deep); text-decoration: underline; }
+    .contact-note { font-size: 14px; color: var(--muted); }
+    details {
+      border-bottom: 1px solid var(--line); padding: 16px 0;
+    }
+    details summary {
+      font-weight: 600; cursor: pointer; list-style: none; position: relative; padding-right: 28px;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after {
+      content: "+"; position: absolute; right: 4px; top: 0;
+      font-family: var(--font-mono); color: var(--hop);
+    }
+    details[open] summary::after { content: "–"; }
+    details p { margin-top: 10px; color: var(--muted); }
+    footer { border-top: 1px solid var(--line); padding: 24px 0 48px; }
+    footer .wrap { display: flex; gap: 20px; flex-wrap: wrap; }
+    footer a {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em;
+      color: var(--muted); text-decoration: none;
+    }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/">← sauravdas.me</a>
+      <a href="/hop-explorer/">Hop Explorer</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="app-row">
+        <img src="/hop-explorer/icon.png" alt="Hop Explorer app icon — a green hop cone" />
+        <div>
+          <div class="eyebrow">Support</div>
+          <h1>Hop Explorer</h1>
+        </div>
+      </div>
+      <p class="deck">A personal beer journal for iPhone. Log what you drink, map where you found it, and watch your palate take shape.</p>
+    </section>
+
+    <main>
+      <h2>Contact</h2>
+      <div class="contact-card">
+        <p>Questions, bug reports, or feature ideas — email <a href="mailto:saurav12das@gmail.com?subject=Hop%20Explorer%20Support">saurav12das@gmail.com</a> with "Hop Explorer" in the subject line.</p>
+        <p class="contact-note">Hop Explorer is built and maintained by one person, so replies usually arrive within a few days.</p>
+      </div>
+
+      <h2>Frequently asked questions</h2>
+
+      <details>
+        <summary>Where is my data stored?</summary>
+        <p>Entirely on your iPhone. Hop Explorer has no accounts, no servers, and makes no network requests. Your beers, photos, ratings, and tasting notes never leave your device.</p>
+      </details>
+
+      <details>
+        <summary>How do I back up my beer library?</summary>
+        <p>Because everything is stored in the app's local documents folder, your library is included automatically in your normal iPhone backup (iCloud Backup or a computer backup). Restoring your phone from a backup restores your library with it.</p>
+      </details>
+
+      <details>
+        <summary>How do I delete a beer entry?</summary>
+        <p>Open the beer from your Library, then use the delete action on the detail screen. Deletion is immediate and permanent — there is no server copy to recover from, so it's truly gone.</p>
+      </details>
+
+      <details>
+        <summary>How do I erase all my data?</summary>
+        <p>Deleting the app from your iPhone removes all of its data. Since Hop Explorer stores nothing off-device, uninstalling is a complete erasure.</p>
+      </details>
+
+      <details>
+        <summary>Why does the app ask for photo library access?</summary>
+        <p>Only so you can attach photos of a beer to its journal entry. Photos you choose are copied into the app's private storage; the app never scans or uploads your library.</p>
+      </details>
+
+      <details>
+        <summary>Why does the app ask for my location?</summary>
+        <p>Optionally, to tag where you discovered a beer so it can appear on your personal map. Location is only read when you add an entry, is stored on-device with that entry, and is never transmitted anywhere.</p>
+      </details>
+
+      <details>
+        <summary>What iOS version do I need?</summary>
+        <p>Hop Explorer requires iOS 17 or later.</p>
+      </details>
+    </main>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <a href="/hop-explorer/">About the app</a>
+      <a href="/hop-explorer/privacy">Privacy policy</a>
+      <a href="/">sauravdas.me</a>
+    </div>
+  </footer>
+</body>
+</html>
