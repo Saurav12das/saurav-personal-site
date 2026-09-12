@@ -3,25 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Saurav Das — Soil Scientist &amp; Builder</title>
+    <title>Saurav Das — Soil scientist, founder, writer</title>
     <meta
       name="description"
-      content="Saurav Das is a soil scientist and builder working at the intersection of agriculture, research, and technology."
+      content="The home for everything Saurav Das makes — live products for agriculture, essays on agriculture and AI, open-source experiments, apps, and reviews."
     />
     <link rel="canonical" href="https://sauravdas.me/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Saurav Das — Soil Scientist &amp; Builder" />
-    <meta property="og:description" content="Soil scientist and builder working at the intersection of agriculture, research, and technology." />
+    <meta property="og:title" content="Saurav Das — Soil scientist, founder, writer" />
+    <meta property="og:description" content="Live products for agriculture, essays on agriculture and AI, open-source experiments, and apps — all in one place." />
     <meta property="og:url" content="https://sauravdas.me/" />
     <meta property="og:site_name" content="Saurav Das" />
+    <meta property="og:image" content="https://sauravdas.me/api/og?title=Soil%20scientist%2C%20founder%2C%20writer&kicker=sauravdas.me" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@thedassaurav" />
-    <meta name="twitter:title" content="Saurav Das — Soil Scientist &amp; Builder" />
-    <meta name="twitter:description" content="Soil scientist and builder working at the intersection of agriculture, research, and technology." />
+    <meta name="twitter:title" content="Saurav Das — Soil scientist, founder, writer" />
+    <meta name="twitter:description" content="Live products for agriculture, essays on agriculture and AI, open-source experiments, and apps — all in one place." />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -31,1123 +32,700 @@
       "name": "Saurav Das",
       "url": "https://sauravdas.me/",
       "jobTitle": "Founder",
-      "description": "Soil scientist and founder working at the intersection of agriculture, research, and technology",
+      "description": "Soil scientist and founder building products for agriculture, writing on agriculture and AI, and experimenting with AI agents",
       "sameAs": [
         "https://www.linkedin.com/in/dr-saurav-das-019343b4/",
         "https://github.com/Saurav12das",
         "https://x.com/thedassaurav",
         "https://scholar.google.com/citations?user=184srWEAAAAJ&hl=en"
       ],
-      "knowsAbout": ["Soil Microbiology", "Agricultural AI", "Data Infrastructure", "Soil Health"],
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "University"
-      }
+      "knowsAbout": ["Soil Microbiology", "Soil Health", "Agricultural AI", "Data Infrastructure"]
     }
     </script>
 
-    <!-- Fonts: Fraunces (display serif) + JetBrains Mono -->
+    <!-- One simple serif, upright only -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
 
     <!-- Vercel Web Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
-    <script>
-      (() => {
-        const storedTheme = localStorage.getItem('theme-preference');
-        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        document.documentElement.dataset.theme = storedTheme || systemTheme;
-      })();
-    </script>
 
     <style>
+      /* ------------------------------------------------------------
+         Tokens — white ground, black type, dark green for emphasis.
+         ------------------------------------------------------------ */
       :root {
-        /* White paper, deep umber type, dark orange accent, moss green for ag */
         --bg: #ffffff;
-        --bg-tint: #faf7f0;
-        --paper: #ffffff;
-        --text: #1a1611;
-        --muted: #6e6357;
-        --line: rgba(26,22,17,0.10);
-        --line-soft: rgba(26,22,17,0.06);
-        --rule: rgba(26,22,17,0.20);
-        --accent: #c4541d;          /* dark orange */
-        --accent-deep: #8a3a14;
-        --accent-soft: rgba(196,84,29,0.10);
-        --ochre: #c0902f;
-        --moss: #5a7d3a;            /* agriculture green — strategic use only */
-        --moss-soft: rgba(90,125,58,0.12);
-
-        /* Soil-horizon palette (used in the soil profile diagram) */
-        --h-o: #6b5a36;   /* O — organic */
-        --h-a: #3f2c1d;   /* A — topsoil */
-        --h-b: #8b4a23;   /* B — subsoil */
-        --h-c: #b4885a;   /* C — parent material */
-        --h-r: #4a3f33;   /* R — bedrock */
-
-        --font-display: "Fraunces", "Iowan Old Style", "Hoefler Text", Georgia, serif;
-        --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
-        --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, monospace;
-
-        --shadow-soft: 0 1px 0 rgba(31,24,20,0.05), 0 8px 24px -12px rgba(31,24,20,0.18);
-      }
-      html[data-theme="dark"] {
-        --bg: #14110d;
-        --bg-tint: #1c1916;
-        --paper: #18150f;
-        --text: #f0e8d6;
-        --muted: #9d917b;
-        --line: rgba(240,232,214,0.12);
-        --line-soft: rgba(240,232,214,0.06);
-        --rule: rgba(240,232,214,0.22);
-        --accent: #e26830;
-        --accent-deep: #c4541d;
-        --accent-soft: rgba(226,104,48,0.14);
-        --ochre: #d8a64a;
-        --moss: #8aa856;
-        --moss-soft: rgba(138,168,86,0.16);
-
-        --h-o: #6b5a36;
-        --h-a: #2a1d12;
-        --h-b: #7a3e1c;
-        --h-c: #92704a;
-        --h-r: #3a3128;
-
-        --shadow-soft: 0 1px 0 rgba(0,0,0,0.4), 0 14px 30px -14px rgba(0,0,0,0.6);
+        --ink: #111111;
+        --ink-2: #333333;
+        --muted: #6b6b6b;
+        --line: #e7e7e7;
+        --line-strong: #c9c9c9;
+        --green: #1f5c3a;
+        --green-deep: #174630;
+        --green-soft: #eef4ef;
+        --tint: #f7f7f5;
+        --font: "Source Serif 4", Georgia, "Times New Roman", serif;
+        --radius: 12px;
+        --nav-h: 64px;
       }
 
       *, *::before, *::after { box-sizing: border-box; }
-      html { color-scheme: light dark; scroll-behavior: smooth; }
-      html[data-theme="light"] { color-scheme: light; }
-      html[data-theme="dark"] { color-scheme: dark; }
-      html, body { margin: 0; padding: 0; color: var(--text); }
+      html { color-scheme: light; scroll-behavior: smooth; }
+      html, body { margin: 0; padding: 0; }
       body {
         background: var(--bg);
-        font: 400 16.5px/1.65 var(--font-sans);
-        letter-spacing: -0.005em;
+        color: var(--ink);
+        font: 400 17px/1.6 var(--font);
+        font-variation-settings: "opsz" 16;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        transition: background-color 0.4s ease, color 0.4s ease;
         overflow-x: hidden;
-        position: relative;
       }
-      /* Very faint grain — keeps white from feeling sterile but doesn't muddy it */
-      body::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: 0;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0 0.06  0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
-        opacity: 0.10;
-        mix-blend-mode: multiply;
-      }
-      html[data-theme="dark"] body::before { mix-blend-mode: screen; opacity: 0.20; }
+      a { color: inherit; }
+      img { max-width: 100%; display: block; }
+      ::selection { background: var(--green); color: #fff; }
+      :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
 
-      /* The soil-horizon band fixed at the very bottom of the viewport — your "ground" */
-      .soilband {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 6px;
-        z-index: 0;
-        pointer-events: none;
-        background:
-          linear-gradient(to right,
-            var(--h-o) 0%, var(--h-o) 18%,
-            var(--h-a) 18%, var(--h-a) 38%,
-            var(--h-b) 38%, var(--h-b) 60%,
-            var(--h-c) 60%, var(--h-c) 82%,
-            var(--h-r) 82%, var(--h-r) 100%);
-        opacity: 0.85;
+      .skip {
+        position: absolute; left: 16px; top: -60px; z-index: 100;
+        background: var(--ink); color: #fff; padding: 10px 14px; border-radius: 8px;
+        font-size: 14px; text-decoration: none; transition: top 0.2s;
       }
+      .skip:focus { top: 14px; }
 
-      /* Container */
-      .wrap {
-        max-width: 880px;
-        margin: 0 auto;
-        padding: 32px 28px 100px;
-        position: relative;
-        z-index: 1;
-      }
+      .wrap { width: min(1080px, calc(100% - 48px)); margin: 0 auto; }
+      .small { font-size: 13px; letter-spacing: 0.02em; }
+      .green { color: var(--green); }
 
-      /* Editorial top header — wordmark left, theme toggle right. No pill. */
-      .masthead {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 6px 0 32px;
+      /* ------------------------------------------------------------
+         Nav — sticky, quiet, shows where you are
+         ------------------------------------------------------------ */
+      .nav {
+        position: sticky; top: 0; z-index: 50;
+        background: rgba(255,255,255,0.94);
+        -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
         border-bottom: 1px solid var(--line);
-        margin-bottom: 64px;
       }
-      .wordmark {
-        display: flex;
-        align-items: baseline;
-        gap: 14px;
-        font-family: var(--font-display);
-        font-weight: 600;
-        font-size: 20px;
-        letter-spacing: -0.02em;
-        font-feature-settings: "ss01", "ss02";
+      .nav-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; min-height: var(--nav-h); }
+      .wordmark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 19px; }
+      .wordmark .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
+      .nav-links { display: flex; align-items: center; justify-content: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
+      .nav-links a {
+        display: inline-block; padding: 8px 11px; border-radius: 6px; text-decoration: none;
+        font-size: 15px; color: var(--ink-2); transition: color 0.15s, background-color 0.15s;
       }
-      .wordmark .dot {
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        background: var(--moss);
-        border-radius: 50%;
-        margin-right: 8px;
-        transform: translateY(-2px);
-        box-shadow: 0 0 0 3px var(--moss-soft);
+      .nav-links a:hover { color: var(--ink); background: var(--tint); }
+      .nav-links a[aria-current="true"] { color: var(--green); font-weight: 600; }
+      .btn {
+        display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;
+        padding: 10px 16px; border-radius: 999px; font-size: 15px; font-weight: 600; line-height: 1;
+        border: 1px solid transparent; transition: background-color 0.15s, border-color 0.15s, color 0.15s;
       }
-      .wordmark-meta {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.06em;
-        color: var(--muted);
-        text-transform: uppercase;
+      .btn-solid { background: var(--green); color: #fff; }
+      .btn-solid:hover { background: var(--green-deep); }
+      .btn-ghost { border-color: var(--line-strong); color: var(--ink); background: #fff; }
+      .btn-ghost:hover { border-color: var(--ink); }
+
+      /* ------------------------------------------------------------
+         Hero
+         ------------------------------------------------------------ */
+      .hero { padding: clamp(48px, 7vw, 88px) 0 clamp(36px, 5vw, 64px); }
+      .hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+      .eyebrow { color: var(--green); font-weight: 600; margin-bottom: 18px; }
+      h1 {
+        margin: 0 0 20px; font-weight: 500; font-size: clamp(36px, 5vw, 60px); line-height: 1.08; letter-spacing: -0.015em;
+        font-variation-settings: "opsz" 60; text-wrap: balance;
+      }
+      .lede { margin: 0 0 22px; max-width: 58ch; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.55; color: var(--ink-2); text-wrap: pretty; }
+      .status { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); margin-bottom: 26px; }
+      .status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+      .jump { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+      .jump-label { color: var(--muted); margin-right: 4px; }
+      .chip {
+        display: inline-block; text-decoration: none; padding: 7px 13px; border-radius: 999px;
+        border: 1px solid var(--line-strong); color: var(--ink); font-size: 14.5px; transition: border-color 0.15s, background-color 0.15s;
+      }
+      .chip:hover { border-color: var(--green); color: var(--green); background: var(--green-soft); }
+
+      .now { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+      .now-head { padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--muted); background: var(--tint); }
+      .now a { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 14px 16px; text-decoration: none; transition: background-color 0.15s; }
+      .now a + a { border-top: 1px solid var(--line); }
+      .now a:hover { background: var(--tint); }
+      .now .k { display: block; color: var(--green); font-weight: 600; margin-bottom: 2px; }
+      .now .v { display: block; font-weight: 500; line-height: 1.35; }
+      .now .v small { display: block; font-weight: 400; color: var(--muted); font-size: 14px; margin-top: 2px; }
+      .now .go { color: var(--muted); }
+
+      /* ------------------------------------------------------------
+         Sections
+         ------------------------------------------------------------ */
+      .section { padding: clamp(44px, 6vw, 80px) 0; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--nav-h) + 8px); }
+      .section-head { display: grid; grid-template-columns: 1fr auto; gap: 16px 32px; align-items: end; margin-bottom: clamp(20px, 3vw, 32px); }
+      .kicker { color: var(--green); font-weight: 600; margin-bottom: 10px; }
+      h2 { margin: 0; font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.12; letter-spacing: -0.012em; font-variation-settings: "opsz" 40; text-wrap: balance; }
+      .section-sub { margin: 10px 0 0; max-width: 62ch; color: var(--ink-2); text-wrap: pretty; }
+      .section-link { justify-self: end; white-space: nowrap; }
+
+      .card {
+        position: relative; display: block; text-decoration: none; color: inherit; background: #fff;
+        border: 1px solid var(--line); border-radius: var(--radius); padding: 20px;
+        transition: border-color 0.15s, transform 0.2s ease;
+      }
+      a.card:hover { border-color: var(--green); transform: translateY(-2px); }
+      .card .go { position: absolute; top: 18px; right: 18px; color: var(--muted); transition: color 0.15s; }
+      a.card:hover .go { color: var(--green); }
+      .card h3 { margin: 0 0 4px; font-size: 18px; font-weight: 600; line-height: 1.3; }
+      .card p { margin: 0; color: var(--ink-2); font-size: 15.5px; line-height: 1.5; }
+      .meta { display: flex; flex-wrap: wrap; gap: 4px 12px; color: var(--muted); font-size: 14px; }
+      .meta .series { color: var(--green); font-weight: 600; }
+
+      /* Products */
+      .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+      .product { min-height: 150px; display: grid; align-content: space-between; gap: 18px; }
+      .live { display: inline-flex; align-items: center; gap: 7px; color: var(--green); font-size: 14px; font-weight: 600; }
+      .live::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+      .product .domain { color: var(--muted); font-size: 14px; }
+
+      /* Writing */
+      .writing { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
+      .featured { display: grid; align-content: space-between; gap: 26px; padding: 26px; }
+      .featured .tag { color: var(--green); font-weight: 600; }
+      .featured h3 { margin: 10px 0 0; font-size: clamp(24px, 2.6vw, 32px); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; font-variation-settings: "opsz" 32; text-wrap: balance; }
+      .featured p { margin: 12px 0 0; font-size: 16px; max-width: 50ch; text-wrap: pretty; }
+      .essays { display: grid; gap: 10px; align-content: start; }
+      .essay { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: start; padding: 16px 18px; }
+      .essay h3 { font-size: 16.5px; }
+      .essay h3 span { color: var(--muted); font-weight: 400; }
+      .essay p { font-size: 14.5px; margin-bottom: 6px; }
+      .essay .go { position: static; }
+
+      /* Experiments */
+      .experiments { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+      .experiment { display: grid; gap: 12px; align-content: start; }
+      .experiment h3 a { text-decoration: none; }
+      .experiment h3 a::after { content: ''; position: absolute; inset: 0; } /* whole card opens the repo */
+      .experiment h3 .go { position: static; font-size: 15px; margin-left: 6px; }
+      .experiment:hover { border-color: var(--green); transform: translateY(-2px); }
+      .experiment:hover .go { color: var(--green); }
+      .experiment .foot { position: relative; z-index: 1; display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 14px; }
+      .experiment .foot a { color: var(--green); text-decoration: none; border-bottom: 1px solid transparent; }
+      .experiment .foot a:hover { border-bottom-color: currentColor; }
+
+      /* Apps */
+      .app { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; padding: 24px; }
+      .app-icon { width: 88px; height: 88px; border-radius: 22px; border: 1px solid var(--line); }
+      .app h3 { font-size: 26px; font-weight: 500; margin-bottom: 6px; font-variation-settings: "opsz" 28; }
+      .app p { margin-bottom: 14px; max-width: 54ch; text-wrap: pretty; }
+      .app .links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+      .pill { display: inline-block; padding: 6px 12px; border-radius: 999px; font-size: 14px; text-decoration: none; }
+      .pill-green { background: var(--green-soft); color: var(--green); font-weight: 600; }
+      .pill-link { border: 1px solid var(--line-strong); color: var(--ink-2); transition: border-color 0.15s, color 0.15s; }
+      .pill-link:hover { border-color: var(--green); color: var(--green); }
+
+      /* Off the clock */
+      .strip { display: flex; gap: 12px; padding: 4px max(24px, calc((100% - 1080px) / 2)) 8px; overflow-x: auto; scrollbar-width: none; }
+      .strip::-webkit-scrollbar { display: none; }
+      .poster { flex: 0 0 auto; width: 150px; aspect-ratio: 1; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--tint); text-decoration: none; position: relative; transition: border-color 0.15s; }
+      .poster:hover { border-color: var(--green); }
+      .poster img { width: 100%; height: 100%; object-fit: cover; }
+      .poster span { position: absolute; inset: auto 0 0 0; padding: 22px 10px 8px; color: #fff; font-size: 13px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); opacity: 0; transition: opacity 0.2s; }
+      .poster:hover span { opacity: 1; }
+      .offclock { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+      .offclock .card { display: grid; gap: 6px; }
+
+      /* Research */
+      .research { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 12px; }
+      .research .card { padding: 24px; }
+      .research p { margin-bottom: 16px; font-size: 16.5px; }
+      .themes { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; }
+      .themes li { padding: 6px 12px; border-radius: 999px; background: var(--green-soft); color: var(--green); font-size: 14px; font-weight: 600; }
+      .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .stat { background: var(--tint); border-radius: 10px; padding: 14px; }
+      .stat strong { display: block; font-size: 26px; font-weight: 500; line-height: 1; margin-bottom: 6px; font-variation-settings: "opsz" 28; }
+      .stat span { color: var(--muted); font-size: 13.5px; }
+      .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+      .timeline li { display: grid; grid-template-columns: 14px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+      .timeline li:first-child { border-top: 0; padding-top: 0; }
+      .timeline .tick { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--green); margin-top: 7px; }
+      .timeline .tick.now { background: var(--green); }
+      .timeline strong { display: block; font-weight: 600; font-size: 16px; }
+      .timeline span { color: var(--muted); font-size: 14.5px; }
+
+      /* About */
+      .about { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px; }
+      .about .card { padding: 26px; }
+      .about p { font-size: 17px; margin-bottom: 14px; }
+      .about p:last-of-type { margin-bottom: 0; }
+      .contact { display: grid; align-content: space-between; gap: 22px; }
+      .contact h3 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; line-height: 1.15; font-variation-settings: "opsz" 28; text-wrap: balance; }
+      .contact p { margin-top: 8px; font-size: 15.5px; }
+      .socials { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; }
+      .socials a { color: var(--green); text-decoration: none; font-weight: 600; font-size: 15px; border-bottom: 1px solid transparent; }
+      .socials a:hover { border-bottom-color: currentColor; }
+
+      /* Footer — a full map of the site */
+      footer { border-top: 1px solid var(--line); padding: 44px 0 40px; }
+      .sitemap { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 28px; margin-bottom: 36px; }
+      .sitemap h4 { margin: 0 0 10px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+      .sitemap ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+      .sitemap a { text-decoration: none; color: var(--ink-2); font-size: 15px; }
+      .sitemap a:hover { color: var(--green); }
+      .sitemap .blurb { color: var(--ink-2); font-size: 15px; max-width: 34ch; margin: 10px 0 0; }
+      .foot-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; color: var(--muted); font-size: 14px; }
+
+      .totop {
+        position: fixed; right: 18px; bottom: 18px; z-index: 40; width: 42px; height: 42px; border-radius: 50%;
+        background: var(--green); color: #fff; border: 0; cursor: pointer; display: grid; place-items: center;
+        opacity: 0; pointer-events: none; transition: opacity 0.2s;
+      }
+      .totop.show { opacity: 1; pointer-events: auto; }
+      .totop svg { width: 18px; height: 18px; }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: 0.01ms !important; }
       }
 
-      .theme-toggle {
-        appearance: none;
-        border: 1px solid var(--line);
-        background: transparent;
-        color: var(--text);
-        font: 500 11px/1 var(--font-mono);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        padding: 9px 13px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: border-color 0.2s, background-color 0.2s;
+      /* ------------------------------------------------------------
+         Responsive
+         ------------------------------------------------------------ */
+      @media (max-width: 960px) {
+        .hero-grid, .writing, .research, .about { grid-template-columns: 1fr; }
+        .sitemap { grid-template-columns: 1fr 1fr 1fr; }
+        .sitemap > div:first-child { grid-column: 1 / -1; }
       }
-      .theme-toggle:hover { border-color: var(--accent); background: var(--bg-tint); }
-      .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-      /* HERO */
-      .hero { position: relative; padding: 8px 0 40px; }
-      .hero-grid {
-        display: grid;
-        grid-template-columns: 1fr 92px;
-        gap: 40px;
-        align-items: start;
+      @media (max-width: 760px) {
+        .nav-inner { grid-template-columns: 1fr auto; grid-template-rows: auto auto; padding: 8px 0 6px; min-height: 0; }
+        .wordmark { grid-column: 1; grid-row: 1; }
+        .btn-nav { grid-column: 2; grid-row: 1; justify-self: end; }
+        .nav-links { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; margin: 4px -24px 0; padding: 0 24px; -webkit-overflow-scrolling: touch; }
+        .nav-links::-webkit-scrollbar { display: none; }
+        .nav-links a { white-space: nowrap; font-size: 14.5px; padding: 6px 10px; }
+        .btn-nav { padding: 8px 13px; font-size: 14px; }
+        .section-head { grid-template-columns: 1fr; }
+        .section-link { justify-self: start; }
+        .app { grid-template-columns: 1fr; }
+        .offclock { grid-template-columns: 1fr; }
+        .sitemap { grid-template-columns: 1fr 1fr; }
+        .poster { width: 132px; }
       }
-      .hero-text { min-width: 0; }
-      .eyebrow {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--muted);
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 22px;
-      }
-      .eyebrow::before {
-        content: '';
-        width: 26px;
-        height: 1.5px;
-        background: var(--accent);
-      }
-      .hero-status {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-family: var(--font-mono);
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 24px;
-      }
-      .hero-status .dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--moss);
-        position: relative;
-      }
-      .hero-status .dot::after {
-        content: '';
-        position: absolute;
-        inset: -3px;
-        border-radius: 50%;
-        background: var(--moss);
-        opacity: 0.4;
-        animation: pulse 2.4s ease-out infinite;
-      }
-      @keyframes pulse { 0% { transform: scale(0.6); opacity: 0.5; } 100% { transform: scale(2.6); opacity: 0; } }
-
-      h1.display {
-        font-family: var(--font-display);
-        font-size: clamp(34px, 4.6vw, 54px);
-        font-weight: 500;
-        line-height: 1.06;
-        letter-spacing: -0.022em;
-        margin: 0 0 22px;
-        font-feature-settings: "ss01", "ss02";
-        text-wrap: balance;
-        max-width: 16ch;
-      }
-      h1.display em {
-        font-style: italic;
-        font-weight: 500;
-        color: var(--accent);
-      }
-
-      .lede {
-        font-family: var(--font-sans);
-        font-weight: 400;
-        font-size: 16.5px;
-        line-height: 1.65;
-        max-width: 580px;
-        margin: 0 0 24px;
-        color: var(--muted);
-      }
-      .lede strong { color: var(--text); font-weight: 600; }
-
-      /* Soil core sample — tiny visual showing what the page is about */
-      .core-sample {
-        position: relative;
-        width: 92px;
-        margin-top: 32px;
-      }
-      .core-tube {
-        width: 100%;
-        height: 280px;
-        border: 1.5px solid var(--rule);
-        background: var(--paper);
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        box-shadow: var(--shadow-soft);
-      }
-      .core-tube::before,
-      .core-tube::after {
-        content: '';
-        position: absolute;
-        left: -6px;
-        right: -6px;
-        height: 4px;
-        background: var(--text);
-      }
-      .core-tube::before { top: 0; }
-      .core-tube::after { bottom: 0; }
-      .core-band {
-        flex: 1;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--font-display);
-        font-style: italic;
-        font-weight: 600;
-        font-size: 14px;
-        color: var(--paper);
-        text-shadow: 0 1px 1px rgba(0,0,0,0.25);
-      }
-      .core-band[data-h="O"] { background: var(--h-o); }
-      .core-band[data-h="A"] { background: var(--h-a); }
-      .core-band[data-h="B"] { background: var(--h-b); }
-      .core-band[data-h="C"] { background: var(--h-c); color: #2a1d12; text-shadow: none; }
-      .core-band[data-h="R"] { background: var(--h-r); }
-      .core-label {
-        margin-top: 10px;
-        font-family: var(--font-mono);
-        font-size: 9.5px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--muted);
-        text-align: center;
-        line-height: 1.4;
-      }
-      .core-label strong { color: var(--text); font-weight: 600; }
-
-      /* Inline links — like reading a book */
-      a.inline {
-        color: var(--text);
-        text-decoration: none;
-        background-image: linear-gradient(to right, var(--accent) 0, var(--accent) 100%);
-        background-repeat: no-repeat;
-        background-size: 100% 1.5px;
-        background-position: 0 100%;
-        padding-bottom: 1px;
-        transition: background-size 0.25s, color 0.2s;
-      }
-      a.inline:hover { color: var(--accent); }
-
-      /* Hero CTAs — editorial, not SaaS */
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px 26px;
-        align-items: center;
-        margin-bottom: 36px;
-      }
-      .cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        font-family: var(--font-mono);
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: var(--text);
-        padding: 13px 18px;
-        border: 1px solid var(--text);
-        border-radius: 0;
-        background: transparent;
-        transition: background 0.2s, color 0.2s;
-        position: relative;
-      }
-      .cta::after {
-        content: '→';
-        font-family: var(--font-display);
-        font-style: italic;
-        transition: transform 0.2s;
-      }
-      .cta:hover { background: var(--text); color: var(--bg); }
-      .cta:hover::after { transform: translateX(3px); }
-      .cta.solid { background: var(--text); color: var(--bg); }
-      .cta.solid:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
-
-      .cta-link {
-        font-family: var(--font-mono);
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: var(--muted);
-        text-decoration: none;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 4px;
-        transition: color 0.2s, border-color 0.2s;
-      }
-      .cta-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
-
-      .hero-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0 28px;
-        padding: 14px 0;
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        font-family: var(--font-mono);
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      .hero-meta strong { color: var(--text); font-weight: 600; }
-
-      /* SECTIONS — eyebrow on the left of the thread, dot on the line, h2 starts at the bullet */
-      .threadwrap {
-        position: relative;
-        margin-top: 24px;
-      }
-      .threadwrap::before {
-        content: '';
-        position: absolute;
-        left: 116px;
-        top: 78px;
-        bottom: 56px;
-        width: 1.5px;
-        background:
-          linear-gradient(to bottom,
-            transparent 0,
-            var(--rule) 28px,
-            var(--rule) calc(100% - 28px),
-            transparent 100%);
-        pointer-events: none;
-      }
-      .section {
-        display: grid;
-        grid-template-columns: 100px 1fr;
-        column-gap: 36px;
-        padding: 56px 0 8px;
-        position: relative;
-      }
-      .section > *:not(.section-eyebrow) { grid-column: 2; min-width: 0; }
-      .section::before {
-        content: '';
-        position: absolute;
-        left: 109px;
-        top: 73px;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: var(--bg);
-        border: 1.5px solid var(--rule);
-        box-shadow: 0 0 0 5px var(--bg);
-        transition: border-color 0.3s, transform 0.3s, background 0.3s;
-        z-index: 2;
-      }
-      .section:hover::before { border-color: var(--accent); background: var(--accent); transform: scale(1.2); }
-
-      .section-head {
-        display: flex;
-        align-items: baseline;
-        gap: 24px;
-        margin-bottom: 28px;
-        flex-wrap: wrap;
-      }
-      .section-eyebrow {
-        grid-column: 1;
-        text-align: right;
-        font-family: var(--font-mono);
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--muted);
-        padding-top: 18px;
-        align-self: start;
-      }
-      h2 {
-        font-family: var(--font-display);
-        font-size: clamp(28px, 3.4vw, 40px);
-        font-weight: 500;
-        line-height: 1.12;
-        letter-spacing: -0.02em;
-        margin: 0;
-        max-width: 640px;
-        font-feature-settings: "ss01";
-        text-wrap: balance;
-      }
-      h2 em { font-style: italic; color: var(--accent); }
-      .section-meta {
-        margin-left: auto;
-        font-family: var(--font-mono);
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        padding-top: 14px;
-      }
-
-      p { margin: 0 0 16px; color: var(--text); }
-      p.body {
-        color: var(--text);
-        font-size: 16.5px;
-        max-width: 660px;
-        line-height: 1.75;
-      }
-      p.body strong { color: var(--text); font-weight: 600; }
-      p.body em { font-style: italic; }
-
-      /* SOIL PROFILE — soil horizons */
-      .profile-frame {
-        position: relative;
-        margin: 12px 0 6px;
-        border: 1px solid var(--line);
-        background: var(--paper);
-        box-shadow: var(--shadow-soft);
-      }
-      .profile-caption {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 18px;
-        border-bottom: 1px solid var(--line-soft);
-        font-family: var(--font-mono);
-        font-size: 10.5px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      .profile-caption .legend {
-        display: inline-flex;
-        gap: 16px;
-        align-items: center;
-      }
-      .profile-caption .legend-item {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .profile-caption .swatch {
-        width: 10px;
-        height: 10px;
-        display: inline-block;
-        border: 1px solid rgba(0,0,0,0.2);
-      }
-
-      .horizon {
-        display: grid;
-        grid-template-columns: 84px 1fr auto;
-        gap: 28px;
-        align-items: center;
-        padding: 26px 26px 26px 0;
-        text-decoration: none;
-        color: var(--text);
-        position: relative;
-        border-bottom: 1px solid var(--line-soft);
-        transition: background 0.25s;
-      }
-      .horizon:last-child { border-bottom: 0; }
-      .horizon:hover { background: var(--bg-tint); }
-      .horizon-band {
-        height: 100%;
-        min-height: 96px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--font-display);
-        font-style: italic;
-        font-weight: 600;
-        font-size: 32px;
-        color: var(--paper);
-        letter-spacing: -0.01em;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.25);
-      }
-      .horizon-band::after {
-        content: attr(data-label);
-        position: absolute;
-        bottom: 6px;
-        right: 8px;
-        font-family: var(--font-mono);
-        font-style: normal;
-        font-weight: 500;
-        font-size: 9px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: rgba(255,255,255,0.7);
-        text-shadow: none;
-      }
-      .horizon-body { min-width: 0; }
-      .horizon-tag {
-        font-family: var(--font-mono);
-        font-size: 10.5px;
-        font-weight: 500;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 6px;
-      }
-      .horizon-title {
-        font-family: var(--font-display);
-        font-weight: 600;
-        font-size: 23px;
-        letter-spacing: -0.015em;
-        line-height: 1.2;
-        margin: 0 0 6px;
-        color: var(--accent);
-      }
-      .horizon:hover .horizon-title { color: var(--accent-deep); }
-      .horizon-desc {
-        font-size: 14.5px;
-        line-height: 1.6;
-        color: var(--muted);
-        margin: 0;
-        max-width: 440px;
-      }
-      .horizon-link {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        letter-spacing: 0.06em;
-        color: var(--muted);
-        white-space: nowrap;
-        transition: color 0.2s, transform 0.2s;
-      }
-      .horizon:hover .horizon-link { color: var(--accent); transform: translateX(3px); }
-
-      .horizon[data-h="O"] .horizon-band { background: var(--h-o); }
-      .horizon[data-h="A"] .horizon-band { background: var(--h-a); }
-      .horizon[data-h="B"] .horizon-band { background: var(--h-b); }
-      .horizon[data-h="C"] .horizon-band { background: var(--h-c); color: #2a1d12; text-shadow: none; }
-      .horizon[data-h="C"] .horizon-band::after { color: rgba(42,29,18,0.7); }
-      .horizon[data-h="R"] .horizon-band { background: var(--h-r); }
-
-      /* Loop annotation under the profile */
-      .profile-loop {
-        display: flex;
-        gap: 16px;
-        align-items: center;
-        padding: 14px 22px;
-        border-top: 1px solid var(--line-soft);
-        background: var(--moss-soft);
-        font-family: var(--font-mono);
-        font-size: 11px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      .profile-loop svg { flex-shrink: 0; color: var(--moss); }
-      .profile-loop strong { color: var(--moss); font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 15px; }
-
-      /* Live links — newspaper-style index */
-      .product-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0;
-        margin-top: 8px;
-        font-family: var(--font-mono);
-        font-size: 13px;
-      }
-      .product-pills a {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 18px;
-        text-decoration: none;
-        color: var(--text);
-        border: 1px solid var(--line);
-        margin: -1px 0 0 -1px;
-        background: var(--paper);
-        transition: background 0.2s, color 0.2s, border-color 0.2s;
-        letter-spacing: 0.01em;
-      }
-      .product-pills a::before { content: '↗'; color: var(--muted); transition: color 0.2s, transform 0.2s; }
-      .product-pills a:hover { color: var(--accent); border-color: var(--accent); z-index: 1; position: relative; }
-      .product-pills a:hover::before { color: var(--accent); transform: translate(2px, -2px); }
-
-      /* Layer divider — between founder layer and personal layer */
-      .layer-divider {
-        margin: 96px 0 0;
-        display: flex;
-        align-items: center;
-        gap: 22px;
-        color: var(--muted);
-        font-family: var(--font-display);
-        font-style: italic;
-        font-weight: 400;
-        font-size: 16px;
-      }
-      .layer-divider::before,
-      .layer-divider::after {
-        content: '';
-        flex: 1;
-        height: 1px;
-        background: var(--line);
-      }
-      .layer-divider span { padding: 0 4px; }
-
-      /* WRITING list — editorial */
-      .writing-list { list-style: none; padding: 0; margin: 0; }
-      .writing-item {
-        display: grid;
-        grid-template-columns: 64px 1fr auto;
-        gap: 22px;
-        align-items: baseline;
-        padding: 22px 0;
-        border-bottom: 1px solid var(--line-soft);
-        text-decoration: none;
-        color: inherit;
-        transition: padding 0.25s;
-      }
-      .writing-item:last-child { border-bottom: 0; }
-      .writing-item:hover { padding-left: 8px; }
-      .writing-year {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        color: var(--muted);
-      }
-      .writing-body strong {
-        font-family: var(--font-display);
-        font-size: 19px;
-        font-weight: 500;
-        letter-spacing: -0.012em;
-        display: block;
-        margin-bottom: 4px;
-      }
-      .writing-body span {
-        color: var(--muted);
-        font-size: 14.5px;
-        line-height: 1.55;
-      }
-      .writing-body em { font-family: var(--font-display); font-style: italic; color: var(--accent); }
-      .writing-arrow {
-        font-family: var(--font-display);
-        font-style: italic;
-        color: var(--muted);
-        font-size: 18px;
-        transition: color 0.2s, transform 0.2s;
-      }
-      .writing-item:hover .writing-arrow { color: var(--accent); transform: translateX(4px); }
-
-      /* SIDE PROJECTS */
-      .sideproj {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0;
-        border-top: 1px solid var(--line-soft);
-      }
-      .sideproj a {
-        display: block;
-        padding: 24px 4px 24px 24px;
-        text-decoration: none;
-        color: inherit;
-        border-bottom: 1px solid var(--line-soft);
-        border-right: 1px solid var(--line-soft);
-        transition: background 0.2s, padding-left 0.25s;
-      }
-      .sideproj a:nth-child(2n) { border-right: 0; }
-      .sideproj a:hover { background: var(--bg-tint); padding-left: 30px; }
-      .sideproj strong {
-        display: block;
-        font-family: var(--font-display);
-        font-size: 18px;
-        font-weight: 500;
-        letter-spacing: -0.012em;
-        margin-bottom: 6px;
-      }
-      .sideproj span {
-        color: var(--muted);
-        font-size: 14.5px;
-        line-height: 1.55;
-      }
-
-      /* SOCIALS */
-      .socials {
-        display: flex;
-        gap: 14px;
-        align-items: center;
-        margin-top: 8px;
-      }
-      .socials a {
-        width: 40px;
-        height: 40px;
-        display: grid;
-        place-items: center;
-        border: 1px solid var(--line);
-        color: var(--muted);
-        background: var(--paper);
-        text-decoration: none;
-        transition: color 0.15s, border-color 0.15s, background 0.2s;
-      }
-      .socials a:hover { color: var(--accent); border-color: var(--accent); background: var(--bg-tint); }
-      .socials svg { width: 16px; height: 16px; }
-
-      /* FOOTER */
-      footer {
-        margin-top: 96px;
-        padding-top: 28px;
-        border-top: 1px solid var(--line);
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 12px;
-        flex-wrap: wrap;
-        color: var(--muted);
-        font-family: var(--font-mono);
-        font-size: 11px;
-        letter-spacing: 0.06em;
-      }
-      footer .colophon {
-        font-family: var(--font-display);
-        font-style: italic;
-        font-weight: 400;
-        letter-spacing: 0;
-        font-size: 14px;
-      }
-      footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
-      footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-
-      /* Selection */
-      ::selection { background: var(--accent); color: var(--paper); }
-
-      /* RESPONSIVE */
-      @media (max-width: 720px) {
-        .wrap { padding: 24px 22px 80px; }
-        .masthead { margin-bottom: 40px; }
-        .hero-grid { grid-template-columns: 1fr; gap: 28px; }
-        .core-sample { width: 80px; margin-top: 8px; }
-        .core-tube { height: 200px; }
-        .horizon { grid-template-columns: 60px 1fr; }
-        .horizon-link { display: none; }
-        .horizon-band { font-size: 26px; }
-        .sideproj { grid-template-columns: 1fr; }
-        .sideproj a, .sideproj a:nth-child(2n) { border-right: 0; }
-        .threadwrap::before, .section::before { display: none; }
-        .section { grid-template-columns: 1fr; column-gap: 0; }
-        .section > *:not(.section-eyebrow) { grid-column: 1; }
-        .section-eyebrow { grid-column: 1; text-align: left; padding-top: 0; margin-bottom: 10px; }
-        .writing-item { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
-        .writing-arrow { display: none; }
-        .section-head { gap: 12px; }
-        .section-meta { margin-left: 0; }
+      @media (max-width: 480px) {
+        .wrap { width: calc(100% - 32px); }
+        .nav-links { margin-left: -16px; margin-right: -16px; padding: 0 16px; }
+        .strip { padding-left: 16px; padding-right: 16px; }
+        .stats { grid-template-columns: 1fr 1fr; }
+        .sitemap { grid-template-columns: 1fr; }
       }
     </style>
   </head>
   <body>
-    <div class="soilband" aria-hidden="true"></div>
+    <a class="skip" href="#main">Skip to content</a>
 
-    <main class="wrap">
-      <header class="masthead">
-        <div class="wordmark">
-          <span><span class="dot" aria-hidden="true"></span>Saurav Das</span>
-          <span class="wordmark-meta">Field Notebook · 2026</span>
-        </div>
-        <button class="theme-toggle" type="button" aria-label="Toggle color theme" aria-live="polite">Theme</button>
-      </header>
+    <nav class="nav" aria-label="Site">
+      <div class="wrap nav-inner">
+        <a class="wordmark" href="#top" aria-label="Saurav Das — home"><span class="dot" aria-hidden="true"></span>Saurav Das</a>
+        <ul class="nav-links">
+          <li><a href="#products" data-spy>Products</a></li>
+          <li><a href="#writing" data-spy>Writing</a></li>
+          <li><a href="#experiments" data-spy>Experiments</a></li>
+          <li><a href="#apps" data-spy>Apps</a></li>
+          <li><a href="#offclock" data-spy>Off the clock</a></li>
+          <li><a href="#research" data-spy>Research</a></li>
+          <li><a href="#about" data-spy>About</a></li>
+        </ul>
+        <a class="btn btn-solid btn-nav" href="mailto:saurav12das@gmail.com">Say hello</a>
+      </div>
+    </nav>
 
-      <section class="hero">
-        <div class="hero-grid">
-          <div class="hero-text">
-            <div class="eyebrow">Founder · Ph.D. Soil Microbiology · United States</div>
-
-            <h1 class="display">Soil scientist, building where agriculture meets <em>technology</em>.</h1>
-
-            <p class="lede">A Ph.D. and a decade in soil systems &mdash; carbon, nitrogen, microbial ecology &mdash; now applied to building for agriculture. The depth is real, not retrofitted.</p>
-
-            <div class="hero-status">
-              <span class="dot" aria-hidden="true"></span>
-              <span>Currently building &mdash; open to funding &amp; partnerships</span>
-            </div>
-
-            <div class="hero-actions">
-              <a class="cta solid" href="#products">See what's live</a>
-              <a class="cta-link" href="#research">See the research</a>
-              <a class="cta-link" href="mailto:saurav12das@gmail.com">Send a note</a>
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="wrap hero-grid">
+          <div>
+            <div class="eyebrow small">Soil scientist · Founder · Writer · United States</div>
+            <h1>Hi, I'm Saurav. I grow things &mdash; soil, software, and ideas.</h1>
+            <p class="lede">A Ph.D. in soil microbiology, a decade inside soil systems, and five live products built for agriculture. This is the home for everything I make &mdash; tools, essays, experiments, apps, and the occasional review.</p>
+            <div class="status small"><span class="dot" aria-hidden="true"></span>Currently building &mdash; open to funding &amp; partnerships</div>
+            <div class="jump" aria-label="Jump to a section">
+              <span class="jump-label small">Jump to</span>
+              <a class="chip" href="#products">What's live</a>
+              <a class="chip" href="#writing">Latest essay</a>
+              <a class="chip" href="#apps">New app</a>
+              <a class="chip" href="#offclock">Off the clock</a>
             </div>
           </div>
 
-          <aside class="core-sample" aria-hidden="true">
-            <div class="core-tube">
-              <div class="core-band" data-h="O">O</div>
-              <div class="core-band" data-h="A">A</div>
-              <div class="core-band" data-h="B">B</div>
-              <div class="core-band" data-h="C">C</div>
-              <div class="core-band" data-h="R">R</div>
-            </div>
-            <div class="core-label"><strong>Field site</strong><br>Core sample · v1</div>
+          <aside class="now" aria-label="Right now">
+            <div class="now-head small">Right now</div>
+            <a href="#products">
+              <span><span class="k small">Building</span><span class="v">Five products live<small>Research to field, all in use</small></span></span>
+              <span class="go" aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="/writings/writing__balance-sheet.html">
+              <span><span class="k small">Writing</span><span class="v">The Balance Sheet We Never Audited<small>Pathology of More · Part II · 16 min</small></span></span>
+              <span class="go" aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="#apps">
+              <span><span class="k small">Shipping</span><span class="v">Hop Explorer for iPhone<small>Coming soon to the App Store</small></span></span>
+              <span class="go" aria-hidden="true">&rarr;</span>
+            </a>
           </aside>
         </div>
-
-        <div class="hero-meta">
-          <span><strong>Ph.D.</strong> Soil microbiology</span>
-          <span><strong>10+</strong> yrs in soil systems</span>
-          <span><strong>Open</strong> to funding</span>
-        </div>
       </section>
 
-      <div class="threadwrap">
-
-      <section id="products" class="section" aria-label="Live Products">
-        <div class="section-eyebrow">§ Live</div>
-        <div class="section-head">
-          <h2>Take a look at what's live.</h2>
-        </div>
-        <div class="product-pills">
-          <a href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">Soil Health Exchange</a>
-          <a href="https://open-ag-data.com/" target="_blank" rel="noopener noreferrer">OpenAgData</a>
-          <a href="https://terravalue.tech/" target="_blank" rel="noopener noreferrer">TerraValue</a>
-          <a href="https://www.farmdeck.co/" target="_blank" rel="noopener noreferrer">FarmDeck</a>
-          <a href="https://fieldlog.info/" target="_blank" rel="noopener noreferrer">FieldLog</a>
-        </div>
-      </section>
-
-      <section id="research" class="section" aria-label="Research">
-        <div class="section-eyebrow">§ Research</div>
-        <div class="section-head">
-          <h2>Soil systems &amp; <em>human systems</em>.</h2>
-          <div class="section-meta">Active work</div>
-        </div>
-        <p class="body">
-          I work on soil carbon, soil nitrogen, biogeochemistry, and modeling. Outside the soil, I'm drawn to sociology, post-AI economics, and the human dimension of how technology and food land in everyday life.
-        </p>
-        <p class="body">
-          Active work, publications, and the science questions that shape how I think &mdash; on the <a class="inline" href="/writings/research-journey.html">Research Journey</a> page.
-        </p>
-      </section>
-
-      <section id="about" class="section" aria-label="About">
-        <div class="section-eyebrow">§ Background</div>
-        <div class="section-head">
-          <h2>Why I'm the one building this.</h2>
-          <div class="section-meta">A bit of context</div>
-        </div>
-        <p class="body">
-          I'm not a generic software founder hunting an ag market. I came in through soil systems, microbial ecology, and years of seeing how hard it is for real agricultural knowledge to move from papers and institutions into everyday decisions. Everything I build comes out of that gap.
-        </p>
-        <p class="body">
-          Below the line is the more personal layer of how I think &mdash; essays, side experiments, and a few things I love &mdash; for anyone curious about the philosophy beneath the work.
-        </p>
-      </section>
-
-      <div class="layer-divider" aria-hidden="true">
-        <span>The personal layer · how I think</span>
-      </div>
-
-      <section id="writing" class="section" aria-label="Writing">
-        <div class="section-eyebrow">§ Writing</div>
-        <div class="section-head">
-          <h2>Essays on agriculture, AI, and the systems beneath both.</h2>
-          <div class="section-meta">6 essays</div>
-        </div>
-        <ul class="writing-list">
-          <li>
-            <a class="writing-item" href="/writings/writing__pathology-of-more.html">
-              <span class="writing-year">2026</span>
-              <div class="writing-body">
-                <strong>The Pathology of More <em>· Part I</em></strong>
-                <span>From "feed 10 billion" to "more carbon more carbon" — how single-metric maximization became the organizing ideology of modern food systems.</span>
-              </div>
-              <span class="writing-arrow">→</span>
+      <!-- Products -->
+      <section class="section" id="products" aria-labelledby="h-products">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="kicker small">01 · What's live</div>
+              <h2 id="h-products">Five products, all live and in use.</h2>
+              <p class="section-sub">Built for agriculture, from the research paper to the field edge. Go poke around.</p>
+            </div>
+          </div>
+          <div class="products">
+            <a class="card product" href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">
+              <span class="go" aria-hidden="true">&nearr;</span>
+              <span class="live">Live</span>
+              <span><h3>Soil Health Exchange</h3><span class="domain">soilhealthexchange.com</span></span>
             </a>
-          </li>
-          <li>
-            <a class="writing-item" href="/writings/writing__balance-sheet.html">
-              <span class="writing-year">2026</span>
-              <div class="writing-body">
-                <strong>The Balance Sheet We Never Audited <em>· Part II</em></strong>
-                <span>The innovation loop that fed eight billion people wasn't free — it was debt-financed by ecological capital, and the ledger has never been opened.</span>
-              </div>
-              <span class="writing-arrow">→</span>
+            <a class="card product" href="https://open-ag-data.com/" target="_blank" rel="noopener noreferrer">
+              <span class="go" aria-hidden="true">&nearr;</span>
+              <span class="live">Live</span>
+              <span><h3>OpenAgData</h3><span class="domain">open-ag-data.com</span></span>
             </a>
-          </li>
-          <li>
-            <a class="writing-item" href="/writings/writing__post-ai-economics.html">
-              <span class="writing-year">2026</span>
-              <div class="writing-body">
-                <strong>The Economics of a Post-AI World <em>· Part I</em></strong>
-                <span>92 million jobs displaced by 2030, a K-shaped economy, and the policy mechanisms needed to distribute AI's gains broadly.</span>
-              </div>
-              <span class="writing-arrow">→</span>
+            <a class="card product" href="https://terravalue.tech/" target="_blank" rel="noopener noreferrer">
+              <span class="go" aria-hidden="true">&nearr;</span>
+              <span class="live">Live</span>
+              <span><h3>TerraValue</h3><span class="domain">terravalue.tech</span></span>
             </a>
-          </li>
-          <li>
-            <a class="writing-item" href="/writings/writing__social-coin.html">
-              <span class="writing-year">2026</span>
-              <div class="writing-body">
-                <strong>Social Coin: A Contribution Economy <em>· Part II</em></strong>
-                <span>A two-layer reward system that recognizes the $12 trillion in invisible care, creativity, and community work.</span>
-              </div>
-              <span class="writing-arrow">→</span>
+            <a class="card product" href="https://www.farmdeck.co/" target="_blank" rel="noopener noreferrer">
+              <span class="go" aria-hidden="true">&nearr;</span>
+              <span class="live">Live</span>
+              <span><h3>FarmDeck</h3><span class="domain">farmdeck.co</span></span>
             </a>
-          </li>
-          <li>
-            <a class="writing-item" href="/writings/writing__brahmanda.html">
-              <span class="writing-year">2026</span>
-              <div class="writing-body">
-                <strong>Brahmanda: Can Agents Discover Science?</strong>
-                <span>A living Vedic universe experiment where LLM-powered souls observe, theorize, and validate truths about the world they inhabit.</span>
-              </div>
-              <span class="writing-arrow">→</span>
+            <a class="card product" href="https://fieldlog.info/" target="_blank" rel="noopener noreferrer">
+              <span class="go" aria-hidden="true">&nearr;</span>
+              <span class="live">Live</span>
+              <span><h3>FieldLog</h3><span class="domain">fieldlog.info</span></span>
             </a>
-          </li>
-          <li>
-            <a class="writing-item" href="/writings/writing__wdma.html">
-              <span class="writing-year">2026</span>
-              <div class="writing-body">
-                <strong>WDMA: Weighted Developmental Memory Architecture</strong>
-                <span>Salience-gated memory encoding in AI agents — jolt-driven encoding, thermodynamic decay, developmental plasticity.</span>
-              </div>
-              <span class="writing-arrow">→</span>
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <section id="side" class="section" aria-label="Experiments">
-        <div class="section-eyebrow">§ Experiments</div>
-        <div class="section-head">
-          <h2>Side projects I'm tinkering with.</h2>
-        </div>
-        <div class="sideproj">
-          <a href="https://github.com/Saurav12das/thermodynamic-memory-architecture" target="_blank" rel="noopener noreferrer">
-            <strong>Thermodynamic Memory Architecture</strong>
-            <span>Self-evolving memory system for LLM agents that maximizes decision quality per unit compute.</span>
-          </a>
-          <a href="https://github.com/Saurav12das/Brahmanda" target="_blank" rel="noopener noreferrer">
-            <strong>Brahmanda</strong>
-            <span>A Vedic universe simulation engine with LLM-powered conscious agents exploring emergent civilizations and belief systems.</span>
-          </a>
+          </div>
         </div>
       </section>
 
-      <section class="section" aria-label="Watching">
-        <div class="section-eyebrow">§ Watching</div>
-        <div class="section-head">
-          <h2>Off the clock.</h2>
+      <!-- Writing -->
+      <section class="section" id="writing" aria-labelledby="h-writing">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="kicker small">02 · Essays</div>
+              <h2 id="h-writing">Long-form thinking on agriculture, AI, and the systems beneath both.</h2>
+              <p class="section-sub">Six essays so far, in two series and two standalones. Charts included, opinions not withheld.</p>
+            </div>
+          </div>
+          <div class="writing">
+            <a class="card featured" href="/writings/writing__balance-sheet.html">
+              <span class="go" aria-hidden="true">&rarr;</span>
+              <div>
+                <div class="tag small">Latest</div>
+                <h3>The Balance Sheet We Never Audited</h3>
+                <p>The innovation loop that fed eight billion people wasn't free &mdash; it was debt-financed by ecological capital, and the ledger has never been opened.</p>
+              </div>
+              <div class="meta"><span class="series">Pathology of More · Part II</span><span>16 min read</span><span>2026</span></div>
+            </a>
+            <div class="essays">
+              <a class="card essay" href="/writings/writing__pathology-of-more.html">
+                <span><h3>The Pathology of More <span>· Part I</span></h3><p>How single-metric maximization became the organizing ideology of modern food systems.</p><span class="meta"><span>20 min</span></span></span>
+                <span class="go" aria-hidden="true">&rarr;</span>
+              </a>
+              <a class="card essay" href="/writings/writing__post-ai-economics.html">
+                <span><h3>The Economics of a Post-AI World <span>· Part I</span></h3><p>92 million jobs displaced by 2030, a K-shaped economy, and how to distribute AI's gains broadly.</p><span class="meta"><span>9 min</span></span></span>
+                <span class="go" aria-hidden="true">&rarr;</span>
+              </a>
+              <a class="card essay" href="/writings/writing__social-coin.html">
+                <span><h3>Social Coin: A Contribution Economy <span>· Part II</span></h3><p>A two-layer reward system for the $12 trillion in invisible care, creativity, and community work.</p><span class="meta"><span>18 min</span></span></span>
+                <span class="go" aria-hidden="true">&rarr;</span>
+              </a>
+              <a class="card essay" href="/writings/writing__brahmanda.html">
+                <span><h3>Brahmanda: Can Agents Discover Science?</h3><p>A living Vedic universe where LLM-powered souls observe, theorize, and validate truths about their world.</p><span class="meta"><span>10 min</span></span></span>
+                <span class="go" aria-hidden="true">&rarr;</span>
+              </a>
+              <a class="card essay" href="/writings/writing__wdma.html">
+                <span><h3>WDMA: Weighted Developmental Memory Architecture</h3><p>Salience-gated memory for AI agents &mdash; jolt-driven encoding, thermodynamic decay, developmental plasticity.</p><span class="meta"><span>17 min</span></span></span>
+                <span class="go" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </div>
         </div>
-        <p class="body">Movies, TV, and anime I love &mdash; <a class="inline" href="/writings/watching.html">browse the full list with reviews</a>.</p>
       </section>
 
-      <section id="contact" class="section" aria-label="Contact">
-        <div class="section-eyebrow">§ Contact</div>
-        <div class="section-head">
-          <h2>Funding, partnerships, &amp; good <em>conversations</em>.</h2>
+      <!-- Experiments -->
+      <section class="section" id="experiments" aria-labelledby="h-experiments">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="kicker small">03 · Experiments</div>
+              <h2 id="h-experiments">Open-source tinkering with agents and memory.</h2>
+              <p class="section-sub">Side projects on GitHub. Rough edges, real ideas, pull requests welcome.</p>
+            </div>
+            <a class="btn btn-ghost section-link" href="https://github.com/Saurav12das" target="_blank" rel="noopener noreferrer">All repos on GitHub &nearr;</a>
+          </div>
+          <div class="experiments">
+            <div class="card experiment">
+              <div>
+                <h3><a href="https://github.com/Saurav12das/thermodynamic-memory-architecture" target="_blank" rel="noopener noreferrer">Thermodynamic Memory Architecture<span class="go" aria-hidden="true">&nearr;</span></a></h3>
+                <p>A self-evolving memory system for LLM agents that maximizes decision quality per unit of compute.</p>
+              </div>
+              <span class="foot"><span>Python · GitHub</span><span>·</span><a href="/writings/writing__wdma.html">Read the theory (WDMA)</a></span>
+            </div>
+            <div class="card experiment">
+              <div>
+                <h3><a href="https://github.com/Saurav12das/Brahmanda" target="_blank" rel="noopener noreferrer">Brahmanda<span class="go" aria-hidden="true">&nearr;</span></a></h3>
+                <p>A Vedic universe simulation engine where LLM-powered conscious agents build civilizations and belief systems.</p>
+              </div>
+              <span class="foot"><span>Simulation · GitHub</span><span>·</span><a href="/writings/writing__brahmanda.html">Read the essay</a></span>
+            </div>
+          </div>
         </div>
-        <p class="body">I'm actively raising and open to partnerships, university collaborations, and operator intros. Email is the easiest way to reach me &mdash; I read everything that comes in.</p>
-        <div class="hero-actions" style="margin-top:18px; margin-bottom:18px;">
-          <a class="cta solid" href="mailto:saurav12das@gmail.com">Send me a note</a>
-        </div>
-        <nav class="socials" aria-label="Social and professional links">
-          <a href="https://www.linkedin.com/in/dr-saurav-das-019343b4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://github.com/Saurav12das" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          </a>
-          <a href="https://x.com/thedassaurav" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-          </a>
-          <a href="https://scholar.google.com/citations?user=184srWEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-          </a>
-          <a href="mailto:saurav12das@gmail.com" aria-label="Email">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
-          </a>
-        </nav>
       </section>
 
-      </div>
+      <!-- Apps -->
+      <section class="section" id="apps" aria-labelledby="h-apps">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="kicker small">04 · Apps</div>
+              <h2 id="h-apps">Small things for the phone.</h2>
+            </div>
+          </div>
+          <div class="card app">
+            <img class="app-icon" src="/hop-explorer/icon.png" alt="Hop Explorer app icon" width="88" height="88" loading="lazy">
+            <div>
+              <span class="pill pill-green">Coming soon to the App Store</span>
+              <h3 style="margin-top:12px">Hop Explorer</h3>
+              <p>A private, on-device beer journal for iPhone. Log what you drink, map where you found it, and watch your palate take shape. No accounts, no servers, no tracking.</p>
+              <div class="links">
+                <a class="btn btn-solid" href="/hop-explorer/">Learn more &rarr;</a>
+                <a class="pill pill-link" href="/hop-explorer/support.html">Support</a>
+                <a class="pill pill-link" href="/hop-explorer/privacy.html">Privacy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <footer>
-        <span>© <span id="y"></span> Saurav Das</span>
-        <span><a href="https://sauravdas.me">sauravdas.me</a></span>
-      </footer>
+      <!-- Off the clock -->
+      <section class="section" id="offclock" aria-labelledby="h-offclock">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="kicker small">05 · Off the clock</div>
+              <h2 id="h-offclock">What I'm watching and reading.</h2>
+              <p class="section-sub">Movies, TV, and anime I keep coming back to, plus a shelf of book reviews that's just getting started.</p>
+            </div>
+          </div>
+        </div>
+        <div class="strip" aria-label="A few favorites">
+          <a class="poster" href="/writings/watching.html"><img src="/images/watching/interstellar.png" alt="" loading="lazy"><span>Interstellar</span></a>
+          <a class="poster" href="/writings/watching.html"><img src="/images/watching/inception.png" alt="" loading="lazy"><span>Inception</span></a>
+          <a class="poster" href="/writings/watching.html"><img src="/images/watching/tdk.png" alt="" loading="lazy"><span>The Dark Knight</span></a>
+          <a class="poster" href="/writings/watching.html"><img src="/images/watching/martian.png" alt="" loading="lazy"><span>The Martian</span></a>
+          <a class="poster" href="/writings/watching.html"><img src="/images/watching/3body.png" alt="" loading="lazy"><span>3 Body Problem</span></a>
+          <a class="poster" href="/writings/watching.html"><img src="/images/watching/lastofus.png" alt="" loading="lazy"><span>The Last of Us</span></a>
+          <a class="poster" href="/writings/watching.html"><img src="/images/watching/pantheon.png" alt="" loading="lazy"><span>Pantheon</span></a>
+          <a class="poster" href="/writings/watching.html"><img src="/images/watching/pluto.png" alt="" loading="lazy"><span>Pluto</span></a>
+          <a class="poster" href="/writings/watching.html"><img src="/images/watching/deathnote.png" alt="" loading="lazy"><span>Death Note</span></a>
+          <a class="poster" href="/writings/watching.html"><img src="/images/watching/good-will-hunting.png" alt="" loading="lazy"><span>Good Will Hunting</span></a>
+        </div>
+        <div class="wrap">
+          <div class="offclock">
+            <a class="card" href="/writings/watching.html">
+              <span class="go" aria-hidden="true">&rarr;</span>
+              <span class="kicker small" style="margin:0">Watching</span>
+              <h3>23 titles, each with a short review</h3>
+              <p>Films, series, and anime &mdash; the full list.</p>
+            </a>
+            <a class="card" href="/writings/books.html">
+              <span class="go" aria-hidden="true">&rarr;</span>
+              <span class="kicker small" style="margin:0">Reading</span>
+              <h3>Book reviews</h3>
+              <p>A new shelf. The first reviews are on their way.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research -->
+      <section class="section" id="research" aria-labelledby="h-research">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="kicker small">06 · Research</div>
+              <h2 id="h-research">Soil systems and human systems.</h2>
+            </div>
+            <a class="btn btn-ghost section-link" href="/writings/research-journey.html">Research Journey &rarr;</a>
+          </div>
+          <div class="research">
+            <div class="card">
+              <p>I work on soil carbon, soil nitrogen, biogeochemistry, and modeling. Outside the soil, I'm drawn to sociology, post-AI economics, and the human dimension of how technology and food land in everyday life.</p>
+              <ul class="themes" aria-label="Research themes">
+                <li>Environmental microbiology</li>
+                <li>Soil health &amp; benchmarking</li>
+                <li>Carbon &amp; nitrogen dynamics</li>
+                <li>Science to systems</li>
+              </ul>
+              <div class="stats">
+                <div class="stat"><strong>Ph.D.</strong><span>Soil microbiology</span></div>
+                <div class="stat"><strong>10+</strong><span>Years in soil systems</span></div>
+                <div class="stat"><strong>6</strong><span>Selected papers</span></div>
+              </div>
+            </div>
+            <a class="card" href="/writings/research-journey.html">
+              <span class="go" aria-hidden="true">&rarr;</span>
+              <span class="kicker small">The arc</span>
+              <ol class="timeline">
+                <li><span class="tick" aria-hidden="true"></span><span><strong>Assam Agricultural University</strong><span>Environmental microbiology &mdash; arsenic-resistant bacteria and groundwater metagenomics</span></span></li>
+                <li><span class="tick" aria-hidden="true"></span><span><strong>University of Nebraska-Lincoln</strong><span>Soil health benchmarking, carbon and nitrogen dynamics</span></span></li>
+                <li><span class="tick now" aria-hidden="true"></span><span><strong>Long-term farming systems research</strong><span>From science to systems &mdash; and into the products above</span></span></li>
+              </ol>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="section" id="about" aria-labelledby="h-about">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="kicker small">07 · About</div>
+              <h2 id="h-about">Why I build what I build.</h2>
+            </div>
+          </div>
+          <div class="about">
+            <div class="card">
+              <p>I'm not a generic software founder hunting an ag market. I came in through soil systems, microbial ecology, and years of watching how hard it is for real agricultural knowledge to move from papers and institutions into everyday decisions.</p>
+              <p>Everything I build comes out of that gap. The essays are the philosophy underneath the work; the experiments are where I play; the watching and reading lists are proof I do occasionally sit down.</p>
+            </div>
+            <div class="card contact">
+              <div>
+                <h3>Funding, partnerships, and good conversations.</h3>
+                <p>I'm actively raising and open to university collaborations and operator intros. Email is easiest &mdash; I read everything that comes in.</p>
+              </div>
+              <div>
+                <a class="btn btn-solid" href="mailto:saurav12das@gmail.com">Send me a note &rarr;</a>
+                <nav class="socials" aria-label="Elsewhere">
+                  <a href="https://www.linkedin.com/in/dr-saurav-das-019343b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  <a href="https://github.com/Saurav12das" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://x.com/thedassaurav" target="_blank" rel="noopener noreferrer">X</a>
+                  <a href="https://scholar.google.com/citations?user=184srWEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="sitemap">
+          <div>
+            <a class="wordmark" href="#top"><span class="dot" aria-hidden="true"></span>Saurav Das</a>
+            <p class="blurb">Soil scientist and founder. Everything I make, in one place.</p>
+          </div>
+          <div>
+            <h4>Products</h4>
+            <ul>
+              <li><a href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">Soil Health Exchange</a></li>
+              <li><a href="https://open-ag-data.com/" target="_blank" rel="noopener noreferrer">OpenAgData</a></li>
+              <li><a href="https://terravalue.tech/" target="_blank" rel="noopener noreferrer">TerraValue</a></li>
+              <li><a href="https://www.farmdeck.co/" target="_blank" rel="noopener noreferrer">FarmDeck</a></li>
+              <li><a href="https://fieldlog.info/" target="_blank" rel="noopener noreferrer">FieldLog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Writing</h4>
+            <ul>
+              <li><a href="/writings/writing__pathology-of-more.html">The Pathology of More</a></li>
+              <li><a href="/writings/writing__balance-sheet.html">The Balance Sheet We Never Audited</a></li>
+              <li><a href="/writings/writing__post-ai-economics.html">The Economics of a Post-AI World</a></li>
+              <li><a href="/writings/writing__social-coin.html">Social Coin</a></li>
+              <li><a href="/writings/writing__brahmanda.html">Brahmanda</a></li>
+              <li><a href="/writings/writing__wdma.html">WDMA</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>More</h4>
+            <ul>
+              <li><a href="/writings/research-journey.html">Research Journey</a></li>
+              <li><a href="/writings/watching.html">Watching</a></li>
+              <li><a href="/writings/books.html">Books</a></li>
+              <li><a href="/hop-explorer/">Hop Explorer</a></li>
+              <li><a href="/hop-explorer/support.html">App support</a></li>
+              <li><a href="/hop-explorer/privacy.html">App privacy</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Elsewhere</h4>
+            <ul>
+              <li><a href="mailto:saurav12das@gmail.com">Email</a></li>
+              <li><a href="https://www.linkedin.com/in/dr-saurav-das-019343b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="https://github.com/Saurav12das" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://x.com/thedassaurav" target="_blank" rel="noopener noreferrer">X</a></li>
+              <li><a href="https://scholar.google.com/citations?user=184srWEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot-row">
+          <span>&copy; <span id="y"></span> Saurav Das</span>
+          <span>Soil, software, and ideas.</span>
+        </div>
+      </div>
+    </footer>
+
+    <button class="totop" type="button" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
 
     <script>
       document.getElementById('y').textContent = new Date().getFullYear();
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+      /* Keep anchor offsets in sync with the real nav height (two rows on phones) */
       (() => {
-        const button = document.querySelector('.theme-toggle');
-        if (!button) return;
+        const nav = document.querySelector('.nav');
+        const sync = () => document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+        sync();
+        window.addEventListener('resize', sync, { passive: true });
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
+      })();
 
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        const getTheme = () => document.documentElement.dataset.theme || 'light';
-
-        const updateButton = () => {
-          const theme = getTheme();
-          button.textContent = theme === 'dark' ? 'Day' : 'Dusk';
-          button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-        };
-
-        button.addEventListener('click', () => {
-          const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
-          document.documentElement.dataset.theme = nextTheme;
-          localStorage.setItem('theme-preference', nextTheme);
-          updateButton();
+      /* Scroll-spy: highlight the section you're in */
+      (() => {
+        const links = [...document.querySelectorAll('.nav-links a[data-spy]')];
+        const sections = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+        const setActive = (id) => links.forEach(a => {
+          if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
         });
+        const io = new IntersectionObserver((entries) => {
+          const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (visible) setActive(visible.target.id);
+        }, { rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.25, 0.5, 1] });
+        sections.forEach(s => io.observe(s));
+        window.addEventListener('scroll', () => { if (window.scrollY < 200) links.forEach(a => a.removeAttribute('aria-current')); }, { passive: true });
+      })();
 
-        const syncWithSystem = (event) => {
-          if (localStorage.getItem('theme-preference')) return;
-          document.documentElement.dataset.theme = event.matches ? 'dark' : 'light';
-          updateButton();
-        };
-
-        if (typeof mediaQuery.addEventListener === 'function') {
-          mediaQuery.addEventListener('change', syncWithSystem);
-        } else if (typeof mediaQuery.addListener === 'function') {
-          mediaQuery.addListener(syncWithSystem);
-        }
-
-        updateButton();
+      /* Back to top */
+      (() => {
+        const btn = document.querySelector('.totop');
+        const onScroll = () => btn.classList.toggle('show', window.scrollY > 900);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+        onScroll();
       })();
     </script>
   </body>
