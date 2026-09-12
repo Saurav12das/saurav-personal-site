@@ -1,732 +1,204 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Saurav Das — Soil scientist, founder, writer</title>
-    <meta
-      name="description"
-      content="The home for everything Saurav Das makes — live products for agriculture, essays on agriculture and AI, open-source experiments, apps, and reviews."
-    />
-    <link rel="canonical" href="https://sauravdas.me/" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saurav Das — Soil scientist, builder, writer</title>
+  <meta name="description" content="The home for everything Saurav Das makes — live products for agriculture, essays on agriculture and AI, open-source experiments, apps, and reviews." />
+  <link rel="canonical" href="https://sauravdas.me/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Saurav Das — Soil scientist, builder, writer" />
+  <meta property="og:description" content="The home for everything Saurav Das makes — live products for agriculture, essays on agriculture and AI, open-source experiments, apps, and reviews." />
+  <meta property="og:url" content="https://sauravdas.me/" />
+  <meta property="og:site_name" content="Saurav Das" />
+  <meta property="og:image" content="https://sauravdas.me/api/og?title=Soil+scientist%2C+builder%2C+writer&kicker=sauravdas.me" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@thedassaurav" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Saurav Das",
+    "url": "https://sauravdas.me/",
+    "jobTitle": "Founder",
+    "description": "Soil scientist and founder building products for agriculture, writing on agriculture and AI, and experimenting with AI agents",
+    "sameAs": [
+      "https://www.linkedin.com/in/dr-saurav-das-019343b4/",
+      "https://github.com/Saurav12das",
+      "https://x.com/thedassaurav",
+      "https://scholar.google.com/citations?user=184srWEAAAAJ&hl=en"
+    ],
+    "knowsAbout": ["Soil Microbiology", "Soil Health", "Agricultural AI", "Data Infrastructure"]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Site">
+    <div class="wrap nav-inner">
+      <a class="wordmark" href="/" aria-label="Saurav Das — home"><span class="dot" aria-hidden="true"></span>Saurav Das</a>
+      <ul class="nav-links">
+        <li><a href="/products.html">Products</a></li>
+        <li><a href="/writing.html">Writing</a></li>
+        <li><a href="/experiments.html">Experiments</a></li>
+        <li><a href="/apps.html">Apps</a></li>
+        <li><a href="/writings/watching.html">Watching</a></li>
+        <li><a href="/writings/books.html">Books</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+      <a class="btn btn-solid btn-nav" href="mailto:saurav12das@gmail.com">Say hello</a>
+    </div>
+  </nav>
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Saurav Das — Soil scientist, founder, writer" />
-    <meta property="og:description" content="Live products for agriculture, essays on agriculture and AI, open-source experiments, and apps — all in one place." />
-    <meta property="og:url" content="https://sauravdas.me/" />
-    <meta property="og:site_name" content="Saurav Das" />
-    <meta property="og:image" content="https://sauravdas.me/api/og?title=Soil%20scientist%2C%20founder%2C%20writer&kicker=sauravdas.me" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@thedassaurav" />
-    <meta name="twitter:title" content="Saurav Das — Soil scientist, founder, writer" />
-    <meta name="twitter:description" content="Live products for agriculture, essays on agriculture and AI, open-source experiments, and apps — all in one place." />
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Saurav Das",
-      "url": "https://sauravdas.me/",
-      "jobTitle": "Founder",
-      "description": "Soil scientist and founder building products for agriculture, writing on agriculture and AI, and experimenting with AI agents",
-      "sameAs": [
-        "https://www.linkedin.com/in/dr-saurav-das-019343b4/",
-        "https://github.com/Saurav12das",
-        "https://x.com/thedassaurav",
-        "https://scholar.google.com/citations?user=184srWEAAAAJ&hl=en"
-      ],
-      "knowsAbout": ["Soil Microbiology", "Soil Health", "Agricultural AI", "Data Infrastructure"]
-    }
-    </script>
-
-    <!-- One simple serif, upright only -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
-
-    <!-- Vercel Web Analytics -->
-    <script defer src="/_vercel/insights/script.js"></script>
-
-    <style>
-      /* ------------------------------------------------------------
-         Tokens — white ground, black type, dark green for emphasis.
-         ------------------------------------------------------------ */
-      :root {
-        --bg: #ffffff;
-        --ink: #111111;
-        --ink-2: #333333;
-        --muted: #6b6b6b;
-        --line: #e7e7e7;
-        --line-strong: #c9c9c9;
-        --green: #1f5c3a;
-        --green-deep: #174630;
-        --green-soft: #eef4ef;
-        --tint: #f7f7f5;
-        --font: "Source Serif 4", Georgia, "Times New Roman", serif;
-        --radius: 12px;
-        --nav-h: 64px;
-      }
-
-      *, *::before, *::after { box-sizing: border-box; }
-      html { color-scheme: light; scroll-behavior: smooth; }
-      html, body { margin: 0; padding: 0; }
-      body {
-        background: var(--bg);
-        color: var(--ink);
-        font: 400 17px/1.6 var(--font);
-        font-variation-settings: "opsz" 16;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden;
-      }
-      a { color: inherit; }
-      img { max-width: 100%; display: block; }
-      ::selection { background: var(--green); color: #fff; }
-      :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
-
-      .skip {
-        position: absolute; left: 16px; top: -60px; z-index: 100;
-        background: var(--ink); color: #fff; padding: 10px 14px; border-radius: 8px;
-        font-size: 14px; text-decoration: none; transition: top 0.2s;
-      }
-      .skip:focus { top: 14px; }
-
-      .wrap { width: min(1080px, calc(100% - 48px)); margin: 0 auto; }
-      .small { font-size: 13px; letter-spacing: 0.02em; }
-      .green { color: var(--green); }
-
-      /* ------------------------------------------------------------
-         Nav — sticky, quiet, shows where you are
-         ------------------------------------------------------------ */
-      .nav {
-        position: sticky; top: 0; z-index: 50;
-        background: rgba(255,255,255,0.94);
-        -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--line);
-      }
-      .nav-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; min-height: var(--nav-h); }
-      .wordmark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 19px; }
-      .wordmark .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
-      .nav-links { display: flex; align-items: center; justify-content: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
-      .nav-links a {
-        display: inline-block; padding: 8px 11px; border-radius: 6px; text-decoration: none;
-        font-size: 15px; color: var(--ink-2); transition: color 0.15s, background-color 0.15s;
-      }
-      .nav-links a:hover { color: var(--ink); background: var(--tint); }
-      .nav-links a[aria-current="true"] { color: var(--green); font-weight: 600; }
-      .btn {
-        display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;
-        padding: 10px 16px; border-radius: 999px; font-size: 15px; font-weight: 600; line-height: 1;
-        border: 1px solid transparent; transition: background-color 0.15s, border-color 0.15s, color 0.15s;
-      }
-      .btn-solid { background: var(--green); color: #fff; }
-      .btn-solid:hover { background: var(--green-deep); }
-      .btn-ghost { border-color: var(--line-strong); color: var(--ink); background: #fff; }
-      .btn-ghost:hover { border-color: var(--ink); }
-
-      /* ------------------------------------------------------------
-         Hero
-         ------------------------------------------------------------ */
-      .hero { padding: clamp(48px, 7vw, 88px) 0 clamp(36px, 5vw, 64px); }
-      .hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
-      .eyebrow { color: var(--green); font-weight: 600; margin-bottom: 18px; }
-      h1 {
-        margin: 0 0 20px; font-weight: 500; font-size: clamp(36px, 5vw, 60px); line-height: 1.08; letter-spacing: -0.015em;
-        font-variation-settings: "opsz" 60; text-wrap: balance;
-      }
-      .lede { margin: 0 0 22px; max-width: 58ch; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.55; color: var(--ink-2); text-wrap: pretty; }
-      .status { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); margin-bottom: 26px; }
-      .status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
-      .jump { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-      .jump-label { color: var(--muted); margin-right: 4px; }
-      .chip {
-        display: inline-block; text-decoration: none; padding: 7px 13px; border-radius: 999px;
-        border: 1px solid var(--line-strong); color: var(--ink); font-size: 14.5px; transition: border-color 0.15s, background-color 0.15s;
-      }
-      .chip:hover { border-color: var(--green); color: var(--green); background: var(--green-soft); }
-
-      .now { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-      .now-head { padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--muted); background: var(--tint); }
-      .now a { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 14px 16px; text-decoration: none; transition: background-color 0.15s; }
-      .now a + a { border-top: 1px solid var(--line); }
-      .now a:hover { background: var(--tint); }
-      .now .k { display: block; color: var(--green); font-weight: 600; margin-bottom: 2px; }
-      .now .v { display: block; font-weight: 500; line-height: 1.35; }
-      .now .v small { display: block; font-weight: 400; color: var(--muted); font-size: 14px; margin-top: 2px; }
-      .now .go { color: var(--muted); }
-
-      /* ------------------------------------------------------------
-         Sections
-         ------------------------------------------------------------ */
-      .section { padding: clamp(44px, 6vw, 80px) 0; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--nav-h) + 8px); }
-      .section-head { display: grid; grid-template-columns: 1fr auto; gap: 16px 32px; align-items: end; margin-bottom: clamp(20px, 3vw, 32px); }
-      .kicker { color: var(--green); font-weight: 600; margin-bottom: 10px; }
-      h2 { margin: 0; font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.12; letter-spacing: -0.012em; font-variation-settings: "opsz" 40; text-wrap: balance; }
-      .section-sub { margin: 10px 0 0; max-width: 62ch; color: var(--ink-2); text-wrap: pretty; }
-      .section-link { justify-self: end; white-space: nowrap; }
-
-      .card {
-        position: relative; display: block; text-decoration: none; color: inherit; background: #fff;
-        border: 1px solid var(--line); border-radius: var(--radius); padding: 20px;
-        transition: border-color 0.15s, transform 0.2s ease;
-      }
-      a.card:hover { border-color: var(--green); transform: translateY(-2px); }
-      .card .go { position: absolute; top: 18px; right: 18px; color: var(--muted); transition: color 0.15s; }
-      a.card:hover .go { color: var(--green); }
-      .card h3 { margin: 0 0 4px; font-size: 18px; font-weight: 600; line-height: 1.3; }
-      .card p { margin: 0; color: var(--ink-2); font-size: 15.5px; line-height: 1.5; }
-      .meta { display: flex; flex-wrap: wrap; gap: 4px 12px; color: var(--muted); font-size: 14px; }
-      .meta .series { color: var(--green); font-weight: 600; }
-
-      /* Products */
-      .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
-      .product { min-height: 150px; display: grid; align-content: space-between; gap: 18px; }
-      .live { display: inline-flex; align-items: center; gap: 7px; color: var(--green); font-size: 14px; font-weight: 600; }
-      .live::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
-      .product .domain { color: var(--muted); font-size: 14px; }
-
-      /* Writing */
-      .writing { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
-      .featured { display: grid; align-content: space-between; gap: 26px; padding: 26px; }
-      .featured .tag { color: var(--green); font-weight: 600; }
-      .featured h3 { margin: 10px 0 0; font-size: clamp(24px, 2.6vw, 32px); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; font-variation-settings: "opsz" 32; text-wrap: balance; }
-      .featured p { margin: 12px 0 0; font-size: 16px; max-width: 50ch; text-wrap: pretty; }
-      .essays { display: grid; gap: 10px; align-content: start; }
-      .essay { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: start; padding: 16px 18px; }
-      .essay h3 { font-size: 16.5px; }
-      .essay h3 span { color: var(--muted); font-weight: 400; }
-      .essay p { font-size: 14.5px; margin-bottom: 6px; }
-      .essay .go { position: static; }
-
-      /* Experiments */
-      .experiments { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
-      .experiment { display: grid; gap: 12px; align-content: start; }
-      .experiment h3 a { text-decoration: none; }
-      .experiment h3 a::after { content: ''; position: absolute; inset: 0; } /* whole card opens the repo */
-      .experiment h3 .go { position: static; font-size: 15px; margin-left: 6px; }
-      .experiment:hover { border-color: var(--green); transform: translateY(-2px); }
-      .experiment:hover .go { color: var(--green); }
-      .experiment .foot { position: relative; z-index: 1; display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 14px; }
-      .experiment .foot a { color: var(--green); text-decoration: none; border-bottom: 1px solid transparent; }
-      .experiment .foot a:hover { border-bottom-color: currentColor; }
-
-      /* Apps */
-      .app { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; padding: 24px; }
-      .app-icon { width: 88px; height: 88px; border-radius: 22px; border: 1px solid var(--line); }
-      .app h3 { font-size: 26px; font-weight: 500; margin-bottom: 6px; font-variation-settings: "opsz" 28; }
-      .app p { margin-bottom: 14px; max-width: 54ch; text-wrap: pretty; }
-      .app .links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-      .pill { display: inline-block; padding: 6px 12px; border-radius: 999px; font-size: 14px; text-decoration: none; }
-      .pill-green { background: var(--green-soft); color: var(--green); font-weight: 600; }
-      .pill-link { border: 1px solid var(--line-strong); color: var(--ink-2); transition: border-color 0.15s, color 0.15s; }
-      .pill-link:hover { border-color: var(--green); color: var(--green); }
-
-      /* Off the clock */
-      .strip { display: flex; gap: 12px; padding: 4px max(24px, calc((100% - 1080px) / 2)) 8px; overflow-x: auto; scrollbar-width: none; }
-      .strip::-webkit-scrollbar { display: none; }
-      .poster { flex: 0 0 auto; width: 150px; aspect-ratio: 1; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--tint); text-decoration: none; position: relative; transition: border-color 0.15s; }
-      .poster:hover { border-color: var(--green); }
-      .poster img { width: 100%; height: 100%; object-fit: cover; }
-      .poster span { position: absolute; inset: auto 0 0 0; padding: 22px 10px 8px; color: #fff; font-size: 13px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); opacity: 0; transition: opacity 0.2s; }
-      .poster:hover span { opacity: 1; }
-      .offclock { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
-      .offclock .card { display: grid; gap: 6px; }
-
-      /* Research */
-      .research { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 12px; }
-      .research .card { padding: 24px; }
-      .research p { margin-bottom: 16px; font-size: 16.5px; }
-      .themes { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; }
-      .themes li { padding: 6px 12px; border-radius: 999px; background: var(--green-soft); color: var(--green); font-size: 14px; font-weight: 600; }
-      .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-      .stat { background: var(--tint); border-radius: 10px; padding: 14px; }
-      .stat strong { display: block; font-size: 26px; font-weight: 500; line-height: 1; margin-bottom: 6px; font-variation-settings: "opsz" 28; }
-      .stat span { color: var(--muted); font-size: 13.5px; }
-      .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
-      .timeline li { display: grid; grid-template-columns: 14px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
-      .timeline li:first-child { border-top: 0; padding-top: 0; }
-      .timeline .tick { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--green); margin-top: 7px; }
-      .timeline .tick.now { background: var(--green); }
-      .timeline strong { display: block; font-weight: 600; font-size: 16px; }
-      .timeline span { color: var(--muted); font-size: 14.5px; }
-
-      /* About */
-      .about { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px; }
-      .about .card { padding: 26px; }
-      .about p { font-size: 17px; margin-bottom: 14px; }
-      .about p:last-of-type { margin-bottom: 0; }
-      .contact { display: grid; align-content: space-between; gap: 22px; }
-      .contact h3 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; line-height: 1.15; font-variation-settings: "opsz" 28; text-wrap: balance; }
-      .contact p { margin-top: 8px; font-size: 15.5px; }
-      .socials { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; }
-      .socials a { color: var(--green); text-decoration: none; font-weight: 600; font-size: 15px; border-bottom: 1px solid transparent; }
-      .socials a:hover { border-bottom-color: currentColor; }
-
-      /* Footer — a full map of the site */
-      footer { border-top: 1px solid var(--line); padding: 44px 0 40px; }
-      .sitemap { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 28px; margin-bottom: 36px; }
-      .sitemap h4 { margin: 0 0 10px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-      .sitemap ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
-      .sitemap a { text-decoration: none; color: var(--ink-2); font-size: 15px; }
-      .sitemap a:hover { color: var(--green); }
-      .sitemap .blurb { color: var(--ink-2); font-size: 15px; max-width: 34ch; margin: 10px 0 0; }
-      .foot-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; color: var(--muted); font-size: 14px; }
-
-      .totop {
-        position: fixed; right: 18px; bottom: 18px; z-index: 40; width: 42px; height: 42px; border-radius: 50%;
-        background: var(--green); color: #fff; border: 0; cursor: pointer; display: grid; place-items: center;
-        opacity: 0; pointer-events: none; transition: opacity 0.2s;
-      }
-      .totop.show { opacity: 1; pointer-events: auto; }
-      .totop svg { width: 18px; height: 18px; }
-
-      @media (prefers-reduced-motion: reduce) {
-        html { scroll-behavior: auto; }
-        *, *::before, *::after { transition-duration: 0.01ms !important; }
-      }
-
-      /* ------------------------------------------------------------
-         Responsive
-         ------------------------------------------------------------ */
-      @media (max-width: 960px) {
-        .hero-grid, .writing, .research, .about { grid-template-columns: 1fr; }
-        .sitemap { grid-template-columns: 1fr 1fr 1fr; }
-        .sitemap > div:first-child { grid-column: 1 / -1; }
-      }
-      @media (max-width: 760px) {
-        .nav-inner { grid-template-columns: 1fr auto; grid-template-rows: auto auto; padding: 8px 0 6px; min-height: 0; }
-        .wordmark { grid-column: 1; grid-row: 1; }
-        .btn-nav { grid-column: 2; grid-row: 1; justify-self: end; }
-        .nav-links { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; margin: 4px -24px 0; padding: 0 24px; -webkit-overflow-scrolling: touch; }
-        .nav-links::-webkit-scrollbar { display: none; }
-        .nav-links a { white-space: nowrap; font-size: 14.5px; padding: 6px 10px; }
-        .btn-nav { padding: 8px 13px; font-size: 14px; }
-        .section-head { grid-template-columns: 1fr; }
-        .section-link { justify-self: start; }
-        .app { grid-template-columns: 1fr; }
-        .offclock { grid-template-columns: 1fr; }
-        .sitemap { grid-template-columns: 1fr 1fr; }
-        .poster { width: 132px; }
-      }
-      @media (max-width: 480px) {
-        .wrap { width: calc(100% - 32px); }
-        .nav-links { margin-left: -16px; margin-right: -16px; padding: 0 16px; }
-        .strip { padding-left: 16px; padding-right: 16px; }
-        .stats { grid-template-columns: 1fr 1fr; }
-        .sitemap { grid-template-columns: 1fr; }
-      }
-    </style>
-  </head>
-  <body>
-    <a class="skip" href="#main">Skip to content</a>
-
-    <nav class="nav" aria-label="Site">
-      <div class="wrap nav-inner">
-        <a class="wordmark" href="#top" aria-label="Saurav Das — home"><span class="dot" aria-hidden="true"></span>Saurav Das</a>
-        <ul class="nav-links">
-          <li><a href="#products" data-spy>Products</a></li>
-          <li><a href="#writing" data-spy>Writing</a></li>
-          <li><a href="#experiments" data-spy>Experiments</a></li>
-          <li><a href="#apps" data-spy>Apps</a></li>
-          <li><a href="#offclock" data-spy>Off the clock</a></li>
-          <li><a href="#research" data-spy>Research</a></li>
-          <li><a href="#about" data-spy>About</a></li>
-        </ul>
-        <a class="btn btn-solid btn-nav" href="mailto:saurav12das@gmail.com">Say hello</a>
-      </div>
-    </nav>
-
-    <main id="main">
-      <section class="hero" id="top">
-        <div class="wrap hero-grid">
-          <div>
-            <div class="eyebrow small">Soil scientist · Founder · Writer · United States</div>
-            <h1>Hi, I'm Saurav. I grow things &mdash; soil, software, and ideas.</h1>
-            <p class="lede">A Ph.D. in soil microbiology, a decade inside soil systems, and five live products built for agriculture. This is the home for everything I make &mdash; tools, essays, experiments, apps, and the occasional review.</p>
-            <div class="status small"><span class="dot" aria-hidden="true"></span>Currently building &mdash; open to funding &amp; partnerships</div>
-            <div class="jump" aria-label="Jump to a section">
-              <span class="jump-label small">Jump to</span>
-              <a class="chip" href="#products">What's live</a>
-              <a class="chip" href="#writing">Latest essay</a>
-              <a class="chip" href="#apps">New app</a>
-              <a class="chip" href="#offclock">Off the clock</a>
-            </div>
-          </div>
-
-          <aside class="now" aria-label="Right now">
-            <div class="now-head small">Right now</div>
-            <a href="#products">
-              <span><span class="k small">Building</span><span class="v">Five products live<small>Research to field, all in use</small></span></span>
-              <span class="go" aria-hidden="true">&rarr;</span>
-            </a>
-            <a href="/writings/writing__balance-sheet.html">
-              <span><span class="k small">Writing</span><span class="v">The Balance Sheet We Never Audited<small>Pathology of More · Part II · 16 min</small></span></span>
-              <span class="go" aria-hidden="true">&rarr;</span>
-            </a>
-            <a href="#apps">
-              <span><span class="k small">Shipping</span><span class="v">Hop Explorer for iPhone<small>Coming soon to the App Store</small></span></span>
-              <span class="go" aria-hidden="true">&rarr;</span>
-            </a>
-          </aside>
-        </div>
-      </section>
-
-      <!-- Products -->
-      <section class="section" id="products" aria-labelledby="h-products">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <div class="kicker small">01 · What's live</div>
-              <h2 id="h-products">Five products, all live and in use.</h2>
-              <p class="section-sub">Built for agriculture, from the research paper to the field edge. Go poke around.</p>
-            </div>
-          </div>
-          <div class="products">
-            <a class="card product" href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">
-              <span class="go" aria-hidden="true">&nearr;</span>
-              <span class="live">Live</span>
-              <span><h3>Soil Health Exchange</h3><span class="domain">soilhealthexchange.com</span></span>
-            </a>
-            <a class="card product" href="https://open-ag-data.com/" target="_blank" rel="noopener noreferrer">
-              <span class="go" aria-hidden="true">&nearr;</span>
-              <span class="live">Live</span>
-              <span><h3>OpenAgData</h3><span class="domain">open-ag-data.com</span></span>
-            </a>
-            <a class="card product" href="https://terravalue.tech/" target="_blank" rel="noopener noreferrer">
-              <span class="go" aria-hidden="true">&nearr;</span>
-              <span class="live">Live</span>
-              <span><h3>TerraValue</h3><span class="domain">terravalue.tech</span></span>
-            </a>
-            <a class="card product" href="https://www.farmdeck.co/" target="_blank" rel="noopener noreferrer">
-              <span class="go" aria-hidden="true">&nearr;</span>
-              <span class="live">Live</span>
-              <span><h3>FarmDeck</h3><span class="domain">farmdeck.co</span></span>
-            </a>
-            <a class="card product" href="https://fieldlog.info/" target="_blank" rel="noopener noreferrer">
-              <span class="go" aria-hidden="true">&nearr;</span>
-              <span class="live">Live</span>
-              <span><h3>FieldLog</h3><span class="domain">fieldlog.info</span></span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Writing -->
-      <section class="section" id="writing" aria-labelledby="h-writing">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <div class="kicker small">02 · Essays</div>
-              <h2 id="h-writing">Long-form thinking on agriculture, AI, and the systems beneath both.</h2>
-              <p class="section-sub">Six essays so far, in two series and two standalones. Charts included, opinions not withheld.</p>
-            </div>
-          </div>
-          <div class="writing">
-            <a class="card featured" href="/writings/writing__balance-sheet.html">
-              <span class="go" aria-hidden="true">&rarr;</span>
-              <div>
-                <div class="tag small">Latest</div>
-                <h3>The Balance Sheet We Never Audited</h3>
-                <p>The innovation loop that fed eight billion people wasn't free &mdash; it was debt-financed by ecological capital, and the ledger has never been opened.</p>
-              </div>
-              <div class="meta"><span class="series">Pathology of More · Part II</span><span>16 min read</span><span>2026</span></div>
-            </a>
-            <div class="essays">
-              <a class="card essay" href="/writings/writing__pathology-of-more.html">
-                <span><h3>The Pathology of More <span>· Part I</span></h3><p>How single-metric maximization became the organizing ideology of modern food systems.</p><span class="meta"><span>20 min</span></span></span>
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-              <a class="card essay" href="/writings/writing__post-ai-economics.html">
-                <span><h3>The Economics of a Post-AI World <span>· Part I</span></h3><p>92 million jobs displaced by 2030, a K-shaped economy, and how to distribute AI's gains broadly.</p><span class="meta"><span>9 min</span></span></span>
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-              <a class="card essay" href="/writings/writing__social-coin.html">
-                <span><h3>Social Coin: A Contribution Economy <span>· Part II</span></h3><p>A two-layer reward system for the $12 trillion in invisible care, creativity, and community work.</p><span class="meta"><span>18 min</span></span></span>
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-              <a class="card essay" href="/writings/writing__brahmanda.html">
-                <span><h3>Brahmanda: Can Agents Discover Science?</h3><p>A living Vedic universe where LLM-powered souls observe, theorize, and validate truths about their world.</p><span class="meta"><span>10 min</span></span></span>
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-              <a class="card essay" href="/writings/writing__wdma.html">
-                <span><h3>WDMA: Weighted Developmental Memory Architecture</h3><p>Salience-gated memory for AI agents &mdash; jolt-driven encoding, thermodynamic decay, developmental plasticity.</p><span class="meta"><span>17 min</span></span></span>
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experiments -->
-      <section class="section" id="experiments" aria-labelledby="h-experiments">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <div class="kicker small">03 · Experiments</div>
-              <h2 id="h-experiments">Open-source tinkering with agents and memory.</h2>
-              <p class="section-sub">Side projects on GitHub. Rough edges, real ideas, pull requests welcome.</p>
-            </div>
-            <a class="btn btn-ghost section-link" href="https://github.com/Saurav12das" target="_blank" rel="noopener noreferrer">All repos on GitHub &nearr;</a>
-          </div>
-          <div class="experiments">
-            <div class="card experiment">
-              <div>
-                <h3><a href="https://github.com/Saurav12das/thermodynamic-memory-architecture" target="_blank" rel="noopener noreferrer">Thermodynamic Memory Architecture<span class="go" aria-hidden="true">&nearr;</span></a></h3>
-                <p>A self-evolving memory system for LLM agents that maximizes decision quality per unit of compute.</p>
-              </div>
-              <span class="foot"><span>Python · GitHub</span><span>·</span><a href="/writings/writing__wdma.html">Read the theory (WDMA)</a></span>
-            </div>
-            <div class="card experiment">
-              <div>
-                <h3><a href="https://github.com/Saurav12das/Brahmanda" target="_blank" rel="noopener noreferrer">Brahmanda<span class="go" aria-hidden="true">&nearr;</span></a></h3>
-                <p>A Vedic universe simulation engine where LLM-powered conscious agents build civilizations and belief systems.</p>
-              </div>
-              <span class="foot"><span>Simulation · GitHub</span><span>·</span><a href="/writings/writing__brahmanda.html">Read the essay</a></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Apps -->
-      <section class="section" id="apps" aria-labelledby="h-apps">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <div class="kicker small">04 · Apps</div>
-              <h2 id="h-apps">Small things for the phone.</h2>
-            </div>
-          </div>
-          <div class="card app">
-            <img class="app-icon" src="/hop-explorer/icon.png" alt="Hop Explorer app icon" width="88" height="88" loading="lazy">
-            <div>
-              <span class="pill pill-green">Coming soon to the App Store</span>
-              <h3 style="margin-top:12px">Hop Explorer</h3>
-              <p>A private, on-device beer journal for iPhone. Log what you drink, map where you found it, and watch your palate take shape. No accounts, no servers, no tracking.</p>
-              <div class="links">
-                <a class="btn btn-solid" href="/hop-explorer/">Learn more &rarr;</a>
-                <a class="pill pill-link" href="/hop-explorer/support.html">Support</a>
-                <a class="pill pill-link" href="/hop-explorer/privacy.html">Privacy</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Off the clock -->
-      <section class="section" id="offclock" aria-labelledby="h-offclock">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <div class="kicker small">05 · Off the clock</div>
-              <h2 id="h-offclock">What I'm watching and reading.</h2>
-              <p class="section-sub">Movies, TV, and anime I keep coming back to, plus a shelf of book reviews that's just getting started.</p>
-            </div>
-          </div>
-        </div>
-        <div class="strip" aria-label="A few favorites">
-          <a class="poster" href="/writings/watching.html"><img src="/images/watching/interstellar.png" alt="" loading="lazy"><span>Interstellar</span></a>
-          <a class="poster" href="/writings/watching.html"><img src="/images/watching/inception.png" alt="" loading="lazy"><span>Inception</span></a>
-          <a class="poster" href="/writings/watching.html"><img src="/images/watching/tdk.png" alt="" loading="lazy"><span>The Dark Knight</span></a>
-          <a class="poster" href="/writings/watching.html"><img src="/images/watching/martian.png" alt="" loading="lazy"><span>The Martian</span></a>
-          <a class="poster" href="/writings/watching.html"><img src="/images/watching/3body.png" alt="" loading="lazy"><span>3 Body Problem</span></a>
-          <a class="poster" href="/writings/watching.html"><img src="/images/watching/lastofus.png" alt="" loading="lazy"><span>The Last of Us</span></a>
-          <a class="poster" href="/writings/watching.html"><img src="/images/watching/pantheon.png" alt="" loading="lazy"><span>Pantheon</span></a>
-          <a class="poster" href="/writings/watching.html"><img src="/images/watching/pluto.png" alt="" loading="lazy"><span>Pluto</span></a>
-          <a class="poster" href="/writings/watching.html"><img src="/images/watching/deathnote.png" alt="" loading="lazy"><span>Death Note</span></a>
-          <a class="poster" href="/writings/watching.html"><img src="/images/watching/good-will-hunting.png" alt="" loading="lazy"><span>Good Will Hunting</span></a>
-        </div>
-        <div class="wrap">
-          <div class="offclock">
-            <a class="card" href="/writings/watching.html">
-              <span class="go" aria-hidden="true">&rarr;</span>
-              <span class="kicker small" style="margin:0">Watching</span>
-              <h3>23 titles, each with a short review</h3>
-              <p>Films, series, and anime &mdash; the full list.</p>
-            </a>
-            <a class="card" href="/writings/books.html">
-              <span class="go" aria-hidden="true">&rarr;</span>
-              <span class="kicker small" style="margin:0">Reading</span>
-              <h3>Book reviews</h3>
-              <p>A new shelf. The first reviews are on their way.</p>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Research -->
-      <section class="section" id="research" aria-labelledby="h-research">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <div class="kicker small">06 · Research</div>
-              <h2 id="h-research">Soil systems and human systems.</h2>
-            </div>
-            <a class="btn btn-ghost section-link" href="/writings/research-journey.html">Research Journey &rarr;</a>
-          </div>
-          <div class="research">
-            <div class="card">
-              <p>I work on soil carbon, soil nitrogen, biogeochemistry, and modeling. Outside the soil, I'm drawn to sociology, post-AI economics, and the human dimension of how technology and food land in everyday life.</p>
-              <ul class="themes" aria-label="Research themes">
-                <li>Environmental microbiology</li>
-                <li>Soil health &amp; benchmarking</li>
-                <li>Carbon &amp; nitrogen dynamics</li>
-                <li>Science to systems</li>
-              </ul>
-              <div class="stats">
-                <div class="stat"><strong>Ph.D.</strong><span>Soil microbiology</span></div>
-                <div class="stat"><strong>10+</strong><span>Years in soil systems</span></div>
-                <div class="stat"><strong>6</strong><span>Selected papers</span></div>
-              </div>
-            </div>
-            <a class="card" href="/writings/research-journey.html">
-              <span class="go" aria-hidden="true">&rarr;</span>
-              <span class="kicker small">The arc</span>
-              <ol class="timeline">
-                <li><span class="tick" aria-hidden="true"></span><span><strong>Assam Agricultural University</strong><span>Environmental microbiology &mdash; arsenic-resistant bacteria and groundwater metagenomics</span></span></li>
-                <li><span class="tick" aria-hidden="true"></span><span><strong>University of Nebraska-Lincoln</strong><span>Soil health benchmarking, carbon and nitrogen dynamics</span></span></li>
-                <li><span class="tick now" aria-hidden="true"></span><span><strong>Long-term farming systems research</strong><span>From science to systems &mdash; and into the products above</span></span></li>
-              </ol>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section class="section" id="about" aria-labelledby="h-about">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <div class="kicker small">07 · About</div>
-              <h2 id="h-about">Why I build what I build.</h2>
-            </div>
-          </div>
-          <div class="about">
-            <div class="card">
-              <p>I'm not a generic software founder hunting an ag market. I came in through soil systems, microbial ecology, and years of watching how hard it is for real agricultural knowledge to move from papers and institutions into everyday decisions.</p>
-              <p>Everything I build comes out of that gap. The essays are the philosophy underneath the work; the experiments are where I play; the watching and reading lists are proof I do occasionally sit down.</p>
-            </div>
-            <div class="card contact">
-              <div>
-                <h3>Funding, partnerships, and good conversations.</h3>
-                <p>I'm actively raising and open to university collaborations and operator intros. Email is easiest &mdash; I read everything that comes in.</p>
-              </div>
-              <div>
-                <a class="btn btn-solid" href="mailto:saurav12das@gmail.com">Send me a note &rarr;</a>
-                <nav class="socials" aria-label="Elsewhere">
-                  <a href="https://www.linkedin.com/in/dr-saurav-das-019343b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                  <a href="https://github.com/Saurav12das" target="_blank" rel="noopener noreferrer">GitHub</a>
-                  <a href="https://x.com/thedassaurav" target="_blank" rel="noopener noreferrer">X</a>
-                  <a href="https://scholar.google.com/citations?user=184srWEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
+  <main id="main">
+    <section class="hero">
       <div class="wrap">
-        <div class="sitemap">
-          <div>
-            <a class="wordmark" href="#top"><span class="dot" aria-hidden="true"></span>Saurav Das</a>
-            <p class="blurb">Soil scientist and founder. Everything I make, in one place.</p>
-          </div>
-          <div>
-            <h4>Products</h4>
-            <ul>
-              <li><a href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">Soil Health Exchange</a></li>
-              <li><a href="https://open-ag-data.com/" target="_blank" rel="noopener noreferrer">OpenAgData</a></li>
-              <li><a href="https://terravalue.tech/" target="_blank" rel="noopener noreferrer">TerraValue</a></li>
-              <li><a href="https://www.farmdeck.co/" target="_blank" rel="noopener noreferrer">FarmDeck</a></li>
-              <li><a href="https://fieldlog.info/" target="_blank" rel="noopener noreferrer">FieldLog</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Writing</h4>
-            <ul>
-              <li><a href="/writings/writing__pathology-of-more.html">The Pathology of More</a></li>
-              <li><a href="/writings/writing__balance-sheet.html">The Balance Sheet We Never Audited</a></li>
-              <li><a href="/writings/writing__post-ai-economics.html">The Economics of a Post-AI World</a></li>
-              <li><a href="/writings/writing__social-coin.html">Social Coin</a></li>
-              <li><a href="/writings/writing__brahmanda.html">Brahmanda</a></li>
-              <li><a href="/writings/writing__wdma.html">WDMA</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>More</h4>
-            <ul>
-              <li><a href="/writings/research-journey.html">Research Journey</a></li>
-              <li><a href="/writings/watching.html">Watching</a></li>
-              <li><a href="/writings/books.html">Books</a></li>
-              <li><a href="/hop-explorer/">Hop Explorer</a></li>
-              <li><a href="/hop-explorer/support.html">App support</a></li>
-              <li><a href="/hop-explorer/privacy.html">App privacy</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Elsewhere</h4>
-            <ul>
-              <li><a href="mailto:saurav12das@gmail.com">Email</a></li>
-              <li><a href="https://www.linkedin.com/in/dr-saurav-das-019343b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-              <li><a href="https://github.com/Saurav12das" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://x.com/thedassaurav" target="_blank" rel="noopener noreferrer">X</a></li>
-              <li><a href="https://scholar.google.com/citations?user=184srWEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="foot-row">
-          <span>&copy; <span id="y"></span> Saurav Das</span>
-          <span>Soil, software, and ideas.</span>
+        <div class="eyebrow small">Soil scientist · Builder · Writer</div>
+        <h1>Hi, I'm Saurav. I grow things &mdash; soil, software, and ideas.</h1>
+        <p class="lede">I spent a decade studying soil, then started building tools for the people who work it. This is the home for everything I make &mdash; products, essays, experiments, apps, and a few things I love.</p>
+        <div class="status small"><span class="dot" aria-hidden="true"></span>Currently building &mdash; open to funding &amp; partnerships</div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Around the site">
+      <div class="wrap">
+        <div class="hub">
+          <a class="card" href="/products.html">
+            <span class="go" aria-hidden="true">&rarr;</span>
+            <span class="label small">Products</span>
+            <span><h3>Five live tools for agriculture.</h3><span class="count">5 products · all live</span></span>
+          </a>
+          <a class="card" href="/writing.html">
+            <span class="go" aria-hidden="true">&rarr;</span>
+            <span class="label small">Writing</span>
+            <span><h3>Essays on agriculture, AI, and the systems beneath both.</h3><span class="count">6 essays</span></span>
+          </a>
+          <a class="card" href="/experiments.html">
+            <span class="go" aria-hidden="true">&rarr;</span>
+            <span class="label small">Experiments</span>
+            <span><h3>Open-source tinkering with agents and memory.</h3><span class="count">2 repos on GitHub</span></span>
+          </a>
+          <a class="card" href="/apps.html">
+            <span class="go" aria-hidden="true">&rarr;</span>
+            <span class="label small">Apps</span>
+            <span><h3>Hop Explorer, a private beer journal for iPhone.</h3><span class="count">Coming soon to the App Store</span></span>
+          </a>
+          <a class="card" href="/writings/watching.html">
+            <span class="go" aria-hidden="true">&rarr;</span>
+            <span class="label small">Watching</span>
+            <span><h3>Films, series, and anime I keep coming back to.</h3><span class="count">23 titles with reviews</span></span>
+          </a>
+          <a class="card" href="/writings/books.html">
+            <span class="go" aria-hidden="true">&rarr;</span>
+            <span class="label small">Books</span>
+            <span><h3>A new shelf of short reviews.</h3><span class="count">First entries coming soon</span></span>
+          </a>
+          <a class="card" href="/writings/research-journey.html">
+            <span class="go" aria-hidden="true">&rarr;</span>
+            <span class="label small">Research</span>
+            <span><h3>Where the soil work started, and what came of it.</h3><span class="count">The arc and the papers</span></span>
+          </a>
+          <a class="card" href="/about.html">
+            <span class="go" aria-hidden="true">&rarr;</span>
+            <span class="label small">About</span>
+            <span><h3>The story, in plain words.</h3><span class="count">A three-minute read</span></span>
+          </a>
         </div>
       </div>
-    </footer>
+    </section>
 
-    <button class="totop" type="button" aria-label="Back to top">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-    </button>
+    <section class="section" aria-label="Right now">
+      <div class="wrap now-grid">
+        <div class="now">
+          <div class="now-head small">Right now</div>
+          <a href="/products.html">
+            <span><span class="k small">Building</span><span class="v">Five products live<small>Research to field, all in use</small></span></span>
+            <span class="go" aria-hidden="true">&rarr;</span>
+          </a>
+          <a href="/writings/writing__balance-sheet.html">
+            <span><span class="k small">Writing</span><span class="v">The Balance Sheet We Never Audited<small>Pathology of More · Part II · 16 min</small></span></span>
+            <span class="go" aria-hidden="true">&rarr;</span>
+          </a>
+          <a href="/apps.html">
+            <span><span class="k small">Shipping</span><span class="v">Hop Explorer for iPhone<small>Coming soon to the App Store</small></span></span>
+            <span class="go" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+        <a class="card" href="/about.html" style="padding:24px">
+          <span class="go" aria-hidden="true">&rarr;</span>
+          <span class="kicker">About</span>
+          <h3 style="font-size:22px;font-weight:500;margin-bottom:8px">Water first, then soil, then software.</h3>
+          <p>I've spent most of my adult life paying attention to things you can't see. Here's the short version of how that turned into all of this.</p>
+        </a>
+      </div>
+    </section>
+  </main>
 
-    <script>
-      document.getElementById('y').textContent = new Date().getFullYear();
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      /* Keep anchor offsets in sync with the real nav height (two rows on phones) */
-      (() => {
-        const nav = document.querySelector('.nav');
-        const sync = () => document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
-        sync();
-        window.addEventListener('resize', sync, { passive: true });
-        if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
-      })();
-
-      /* Scroll-spy: highlight the section you're in */
-      (() => {
-        const links = [...document.querySelectorAll('.nav-links a[data-spy]')];
-        const sections = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
-        const setActive = (id) => links.forEach(a => {
-          if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true');
-          else a.removeAttribute('aria-current');
-        });
-        const io = new IntersectionObserver((entries) => {
-          const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-          if (visible) setActive(visible.target.id);
-        }, { rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.25, 0.5, 1] });
-        sections.forEach(s => io.observe(s));
-        window.addEventListener('scroll', () => { if (window.scrollY < 200) links.forEach(a => a.removeAttribute('aria-current')); }, { passive: true });
-      })();
-
-      /* Back to top */
-      (() => {
-        const btn = document.querySelector('.totop');
-        const onScroll = () => btn.classList.toggle('show', window.scrollY > 900);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
-        onScroll();
-      })();
-    </script>
-  </body>
+  <footer>
+    <div class="wrap">
+      <div class="sitemap">
+        <div>
+          <a class="wordmark" href="/"><span class="dot" aria-hidden="true"></span>Saurav Das</a>
+          <p class="blurb">Soil scientist and builder. Everything I make, in one place.</p>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <ul>
+            <li><a href="https://soilhealthexchange.com/" target="_blank" rel="noopener noreferrer">Soil Health Exchange</a></li>
+            <li><a href="https://open-ag-data.com/" target="_blank" rel="noopener noreferrer">OpenAgData</a></li>
+            <li><a href="https://terravalue.tech/" target="_blank" rel="noopener noreferrer">TerraValue</a></li>
+            <li><a href="https://www.farmdeck.co/" target="_blank" rel="noopener noreferrer">FarmDeck</a></li>
+            <li><a href="https://fieldlog.info/" target="_blank" rel="noopener noreferrer">FieldLog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Writing</h4>
+          <ul>
+            <li><a href="/writings/writing__pathology-of-more.html">The Pathology of More</a></li>
+            <li><a href="/writings/writing__balance-sheet.html">The Balance Sheet We Never Audited</a></li>
+            <li><a href="/writings/writing__post-ai-economics.html">The Economics of a Post-AI World</a></li>
+            <li><a href="/writings/writing__social-coin.html">Social Coin</a></li>
+            <li><a href="/writings/writing__brahmanda.html">Brahmanda</a></li>
+            <li><a href="/writings/writing__wdma.html">WDMA</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Around the site</h4>
+          <ul>
+            <li><a href="/products.html">Products</a></li>
+            <li><a href="/experiments.html">Experiments</a></li>
+            <li><a href="/apps.html">Apps</a></li>
+            <li><a href="/writings/watching.html">Watching</a></li>
+            <li><a href="/writings/books.html">Books</a></li>
+            <li><a href="/writings/research-journey.html">Research Journey</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Elsewhere</h4>
+          <ul>
+            <li><a href="mailto:saurav12das@gmail.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/dr-saurav-das-019343b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/Saurav12das" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://x.com/thedassaurav" target="_blank" rel="noopener noreferrer">X</a></li>
+            <li><a href="https://scholar.google.com/citations?user=184srWEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-row">
+        <span>&copy; <span id="y"></span> Saurav Das</span>
+        <span>Soil, software, and ideas.</span>
+      </div>
+    </div>
+  </footer>
+  <button class="totop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+  <script defer src="/site.js"></script>
+</body>
 </html>

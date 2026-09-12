@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Books — Saurav Das</title>
-  <meta name="description" content="Short book reviews from Saurav Das — soil, systems, economics, and the occasional novel." />
-  <link rel="canonical" href="https://sauravdas.me/writings/books" />
+  <title>Apps — Saurav Das</title>
+  <meta name="description" content="Small things for the phone. Hop Explorer, a private on-device beer journal for iPhone." />
+  <link rel="canonical" href="https://sauravdas.me/apps" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Books — Saurav Das" />
-  <meta property="og:description" content="Short book reviews from Saurav Das — soil, systems, economics, and the occasional novel." />
-  <meta property="og:url" content="https://sauravdas.me/writings/books" />
+  <meta property="og:title" content="Apps — Saurav Das" />
+  <meta property="og:description" content="Small things for the phone. Hop Explorer, a private on-device beer journal for iPhone." />
+  <meta property="og:url" content="https://sauravdas.me/apps" />
   <meta property="og:site_name" content="Saurav Das" />
-  <meta property="og:image" content="https://sauravdas.me/api/og?title=Books&kicker=Reviews" />
+  <meta property="og:image" content="https://sauravdas.me/api/og?title=Apps&kicker=Small+things+for+the+phone" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@thedassaurav" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,9 +29,9 @@
         <li><a href="/products.html">Products</a></li>
         <li><a href="/writing.html">Writing</a></li>
         <li><a href="/experiments.html">Experiments</a></li>
-        <li><a href="/apps.html">Apps</a></li>
+        <li><a href="/apps.html" aria-current="page">Apps</a></li>
         <li><a href="/writings/watching.html">Watching</a></li>
-        <li><a href="/writings/books.html" aria-current="page">Books</a></li>
+        <li><a href="/writings/books.html">Books</a></li>
         <li><a href="/about.html">About</a></li>
       </ul>
       <a class="btn btn-solid btn-nav" href="mailto:saurav12das@gmail.com">Say hello</a>
@@ -39,29 +39,26 @@
   </nav>
 
   <main id="main">
-    <div class="narrow">
+    <div class="wrap">
       <header class="page-head">
-        <p class="kicker">Reading</p>
-        <h1>Books</h1>
-        <p class="lede">Short reviews of what I've been reading &mdash; mostly soil, systems, economics, and the occasional novel. New entries land here as I finish them.</p>
+        <p class="kicker">Apps</p>
+        <h1>Small things for the phone.</h1>
+        <p class="lede">One so far, with more ideas than weekends.</p>
       </header>
-
-      <section class="shelf" aria-label="Reviews">
-        <div class="empty">The first reviews are on their way. In the meantime, <a href="mailto:saurav12das@gmail.com?subject=Book%20recommendation">send me a recommendation</a>.</div>
-
-        <!--
-          TO ADD A REVIEW: copy the <article> below into the section above,
-          replace the placeholders, and delete the .empty div once the shelf
-          has at least one book. Newest first.
-
-        <article class="book">
-          <div class="book-meta"><span>Read 2026</span><span>·</span><span>Nonfiction</span></div>
-          <h2>Book Title</h2>
-          <p class="by">Author Name</p>
-          <p>Your review. What the book argues, where it's strongest, where it loses you, and who should read it.</p>
-          <span class="verdict">Worth your time</span>
-        </article>
-        -->
+      <section class="section" aria-label="Hop Explorer" style="padding-top:0">
+        <div class="card app">
+          <img class="app-icon" src="/hop-explorer/icon.png" alt="Hop Explorer app icon" width="88" height="88">
+          <div>
+            <span class="pill pill-green">Coming soon to the App Store</span>
+            <h3 style="margin-top:12px">Hop Explorer</h3>
+            <p>A private, on-device beer journal for iPhone. Log what you drink, map where you found it, and watch your palate take shape. No accounts, no servers, no tracking.</p>
+            <div class="links">
+              <a class="btn btn-solid" href="/hop-explorer/">Learn more &rarr;</a>
+              <a class="pill pill-link" href="/hop-explorer/support.html">Support</a>
+              <a class="pill pill-link" href="/hop-explorer/privacy.html">Privacy</a>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   </main>
@@ -75,6 +72,5 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
   <script defer src="/site.js"></script>
-  <script defer src="/views.js"></script>
 </body>
 </html>

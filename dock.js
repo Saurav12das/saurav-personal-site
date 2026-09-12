@@ -26,7 +26,7 @@
     '.sd-dock.sd-dark a[aria-current="page"]{background:#ffffff;color:#111111}',
     '.sd-dock.sd-raised{bottom:66px}',
     // Phones: drop the least-used links so the pill never spills past the screen
-    '@media (max-width:480px){.sd-dock{padding:4px;gap:0}.sd-dock a{padding:9px 8px;font-size:12.5px}.sd-dock a[data-k="research"],.sd-dock a[data-k="books"]{display:none}}',
+    '@media (max-width:480px){.sd-dock{padding:4px;gap:0}.sd-dock a{padding:9px 8px;font-size:12.5px}.sd-dock a[data-k="experiments"],.sd-dock a[data-k="books"],.sd-dock a[data-k="about"]{display:none}}',
     '@media (max-width:360px){.sd-dock a[data-k="products"]{display:none}}',
     '@media (prefers-reduced-motion:reduce){.sd-dock{transition:none}}',
     '@media print{.sd-dock{display:none}}'
@@ -34,12 +34,13 @@
 
   var links = [
     { href: '/', label: 'Home', home: true },
-    { href: '/#products', label: 'Products' },
-    { href: '/#writing', label: 'Writing', match: /^\/writings\/writing__/ },
-    { href: '/#apps', label: 'Apps', match: /^\/hop-explorer/ },
-    { href: '/writings/watching', label: 'Watching', match: /^\/writings\/watching/ },
-    { href: '/writings/books', label: 'Books', match: /^\/writings\/books/ },
-    { href: '/writings/research-journey', label: 'Research', match: /^\/writings\/research-journey/ }
+    { href: '/products.html', label: 'Products', match: /^\/products$/ },
+    { href: '/writing.html', label: 'Writing', match: /^\/writing$|^\/writings\/writing__/ },
+    { href: '/experiments.html', label: 'Experiments', match: /^\/experiments$/ },
+    { href: '/apps.html', label: 'Apps', match: /^\/apps$|^\/hop-explorer/ },
+    { href: '/writings/watching.html', label: 'Watching', match: /^\/writings\/watching$/ },
+    { href: '/writings/books.html', label: 'Books', match: /^\/writings\/books$/ },
+    { href: '/about.html', label: 'About', match: /^\/about$/ }
   ];
 
   function luminance() {
@@ -55,6 +56,9 @@
   }
 
   function mount() {
+    // Pages on the shared design system carry the top nav already; essays may reuse
+    // the class name '.site-nav' for their own headers, so key off the stylesheet.
+    if (document.querySelector('link[href="/site.css"]')) return;
     var style = document.createElement('style');
     style.textContent = css;
     document.head.appendChild(style);
