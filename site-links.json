@@ -1,0 +1,72 @@
+{
+  "navigation": [
+    {
+      "label": "Groundwork",
+      "description": "Science & research",
+      "href": "/writings/research-journey.html",
+      "section": "research"
+    },
+    {
+      "label": "Brain Fog",
+      "description": "Writing & weekly explorations",
+      "href": "/brain-fog.html",
+      "section": "writing"
+    },
+    {
+      "label": "Building",
+      "description": "Products, apps & experiments",
+      "href": "/products.html",
+      "section": "building"
+    },
+    {
+      "label": "Screen Time",
+      "description": "Movies, series & anime",
+      "href": "/writings/watching.html",
+      "section": "watching"
+    },
+    {
+      "label": "Bookshelf",
+      "description": "Books & reading notes",
+      "href": "/writings/books.html",
+      "section": "books"
+    }
+  ],
+  "connections": [
+    {
+      "label": "Email",
+      "description": "Start a conversation",
+      "href": "mailto:saurav12das@gmail.com",
+      "mark": "@"
+    },
+    {
+      "label": "LinkedIn",
+      "description": "Research, work & collaboration",
+      "href": "https://www.linkedin.com/in/dr-saurav-das-019343b4/",
+      "mark": "in"
+    },
+    {
+      "label": "GitHub",
+      "description": "Code, experiments & open questions",
+      "href": "https://github.com/Saurav12das",
+      "mark": "{ }"
+    },
+    {
+      "label": "X / Twitter",
+      "description": "Ideas & conversations",
+      "href": "https://x.com/thedassaurav",
+      "mark": "𝕏"
+    },
+    {
+      "label": "Google Scholar",
+      "description": "Papers & publications",
+      "href": "https://scholar.google.com/citations?user=184srWEAAAAJ&hl=en",
+      "mark": "g"
+    },
+    {
+      "label": "RSS",
+      "description": "Follow the Brain Fog notebook",
+      "href": "/feed.xml",
+      "mark": "↗"
+    }
+  ]
+}

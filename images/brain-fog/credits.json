@@ -1,0 +1,37 @@
+{
+  "generatedCover": {
+    "file": "automation.jpg",
+    "method": "Built-in image_gen tool",
+    "date": "2026-10-04",
+    "prompt": "Use case: illustration-story\nAsset type: editorial cover illustration for Brain Fog, a visual essay about the history of automation and economics.\nPrimary request: a sophisticated analog cut-paper collage connecting industrial-era machinery and the modern automated world. A large antique engraved metal flywheel and belt-driven steam engine on the lower left, a black and white vintage human hand extended from right toward a smaller articulated chrome robotic hand in the center, a small factory with smokestacks at lower center, and a tiny black silhouette of a worker standing in the foreground. Behind the objects, one large flat burnt-orange circle, like a sun. Fine sketchy dotted orbit lines and a few small star marks suggest curiosity. Quiet warm ivory paper background that blends into hex #f5f3eb. Black and white halftone engravings with very restrained muted orange accents. A thoughtful independent print magazine, beautiful tactile grain, playful but intellectual, intentional coherent collage with lots of breathing room around edges. Landscape 3:2 composition; all objects contained within frame; orange circle slightly right of center; high contrast cutouts, no rectangular photo borders. Not photorealistic, not 3D. No words, text, letters, numbers, watermarks, logos, gradients, or brain anatomy.",
+    "original": "automation-original.png",
+    "description": "AI-generated editorial illustration. Not a historical photograph."
+  },
+  "portraits": [
+    {
+      "file": "adam_smith.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Adam_Smith_The_Muir_portrait.jpg",
+      "artist": "Unknown; Muir portrait",
+      "license": "Public domain"
+    },
+    {
+      "file": "david_ricardo.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Portrait_of_David_Ricardo_by_Thomas_Phillips.jpg",
+      "artist": "Thomas Phillips",
+      "license": "Public domain"
+    },
+    {
+      "file": "karl_marx.png",
+      "source": "https://commons.wikimedia.org/wiki/File:Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored.png",
+      "artist": "John Jabez Edwin Mayall",
+      "license": "Public domain"
+    },
+    {
+      "file": "john_maynard_keynes.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:John_Maynard_Keynes_(1929).jpg",
+      "artist": "Unknown; Bettmann Archive",
+      "license": "Public domain in the United States"
+    }
+  ],
+  "verified": "2026-10-04; Wikimedia Commons imageinfo extmetadata"
+}

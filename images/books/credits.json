@@ -1,0 +1,14 @@
+{
+  "the-farm-is-here.png": {
+    "title": "The Farm Is Here by Jeff Tkach",
+    "source": "https://rodaleinstitute.org/the-farm-is-here/",
+    "image": "https://rodaleinstitute.org/wp-content/uploads/farmishere-338x600.png",
+    "usage": "Book cover accompanying a linked personal review. Copyright remains with the respective rights holders."
+  },
+  "work.jpg": {
+    "title": "Work by James Suzman, US paperback, ISBN 9780525561774",
+    "source": "https://penguinrandomhousehighereducation.com/book/?isbn=9780525561774",
+    "image": "https://images.penguinrandomhouse.com/cover/9780525561774",
+    "usage": "Book cover identifying a reading discovery. Copyright remains with the respective rights holders."
+  }
+}

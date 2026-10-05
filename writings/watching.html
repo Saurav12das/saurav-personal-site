@@ -1,737 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Watching — Saurav Das</title>
-<meta name="description" content="Movies, TV series, and anime I love — with short reviews and honest ratings." />
-<link rel="canonical" href="https://sauravdas.me/writings/watching" />
-<meta property="og:title" content="Watching — Saurav Das" />
-<meta property="og:description" content="Movies, TV series, and anime I love — with short reviews and honest ratings." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://sauravdas.me/writings/watching" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@thedassaurav" />
-<meta name="twitter:title" content="Watching — Saurav Das" />
-<meta name="twitter:description" content="Movies, TV series, and anime I love — with short reviews and honest ratings." />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #0a0a0c;
-    --surface: #121215;
-    --card: #1a1a1f;
-    --border: rgba(255,255,255,0.06);
-    --text: #e8e6e1;
-    --muted: #7a7773;
-    --gold: #d4a843;
-    --accent: #c0392b;
-    --blue: #4a8fe7;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--ink);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    background: rgba(10,10,12,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 48px;
-  }
-  nav a {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  nav a:hover { color: var(--text); }
-  .nav-back {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text);
-    font-weight: 500;
-  }
-  .nav-links { display: flex; gap: 20px; }
-  .nav-links a { font-size: 12px; letter-spacing: 0.02em; }
-
-  /* HERO */
-  .hero {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 64px 40px 48px;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 5vw, 56px);
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  .hero p {
-    font-size: 17px;
-    color: var(--muted);
-    max-width: 600px;
-    line-height: 1.6;
-  }
-
-  /* SECTION */
-  .section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 48px 40px;
-  }
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .section-icon {
-    font-size: 24px;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-  }
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--text);
-  }
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 0;
-  }
-
-  /* CARD GRID */
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 24px;
-  }
-
-  /* CARD */
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s, border-color 0.2s;
-    cursor: default;
-  }
-  .card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255,255,255,0.12);
-  }
-
-  /* POSTER */
-  .poster {
-    width: 100%;
-    aspect-ratio: 2/3;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    padding: 16px;
-  }
-  .poster-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;
-    line-height: 1.15;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
-    position: relative;
-    z-index: 1;
-  }
-  .poster::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
-    z-index: 0;
-  }
-
-  .poster-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.85;
-  }
-  /* POSTER GRADIENTS */
-
-  /* CARD BODY */
-  .card-body {
-    padding: 14px 16px 16px;
-  }
-  .card-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 8px;
-  }
-  .card-year {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-  }
-  .card-stars {
-    color: var(--gold);
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
-  .card-review {
-    font-size: 13px;
-    color: #999;
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-  .card-tag {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-weight: 500;
-  }
-  .tag-mustwatch { background: rgba(212,168,67,0.15); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
-  .tag-alltime { background: rgba(192,57,43,0.15); color: #e74c3c; border: 1px solid rgba(192,57,43,0.3); }
-  .tag-gem { background: rgba(74,143,231,0.15); color: var(--blue); border: 1px solid rgba(74,143,231,0.3); }
-  .tag-solid { background: rgba(255,255,255,0.06); color: var(--muted); border: 1px solid var(--border); }
-
-  /* FOOTER */
-  footer {
-    max-width: 1100px;
-    margin: 48px auto 0;
-    padding: 24px 40px 40px;
-    border-top: 1px solid var(--border);
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  footer a { color: var(--muted); text-decoration: none; }
-  footer a:hover { color: var(--text); }
-
-  /* RESPONSIVE */
-  @media (max-width: 640px) {
-    .hero, .section, footer { padding-left: 20px; padding-right: 20px; }
-    .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
-    .nav-inner { padding: 0 20px; }
-  }
-
-  /* ANIMATE */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .card {
-    opacity: 0;
-    animation: fadeUp 0.5s ease forwards;
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Screen Time — Saurav Das</title>
+  <meta name="description" content="Movies, series, and animation through Saurav Das’s eyes. Browse 23 personal reviews, ratings, and stories worth talking about.">
+  <link rel="canonical" href="https://sauravdas.me/writings/watching">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Screen Time — Saurav Das">
+  <meta property="og:description" content="Movies, series, and animation through Saurav Das’s eyes. Browse 23 personal reviews, ratings, and stories worth talking about.">
+  <meta property="og:url" content="https://sauravdas.me/writings/watching">
+  <meta property="og:site_name" content="Saurav Das">
+  <meta property="og:image" content="https://sauravdas.me/api/og?title=Screen%20Time&amp;kicker=Stay%20curious">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@thedassaurav">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700;750;800;900&amp;family=DM+Mono:wght@400;500&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/library.css?v=20261004-1">
+  <link rel="stylesheet" href="/site-chrome.css?v=20261004-2">
+  <link rel="icon" href="/images/brain-fog/favicon.svg" type="image/svg+xml">
 </head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a class="nav-back" href="/">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Saurav Das
-    </a>
-    <div class="nav-links">
-      <a href="/#writing">Writing</a>
-      <a href="mailto:saurav12das@gmail.com">Say hello</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-tag">Personal &middot; Entertainment</div>
-  <h1>What I&#8217;m Watching</h1>
-  <p>Movies, TV series, and anime that shaped how I think, or just gave me a really good time. Honest ratings, short takes.</p>
-</div>
-
-<!-- ═══════════ MOVIES ═══════════ -->
-<hr class="section-divider">
-<div class="section">
-  <div class="section-header">
+<body class="library-page cinema-page">
+<a class="chrome-skip" href="#main">Skip to content</a>
+<!-- SITE HEADER START -->
+<nav class="site-nav" data-site-nav aria-label="Site"><div class="nav-inner"><a class="wordmark" href="/" aria-label="Saurav Das — home"><span class="brand-dot" aria-hidden="true"></span><span>Saurav Das</span><span class="brand-note">stay curious.</span></a><ul class="nav-links"><li><a href="/writings/research-journey.html" title="Science &amp; research">Groundwork</a></li><li><a href="/brain-fog.html" title="Writing &amp; weekly explorations">Brain Fog</a></li><li><a href="/products.html" title="Products, apps &amp; experiments">Building</a></li><li><a href="/writings/watching.html" title="Movies, series &amp; anime" aria-current="page">Screen Time</a></li><li><a href="/writings/books.html" title="Books &amp; reading notes">Bookshelf</a></li></ul><a class="hello-link" href="#connect">Let’s talk <span aria-hidden="true">↗</span></a></div></nav>
+<!-- SITE HEADER END -->
+<main id="main" class="library-wrap">
+  <header class="library-hero screen-hero">
     <div>
-      <div class="section-label">Movies</div>
-      <div class="section-title">Cinema</div>
+      <p class="library-kicker"><span class="library-status-dot" aria-hidden="true"></span> THE OTHER KIND OF FIELD NOTES</p>
+      <h1>Screen Time<span>.</span></h1>
+      <p class="library-deck">A good story stays with you<br>after the screen goes dark.</p>
     </div>
-  </div>
-
-  <div class="card-grid">
-
-    <div class="card" style="animation-delay:0.05s">
-      <div class="poster">
-        <img src="/images/watching/interstellar.png" class="poster-img" alt="Interstellar Poster">
-        <div class="poster-title">Interstellar</div>
+    <div class="library-hero-aside">
+      <p>Sometimes a story makes an abstract question feel human. Sometimes it’s simply a good night in. These are the movies, series, and anime I keep coming back to.</p>
+      <a class="library-text-link" href="#collection">Browse the collection <span aria-hidden="true">↓</span></a>
+    </div>
+  </header>
+  <aside class="screen-lens" aria-label="A way into the collection">
+    <p class="library-kicker">A THREAD TO FOLLOW</p>
+    <p>Consciousness in <em>Pantheon</em>. Control in <em>Psycho-Pass</em>. The scale of the universe in <em>Interstellar</em>. Different stories, familiar questions about being human.</p>
+    <span class="library-micro">PERSONAL TAKES · OUT OF FIVE</span>
+  </aside>
+  <section id="collection" class="screen-collection" aria-labelledby="collection-title">
+    <div class="library-section-heading"><h2 id="collection-title">The collection</h2><span class="library-micro">23 ENTRIES & COUNTING</span></div>
+    <div class="screen-controls" data-screen-controls hidden>
+      <div class="screen-filters" role="group" aria-label="Filter by format">
+        <button type="button" data-filter="all" aria-pressed="true">All <span>23</span></button>
+        <button type="button" data-filter="movies" aria-pressed="false">Movies <span>9</span></button>
+        <button type="button" data-filter="series" aria-pressed="false">Series <span>6</span></button>
+        <button type="button" data-filter="animation" aria-pressed="false">Anime & animation <span>8</span></button>
       </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2014</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <label class="screen-search"><span class="library-micro">FIND A STORY</span><input id="screen-search" type="search" placeholder="Search titles or notes…" autocomplete="off"></label>
+    </div>
+    <p class="library-micro screen-results" id="screen-results" role="status" aria-live="polite" hidden></p>
+    <div class="screen-grid">
+      <article class="screen-card" data-category="movies" aria-labelledby="screen-title-1">
+        <img class="screen-poster" src="/images/watching/interstellar.png" alt="Interstellar poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Movies <span>·</span> 2014</p>
+          <h3 id="screen-title-1">Interstellar</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">The movie that made me feel small and infinite at the same time. Nolan turned physics into poetry. The docking scene still gets me.</p>
+          <span class="screen-verdict">All-Time Favorite</span>
         </div>
-        <p class="card-review">The movie that made me feel small and infinite at the same time. Nolan turned physics into poetry. The docking scene still gets me.</p>
-        <span class="card-tag tag-alltime">All-Time Favorite</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.1s">
-      <div class="poster">
-        <img src="/images/watching/inception.png" class="poster-img" alt="Inception Poster">
-        <div class="poster-title">Inception</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2010</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </article>
+      <article class="screen-card" data-category="movies" aria-labelledby="screen-title-2">
+        <img class="screen-poster" src="/images/watching/inception.png" alt="Inception poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Movies <span>·</span> 2010</p>
+          <h3 id="screen-title-2">Inception</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">Layers within layers. The spinning top ending is one of the greatest final shots in cinema. Rewatchable endlessly.</p>
+          <span class="screen-verdict">Must Watch</span>
         </div>
-        <p class="card-review">Layers within layers. The spinning top ending is one of the greatest final shots in cinema. Rewatchable endlessly.</p>
-        <span class="card-tag tag-mustwatch">Must Watch</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.15s">
-      <div class="poster">
-        <img src="/images/watching/tdk.png" class="poster-img" alt="The Dark Knight Poster">
-        <div class="poster-title">The Dark Knight</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2008</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </article>
+      <article class="screen-card" data-category="movies" aria-labelledby="screen-title-3">
+        <img class="screen-poster" src="/images/watching/tdk.png" alt="The Dark Knight poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Movies <span>·</span> 2008</p>
+          <h3 id="screen-title-3">The Dark Knight</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">Ledger’s Joker redefined what a villain could be. This isn’t a superhero movie — it’s a crime thriller that happens to have a cape in it.</p>
+          <span class="screen-verdict">All-Time Favorite</span>
         </div>
-        <p class="card-review">Ledger&#8217;s Joker redefined what a villain could be. This isn&#8217;t a superhero movie &#8212; it&#8217;s a crime thriller that happens to have a cape in it.</p>
-        <span class="card-tag tag-alltime">All-Time Favorite</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.2s">
-      <div class="poster">
-        <img src="/images/watching/begins.png" class="poster-img" alt="Batman Begins Poster">
-        <div class="poster-title">Batman Begins</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2005</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="movies" aria-labelledby="screen-title-4">
+        <img class="screen-poster" src="/images/watching/begins.png" alt="Batman Begins poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Movies <span>·</span> 2005</p>
+          <h3 id="screen-title-4">Batman Begins</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">The origin story that proved you could make a grounded, serious Batman. Nolan built the foundation here for everything that followed.</p>
+          <span class="screen-verdict">Must Watch</span>
         </div>
-        <p class="card-review">The origin story that proved you could make a grounded, serious Batman. Nolan built the foundation here for everything that followed.</p>
-        <span class="card-tag tag-mustwatch">Must Watch</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.25s">
-      <div class="poster">
-        <img src="/images/watching/tdkr.png" class="poster-img" alt="The Dark Knight Rises Poster">
-        <div class="poster-title">The Dark Knight Rises</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2012</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="movies" aria-labelledby="screen-title-5">
+        <img class="screen-poster" src="/images/watching/tdkr.png" alt="The Dark Knight Rises poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Movies <span>·</span> 2012</p>
+          <h3 id="screen-title-5">The Dark Knight Rises</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">Not as tight as TDK, but Bane’s voice and the pit scene are iconic. A proper ending to the trilogy. The stock exchange scene is wildly underrated.</p>
+          <span class="screen-verdict">Solid</span>
         </div>
-        <p class="card-review">Not as tight as TDK, but Bane&#8217;s voice and the pit scene are iconic. A proper ending to the trilogy. The stock exchange scene is wildly underrated.</p>
-        <span class="card-tag tag-solid">Solid</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.3s">
-      <div class="poster">
-        <img src="/images/watching/batman2022.png" class="poster-img" alt="The Batman Poster">
-        <div class="poster-title">The Batman</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2022</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="movies" aria-labelledby="screen-title-6">
+        <img class="screen-poster" src="/images/watching/batman2022.png" alt="The Batman poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Movies <span>·</span> 2022</p>
+          <h3 id="screen-title-6">The Batman</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">Pattinson as a detective-first Batman was the right call. The Nirvana needle-drop, the Batmobile chase — pure noir energy. Reeves understood the assignment.</p>
+          <span class="screen-verdict">Must Watch</span>
         </div>
-        <p class="card-review">Pattinson as a detective-first Batman was the right call. The Nirvana needle-drop, the Batmobile chase &#8212; pure noir energy. Reeves understood the assignment.</p>
-        <span class="card-tag tag-mustwatch">Must Watch</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.35s">
-      <div class="poster">
-        <img src="/images/watching/martian.png" class="poster-img" alt="The Martian Poster">
-        <div class="poster-title">The Martian</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2015</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </article>
+      <article class="screen-card" data-category="movies" aria-labelledby="screen-title-7">
+        <img class="screen-poster" src="/images/watching/martian.png" alt="The Martian poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Movies <span>·</span> 2015</p>
+          <h3 id="screen-title-7">The Martian</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">One of the most captivating movies out there. A brilliant showcase of survival, science, and human ingenuity.</p>
+          <span class="screen-verdict">All-Time Favorite</span>
         </div>
-        <p class="card-review">One of the most captivating movies out there. A brilliant showcase of survival, science, and human ingenuity.</p>
-        <span class="card-tag tag-alltime">All-Time Favorite</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.4s">
-      <div class="poster">
-        <img src="/images/watching/good-will-hunting.png" class="poster-img" alt="Good Will Hunting Poster">
-        <div class="poster-title">Good Will Hunting</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">1997</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="movies" aria-labelledby="screen-title-8">
+        <img class="screen-poster" src="/images/watching/good-will-hunting.png" alt="Good Will Hunting poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Movies <span>·</span> 1997</p>
+          <h3 id="screen-title-8">Good Will Hunting</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">One of the great films about friendship, male vulnerability, and the value of being truly known. Academic distinction matters, but this movie keeps reminding you it is not the whole life.</p>
+          <span class="screen-verdict">Must Watch</span>
         </div>
-        <p class="card-review">One of the great films about friendship, male vulnerability, and the value of being truly known. Academic distinction matters, but this movie keeps reminding you it is not the whole life.</p>
-        <span class="card-tag tag-mustwatch">Must Watch</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.45s">
-      <div class="poster">
-        <img src="/images/watching/beautiful-mind.png" class="poster-img" alt="A Beautiful Mind Poster">
-        <div class="poster-title">A Beautiful Mind</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2001</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </article>
+      <article class="screen-card" data-category="movies" aria-labelledby="screen-title-9">
+        <img class="screen-poster" src="/images/watching/beautiful-mind.png" alt="A Beautiful Mind poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Movies <span>·</span> 2001</p>
+          <h3 id="screen-title-9">A Beautiful Mind</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">A deeply humane story about genius, love, illness, and the trap of external validation. Russell Crowe is astonishing, and Nash’s life feels even more tender knowing he and Alicia died in a taxi crash, while their younger son also lived with schizophrenia.</p>
+          <span class="screen-verdict">All-Time Favorite</span>
         </div>
-        <p class="card-review">A deeply humane story about genius, love, illness, and the trap of external validation. Russell Crowe is astonishing, and Nash&#8217;s life feels even more tender knowing he and Alicia died in a taxi crash, while their younger son also lived with schizophrenia.</p>
-        <span class="card-tag tag-alltime">All-Time Favorite</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-<!-- ═══════════ TV SERIES ═══════════ -->
-<hr class="section-divider">
-<div class="section">
-  <div class="section-header">
-    <div>
-      <div class="section-label">TV Series</div>
-      <div class="section-title">Long Form</div>
-    </div>
-  </div>
-
-  <div class="card-grid">
-
-    <div class="card" style="animation-delay:0.05s">
-      <div class="poster">
-        <img src="/images/watching/3body.png" class="poster-img" alt="3 Body Problem Poster">
-        <div class="poster-title">3 Body Problem</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2024</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </article>
+      <article class="screen-card" data-category="series" aria-labelledby="screen-title-10">
+        <img class="screen-poster" src="/images/watching/3body.png" alt="3 Body Problem poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Series <span>·</span> 2024</p>
+          <h3 id="screen-title-10">3 Body Problem</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">Hard sci-fi that doesn’t dumb itself down. The VR sequences are haunting. Benioff and Weiss redeemed themselves. Liu Cixin’s ideas translated beautifully.</p>
+          <span class="screen-verdict">Must Watch</span>
         </div>
-        <p class="card-review">Hard sci-fi that doesn&#8217;t dumb itself down. The VR sequences are haunting. Benioff and Weiss redeemed themselves. Liu Cixin&#8217;s ideas translated beautifully.</p>
-        <span class="card-tag tag-mustwatch">Must Watch</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.1s">
-      <div class="poster">
-        <img src="/images/watching/fallout.png" class="poster-img" alt="Fallout Poster">
-        <div class="poster-title">Fallout</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2024</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="series" aria-labelledby="screen-title-11">
+        <img class="screen-poster" src="/images/watching/fallout.png" alt="Fallout poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Series <span>·</span> 2024</p>
+          <h3 id="screen-title-11">Fallout</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">Best video game adaptation ever made. The Ghoul is one of the best TV characters in years. Walton Goggins absolutely owns every scene. Somehow nails the tone of the games.</p>
+          <span class="screen-verdict">Must Watch</span>
         </div>
-        <p class="card-review">Best video game adaptation ever made. The Ghoul is one of the best TV characters in years. Walton Goggins absolutely owns every scene. Somehow nails the tone of the games.</p>
-        <span class="card-tag tag-mustwatch">Must Watch</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.15s">
-      <div class="poster">
-        <img src="/images/watching/lastofus.png" class="poster-img" alt="The Last of Us Poster">
-        <div class="poster-title">The Last of Us</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2023</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </article>
+      <article class="screen-card" data-category="series" aria-labelledby="screen-title-12">
+        <img class="screen-poster" src="/images/watching/lastofus.png" alt="The Last of Us poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Series <span>·</span> 2023</p>
+          <h3 id="screen-title-12">The Last of Us</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">Episode 3 alone is worth the entire series. Pedro Pascal brings a quiet devastation to Joel that the game only hinted at. This is how you adapt a story.</p>
+          <span class="screen-verdict">All-Time Favorite</span>
         </div>
-        <p class="card-review">Episode 3 alone is worth the entire series. Pedro Pascal brings a quiet devastation to Joel that the game only hinted at. This is how you adapt a story.</p>
-        <span class="card-tag tag-alltime">All-Time Favorite</span>
-      </div>
-    </div>
-
-
-    <div class="card" style="animation-delay:0.2s">
-      <div class="poster">
-        <img src="/images/watching/prisonbreak1.svg" class="poster-img" alt="Prison Break Season 1 Poster">
-        <div class="poster-title">Prison Break (S1)</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2005</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="series" aria-labelledby="screen-title-13">
+        <img class="screen-poster" src="/images/watching/prisonbreak1.svg" alt="Prison Break (S1) poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Series <span>·</span> 2005</p>
+          <h3 id="screen-title-13">Prison Break (S1)</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">One of the tightest, most tense single seasons of television ever made. The blueprint tattoos are iconic.</p>
+          <span class="screen-verdict">Must Watch</span>
         </div>
-        <p class="card-review">One of the tightest, most tense single seasons of television ever made. The blueprint tattoos are iconic.</p>
-        <span class="card-tag tag-mustwatch">Must Watch</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.25s">
-      <div class="poster">
-        <img src="/images/watching/prisonbreak2.svg" class="poster-img" alt="Prison Break Season 2 Poster">
-        <div class="poster-title">Prison Break (S2)</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2006</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </article>
+      <article class="screen-card" data-category="series" aria-labelledby="screen-title-14">
+        <img class="screen-poster" src="/images/watching/prisonbreak2.svg" alt="Prison Break (S2) poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Series <span>·</span> 2006</p>
+          <h3 id="screen-title-14">Prison Break (S2)</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">The manhunt expands perfectly. Mahone is an incredible antagonist. Keeps the tension insanely high outside the walls.</p>
+          <span class="screen-verdict">Must Watch</span>
         </div>
-        <p class="card-review">The manhunt expands perfectly. Mahone is an incredible antagonist. Keeps the tension insanely high outside the walls.</p>
-        <span class="card-tag tag-mustwatch">Must Watch</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.3s">
-      <div class="poster">
-        <img src="/images/watching/got.png" class="poster-img" alt="Game of Thrones Poster">
-        <div class="poster-title">Game of Thrones</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2011</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="series" aria-labelledby="screen-title-15">
+        <img class="screen-poster" src="/images/watching/got.png" alt="Game of Thrones poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Series <span>·</span> 2011</p>
+          <h3 id="screen-title-15">Game of Thrones</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">Great politics, power, war, and the last episode and mostly last season ruined the whole series, but it&#x27;s still one of the best.</p>
+          <span class="screen-verdict">Solid</span>
         </div>
-        <p class="card-review">Great politics, power, war, and the last episode and mostly last season ruined the whole series, but it's still one of the best.</p>
-        <span class="card-tag tag-solid">Solid</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════ ANIME ═══════════ -->
-<hr class="section-divider">
-<div class="section">
-  <div class="section-header">
-    <div>
-      <div class="section-label">Anime</div>
-      <div class="section-title">Animation</div>
-    </div>
-  </div>
-
-  <div class="card-grid">
-
-    <div class="card" style="animation-delay:0.05s">
-      <div class="poster">
-        <img src="/images/watching/naruto.png" class="poster-img" alt="Naruto Poster">
-        <div class="poster-title">Naruto</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2002&#8211;2017</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </article>
+      <article class="screen-card" data-category="animation" aria-labelledby="screen-title-16">
+        <img class="screen-poster" src="/images/watching/naruto.png" alt="Naruto poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Anime & animation <span>·</span> 2002–2017</p>
+          <h3 id="screen-title-16">Naruto</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">The anime that defined perseverance for an entire generation. Pain arc is peak fiction. Believe it. Skip the filler, though.</p>
+          <span class="screen-verdict">All-Time Favorite</span>
         </div>
-        <p class="card-review">The anime that defined perseverance for an entire generation. Pain arc is peak fiction. Believe it. Skip the filler, though.</p>
-        <span class="card-tag tag-alltime">All-Time Favorite</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.1s">
-      <div class="poster">
-        <img src="/images/watching/deathnote.png" class="poster-img" alt="Death Note Poster">
-        <div class="poster-title">Death Note</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2006&#8211;2007</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </article>
+      <article class="screen-card" data-category="animation" aria-labelledby="screen-title-17">
+        <img class="screen-poster" src="/images/watching/deathnote.png" alt="Death Note poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Anime & animation <span>·</span> 2006–2007</p>
+          <h3 id="screen-title-17">Death Note</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">The greatest cat-and-mouse thriller ever animated. Light vs. L is intellectual combat at its finest. The potato chip scene is unironically peak cinema.</p>
+          <span class="screen-verdict">Must Watch</span>
         </div>
-        <p class="card-review">The greatest cat-and-mouse thriller ever animated. Light vs. L is intellectual combat at its finest. The potato chip scene is unironically peak cinema.</p>
-        <span class="card-tag tag-mustwatch">Must Watch</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.15s">
-      <div class="poster">
-        <img src="/images/watching/bleach.png" class="poster-img" alt="Bleach Poster">
-        <div class="poster-title">Bleach</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2004&#8211;2024</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="animation" aria-labelledby="screen-title-18">
+        <img class="screen-poster" src="/images/watching/bleach.png" alt="Bleach poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Anime & animation <span>·</span> 2004–2024</p>
+          <h3 id="screen-title-18">Bleach</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">Soul Society arc is one of the best arcs in all of anime. TYBW brought it back with insane animation quality. Ichigo’s Bankai reveal still gives chills.</p>
+          <span class="screen-verdict">Must Watch</span>
         </div>
-        <p class="card-review">Soul Society arc is one of the best arcs in all of anime. TYBW brought it back with insane animation quality. Ichigo&#8217;s Bankai reveal still gives chills.</p>
-        <span class="card-tag tag-mustwatch">Must Watch</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.2s">
-      <div class="poster">
-        <img src="/images/watching/pluto.png" class="poster-img" alt="Pluto Poster">
-        <div class="poster-title">Pluto</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2023</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="animation" aria-labelledby="screen-title-19">
+        <img class="screen-poster" src="/images/watching/pluto.png" alt="Pluto poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Anime & animation <span>·</span> 2023</p>
+          <h3 id="screen-title-19">Pluto</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">Urasawa’s reimagining of Astro Boy as a murder mystery is brilliant. The question it asks — what makes a robot grieve? — hit different in the AI era.</p>
+          <span class="screen-verdict">Hidden Gem</span>
         </div>
-        <p class="card-review">Urasawa&#8217;s reimagining of Astro Boy as a murder mystery is brilliant. The question it asks &#8212; what makes a robot grieve? &#8212; hit different in the AI era.</p>
-        <span class="card-tag tag-gem">Hidden Gem</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.25s">
-      <div class="poster">
-        <img src="/images/watching/pantheon.png" class="poster-img" alt="Pantheon Poster">
-        <div class="poster-title">Pantheon</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2022&#8211;2023</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="animation" aria-labelledby="screen-title-20">
+        <img class="screen-poster" src="/images/watching/pantheon.png" alt="Pantheon poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Anime & animation <span>·</span> 2022–2023</p>
+          <h3 id="screen-title-20">Pantheon</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">Uploaded consciousness, geopolitics, and what it means to be human. Criminally underrated. If you work in AI, this one will keep you up at night.</p>
+          <span class="screen-verdict">Hidden Gem</span>
         </div>
-        <p class="card-review">Uploaded consciousness, geopolitics, and what it means to be human. Criminally underrated. If you work in AI, this one will keep you up at night.</p>
-        <span class="card-tag tag-gem">Hidden Gem</span>
-      </div>
-    </div>
-
-
-    <div class="card" style="animation-delay:0.3s">
-      <div class="poster">
-        <img src="/images/watching/psychopass1.png" class="poster-img" alt="Psycho-Pass Season 1 Poster">
-        <div class="poster-title">Psycho-Pass (S1)</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2012</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      </article>
+      <article class="screen-card" data-category="animation" aria-labelledby="screen-title-21">
+        <img class="screen-poster" src="/images/watching/psychopass1.png" alt="Psycho-Pass (S1) poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Anime & animation <span>·</span> 2012</p>
+          <h3 id="screen-title-21">Psycho-Pass (S1)</h3>
+          <p class="screen-rating" aria-label="My rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span><span aria-hidden="true" class="rating-number">5/5</span></p>
+          <p class="screen-review">A gripping cyberpunk procedural that asks hard questions about free will and societal control. The Sybil System is a terrifyingly plausible future.</p>
+          <span class="screen-verdict">All-Time Favorite</span>
         </div>
-        <p class="card-review">A gripping cyberpunk procedural that asks hard questions about free will and societal control. The Sybil System is a terrifyingly plausible future.</p>
-        <span class="card-tag tag-alltime">All-Time Favorite</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.35s">
-      <div class="poster">
-        <img src="/images/watching/psychopass2.png" class="poster-img" alt="Psycho-Pass Season 2 Poster">
-        <div class="poster-title">Psycho-Pass (S2)</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2014</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="animation" aria-labelledby="screen-title-22">
+        <img class="screen-poster" src="/images/watching/psychopass2.png" alt="Psycho-Pass (S2) poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Anime & animation <span>·</span> 2014</p>
+          <h3 id="screen-title-22">Psycho-Pass (S2)</h3>
+          <p class="screen-rating" aria-label="My rating: 4 out of 5 stars"><span aria-hidden="true">★★★★☆</span><span aria-hidden="true" class="rating-number">4/5</span></p>
+          <p class="screen-review">Expands the lore with some deep philosophical dilemmas, even if it lacks Kogami’s raw presence. The holographic cityscape crimes are intensely creative.</p>
+          <span class="screen-verdict">Solid</span>
         </div>
-        <p class="card-review">Expands the lore with some deep philosophical dilemmas, even if it lacks Kogami&#8217;s raw presence. The holographic cityscape crimes are intensely creative.</p>
-        <span class="card-tag tag-solid">Solid</span>
-      </div>
-    </div>
-
-    <div class="card" style="animation-delay:0.4s">
-      <div class="poster">
-        <img src="/images/watching/psychopass3.png" class="poster-img" alt="Psycho-Pass Season 3 Poster">
-        <div class="poster-title">Psycho-Pass (S3)</div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-year">2019</span>
-          <span class="card-stars">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+      </article>
+      <article class="screen-card" data-category="animation" aria-labelledby="screen-title-23">
+        <img class="screen-poster" src="/images/watching/psychopass3.png" alt="Psycho-Pass (S3) poster" loading="lazy" width="400" height="600">
+        <div class="screen-card-body">
+          <p class="library-micro screen-meta">Anime & animation <span>·</span> 2019</p>
+          <h3 id="screen-title-23">Psycho-Pass (S3)</h3>
+          <p class="screen-rating" aria-label="My rating: 3 out of 5 stars"><span aria-hidden="true">★★★☆☆</span><span aria-hidden="true" class="rating-number">3/5</span></p>
+          <p class="screen-review">An interesting pivot to new protagonists and the Bifrost system. Visually stunning, but the pacing and mysteries feel a bit dragged out compared to the original masterpiece.</p>
+          <span class="screen-verdict">Solid</span>
         </div>
-        <p class="card-review">An interesting pivot to new protagonists and the Bifrost system. Visually stunning, but the pacing and mysteries feel a bit dragged out compared to the original masterpiece.</p>
-        <span class="card-tag tag-solid">Solid</span>
-      </div>
+      </article>
     </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div>
-    Saurav Das &middot; 2026 &nbsp;&middot;&nbsp;
-    <a href="/">Home</a> &nbsp;&middot;&nbsp;
-    <a href="/#writing">Writing</a>
-  </div>
-  <div>
-    <a href="/writings/writing__post-ai-economics.html">Post-AI Economics</a> &nbsp;&middot;&nbsp;
-    <a href="/writings/writing__social-coin.html">Social Coin</a> &nbsp;&middot;&nbsp;
-    <a href="/writings/writing__brahmanda.html">Brahmanda</a>
-  </div>
-</footer>
-
-<script>
-// Stagger card animations on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.animationPlayState = 'running';
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.card').forEach(card => {
-  card.style.animationPlayState = 'paused';
-  observer.observe(card);
-});
-</script>
-<div style="max-width:720px;margin:40px auto 0;padding:0 24px 40px;">
-  <a href="/" style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--muted);text-decoration:none;">&larr; Back home</a>
-</div>
+    <div class="screen-empty" data-screen-empty hidden><h3>No stories found.</h3><p>Try a different title, a word from a review, or another format.</p><button class="library-button" type="button" data-screen-reset>Show the whole collection</button></div>
+  </section>
+  <section class="library-next" aria-labelledby="screen-next-title">
+    <p class="library-kicker">AFTER THE CREDITS</p>
+    <h2 id="screen-next-title">Keep the conversation going.</h2>
+    <p>A film I missed? A different take on one here? That’s part of the fun.</p>
+    <div class="library-actions"><a class="library-button" href="mailto:saurav12das@gmail.com?subject=Something%20for%20Screen%20Time">Send me a recommendation <span aria-hidden="true">↗</span></a><a class="library-text-link" href="/writings/books.html">Over to Bookshelf <span aria-hidden="true">→</span></a></div>
+  </section>
+</main>
+<!-- SITE FOOTER START -->
+<footer class="site-connect" id="connect" aria-labelledby="connect-title"><div class="connect-wrap"><div class="connect-main"><div class="connect-intro"><span class="connect-eyebrow">THE BEST PART IS THE CONVERSATION</span><h2 id="connect-title">Stay curious.<br><em>Say hello.</em></h2><p>A research question, something to build together, a film I should see, or an idea you can’t shake. Pick your corner of the internet.</p><a class="about-link" href="/about.html">A little more about me <span aria-hidden="true">↗</span></a></div><div class="connect-platforms" aria-label="Find Saurav online"><a class="connect-link" href="mailto:saurav12das@gmail.com"><span class="connect-mark" aria-hidden="true">@</span><span><strong>Email</strong><small>Start a conversation</small></span><span class="connect-arrow" aria-hidden="true">↗</span></a><a class="connect-link" href="https://www.linkedin.com/in/dr-saurav-das-019343b4/" target="_blank" rel="noopener noreferrer"><span class="connect-mark" aria-hidden="true">in</span><span><strong>LinkedIn</strong><small>Research, work &amp; collaboration</small></span><span class="connect-arrow" aria-hidden="true">↗</span></a><a class="connect-link" href="https://github.com/Saurav12das" target="_blank" rel="noopener noreferrer"><span class="connect-mark" aria-hidden="true">{ }</span><span><strong>GitHub</strong><small>Code, experiments &amp; open questions</small></span><span class="connect-arrow" aria-hidden="true">↗</span></a><a class="connect-link" href="https://x.com/thedassaurav" target="_blank" rel="noopener noreferrer"><span class="connect-mark" aria-hidden="true">𝕏</span><span><strong>X / Twitter</strong><small>Ideas &amp; conversations</small></span><span class="connect-arrow" aria-hidden="true">↗</span></a><a class="connect-link" href="https://scholar.google.com/citations?user=184srWEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><span class="connect-mark" aria-hidden="true">g</span><span><strong>Google Scholar</strong><small>Papers &amp; publications</small></span><span class="connect-arrow" aria-hidden="true">↗</span></a><a class="connect-link" href="/feed.xml"><span class="connect-mark" aria-hidden="true">↗</span><span><strong>RSS</strong><small>Follow the Brain Fog notebook</small></span><span class="connect-arrow" aria-hidden="true">↗</span></a></div></div><div class="connect-bottom"><a class="connect-signature" href="/"><span class="brand-dot" aria-hidden="true"></span>Saurav Das</a><nav class="connect-navigation" aria-label="Explore the site"><a href="/writings/research-journey.html">Groundwork</a><a href="/brain-fog.html">Brain Fog</a><a href="/products.html">Building</a><a href="/writings/watching.html">Screen Time</a><a href="/writings/books.html">Bookshelf</a><a href="/about.html">About</a></nav><span class="connect-copyright">© <span data-current-year>2026</span> · Still connecting the dots.</span></div></div></footer>
+<!-- SITE FOOTER END -->
+<script defer src="/site.js?v=20261004-2"></script>
+<script defer src="/screen-time.js?v=20261004-1"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/views.js"></script>
-<script defer src="/dock.js"></script>
 </body>
 </html>
