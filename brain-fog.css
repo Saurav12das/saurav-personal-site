@@ -2640,7 +2640,14 @@ section[id] {
 }
 .essay-library .essay {
   background: transparent;
+  grid-template-columns: 180px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+  border-radius: 0;
+  border-width: 1px 0 0;
 }
+.essay-library .essay-thumb { display: block; width: 100%; height: auto; }
 .essay-library .essay:hover {
   background: #eeebdf;
 }
@@ -2666,6 +2673,8 @@ section[id] {
   }
 }
 @media (max-width: 760px) {
+  .essay-library .essay { grid-template-columns: 100px minmax(0, 1fr); gap: 16px; align-items: start; }
+  .essay-library .essay .go { display: none; }
   .home-main .masthead h1 {
     font-size: 10.5vw;
   }

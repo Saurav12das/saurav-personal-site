@@ -63,10 +63,17 @@
       "mark": "g"
     },
     {
-      "label": "RSS",
-      "description": "Follow the Brain Fog notebook",
-      "href": "/feed.xml",
+      "label": "Follow updates",
+      "description": "Choose a topic or follow everything",
+      "href": "/follow.html",
       "mark": "↗"
+    },
+    {
+      "label": "Buy me a coffee",
+      "description": "A little support for the notebook",
+      "href": "https://buymeacoffee.com/sauravdastsk",
+      "mark": "☕",
+      "kind": "support"
     }
   ]
 }

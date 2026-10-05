@@ -1,0 +1,58 @@
+/* Illustration-led openings for the writing archive. */
+.illustrated-post .post-illustration {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, calc(100% - 80px));
+  margin: 36px auto 60px;
+  background: #f5f3eb;
+  color: #68695e;
+}
+.illustrated-post .post-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.illustrated-post .post-illustration figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 17px 22px;
+  font: 400 12px/1.7 "DM Sans", Arial, sans-serif;
+  border-bottom: 1px solid #d9d7cc;
+}
+.illustrated-post .post-art-note {
+  font: 400 9px/1.7 "DM Mono", monospace;
+  flex-shrink: 0;
+}
+.post-dark .hero { min-height: 0; padding: 62px 24px 38px; }
+.post-dark .hero-sub { font-style: normal; }
+.post-dark .hero-meta, .post-dark .hero-meta-row { margin-top: 28px; }
+.post-dark .hero h1 { font-weight: 400; }
+.post-dark .hero h1,
+.post-dark .hero-tag,
+.post-dark .hero-sub,
+.post-dark .hero-meta,
+.post-dark .hero-badge,
+.post-dark .hero-acronym,
+.post-dark .hero-abstract,
+.post-dark .hero-meta-row { animation: none; opacity: 1; }
+.post-dark .hero-abstract { margin-top: 22px; }
+.post-dark .post-illustration { margin-top: 12px; }
+.post-balance-sheet .post-illustration { margin-bottom: 0; }
+.post-post-ai-economics .figure-source { white-space: normal; }
+.post-post-ai-economics .hero { animation: none; }
+.post-wdma .tax-table, .post-wdma .comp-table { display: block; overflow-x: auto; }
+@media (max-width: 700px) {
+  .illustrated-post .post-illustration { width: 100%; margin: 24px 0 38px; }
+  .illustrated-post .post-illustration figcaption { flex-direction: column; gap: 6px; padding: 14px 20px; font-size: 11px; }
+  .post-dark .hero { padding: 42px 20px 20px; }
+  .post-dark .hero h1 { font-size: clamp(36px, 8.6vw, 54px); overflow-wrap: break-word; }
+  .post-dark .hero-meta-row { gap: 8px 16px; }
+  .post-dark .hero-abstract { font-size: 14px; }
+  .post-post-ai-economics .figure-header { flex-direction: column; }
+}
+@media print {
+  .illustrated-post .post-illustration { width: 100%; break-inside: avoid; }
+  .illustrated-post .post-illustration img { max-height: 320px; object-fit: contain; }
+}

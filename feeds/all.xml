@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Stay curious by Saurav Das</title>
+    <link>https://sauravdas.me/follow</link>
+    <description>New posts from Groundwork, Brain Fog, Building, Screen Time, and Bookshelf.</description>
+    <language>en-us</language>
+    <atom:link href="https://sauravdas.me/feeds/all.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2026 18:00:00 -0400</lastBuildDate>
+    <item>
+      <title>Groundwork: the research behind the questions</title>
+      <link>https://sauravdas.me/writings/research-journey</link>
+      <guid isPermaLink="false">https://sauravdas.me/updates/2026-10-04-groundwork-collection</guid>
+      <pubDate>Sun, 04 Oct 2026 18:00:00 -0400</pubDate>
+      <category>Groundwork</category>
+      <description>Explore my research journey through environmental microbiology, soil health, and sustainable farming systems.</description>
+    </item>
+    <item>
+      <title>Building: ideas taking shape</title>
+      <link>https://sauravdas.me/products</link>
+      <guid isPermaLink="false">https://sauravdas.me/updates/2026-10-04-building-collection</guid>
+      <pubDate>Sun, 04 Oct 2026 18:00:00 -0400</pubDate>
+      <category>Building</category>
+      <description>A collection of agricultural tools, apps, and experiments connecting research to everyday decisions.</description>
+    </item>
+    <item>
+      <title>Screen Time: stories worth talking about</title>
+      <link>https://sauravdas.me/writings/watching</link>
+      <guid isPermaLink="false">https://sauravdas.me/updates/2026-10-04-screen-time-collection</guid>
+      <pubDate>Sun, 04 Oct 2026 18:00:00 -0400</pubDate>
+      <category>Screen Time</category>
+      <description>Browse 23 personal takes on movies, series, and animation, with ratings and a searchable collection.</description>
+    </item>
+    <item>
+      <title>On the Bookshelf: soil, community, and work</title>
+      <link>https://sauravdas.me/writings/books</link>
+      <guid isPermaLink="false">https://sauravdas.me/updates/2026-10-04-bookshelf-collection</guid>
+      <pubDate>Sun, 04 Oct 2026 18:00:00 -0400</pubDate>
+      <category>Bookshelf</category>
+      <description>Reading notes on The Farm Is Here by Jeff Tkach, plus James Suzman’s Work and his talk on how work has shaped society.</description>
+    </item>
+    <item>
+      <title>001 — The machines were never the whole story.</title>
+      <link>https://sauravdas.me/brain-fog/automation-and-economics</link>
+      <guid isPermaLink="true">https://sauravdas.me/brain-fog/automation-and-economics</guid>
+      <pubDate>Sun, 04 Oct 2026 12:00:00 -0400</pubDate>
+      <category>Brain Fog</category>
+      <description>From Smith’s pin factory to AI: a visual exploration of automation, economics, and who gets the gains. Includes historical perspectives, charts, an interactive productivity experiment, and sourced explorations of Newton, cognitive offloading, meaningful work, and the freedom to pursue new questions. Includes a companion video with James Suzman.</description>
+    </item>
+  </channel>
+</rss>

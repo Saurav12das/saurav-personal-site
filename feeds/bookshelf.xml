@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Bookshelf by Saurav Das</title>
+    <link>https://sauravdas.me/writings/books</link>
+    <description>Reading notes, reviews, and books to explore.</description>
+    <language>en-us</language>
+    <atom:link href="https://sauravdas.me/feeds/bookshelf.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2026 18:00:00 -0400</lastBuildDate>
+    <item>
+      <title>On the Bookshelf: soil, community, and work</title>
+      <link>https://sauravdas.me/writings/books</link>
+      <guid isPermaLink="false">https://sauravdas.me/updates/2026-10-04-bookshelf-collection</guid>
+      <pubDate>Sun, 04 Oct 2026 18:00:00 -0400</pubDate>
+      <category>Bookshelf</category>
+      <description>Reading notes on The Farm Is Here by Jeff Tkach, plus James Suzman’s Work and his talk on how work has shaped society.</description>
+    </item>
+  </channel>
+</rss>

@@ -6,7 +6,7 @@ import json
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = ['index.html','brain-fog.html','brain-fog/automation-and-economics.html','about.html','writing.html','products.html','experiments.html','apps.html','writings/books.html','writings/research-journey.html','writings/watching.html'] + [str(p.relative_to(ROOT)) for p in sorted((ROOT/'writings').glob('writing__*.html'))]
+PAGES = ['index.html','brain-fog.html','brain-fog/automation-and-economics.html','about.html','writing.html','products.html','experiments.html','apps.html','writings/books.html','writings/research-journey.html','writings/watching.html','follow.html'] + [str(p.relative_to(ROOT)) for p in sorted((ROOT/'writings').glob('writing__*.html'))]
 class Page(HTMLParser):
     def __init__(self, source):
         super().__init__(convert_charrefs=True)
@@ -30,6 +30,11 @@ errors=[];checked=0
 for rel in PAGES:
     path=ROOT/rel;page=Page(path.read_text())
     if rel!='writing.html':
+        source=path.read_text()
+        assert source.count('data-site-nav')==1, f'{rel}: expected one shared page navigation'
+        header=source.split('<!-- SITE HEADER START -->')[1].split('<!-- SITE HEADER END -->')[0]
+        for item in config['navigation']:
+            assert item['href'] in Page(header).links, f'{rel}: missing {item["label"]} navigation link'
         assert 'id="connect"' in path.read_text(), f'{rel}: missing contact footer'
         for profile in config['connections']:
             assert profile['href'] in page.links, f'{rel}: missing {profile["label"]} link'
@@ -45,10 +50,24 @@ for rel in PAGES:
             target_page=page if target==path else Page(target.read_text())
             if unquote(url.fragment) not in target_page.ids:errors.append(f'{rel}: missing anchor {link}')
         checked+=1
-for rel in ['feed.xml','sitemap.xml']:ET.parse(ROOT/rel)
-feed=ET.parse(ROOT/'feed.xml')
-assert len(feed.findall('./channel/item'))==1
-assert feed.findtext('./channel/item/guid')=='https://sauravdas.me/brain-fog/automation-and-economics'
+ET.parse(ROOT/'sitemap.xml')
+updates=json.loads((ROOT/'data/updates.json').read_text())
+feed_paths={'feed.xml':'brain-fog','feeds/all.xml':None}
+feed_paths.update({f'feeds/{section}.xml':section for section in ['groundwork','brain-fog','building','screen-time','bookshelf']})
+for rel,section in feed_paths.items():
+    feed=ET.parse(ROOT/rel)
+    items=feed.findall('./channel/item')
+    actual=[item.findtext('guid') for item in items]
+    expected=[item['id'] for item in updates if section is None or item['section']==section]
+    assert len(actual)==len(set(actual)), f'{rel}: duplicate publication IDs'
+    assert set(actual)==set(expected), f'{rel}: missing or misplaced entries'
+    assert feed.find('./channel/{http://www.w3.org/2005/Atom}link').get('href')=='https://sauravdas.me/'+rel
+    from email.utils import parsedate_to_datetime
+    dates=[parsedate_to_datetime(item.findtext('pubDate')) for item in items]
+    assert dates==sorted(dates,reverse=True), f'{rel}: entries must be newest first'
+    for item in items:
+        assert item.findtext('title') and item.findtext('description') and item.findtext('link')
+assert 'https://sauravdas.me/brain-fog/automation-and-economics' in [item['id'] for item in updates], 'Preserve the original Brain Fog GUID'
 for rel in PAGES[:3]:
     import re
     for script in re.findall(r'<script type="application/ld\+json">(.*?)</script>',(ROOT/rel).read_text(),re.S):json.loads(script)

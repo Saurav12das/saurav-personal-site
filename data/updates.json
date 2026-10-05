@@ -1,0 +1,42 @@
+[
+  {
+    "id": "https://sauravdas.me/brain-fog/automation-and-economics",
+    "section": "brain-fog",
+    "title": "001 — The machines were never the whole story.",
+    "url": "https://sauravdas.me/brain-fog/automation-and-economics",
+    "published": "2026-10-04T12:00:00-04:00",
+    "summary": "From Smith’s pin factory to AI: a visual exploration of automation, economics, and who gets the gains. Includes historical perspectives, charts, an interactive productivity experiment, and sourced explorations of Newton, cognitive offloading, meaningful work, and the freedom to pursue new questions. Includes a companion video with James Suzman."
+  },
+  {
+    "id": "https://sauravdas.me/updates/2026-10-04-groundwork-collection",
+    "section": "groundwork",
+    "title": "Groundwork: the research behind the questions",
+    "url": "https://sauravdas.me/writings/research-journey",
+    "published": "2026-10-04T18:00:00-04:00",
+    "summary": "Explore my research journey through environmental microbiology, soil health, and sustainable farming systems."
+  },
+  {
+    "id": "https://sauravdas.me/updates/2026-10-04-building-collection",
+    "section": "building",
+    "title": "Building: ideas taking shape",
+    "url": "https://sauravdas.me/products",
+    "published": "2026-10-04T18:00:00-04:00",
+    "summary": "A collection of agricultural tools, apps, and experiments connecting research to everyday decisions."
+  },
+  {
+    "id": "https://sauravdas.me/updates/2026-10-04-screen-time-collection",
+    "section": "screen-time",
+    "title": "Screen Time: stories worth talking about",
+    "url": "https://sauravdas.me/writings/watching",
+    "published": "2026-10-04T18:00:00-04:00",
+    "summary": "Browse 23 personal takes on movies, series, and animation, with ratings and a searchable collection."
+  },
+  {
+    "id": "https://sauravdas.me/updates/2026-10-04-bookshelf-collection",
+    "section": "bookshelf",
+    "title": "On the Bookshelf: soil, community, and work",
+    "url": "https://sauravdas.me/writings/books",
+    "published": "2026-10-04T18:00:00-04:00",
+    "summary": "Reading notes on The Farm Is Here by Jeff Tkach, plus James Suzman’s Work and his talk on how work has shaped society."
+  }
+]

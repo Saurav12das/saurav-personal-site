@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Building by Saurav Das</title>
+    <link>https://sauravdas.me/products</link>
+    <description>Products, apps, and experiments.</description>
+    <language>en-us</language>
+    <atom:link href="https://sauravdas.me/feeds/building.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2026 18:00:00 -0400</lastBuildDate>
+    <item>
+      <title>Building: ideas taking shape</title>
+      <link>https://sauravdas.me/products</link>
+      <guid isPermaLink="false">https://sauravdas.me/updates/2026-10-04-building-collection</guid>
+      <pubDate>Sun, 04 Oct 2026 18:00:00 -0400</pubDate>
+      <category>Building</category>
+      <description>A collection of agricultural tools, apps, and experiments connecting research to everyday decisions.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Screen Time by Saurav Das</title>
+    <link>https://sauravdas.me/writings/watching</link>
+    <description>Movies, series, and animation through a personal lens.</description>
+    <language>en-us</language>
+    <atom:link href="https://sauravdas.me/feeds/screen-time.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2026 18:00:00 -0400</lastBuildDate>
+    <item>
+      <title>Screen Time: stories worth talking about</title>
+      <link>https://sauravdas.me/writings/watching</link>
+      <guid isPermaLink="false">https://sauravdas.me/updates/2026-10-04-screen-time-collection</guid>
+      <pubDate>Sun, 04 Oct 2026 18:00:00 -0400</pubDate>
+      <category>Screen Time</category>
+      <description>Browse 23 personal takes on movies, series, and animation, with ratings and a searchable collection.</description>
+    </item>
+  </channel>
+</rss>

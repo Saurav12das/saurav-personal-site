@@ -5,7 +5,7 @@
     <link>https://sauravdas.me/brain-fog</link>
     <description>Writing and weekly visual explorations.</description>
     <language>en-us</language>
-    <atom:link href="https://sauravdas.me/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sauravdas.me/feeds/brain-fog.xml" rel="self" type="application/rss+xml" />
     <lastBuildDate>Sun, 04 Oct 2026 12:00:00 -0400</lastBuildDate>
     <item>
       <title>001 — The machines were never the whole story.</title>

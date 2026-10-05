@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Groundwork by Saurav Das</title>
+    <link>https://sauravdas.me/writings/research-journey</link>
+    <description>Science, research, and field notes.</description>
+    <language>en-us</language>
+    <atom:link href="https://sauravdas.me/feeds/groundwork.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2026 18:00:00 -0400</lastBuildDate>
+    <item>
+      <title>Groundwork: the research behind the questions</title>
+      <link>https://sauravdas.me/writings/research-journey</link>
+      <guid isPermaLink="false">https://sauravdas.me/updates/2026-10-04-groundwork-collection</guid>
+      <pubDate>Sun, 04 Oct 2026 18:00:00 -0400</pubDate>
+      <category>Groundwork</category>
+      <description>Explore my research journey through environmental microbiology, soil health, and sustainable farming systems.</description>
+    </item>
+  </channel>
+</rss>
