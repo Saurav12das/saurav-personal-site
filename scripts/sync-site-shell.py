@@ -3,7 +3,7 @@ Run after changing the navigation or the owner's verified public profile links.
 Existing article bodies and original article footers are preserved.
 """
 from pathlib import Path
-from html import escape
+from html import escape, unescape
 import json,re
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -11,8 +11,8 @@ CONFIG=json.loads((ROOT/'site-links.json').read_text())
 MAIN=['index.html','brain-fog.html','brain-fog/automation-and-economics.html','about.html','products.html','experiments.html','apps.html','writings/books.html','writings/research-journey.html','writings/watching.html','follow.html']
 MAIN += sorted(str(p.relative_to(ROOT)) for p in (ROOT/'writings').glob('writing__*.html'))
 ESSAYS=sorted(str(p.relative_to(ROOT)) for p in (ROOT/'writings').glob('writing__*.html') if str(p.relative_to(ROOT)) not in MAIN)
-VERSION='20261004-2'
-CHROME_VERSION='20261005-4'
+VERSION='20261005-6'
+CHROME_VERSION='20261005-6'
 DESIGN_VERSION='20261005-1'
 FONTS='https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300..900;1,300..900&amp;family=DM+Mono:wght@400;500&amp;display=swap'
 FEEDS={'research':('Groundwork','groundwork'),'writing':('Brain Fog','brain-fog'),'building':('Building','building'),'watching':('Screen Time','screen-time'),'books':('Bookshelf','bookshelf')}
@@ -26,9 +26,23 @@ def section_for(path):
     return ''
 
 def header(path):
-    links=''.join(f'<li><a href="{escape(item["href"])}" title="{escape(item["description"])}"'+(' aria-current="page"' if item['section']==section_for(path) else '')+f'>{escape(item["label"])}</a></li>' for item in CONFIG['navigation'])
+    links=''.join(f'<li><a href="{escape(item["href"])}" title="{escape(item["description"])}"'+(' aria-current="page"' if item['section']==section_for(path) else '')+f'><span>{escape(item["label"])}</span><small>{escape(item["description"])}</small></a></li>' for item in CONFIG['navigation'])
+    support=next(item for item in CONFIG['connections'] if item.get('kind')=='support')
+    coffee=f'<a class="coffee-link" href="{escape(support["href"])}" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee (opens in a new tab)" title="Buy me a coffee"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h12v6a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9Z"/><path d="M17 10h1a3 3 0 1 1 0 6h-1M3 22h17M8 3v3M12 2v4M16 3v3"/></svg></a>'
+    current=next((item for item in CONFIG['navigation'] if item['section']==section_for(path)),None)
+    location=current['label'] if current else 'the notebook'
+    utility=''.join(f'<a href="{href}"'+(' aria-current="page"' if path==target else '')+f'>{label}</a>' for href,target,label in [('/','index.html','Home'),('/about.html','about.html','About'),('#connect','','Contact')])
+    trail=''
+    if path!='index.html':
+        title=unescape(re.search(r'<title>(.*?)</title>',(ROOT/path).read_text(),re.S)[1]).split(' — ')[0].split(' | ')[0]
+        crumbs='<a href="/">Home</a>'
+        if current and current['href']!='/'+path:crumbs+=f'<span aria-hidden="true">/</span><a href="{escape(current["href"])}">{escape(current["label"])}</a>'
+        label=current['label'] if current and current['href']=='/'+path else title
+        trail=f'<nav class="site-trail" aria-label="Breadcrumb"><div>{crumbs}<span aria-hidden="true">/</span><span aria-current="page">{escape(label)}</span></div></nav>'
+    follow_current=' aria-current="page"' if path=='follow.html' else ''
     return f'''<!-- SITE HEADER START -->
-<nav class="site-nav" data-site-nav aria-label="Site"><div class="nav-inner"><a class="wordmark" href="/" aria-label="Saurav Das — home"><span class="brand-dot" aria-hidden="true">S</span><span class="brand-name" aria-hidden="true">aurav Das</span><span class="brand-note" aria-hidden="true">stay curious.</span></a><ul class="nav-links">{links}</ul><a class="hello-link" href="#connect">Let’s talk <span aria-hidden="true">↗</span></a></div></nav>
+<nav class="site-nav" data-site-nav aria-label="Site"><div class="nav-inner"><a class="wordmark" href="/" aria-label="Saurav Das — home"><span class="brand-dot" aria-hidden="true"></span><span class="brand-name" aria-hidden="true">Saurav Das</span><span class="brand-note" aria-hidden="true">stay curious.</span></a><details class="nav-explore" data-nav-explore open><summary>Explore <span class="nav-location">{escape(location)}</span><span class="nav-toggle-mark" aria-hidden="true">+</span></summary><div class="nav-menu"><ul class="nav-links">{links}</ul><div class="nav-utility">{utility}</div></div></details><div class="nav-actions"><a class="nav-follow" href="/follow.html"{follow_current}>Follow <span aria-hidden="true">↗</span></a>{coffee}</div></div></nav>
+{trail}
 <!-- SITE HEADER END -->'''
 
 def footer(path):
@@ -37,8 +51,8 @@ def footer(path):
     topic=FEEDS.get(section_for(path))
     follow=''
     if path!='follow.html':
-        topic_link=f'<a href="/follow.html#{topic[1]}">Follow {topic[0]} <span aria-hidden="true">↗</span></a>' if topic else ''
-        follow=f'<div class="connect-follow"><div><span class="connect-eyebrow">KEEP THE THREAD GOING</span><h2>Follow your curiosity.</h2><p>Choose a topic, or keep up with the whole notebook.</p></div><div class="connect-follow-links">{topic_link}<a href="/follow.html">Explore all feeds <span aria-hidden="true">↗</span></a></div></div>'
+        topic_link=f'<a href="/follow.html?topic={topic[1]}#subscribe">Follow {topic[0]} <span aria-hidden="true">↗</span></a>' if topic else ''
+        follow=f'<div class="connect-follow"><div><span class="connect-eyebrow">KEEP THE THREAD GOING</span><h2>Follow your curiosity.</h2><p>Choose a topic, or keep up with the whole notebook.</p></div><div class="connect-follow-links">{topic_link}<a href="/follow.html">Email &amp; RSS updates <span aria-hidden="true">↗</span></a></div></div>'
     return f'''<!-- SITE FOOTER START -->
 <footer class="site-connect" id="connect" aria-labelledby="connect-title"><div class="connect-wrap">{follow}<div class="connect-main"><div class="connect-intro"><span class="connect-eyebrow">THE BEST PART IS THE CONVERSATION</span><h2 id="connect-title">Stay curious.<br><em>Say hello.</em></h2><p>A research question, something to build together, a film I should see, or an idea you can’t shake. Pick your corner of the internet.</p><a class="about-link" href="/about.html">A little more about me <span aria-hidden="true">↗</span></a></div><div class="connect-platforms" aria-label="Find Saurav online">{profiles}</div></div><div class="connect-bottom"><a class="connect-signature" href="/"><span class="brand-dot" aria-hidden="true"></span>Saurav Das</a><nav class="connect-navigation" aria-label="Explore the site">{links}<a href="/about.html">About</a></nav><span class="connect-copyright">© <span data-current-year>2026</span> · Still connecting the dots.</span></div></div></footer>
 <!-- SITE FOOTER END -->'''
@@ -72,6 +86,7 @@ for name in MAIN+ESSAYS:
     if '/site-chrome.css' not in s:s=s.replace('</head>',f'<link rel="stylesheet" href="/site-chrome.css?v={CHROME_VERSION}">\n</head>')
     else:s=re.sub(r'/site-chrome.css\?v=[^"\s]+',f'/site-chrome.css?v={CHROME_VERSION}',s)
     if name in MAIN and '/site.js' not in s:s=s.replace('</body>',f'<script defer src="/site.js?v={VERSION}"></script>\n</body>')
+    if name in MAIN:s=re.sub(r'/site.js\?v=[^\"\s]+',f'/site.js?v={VERSION}',s)
     if name in MAIN:s=re.sub(r'<script defer src="/dock.js[^\"]*"></script>','',s)
     if 'rel="icon"' not in s:s=s.replace('</head>','<link rel="icon" href="/images/brain-fog/favicon.svg" type="image/svg+xml">\n</head>')
     # Keep archive links attached to the single writing destination.

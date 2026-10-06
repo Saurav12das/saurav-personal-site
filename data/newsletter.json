@@ -1,0 +1,11 @@
+{
+  "segmentId": "57b8f9cb-e84c-4de8-aecb-64032cf5c049",
+  "consentVersion": "2026-10-05",
+  "topics": [
+    { "slug": "groundwork", "label": "Groundwork", "id": "8e16c49e-ee5e-40da-801c-5773055c4825" },
+    { "slug": "brain-fog", "label": "Brain Fog", "id": "f58fe4b7-11d3-4d1e-bd65-5f9fc5d266ff" },
+    { "slug": "building", "label": "Building", "id": "8eeb58e7-f430-4f17-89d7-62f94494810d" },
+    { "slug": "screen-time", "label": "Screen Time", "id": "ca53d767-aa19-4a9a-85b1-bb996d147fd4" },
+    { "slug": "bookshelf", "label": "Bookshelf", "id": "b9b075c0-888c-4e30-b3fe-032e7327a993" }
+  ]
+}

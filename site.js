@@ -20,6 +20,22 @@
   /* Keep anchor offsets in sync with the real nav height (two rows on phones) */
   var nav = document.querySelector(".site-nav");
   if (nav) {
+    const explore = nav.querySelector('[data-nav-explore]');
+    const mobile = window.matchMedia('(max-width: 980px)');
+    if (explore) {
+      const layout = () => { explore.open = !mobile.matches; };
+      layout();
+      mobile.addEventListener('change', layout);
+      explore.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && mobile.matches) {
+          explore.open = false;
+          explore.querySelector('summary').focus();
+        }
+      });
+      explore.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        if (mobile.matches) explore.open = false;
+      }));
+    }
     var sync = function () {
       document.documentElement.style.setProperty(
         "--nav-h",
@@ -28,6 +44,7 @@
     };
     sync();
     window.addEventListener("resize", sync, { passive: true });
+    if (explore) explore.addEventListener('toggle', sync);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
   }
 

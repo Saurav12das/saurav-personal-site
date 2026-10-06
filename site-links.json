@@ -8,25 +8,25 @@
     },
     {
       "label": "Brain Fog",
-      "description": "Writing & weekly explorations",
+      "description": "Essays & ideas",
       "href": "/brain-fog.html",
       "section": "writing"
     },
     {
       "label": "Building",
-      "description": "Products, apps & experiments",
+      "description": "Tools & experiments",
       "href": "/products.html",
       "section": "building"
     },
     {
       "label": "Screen Time",
-      "description": "Movies, series & anime",
+      "description": "Films & series",
       "href": "/writings/watching.html",
       "section": "watching"
     },
     {
       "label": "Bookshelf",
-      "description": "Books & reading notes",
+      "description": "Books & notes",
       "href": "/writings/books.html",
       "section": "books"
     }
