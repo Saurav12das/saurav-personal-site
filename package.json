@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "python3 -m http.server 8080",
-    "check": "python3 scripts/build-groundwork.py --check && python3 scripts/build-feeds.py --check && python3 scripts/check-site.py && node --check site.js && node --check brain-fog.js && node --check dock.js && node --check screen-time.js && node --check follow.js && node --check groundwork.js && node --check api/subscribe.js && npm run test:newsletter",
+    "check": "python3 scripts/build-groundwork.py --check && python3 scripts/build-feeds.py --check && python3 scripts/check-site.py && node --check site.js && node --check brain-fog.js && node --check brain-fog-index.js && node --check dock.js && node --check screen-time.js && node --check follow.js && node --check groundwork.js && node --check api/subscribe.js && npm run test:newsletter",
     "feeds": "python3 scripts/build-feeds.py",
     "sync:site": "python3 scripts/sync-site-shell.py",
     "groundwork": "python3 scripts/build-groundwork.py",

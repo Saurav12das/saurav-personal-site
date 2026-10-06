@@ -637,6 +637,23 @@ section[id] {
 .archive-head p {
   color: var(--ink-2);
 }
+.fog-index .fog-page-links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 26px; }
+.fog-index .fog-page-links a { font-size: 13px; text-decoration: none; color: var(--ds-text); padding-block: 7px; border-bottom: 1px solid var(--ds-line); }
+.fog-index .fog-page-links a:hover { color: var(--ds-accent); border-color: currentColor; }
+.fog-index .fog-finder { padding: 34px 0 12px; scroll-margin-top: calc(var(--nav-h, 84px) + 20px); }
+.fog-index .fog-finder-heading h2 { font-size: 25px; margin: 0 0 6px; }
+.fog-index .fog-finder-heading p { margin: 0; color: var(--ds-muted); font-size: 14px; }
+.fog-index .fog-search-tools { display: grid; grid-template-columns: minmax(0, 2fr) minmax(180px, 1fr); gap: 12px 20px; margin-top: 22px; }
+.fog-index .fog-search-tools label { display: block; font-size: 12px; font-weight: 550; margin-bottom: 8px; }
+.fog-index .fog-search-tools input, .fog-index .fog-search-tools select { width: 100%; min-height: 48px; border: 1px solid #bbb7a9; border-radius: 0; padding: 11px 13px; background: #fffdf7; color: var(--ds-ink); font: 400 16px/1.5 "DM Sans", sans-serif; }
+.fog-index .fog-search-meta { grid-column: 1/-1; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 20px; }
+.fog-index .fog-search-meta p { margin: 0; color: var(--ds-muted); font-size: 12px; }
+.fog-index .fog-search-meta button { border: 0; padding: 8px 0; background: none; color: var(--ds-accent); font: 500 12px/1.5 "DM Sans", sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.fog-index .fog-no-results { padding: 24px; background: var(--ds-panel); font-size: 15px; }
+.fog-index #latest-issue { scroll-margin-top: calc(var(--nav-h, 84px) + 20px); }
+.fog-index :is([data-fog-item], [data-fog-group], .essay-library, [data-fog-tools], [data-fog-clear], [data-fog-empty])[hidden] { display: none !important; }
+.fog-index .fog-search-tools :focus-visible { outline: 2px solid var(--ds-accent); outline-offset: 3px; }
+@media (max-width: 600px) { .fog-index .fog-search-tools { grid-template-columns: 1fr; } .fog-index .fog-page-links { gap: 6px 20px; } }
 .archive-list {
   padding: 30px 0 60px;
 }

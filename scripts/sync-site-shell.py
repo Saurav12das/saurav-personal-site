@@ -12,7 +12,7 @@ MAIN=['index.html','brain-fog.html','brain-fog/automation-and-economics.html','a
 MAIN += sorted(str(p.relative_to(ROOT)) for p in (ROOT/'writings').glob('writing__*.html'))
 ESSAYS=sorted(str(p.relative_to(ROOT)) for p in (ROOT/'writings').glob('writing__*.html') if str(p.relative_to(ROOT)) not in MAIN)
 VERSION='20261005-6'
-CHROME_VERSION='20261005-6'
+CHROME_VERSION='20261005-7'
 DESIGN_VERSION='20261005-1'
 FONTS='https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300..900;1,300..900&amp;family=DM+Mono:wght@400;500&amp;display=swap'
 FEEDS={'research':('Groundwork','groundwork'),'writing':('Brain Fog','brain-fog'),'building':('Building','building'),'watching':('Screen Time','screen-time'),'books':('Bookshelf','bookshelf')}
@@ -31,7 +31,6 @@ def header(path):
     coffee=f'<a class="coffee-link" href="{escape(support["href"])}" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee (opens in a new tab)" title="Buy me a coffee"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h12v6a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9Z"/><path d="M17 10h1a3 3 0 1 1 0 6h-1M3 22h17M8 3v3M12 2v4M16 3v3"/></svg></a>'
     current=next((item for item in CONFIG['navigation'] if item['section']==section_for(path)),None)
     location=current['label'] if current else 'the notebook'
-    utility=''.join(f'<a href="{href}"'+(' aria-current="page"' if path==target else '')+f'>{label}</a>' for href,target,label in [('/','index.html','Home'),('/about.html','about.html','About'),('#connect','','Contact')])
     trail=''
     if path!='index.html':
         title=unescape(re.search(r'<title>(.*?)</title>',(ROOT/path).read_text(),re.S)[1]).split(' — ')[0].split(' | ')[0]
@@ -39,9 +38,8 @@ def header(path):
         if current and current['href']!='/'+path:crumbs+=f'<span aria-hidden="true">/</span><a href="{escape(current["href"])}">{escape(current["label"])}</a>'
         label=current['label'] if current and current['href']=='/'+path else title
         trail=f'<nav class="site-trail" aria-label="Breadcrumb"><div>{crumbs}<span aria-hidden="true">/</span><span aria-current="page">{escape(label)}</span></div></nav>'
-    follow_current=' aria-current="page"' if path=='follow.html' else ''
     return f'''<!-- SITE HEADER START -->
-<nav class="site-nav" data-site-nav aria-label="Site"><div class="nav-inner"><a class="wordmark" href="/" aria-label="Saurav Das — home"><span class="brand-dot" aria-hidden="true"></span><span class="brand-name" aria-hidden="true">Saurav Das</span><span class="brand-note" aria-hidden="true">stay curious.</span></a><details class="nav-explore" data-nav-explore open><summary>Explore <span class="nav-location">{escape(location)}</span><span class="nav-toggle-mark" aria-hidden="true">+</span></summary><div class="nav-menu"><ul class="nav-links">{links}</ul><div class="nav-utility">{utility}</div></div></details><div class="nav-actions"><a class="nav-follow" href="/follow.html"{follow_current}>Follow <span aria-hidden="true">↗</span></a>{coffee}</div></div></nav>
+<nav class="site-nav" data-site-nav aria-label="Site"><div class="nav-inner"><a class="wordmark" href="/" aria-label="Saurav Das — home"><span class="brand-dot" aria-hidden="true"></span><span class="brand-name" aria-hidden="true">Saurav Das</span><span class="brand-note" aria-hidden="true">stay curious.</span></a><details class="nav-explore" data-nav-explore open><summary>Explore <span class="nav-location">{escape(location)}</span><span class="nav-toggle-mark" aria-hidden="true">+</span></summary><div class="nav-menu"><ul class="nav-links">{links}</ul></div></details><div class="nav-actions">{coffee}</div></div></nav>
 {trail}
 <!-- SITE HEADER END -->'''
 
