@@ -33,7 +33,7 @@ html:has(.visual-essay) { scroll-padding-top: calc(var(--nav-h, 86px) + 22px); }
 .visual-essay .essay-heading-grid { display: grid; grid-template-columns: 1.5fr 1fr; align-items: end; gap: 65px; padding-top: 38px; }
 .visual-essay .essay-eyebrow { font: 400 9px/1.7 "DM Mono", monospace; letter-spacing: .08em; color: var(--essay-muted); margin: 0 0 16px; }
 .visual-essay .essay-masthead h1 {
-  font: 500 clamp(54px, 7.4vw, 95px)/.99 "Source Serif 4", Georgia, serif;
+  font: 500 clamp(54px, 7.4vw, 95px)/.99 "DM Sans", Arial, sans-serif;
   letter-spacing: -.06em;
   max-width: none;
   margin: 0 0 20px;
@@ -41,7 +41,7 @@ html:has(.visual-essay) { scroll-padding-top: calc(var(--nav-h, 86px) + 22px); }
 }
 .visual-essay .essay-masthead h1 em { font-style: italic; font-weight: 400; color: var(--essay-accent); }
 .visual-essay .essay-masthead h1 > span { color: var(--essay-accent); }
-.visual-essay .essay-subtitle { font: 400 24px/1.35 "Source Serif 4", Georgia, serif; color: var(--essay-ink); letter-spacing: -.025em; margin: 0; max-width: 510px; }
+.visual-essay .essay-subtitle { font: 400 24px/1.35 "DM Sans", Arial, sans-serif; color: var(--essay-ink); letter-spacing: -.025em; margin: 0; max-width: 510px; }
 .visual-essay .essay-heading-aside { max-width: 365px; justify-self: end; padding-bottom: 4px; }
 .visual-essay .essay-deck { color: var(--essay-muted); font: 400 15px/1.85 "DM Sans", Arial, sans-serif; margin: 0 0 26px; }
 .visual-essay .essay-byline { font: 400 9px/1.7 "DM Mono", monospace; letter-spacing: .06em; color: var(--essay-muted); margin: 0; }
@@ -60,7 +60,7 @@ html:has(.visual-essay) { scroll-padding-top: calc(var(--nav-h, 86px) + 22px); }
 .visual-essay .essay-related-heading > a { color: var(--essay-accent); text-decoration: none; }
 .visual-essay .essay-related-card { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: center; color: inherit; text-decoration: none; }
 .visual-essay .essay-related-card > img { display: block; width: 100%; height: auto; }
-.visual-essay .essay-related-card h2 { font: 500 29px/1.15 "Source Serif 4", Georgia, serif; letter-spacing: -.035em; color: var(--essay-ink); margin: 0 0 15px; padding: 0; border: 0; }
+.visual-essay .essay-related-card h2 { font: 500 29px/1.15 "DM Sans", Arial, sans-serif; letter-spacing: -.035em; color: var(--essay-ink); margin: 0 0 15px; padding: 0; border: 0; }
 .visual-essay .essay-related-card p { font: 400 13px/1.8 "DM Sans", Arial, sans-serif; color: var(--essay-muted); margin: 0 0 15px; }
 .visual-essay .essay-related-card div > span { font: 500 11px/1.5 "DM Sans", Arial, sans-serif; color: var(--essay-accent); }
 .visual-essay .essay-related-card:hover h2 { color: var(--essay-accent); }

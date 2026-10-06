@@ -6,7 +6,15 @@
     <description>Reading notes, reviews, and books to explore.</description>
     <language>en-us</language>
     <atom:link href="https://sauravdas.me/feeds/bookshelf.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sun, 04 Oct 2026 18:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 21:28:37 -0400</lastBuildDate>
+    <item>
+      <title>On the Bookshelf: How to Feed the World</title>
+      <link>https://sauravdas.me/writings/books#how-to-feed-the-world</link>
+      <guid isPermaLink="false">https://sauravdas.me/updates/2026-10-05-how-to-feed-the-world</guid>
+      <pubDate>Mon, 05 Oct 2026 21:28:37 -0400</pubDate>
+      <category>Bookshelf</category>
+      <description>Added to Bookshelf: my April 10, 2025 review of Vaclav Smil’s How to Feed the World. Reading from within organic agriculture, I explore nutrients, energy, scale, and the overlooked costs behind food-system solutions. Includes the original Medium review and a connection to The Pathology of More.</description>
+    </item>
     <item>
       <title>On the Bookshelf: soil, community, and work</title>
       <link>https://sauravdas.me/writings/books</link>

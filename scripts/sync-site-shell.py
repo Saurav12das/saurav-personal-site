@@ -12,7 +12,9 @@ MAIN=['index.html','brain-fog.html','brain-fog/automation-and-economics.html','a
 MAIN += sorted(str(p.relative_to(ROOT)) for p in (ROOT/'writings').glob('writing__*.html'))
 ESSAYS=sorted(str(p.relative_to(ROOT)) for p in (ROOT/'writings').glob('writing__*.html') if str(p.relative_to(ROOT)) not in MAIN)
 VERSION='20261004-2'
-CHROME_VERSION='20261004-7'
+CHROME_VERSION='20261005-4'
+DESIGN_VERSION='20261005-1'
+FONTS='https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300..900;1,300..900&amp;family=DM+Mono:wght@400;500&amp;display=swap'
 FEEDS={'research':('Groundwork','groundwork'),'writing':('Brain Fog','brain-fog'),'building':('Building','building'),'watching':('Screen Time','screen-time'),'books':('Bookshelf','bookshelf')}
 
 def section_for(path):
@@ -26,7 +28,7 @@ def section_for(path):
 def header(path):
     links=''.join(f'<li><a href="{escape(item["href"])}" title="{escape(item["description"])}"'+(' aria-current="page"' if item['section']==section_for(path) else '')+f'>{escape(item["label"])}</a></li>' for item in CONFIG['navigation'])
     return f'''<!-- SITE HEADER START -->
-<nav class="site-nav" data-site-nav aria-label="Site"><div class="nav-inner"><a class="wordmark" href="/" aria-label="Saurav Das — home"><span class="brand-dot" aria-hidden="true"></span><span>Saurav Das</span><span class="brand-note">stay curious.</span></a><ul class="nav-links">{links}</ul><a class="hello-link" href="#connect">Let’s talk <span aria-hidden="true">↗</span></a></div></nav>
+<nav class="site-nav" data-site-nav aria-label="Site"><div class="nav-inner"><a class="wordmark" href="/" aria-label="Saurav Das — home"><span class="brand-dot" aria-hidden="true">S</span><span class="brand-name" aria-hidden="true">aurav Das</span><span class="brand-note" aria-hidden="true">stay curious.</span></a><ul class="nav-links">{links}</ul><a class="hello-link" href="#connect">Let’s talk <span aria-hidden="true">↗</span></a></div></nav>
 <!-- SITE HEADER END -->'''
 
 def footer(path):
@@ -81,5 +83,18 @@ for name in MAIN+ESSAYS:
     for title,href in feed_links:
         if f'href="{href}"' not in s.split('</head>')[0]:
             s=s.replace('</head>',f'<link rel="alternate" type="application/rss+xml" title="{escape(title)}" href="{href}">\n</head>')
+    # One font request and one final design layer for every public site page.
+    s=re.sub(r'<link\b[^>]*href="https://fonts.googleapis.com/css2?\?[^\"]*"[^>]*>\s*','',s,flags=re.S)
+    s=re.sub(r'<link\b[^>]*href="/design-system.css[^\"]*"[^>]*>\s*','',s)
+    s=s.replace('</head>',f'<link rel="stylesheet" href="{FONTS}">\n<link rel="stylesheet" href="/design-system.css?v={DESIGN_VERSION}">\n</head>')
+    def design_classes(match):
+        tag=match[0]
+        current=re.search(r'class="([^"]*)"',tag)
+        classes=current[1].split() if current else []
+        for classname in ['site-system']+(['site-article'] if 'writing__' in name else []):
+            if classname not in classes:classes.append(classname)
+        value='class="'+' '.join(classes)+'"'
+        return re.sub(r'class="[^"]*"',value,tag) if current else tag[:-1]+' '+value+'>'
+    s=re.sub(r'<body\b[^>]*>',design_classes,s,count=1)
     p.write_text(s)
 print(f'Rendered navigation and contact links for {len(MAIN)} main pages and {len(ESSAYS)} existing essays.')

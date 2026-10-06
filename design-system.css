@@ -1,0 +1,219 @@
+/* One visual system for the personal site. Page files own content-specific layouts. */
+:root {
+  --ds-paper: #f5f3eb;
+  --ds-panel: #eeebe1;
+  --ds-ink: #24251f;
+  --ds-text: #484b42;
+  --ds-muted: #696a60;
+  --ds-line: #d9d7cc;
+  --ds-accent: #b94b29;
+  --ds-accent-soft: #f0e4d9;
+  --ds-font: "DM Sans", Arial, sans-serif;
+  --ds-mono: "DM Mono", monospace;
+  --ds-page-width: 1184px;
+  --ds-reading-width: 840px;
+  --ds-gutter: 48px;
+  --font: var(--ds-font);
+  --body: var(--ds-font);
+  --serif: var(--ds-font);
+  --mono: var(--ds-mono);
+}
+html:has(.site-system) { color-scheme: light; }
+body.site-system {
+  --bg: var(--ds-paper);
+  --ink: var(--ds-ink);
+  --ink-2: var(--ds-text);
+  --muted: var(--ds-muted);
+  --line: var(--ds-line);
+  --library-paper: var(--ds-paper);
+  --library-ink: var(--ds-ink);
+  --library-muted: var(--ds-muted);
+  --library-line: var(--ds-line);
+  --library-accent: var(--ds-accent);
+  color-scheme: light;
+  background: var(--ds-paper);
+  color: var(--ds-ink);
+  font-family: var(--ds-font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.site-system :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--ds-font);
+  font-style: normal;
+  font-weight: 650;
+  letter-spacing: -.04em;
+}
+.site-system :is(h1, h2, h3, h4, h5, h6) :is(em, i) {
+  font-family: inherit;
+  font-weight: inherit;
+}
+.site-system :is(.page-head, .library-hero, .article-title, .essay-masthead, .hero) h1 {
+  font: 650 clamp(42px, 5.5vw, 72px)/1.06 var(--ds-font);
+  letter-spacing: -.055em;
+  color: var(--ds-ink);
+}
+.site-system :is(.page-head, .library-hero, .article-title, .essay-masthead, .hero) h1 :is(em, span) {
+  font-family: inherit;
+  font-weight: inherit;
+  color: var(--ds-accent);
+}
+.site-system .feature-copy h2 em { font-family: inherit; font-weight: inherit; }
+.site-system :is(.page-head, .library-hero) { padding-top: 64px; padding-bottom: 48px; }
+.site-system :is(.page-head .lede, .library-deck) { font: 400 20px/1.65 var(--ds-font); color: var(--ds-text); letter-spacing: -.015em; }
+.site-system :is(.wrap, .library-wrap):not(.post-wdma > .wrap) { max-width: var(--ds-page-width); }
+.site-system .research-page { background: var(--ds-paper); }
+.site-system :is(.card, .theme, .pub, .timeline-item, .aside-card) { border-color: var(--ds-line); border-radius: 3px; box-shadow: none; }
+.site-system :is(.btn, .library-button, .button-primary) { border-radius: 3px; font-family: var(--ds-font); }
+.site-system .site-connect {
+  --chrome-paper: var(--ds-paper);
+  --chrome-ink: var(--ds-ink);
+  --chrome-muted: var(--ds-muted);
+  --chrome-line: var(--ds-line);
+  --chrome-accent: var(--ds-accent);
+}
+.site-system .site-connect .connect-intro h2 em { font-family: inherit; font-weight: inherit; }
+.site-system :is(.chrome-skip, .skip) { z-index: 200; }
+
+/* Essays use the same opening, cover, chapter links, and reading column. */
+.site-article .essay-masthead,
+.site-article .essay-cover,
+.site-article .essay-wayfinding { width: min(var(--ds-page-width), calc(100% - 2 * var(--ds-gutter))); }
+.site-article .essay-masthead { padding: 30px 0 38px; }
+.site-article .essay-heading-grid { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 48px; align-items: end; }
+.site-article .essay-masthead h1 { font-size: clamp(40px, 5.1vw, 68px); max-width: 760px; }
+.site-article .essay-subtitle { font: 500 22px/1.4 var(--ds-font); color: var(--ds-text); }
+.site-article .essay-deck { font: 400 16px/1.8 var(--ds-font); color: var(--ds-text); }
+.site-article .essay-edition-line { text-transform: uppercase; }
+.site-article .essay-wayfinding { position: static; transform: none; background: none; z-index: auto; }
+.site-article :is(.content-wrap, .article-body, .content, main.wrap, .container, .container-wide) {
+  width: min(var(--ds-reading-width), calc(100% - 2 * var(--ds-gutter)));
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.site-article :is(.content-wrap > p, .article-body > p, .content > p, .content section > p, main.wrap section > p, .prose > p, .lede > p, .abstract > p:not(.abstract-label)) {
+  font: 400 17px/1.85 var(--ds-font);
+  color: var(--ds-text);
+  margin-bottom: 22px;
+}
+.site-article :is(.content-wrap, .article-body, .content, main.wrap, .prose) h2 {
+  font: 650 clamp(25px, 3vw, 32px)/1.22 var(--ds-font);
+  letter-spacing: -.04em;
+  color: var(--ds-ink);
+  border: 0;
+}
+.site-article :is(.section-header, .article-body > .section, .content > section, main.wrap > section) { margin-top: 56px; }
+.site-article h2[id] { scroll-margin-top: calc(var(--nav-h, 91px) + 52px); }
+.site-article .abstract .abstract-label { font: 400 11px/1.5 var(--ds-mono); color: var(--ds-accent); }
+.site-article :is(.section-num, .section-number, .sec-label, .figure-label, .abstract-label) { color: var(--ds-accent); }
+.site-article :is(.figure, .chart-block, .chart-container, .chart-card, .callout, .info-box, .awareness-box) { border-radius: 3px; box-shadow: none; }
+.site-article :is(.figure-header, .chart-title) { background: var(--ds-panel); border-color: var(--ds-line); }
+.site-article :is(.figure-title, .chart-title) { font-family: var(--ds-font); color: var(--ds-ink); font-weight: 600; }
+.site-article :is(.figure-source, .figure-caption, .chart-source) { color: var(--ds-muted); }
+.site-article :is(.pull-quote, .pullquote, .pull-quote blockquote) {
+  font-family: var(--ds-font);
+  font-style: normal;
+  color: var(--ds-ink);
+  background: var(--ds-panel);
+  border: 0;
+  border-left: 3px solid var(--ds-accent);
+  padding: 24px 28px;
+}
+.site-article :is(.pullquote p, .pull-quote p) { color: var(--ds-ink); font-family: var(--ds-font); }
+.site-article .pull-quote blockquote { padding: 0; border: 0; }
+.site-article :is(.pullquote cite, .pull-quote cite) { color: var(--ds-muted); }
+.site-article :is(.lede p, .prose p)::first-letter { float: none; font: inherit; margin: 0; }
+.site-article .coin-callout { background: var(--ds-panel); border-left: 3px solid var(--ds-accent); color: var(--ds-ink); }
+.site-article .coin-callout :is(h3, p) { color: var(--ds-ink); }
+.site-article .coin-callout::before { display: none; }
+.site-article .fade-in { animation: none; }
+.site-article .reveal { opacity: 1; transform: none; }
+.site-article .share-bar { position: static; transform: none; display: flex; flex-direction: row; justify-content: center; opacity: 1; pointer-events: auto; background: transparent; padding: 0; margin: 35px auto; }
+.site-article .share-btn { background: var(--ds-ink); color: var(--ds-paper); }
+.site-article .copy-feedback { left: 50%; top: auto; bottom: 52px; transform: translateX(-50%); }
+.site-article .essay-sources { color: var(--ds-muted); }
+
+/* Light equivalents for the two earlier dark essay themes. Data colors remain distinct. */
+body.post-brahmanda {
+  --ink: var(--ds-paper);
+  --paper: var(--ds-ink);
+  --cream: var(--ds-text);
+  --gold: var(--ds-accent);
+  --ash: var(--ds-muted);
+  --dim: var(--ds-muted);
+}
+.post-brahmanda #cosmos { display: none; }
+.post-brahmanda p { color: var(--ds-text); }
+.post-brahmanda .content { overflow-wrap: anywhere; }
+.post-brahmanda :is(.arch-diagram, .vice-section, .tech-tree) { background: var(--ds-panel); border-color: var(--ds-line); }
+.post-brahmanda .q-num { color: var(--ds-accent); }
+.post-brahmanda .pull-quote { width: min(var(--ds-reading-width), calc(100% - 2 * var(--ds-gutter))); max-width: none; margin: 48px auto; text-align: left; }
+body.post-wdma {
+  --bg: var(--ds-paper);
+  --surface: var(--ds-panel);
+  --border: var(--ds-line);
+  --text: var(--ds-text);
+  --text-dim: var(--ds-muted);
+  --text-muted: var(--ds-muted);
+  --paper: var(--ds-ink);
+  --blue: #276383;
+  --green: #3d7250;
+  --gold: #936821;
+  --rust: #993d30;
+  --purple: #7354a2;
+}
+.post-wdma::before { display: none; }
+.post-wdma :is(.tax-table, .comp-table) { display: block; overflow-x: auto; }
+.post-wdma :is(.pipe-step, .stat-cell) { background: #faf8f1; }
+.post-wdma :is(.tax-table, .comp-table) :is(th, td) { border-bottom-color: var(--ds-line); }
+.post-balance-sheet :is(.article-footer, .irony-box, .conclusion) { background: var(--ds-panel); color: var(--ds-text); border-radius: 3px; }
+.post-balance-sheet .article-footer a { color: var(--ds-muted); }
+.post-balance-sheet .irony-box :is(p, li) { color: var(--ds-text); }
+.post-balance-sheet .irony-box h3, .post-balance-sheet .irony-steps li::before { color: var(--ds-accent); }
+.post-balance-sheet .conclusion { margin-inline: 0; }
+.post-balance-sheet .ref-list li { display: block; position: relative; padding-left: 32px; overflow-wrap: anywhere; }
+.post-balance-sheet .ref-list li::before { position: absolute; left: 0; }
+
+/* Sections share the same palette, even when their content is film or research. */
+.site-system.cinema-page :is(.screen-search input, .screen-card) { background: #faf8f1; border-color: var(--ds-line); }
+.site-system.cinema-page .screen-review { color: var(--ds-text); }
+.site-system.cinema-page :is(.screen-rating, .screen-verdict) { color: var(--ds-accent); }
+.site-system.cinema-page .screen-search input::placeholder { color: var(--ds-muted); }
+.site-system.research-page { --moss: var(--ds-accent); --rust: var(--ds-accent); --gold: var(--ds-accent); background: var(--ds-paper); }
+.research-page .hero { max-width: var(--ds-page-width); width: calc(100% - 2 * var(--ds-gutter)); padding: 64px 0 32px; }
+.research-page .main { max-width: var(--ds-page-width); width: calc(100% - 2 * var(--ds-gutter)); padding-inline: 0; }
+.research-page .deck { border: 0; padding: 0; font-size: 20px; color: var(--ds-text); }
+.research-page .callout { background: var(--ds-panel); border-color: var(--ds-line); }
+.research-page .aside-card { top: calc(var(--nav-h, 91px) + 24px); }
+
+@media (max-width: 1000px) {
+  :root { --ds-gutter: 32px; }
+  .site-article .essay-heading-grid { gap: 32px; }
+}
+@media (max-width: 700px) {
+  :root { --ds-gutter: 20px; }
+  .site-system :is(.page-head, .library-hero) { padding-top: 40px; padding-bottom: 36px; }
+  .site-system :is(.page-head, .library-hero, .article-title, .essay-masthead, .hero) h1 { font-size: clamp(36px, 9.5vw, 52px); }
+  .site-article .essay-heading-grid { grid-template-columns: 1fr; gap: 22px; }
+  .site-article .essay-heading-aside { max-width: none; justify-self: start; }
+  .site-article .essay-cover { width: 100%; }
+  .site-article .essay-subtitle { font-size: 20px; }
+  .site-article :is(.content-wrap > p, .article-body > p, .content section > p, main.wrap section > p, .prose > p, .lede > p, .abstract > p:not(.abstract-label)) { font-size: 16px; }
+  .site-article .figure-header { flex-direction: column; }
+  .post-brahmanda .arch-diagram { padding: 24px 16px; }
+  .post-brahmanda .arch-layer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px 8px; }
+  .post-brahmanda .arch-layer-badge { white-space: normal; }
+  .post-brahmanda .vice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .post-brahmanda .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .post-brahmanda .stat-card { padding: 22px 16px; }
+  .post-brahmanda .q-num { font-size: 36px; }
+  .research-page .hero { padding-top: 40px; }
+}
+@media print {
+  .site-article .share-bar { display: none; }
+  .site-system { background: #fff; color: #111; }
+}

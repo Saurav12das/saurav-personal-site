@@ -1,0 +1,9 @@
+{
+  "asset": "engraved-s.png",
+  "original": "engraved-s-original.png",
+  "created": "2026-10-05",
+  "tool": "Built-in ImageGen",
+  "reference": "../essays/pathology-of-more.jpg",
+  "prompt": "Use case: logo-brand. Create a single small website brand mark inspired by the supplied editorial illustration (style reference only). A large uppercase S drawn in antique black engraved ink with subtle fine crosshatching, centered over one imperfect burnt-orange printed sun disc. The S is bold, elegant, slightly calligraphic with distinctive tapered terminals, legible at 48px; it extends just a little beyond the disc vertically. Orange circle has tactile stippled print grain and irregular hand-stamped edge, like the orange sun in the reference. No other symbols, no scene, no additional text, no stars, no border, no drop shadow, no mockup. Only exact letter 'S'. Square composition with artwork occupying 85% of canvas, center aligned. Truly transparent background outside the orange disc and letter so it works on warm ivory and dark olive. Color orange #df793e, ink #24251f. This is an artistic editorial monogram for the start of the name Saurav, not a glossy app icon.",
+  "webPreparation": "Resized to 192px with alpha preserved."
+}

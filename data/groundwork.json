@@ -1,0 +1,89 @@
+{
+  "verified": "2026-10-05",
+  "connectionNote": "A reading path through related ideas, not a citation network. Lines show conceptual connections; years show publication dates.",
+  "papers": [
+    {
+      "id": "gap", "short": "Soil Health Gap", "year": "2020", "stage": "Define improvement", "x": 15, "y": 30,
+      "question": "Better soil — compared with what?",
+      "answer": "The Soil Health Gap frames soil condition as a distance from an undisturbed reference within an agroecosystem. It gives improvement a benchmark, rather than treating an isolated test result as a verdict.",
+      "next": "But soil and climate change the potential. Which sites can we fairly compare?",
+      "caution": "The reference and indicator matter; a gap is not a universal soil-health score.",
+      "title": "Soil Health Gap: A concept to establish a benchmark for soil health management",
+      "authors": "Maharjan, Das & Acharya", "journal": "Global Ecology and Conservation", "status": "Published paper",
+      "url": "https://doi.org/10.1016/j.gecco.2020.e01116",
+      "source": "https://cms.unl.edu/ianr/agronomy-horticulture/sites/unl.edu.ianr.agronomy-horticulture/files/media/file/Maharjan-et-al-2020-SoilHealthGap.pdf",
+      "related": ["creu", "hlc"]
+    },
+    {
+      "id": "creu", "short": "Ecological units", "year": "2022", "stage": "Make comparison fair", "x": 48, "y": 18,
+      "question": "Which soils belong in the same comparison?",
+      "answer": "The Cropland Reference Ecological Unit (CREU) groups land with comparable soil-forming and climatic conditions. It helps separate differences caused by management from differences a field inherits from its environment.",
+      "next": "A comparable area is only the start. Where, within it, should the reference come from?",
+      "caution": "CREU supplies ecological context; it does not make every soil or management history identical.",
+      "title": "Cropland Reference Ecological Unit: A land classification unit for comparative soil studies",
+      "authors": "Das & Maharjan", "journal": "Ecological Indicators", "status": "Published paper",
+      "url": "https://doi.org/10.1016/j.ecolind.2022.109468",
+      "source": "https://digitalcommons.unl.edu/agronomyfacpub/1578/",
+      "related": ["gap", "reference", "tier", "hlc"]
+    },
+    {
+      "id": "reference", "short": "Reference sites", "year": "2024", "stage": "Choose the benchmark", "x": 82, "y": 34,
+      "question": "What makes a reference defensible?",
+      "answer": "Reference-site selection uses ecological site descriptions and state-and-transition models to identify the appropriate reference plant community. The benchmark becomes an ecological condition to establish, rather than the nearest patch that looks undisturbed.",
+      "next": "With a defensible reference in place, which measurements are useful enough to repeat?",
+      "caution": "Reference selection still requires field evidence and knowledge of disturbance history.",
+      "title": "Reference site selection based on state-and-transition models for soil health gap evaluation within cropland reference ecological units",
+      "authors": "Das, Hird, Maharjan, Stephenson & Kariyawasam", "journal": "Soil Security", "status": "Published paper",
+      "url": "https://doi.org/10.1016/j.soisec.2024.100142",
+      "source": "https://www.sciencedirect.com/science/article/pii/S2667006224000169",
+      "related": ["creu", "tier"]
+    },
+    {
+      "id": "tier", "short": "Two-Tier framework", "year": "2026", "stage": "Measure & interpret", "x": 70, "y": 72,
+      "question": "Can measurement be consistent and interpretation local?",
+      "answer": "Tier 1 identifies a practical core: organic matter, pH, nitrate-N, and bulk density. Tier 2 interprets those measurements against ecologically matched reference distributions. The framework separates what to measure from what a result means in a particular soil and climate.",
+      "next": "An ecological reference describes potential. What is a realistic next step for working cropland?",
+      "caution": "The reference dataset comes from Nebraska; broader transfer needs regional testing and calibration.",
+      "title": "A two-tier, reference-informed framework for soil health assessment: Minimum indicator sets and ecologically dynamic thresholds",
+      "authors": "Das, Gamage, Stephenson, Acharya, Daigh & Maharjan", "journal": "Agrosystems, Geosciences & Environment", "status": "Published paper",
+      "url": "https://doi.org/10.1002/agg2.70449",
+      "source": "https://soilhealthexchange.com/blog/why-your-soil-health-targets-might-be-unfair-and-how-to-fix-them",
+      "related": ["creu", "reference", "hlc"]
+    },
+    {
+      "id": "hlc", "short": "Hierarchical targets", "year": "2026", "stage": "Find the next step", "x": 29, "y": 76,
+      "question": "How do we turn potential into attainable progress?",
+      "answer": "Hierarchical Land Classification connects ecological reference, recovery, soil-building, production, and degraded states. A synthesis of 1,059 soil organic carbon observations from 105 studies examines intermediate targets between today's condition and ecological potential.",
+      "next": "The open question: do these context-aware targets predict useful outcomes across more farms and regions?",
+      "caution": "Preprint. Recovery and soil-building states were not statistically distinguishable; targets are neither universal nor equally spaced.",
+      "title": "Hierarchical Land Classification for Soil Health Assessment: Linking Reference Potential, Management State, and Incremental Soil Health Targets",
+      "authors": "Das, Bora, Panday, Maharjan, Smith, Mamo, Hird, Singh & Garrity", "journal": "SSRN", "status": "Preprint · not peer reviewed",
+      "url": "https://doi.org/10.2139/ssrn.7477620",
+      "source": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7477620",
+      "related": ["gap", "creu", "tier"]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "assam", "years": "2012–2017", "place": "Assam", "label": "Learning to see the invisible", "word": "Water",
+      "institution": "Assam Agricultural University", "question": "What is happening in the water we cannot see?",
+      "body": "Doctoral work in agricultural biotechnology took me into arsenic biogeochemistry, groundwater, and microbial communities in Assam. It built a habit that still shapes my research: look beneath the visible symptom and ask which living processes are driving it.",
+      "carry": "Follow the microbes. Pay attention to context. Start with a real problem in the field.",
+      "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5379903/", "link": "Explore the groundwater study", "tags": ["Groundwater", "Microbial ecology", "Arsenic"]
+    },
+    {
+      "id": "nebraska", "years": "2018–2024", "place": "Nebraska", "label": "Learning to ask “compared with what?”", "word": "Soil",
+      "institution": "University of Nebraska–Lincoln", "question": "What does healthy soil mean in this particular field?",
+      "body": "Postdoctoral and research faculty work moved those questions into agricultural soils: benchmarking, carbon and nitrogen, and the effects of management. Different soils kept resisting the same scorecard. That tension runs through the Soil Health Gap, ecological units, and reference-site work.",
+      "carry": "A measurement needs a fair comparison. A field has both a history and a potential.",
+      "href": "#paper-gap", "link": "Follow the benchmarking thread", "tags": ["Soil health", "Carbon & nitrogen", "Reference sites"]
+    },
+    {
+      "id": "systems", "years": "2024–present", "place": "Long-term systems", "label": "Making the knowledge useful", "word": "Systems",
+      "institution": "Long-term farming systems research", "question": "How does evidence become something a farmer can use?",
+      "body": "The journey now connects long-term farming systems research with practical indicators, attainable targets, and tools that make evidence easier to use. The same curiosity extends into building: how can careful science travel beyond a paper and become part of an everyday decision?",
+      "carry": "Connect ecological potential, present condition, and the next useful action.",
+      "href": "/products.html", "link": "See what I’m building", "tags": ["Farming systems", "Attainable targets", "Research into tools"]
+    }
+  ]
+}

@@ -39,7 +39,6 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0e0c0a;
@@ -61,7 +60,7 @@
   body {
     background: var(--ink);
     color: var(--paper);
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 17px;
     line-height: 1.8;
     overflow-x: hidden;
@@ -128,7 +127,7 @@
   }
 
   .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: clamp(52px, 9vw, 108px);
     font-weight: 300;
     line-height: 1.0;
@@ -146,7 +145,7 @@
 
   .hero-sub {
     margin-top: 32px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 22px;
     font-style: italic;
     font-weight: 300;
@@ -205,7 +204,7 @@
     text-align: center;
   }
   .pull-quote blockquote {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: clamp(24px, 3.5vw, 34px);
     font-style: italic;
     font-weight: 300;
@@ -241,7 +240,7 @@
   }
 
   h2 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: clamp(30px, 4vw, 44px);
     font-weight: 300;
     line-height: 1.2;
@@ -250,7 +249,7 @@
   }
 
   h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 24px;
     font-weight: 600;
     color: var(--cream);
@@ -258,7 +257,7 @@
   }
 
   p {
-    color: #c8c0b4;
+    color: #484b42;
     margin-bottom: 24px;
   }
 
@@ -282,7 +281,7 @@
     background: linear-gradient(to right, transparent, rgba(200,169,110,0.3), transparent);
   }
   .section-break-glyph {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 22px;
     color: var(--gold);
     opacity: 0.6;
@@ -302,7 +301,7 @@
   }
   .stat-card:last-child { border-right: none; }
   .stat-num {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 42px;
     font-weight: 300;
     color: var(--gold);
@@ -381,9 +380,9 @@
     white-space: nowrap;
   }
   .badge-soul { border-color: var(--gold); color: var(--gold); background: rgba(200,169,110,0.08); }
-  .badge-law { border-color: var(--sky); color: #7aabd4; background: rgba(44,74,110,0.12); }
-  .badge-chaos { border-color: var(--rust); color: #c47060; background: rgba(139,58,42,0.12); }
-  .badge-engine { border-color: var(--sage); color: #8aaa80; background: rgba(74,103,65,0.1); }
+  .badge-law { border-color: var(--sky); color: #276383; background: rgba(44,74,110,0.12); }
+  .badge-chaos { border-color: var(--rust); color: #993d30; background: rgba(139,58,42,0.12); }
+  .badge-engine { border-color: var(--sage); color: #3d7250; background: rgba(74,103,65,0.1); }
   .badge-obs { border-color: var(--dim); color: var(--dim); background: rgba(107,101,96,0.1); }
 
   .arch-connector {
@@ -417,7 +416,7 @@
   .yuga-dvapara { background: rgba(44,74,110,0.12); border-top: 2px solid #4a7aae; }
   .yuga-kali { background: rgba(139,58,42,0.15); border-top: 2px solid var(--rust); }
   .yuga-name {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 18px;
     font-weight: 600;
     color: var(--paper);
@@ -478,7 +477,7 @@
     grid-template-columns: 200px 1fr 80px;
     align-items: center;
     padding: 14px 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(36,37,31,0.1);
     gap: 16px;
     transition: background 0.15s;
   }
@@ -492,7 +491,7 @@
   }
   .disc-bar-wrap {
     height: 6px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(36,37,31,0.1);
     border-radius: 0;
     overflow: hidden;
   }
@@ -511,9 +510,9 @@
     color: var(--dim);
     text-align: right;
   }
-  .disc-highlight .disc-bar { background: #c47060; opacity: 0.8; }
-  .disc-highlight .disc-name { color: #e8b4a8; }
-  .disc-highlight .disc-pct { color: #c47060; }
+  .disc-highlight .disc-bar { background: #993d30; opacity: 0.8; }
+  .disc-highlight .disc-name { color: #993d30; }
+  .disc-highlight .disc-pct { color: #993d30; }
 
   /* VICE RADAR */
   .vice-section {
@@ -545,14 +544,14 @@
     width: 64px;
     height: 64px;
   }
-  .vice-ring .bg { stroke: rgba(255,255,255,0.06); }
+  .vice-ring .bg { stroke: rgba(36,37,31,0.1); }
   .vice-ring .fg {
     stroke: var(--gold);
     stroke-linecap: square;
     transition: stroke-dashoffset 1.5s cubic-bezier(0.4,0,0.2,1);
   }
   .vice-label {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 13px;
     font-style: italic;
     color: var(--cream);
@@ -620,7 +619,7 @@
     gap: 24px;
     margin-top: 20px;
     padding-top: 16px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(36,37,31,0.1);
   }
   .legend-item {
     display: flex;
@@ -667,7 +666,7 @@
     display: block;
   }
   .awareness-box h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 32px;
     font-weight: 300;
     font-style: italic;
@@ -699,11 +698,11 @@
     display: flex;
     gap: 24px;
     padding: 28px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(36,37,31,0.1);
   }
-  .q-item:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+  .q-item:first-child { border-top: 1px solid rgba(36,37,31,0.1); }
   .q-num {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 42px;
     font-weight: 300;
     color: rgba(200,169,110,0.25);
@@ -749,7 +748,7 @@
     letter-spacing: 0.04em;
   }
   .node-base { border-color: rgba(200,169,110,0.4); color: var(--gold); background: rgba(200,169,110,0.06); }
-  .node-derived { border-color: rgba(138,170,128,0.4); color: #8aaa80; background: rgba(74,103,65,0.08); }
+  .node-derived { border-color: rgba(138,170,128,0.4); color: #3d7250; background: rgba(74,103,65,0.08); }
   .node-emergent { border-color: rgba(200,169,110,0.2); color: var(--dim); background: transparent; font-style: italic; }
   .node-emergent::before { content: '[S] '; color: var(--rust); opacity: 0.8; }
   .tree-arrow {
@@ -763,7 +762,7 @@
     position: relative;
     z-index: 1;
     padding: 64px 48px;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(36,37,31,0.1);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -771,7 +770,7 @@
     flex-wrap: wrap;
   }
   .footer-left .footer-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 24px;
     font-weight: 300;
     color: var(--paper);
@@ -832,36 +831,38 @@
     .stat-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
-<link rel="stylesheet" href="/site-chrome.css?v=20261004-7">
+<link rel="stylesheet" href="/site-chrome.css?v=20261005-4">
 <link rel="icon" href="/images/brain-fog/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="All updates — Saurav Das" href="/feeds/all.xml">
 <link rel="alternate" type="application/rss+xml" title="Brain Fog — Saurav Das" href="/feeds/brain-fog.xml">
 <link rel="stylesheet" href="/post-art.css?v=20261004-1">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;650;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <meta property="og:image:alt" content="Observers studying the sky inside a giant armillary sphere, with another observer outside it.">
+<link rel="stylesheet" href="/essay-visual.css?v=20261005-1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300..900;1,300..900&amp;family=DM+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="/design-system.css?v=20261005-1">
 </head>
-<body class="illustrated-post post-brahmanda post-dark">
+<body class="visual-essay illustrated-post post-brahmanda site-system site-article">
+<a class="chrome-skip" href="#article-start">Skip to content</a>
 
 <!-- Starfield -->
 <div id="cosmos"></div>
 
 <!-- Nav -->
 <!-- SITE HEADER START -->
-<nav class="site-nav" data-site-nav aria-label="Site"><div class="nav-inner"><a class="wordmark" href="/" aria-label="Saurav Das — home"><span class="brand-dot" aria-hidden="true"></span><span>Saurav Das</span><span class="brand-note">stay curious.</span></a><ul class="nav-links"><li><a href="/writings/research-journey.html" title="Science &amp; research">Groundwork</a></li><li><a href="/brain-fog.html" title="Writing &amp; weekly explorations" aria-current="page">Brain Fog</a></li><li><a href="/products.html" title="Products, apps &amp; experiments">Building</a></li><li><a href="/writings/watching.html" title="Movies, series &amp; anime">Screen Time</a></li><li><a href="/writings/books.html" title="Books &amp; reading notes">Bookshelf</a></li></ul><a class="hello-link" href="#connect">Let’s talk <span aria-hidden="true">↗</span></a></div></nav>
+<nav class="site-nav" data-site-nav aria-label="Site"><div class="nav-inner"><a class="wordmark" href="/" aria-label="Saurav Das — home"><span class="brand-dot" aria-hidden="true">S</span><span class="brand-name" aria-hidden="true">aurav Das</span><span class="brand-note" aria-hidden="true">stay curious.</span></a><ul class="nav-links"><li><a href="/writings/research-journey.html" title="Science &amp; research">Groundwork</a></li><li><a href="/brain-fog.html" title="Writing &amp; weekly explorations" aria-current="page">Brain Fog</a></li><li><a href="/products.html" title="Products, apps &amp; experiments">Building</a></li><li><a href="/writings/watching.html" title="Movies, series &amp; anime">Screen Time</a></li><li><a href="/writings/books.html" title="Books &amp; reading notes">Bookshelf</a></li></ul><a class="hello-link" href="#connect">Let’s talk <span aria-hidden="true">↗</span></a></div></nav>
 <!-- SITE HEADER END -->
 
 <!-- Hero -->
-<header class="hero">
-  <div class="hero-tag">Simulation Research &middot; 2026</div>
-  <h1>Can Souls Discover <em>Science?</em></h1>
-  <p class="hero-sub">A living Vedic universe experiment &mdash; and what it asks about the nature of reality.</p>
-  <div class="hero-meta">By Saurav Das &nbsp;&middot;&nbsp; Brahmanda Simulation Engine &nbsp;&middot;&nbsp; 2026</div>
-
+<header class="essay-masthead" id="article-start">
+  <div class="essay-edition-line"><a href="/brain-fog.html#essays">BRAIN FOG / ESSAYS <span aria-hidden="true">↗</span></a><span>AGENTS · DISCOVERY · REALITY</span></div>
+  <div class="essay-heading-grid"><div><p class="essay-eyebrow">SIMULATION RESEARCH / BRAHMANDA</p><h1>Can Souls Discover <em>Science?</em></h1></div><div class="essay-heading-aside"><p class="essay-deck">A living Vedic universe experiment &mdash; and what it asks about the nature of reality.</p><p class="essay-byline">SAURAV DAS <span aria-hidden="true">/</span> 2026</p></div></div>
 </header>
-<figure class="post-illustration">
+
+<figure class="essay-cover">
   <img src="/images/essays/brahmanda.jpg" width="1536" height="1024" alt="Observers studying the sky inside a giant armillary sphere, with another observer outside it." fetchpriority="high" decoding="async">
-  <figcaption><span>A world within a world. A question from either side.</span><span class="post-art-note">AI-generated editorial illustration</span></figcaption>
+  <figcaption><span>A world within a world. A question from either side.</span><span class="essay-art-note">AI-generated editorial illustration</span></figcaption>
 </figure>
+<nav class="essay-wayfinding" aria-label="In this essay"><span>FIND A THREAD</span><a href="#the-universe">The universe <span aria-hidden="true">↓</span></a><a href="#the-discoveries">The discoveries <span aria-hidden="true">↓</span></a><a href="#the-open-questions">Open questions <span aria-hidden="true">↓</span></a></nav>
 
 
 <!-- Pull quote -->
@@ -887,7 +888,7 @@
   <!-- WHAT IS IT -->
   <section class="reveal">
     <span class="section-number">01 &mdash; The Simulation</span>
-    <h2>What Brahmanda Actually Is</h2>
+    <h2 id="the-universe">What Brahmanda Actually Is</h2>
     <p>The simulation spawns a universe of LLM-powered souls (agents) into three dimensions &mdash; Svarga (celestial), Bhu-loka (physical), Patala (subterranean). Each soul is born with Prana (life force), a mix of five vices, a unique potential, and existential needs. They make decisions via actual LLM calls. They live. They die. They are reborn, carrying traces of prior lives.</p>
     <p>The universe has no hard bounds. Population, lifespan, and civilization all emerge from one principle: <strong>resources are finite, and souls need Prana to survive.</strong> Virtue literally extends life &mdash; a maximally corrupt soul burns through Prana 2.5&times; faster. The world has laws (Devas enforce them), chaos agents (Asuras), and a cosmic clock (the four Yuga cycles).</p>
 
@@ -978,22 +979,22 @@
         <div class="yuga-age yuga-treta">
           <span class="yuga-name">Treta</span>
           <span class="yuga-sub">Silver Age</span>
-          <div class="yuga-stat">Truth: <strong style="color:#8aaa80">75%</strong></div>
-          <div class="yuga-stat">Vice &times;: <strong style="color:#8aaa80">0.8&times;</strong></div>
+          <div class="yuga-stat">Truth: <strong style="color:#3d7250">75%</strong></div>
+          <div class="yuga-stat">Vice &times;: <strong style="color:#3d7250">0.8&times;</strong></div>
           <div class="yuga-stat">30 ticks</div>
         </div>
         <div class="yuga-age yuga-dvapara">
           <span class="yuga-name">Dvapara</span>
           <span class="yuga-sub">Bronze Age</span>
-          <div class="yuga-stat">Truth: <strong style="color:#7aabd4">50%</strong></div>
-          <div class="yuga-stat">Vice &times;: <strong style="color:#7aabd4">1.0&times;</strong></div>
+          <div class="yuga-stat">Truth: <strong style="color:#276383">50%</strong></div>
+          <div class="yuga-stat">Vice &times;: <strong style="color:#276383">1.0&times;</strong></div>
           <div class="yuga-stat">20 ticks</div>
         </div>
         <div class="yuga-age yuga-kali">
           <span class="yuga-name">Kali</span>
           <span class="yuga-sub">Iron Age</span>
-          <div class="yuga-stat">Truth: <strong style="color:#c47060">25%</strong></div>
-          <div class="yuga-stat">Vice &times;: <strong style="color:#c47060">1.5&times;</strong></div>
+          <div class="yuga-stat">Truth: <strong style="color:#993d30">25%</strong></div>
+          <div class="yuga-stat">Vice &times;: <strong style="color:#993d30">1.5&times;</strong></div>
           <div class="yuga-stat">10 ticks</div>
         </div>
       </div>
@@ -1024,7 +1025,7 @@
   <!-- CORE QUESTION 1 -->
   <section class="reveal">
     <span class="section-number">04 &mdash; Research Question I</span>
-    <h2>Can Agents Discover Science They Were Never Told?</h2>
+    <h2 id="the-discoveries">Can Agents Discover Science They Were Never Told?</h2>
     <p>This is the heart of what I&#8217;m testing. The simulation contains <strong>12 discoverable truths</strong> &mdash; things that are actually true about how the Brahmanda universe works. Souls can observe the universe, formulate theories through LLM reasoning, and those theories are then validated against the actual mechanics. A matching theory becomes a validated discovery with real effects on the loka.</p>
     <p>The question is: will they get there? Not through being told, but through observation, reflection, and the kind of reasoning that emerges when an agent has enough experience and enough curiosity.</p>
 
@@ -1132,7 +1133,7 @@
       </div>
       <div style="margin-top:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);display:flex;gap:24px;">
         <span><span style="color:var(--gold)">&#9632;</span> Base knowledge</span>
-        <span><span style="color:#8aaa80">&#9632;</span> Derived discovery</span>
+        <span><span style="color:#3d7250">&#9632;</span> Derived discovery</span>
         <span><span style="color:var(--rust);">[S]</span> Soul-emergent field</span>
       </div>
     </div>
@@ -1177,7 +1178,7 @@
   <!-- WHAT I DON'T KNOW -->
   <section class="reveal">
     <span class="section-number">08 &mdash; Open Questions</span>
-    <h2>What I Don&#8217;t Know Yet</h2>
+    <h2 id="the-open-questions">What I Don&#8217;t Know Yet</h2>
     <p>Brahmanda is early. What I have is an architecture and a handful of runs. The interesting results are still ahead &mdash; and most of them depend on running enough parallel universes, and looking at the Observer output carefully enough, to see patterns that single runs obscure.</p>
 
     <div class="questions">
@@ -1228,7 +1229,7 @@
   <div style="margin-top:64px;padding:32px;border:1px solid rgba(200,169,110,0.15);background:rgba(200,169,110,0.03);" class="reveal">
     <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;">Run It Yourself</div>
     <p style="font-size:14px;margin-bottom:16px;">Brahmanda runs on Python with the Anthropic API (or local Ollama). Clone, install, and spawn your own universe.</p>
-    <div style="font-family:'DM Mono',monospace;font-size:12px;color:#8aaa80;background:rgba(0,0,0,0.3);padding:16px;line-height:2;">
+    <div style="font-family:'DM Mono',monospace;font-size:12px;color:#3d7250;background:var(--ds-paper);padding:16px;line-height:2;">
       git clone https://github.com/Saurav12das/Brahmanda.git<br>
       pip install anthropic pydantic rich<br>
       ANTHROPIC_API_KEY=sk-your-key python3 -m brahmanda.main
@@ -1270,9 +1271,9 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // VICE RINGS
 const vices = [
   { name: 'Lust', sanskrit: 'Kama', pct: 72, color: '#c8a96e' },
-  { name: 'Wrath', sanskrit: 'Krodha', pct: 85, color: '#c47060' },
-  { name: 'Greed', sanskrit: 'Lobha', pct: 68, color: '#8aaa80' },
-  { name: 'Attachment', sanskrit: 'Moha', pct: 61, color: '#7aabd4' },
+  { name: 'Wrath', sanskrit: 'Krodha', pct: 85, color: '#993d30' },
+  { name: 'Greed', sanskrit: 'Lobha', pct: 68, color: '#3d7250' },
+  { name: 'Attachment', sanskrit: 'Moha', pct: 61, color: '#276383' },
   { name: 'Ego', sanskrit: 'Ahamkara', pct: 79, color: '#c8a96e' },
 ];
 const r = 26, circ = 2 * Math.PI * r;

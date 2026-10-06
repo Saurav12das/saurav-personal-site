@@ -14,11 +14,11 @@
   box-sizing: border-box;
 }
 .site-nav[data-site-nav] {
-  --chrome-paper: #24251f;
+  --chrome-paper: #262820;
   --chrome-ink: #fffdf7;
   --chrome-muted: #deddd3;
   --chrome-line: #505147;
-  --chrome-accent: #ee936b;
+  --chrome-accent: #f29a68;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -29,20 +29,20 @@
   margin: 0;
   padding: 0;
   border: 0;
-  border-bottom: 3px solid var(--chrome-accent);
+  border-bottom: 1px solid #66513d;
   background: var(--chrome-paper);
   color: var(--chrome-ink);
-  box-shadow: 0 4px 16px rgba(20, 22, 15, .12);
+  box-shadow: 0 5px 18px rgba(20, 22, 15, .10);
   font-weight: 400;
 }
 .site-nav[data-site-nav] .nav-inner {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 26px;
+  gap: 22px;
   width: min(1240px, calc(100% - 96px));
   max-width: none;
-  min-height: 88px;
+  min-height: 96px;
   height: auto;
   padding: 0;
   margin: 0 auto;
@@ -51,7 +51,7 @@
   border: 0;
   display: inline-flex;
   align-items: center;
-  gap: 11px;
+  gap: 5px;
   position: static;
   grid-column: auto;
   grid-row: auto;
@@ -75,6 +75,18 @@
   background: var(--chrome-accent);
   border-radius: 50%;
 }
+.site-nav[data-site-nav] .brand-dot {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-basis: 44px;
+  background: var(--chrome-accent);
+  border-radius: 50%;
+  color: #262820;
+  font: 650 27px/1 "DM Sans", Arial, sans-serif;
+  letter-spacing: 0;
+}
 .site-nav[data-site-nav] .brand-note {
   display: inline;
   font-family: "DM Sans", Arial, sans-serif;
@@ -83,15 +95,19 @@
   line-height: 1.4;
   letter-spacing: 0;
   color: var(--chrome-muted);
-  margin-left: 6px;
+  margin-left: 12px;
 }
 .site-nav[data-site-nav] .nav-links {
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 5px;
-  padding: 0;
+  gap: 2px;
+  padding: 5px;
+  border: 1px solid #474a3e;
+  border-radius: 0;
+  background: #303329;
+  justify-self: end;
   margin: 0;
   overflow: visible;
   grid-column: auto;
@@ -106,10 +122,9 @@
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 8px 11px;
+  padding: 8px 13px;
   border: 0;
-  border-bottom: 2px solid transparent;
-  border-radius: 5px;
+  border-radius: 0;
   background: none;
   color: var(--chrome-muted);
   font:
@@ -120,30 +135,32 @@
   text-transform: none;
   text-decoration: none;
   white-space: nowrap;
+  transition: color .18s ease, background .18s ease, transform .18s ease;
 }
 .site-nav[data-site-nav] .nav-links a[aria-current="page"] {
   color: #24251f;
   background: var(--chrome-accent);
-  border-bottom-color: var(--chrome-accent);
   font-weight: 700;
 }
 .site-nav[data-site-nav] .nav-links a:hover {
-  color: #24251f;
-  background: #f0aa88;
+  color: var(--chrome-ink);
+  background: #45483c;
+  transform: translateY(-2px);
 }
+.site-nav[data-site-nav] .nav-links a[aria-current="page"]:hover { color: #262820; background: #ffb887; }
 .site-nav[data-site-nav] .hello-link {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
-  min-height: 38px;
-  padding: 0 0 0 25px;
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 15px;
   margin: 0;
-  border: 0;
-  border-left: 1px solid var(--chrome-line);
+  border: 1px solid #777461;
+  border-radius: 0;
   text-decoration: none;
   white-space: nowrap;
-  color: var(--chrome-ink);
+  color: #f5b58e;
   font:
     600 13px/1.5 "DM Sans",
     Arial,
@@ -152,12 +169,16 @@
   text-transform: none;
   grid-column: auto;
   grid-row: auto;
+  transition: background .18s ease, border-color .18s ease;
 }
+.site-nav[data-site-nav] .hello-link:hover { background: #3c3d30; border-color: var(--chrome-accent); }
 .site-nav[data-site-nav] .hello-link span {
   font-size: 21px;
   margin: 0;
   line-height: 1;
+  transition: transform .18s ease;
 }
+.site-nav[data-site-nav] .hello-link:hover span { transform: translate(2px, -2px); }
 .site-nav[data-site-nav] a:focus-visible,
 .site-connect a:focus-visible {
   outline: 2px solid var(--chrome-accent);
@@ -216,7 +237,7 @@
   text-wrap: initial;
 }
 .site-connect .connect-intro h2 em {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "DM Sans", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -463,8 +484,8 @@
   }
   .site-nav[data-site-nav] .hello-link {
     font-size: 11px;
-    padding-left: 18px;
-    gap: 12px;
+    padding: 8px 12px;
+    gap: 9px;
   }
   .site-nav[data-site-nav] .wordmark {
     font-size: 20px;
@@ -508,16 +529,16 @@
     font-size: 20px;
   }
   .site-nav[data-site-nav] .brand-dot {
-    width: 19px;
-    height: 19px;
-    flex-basis: 19px;
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    font-size: 25px;
   }
   .site-nav[data-site-nav] .hello-link {
     grid-column: 2;
     grid-row: 1;
-    padding: 0;
-    border: 0;
-    min-height: 31px;
+    padding: 7px 12px;
+    min-height: 40px;
     font-size: 12px;
   }
   .site-nav[data-site-nav] .nav-links {
@@ -525,6 +546,8 @@
     grid-row: 2;
     justify-content: space-between;
     gap: 3px;
+    justify-self: stretch;
+    padding: 4px;
   }
   .site-nav[data-site-nav] .nav-links a {
     font-size: 14px;
@@ -607,6 +630,8 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .site-nav[data-site-nav] *,
+  .site-nav[data-site-nav] *::before,
+  .site-nav[data-site-nav] *::after,
   .site-connect * {
     transition: none !important;
     animation: none !important;
@@ -618,7 +643,7 @@
   .site-nav[data-site-nav] .nav-links a { font-size: 12px; padding-inline: 4px; }
 }
 @media (max-width: 360px) {
-  .site-nav[data-site-nav] .nav-links { flex-wrap: wrap; justify-content: center; gap: 3px 8px; }
+  .site-nav[data-site-nav] .nav-links { flex-wrap: wrap; justify-content: center; gap: 3px 8px; border-radius: 0; }
 }
 /* Titles stay upright, including words marked for emphasis in older essays. */
 body:has([data-site-nav]) :is(h1, h2, h3, h4, h5, h6),
@@ -661,3 +686,6 @@ body:has([data-site-nav]) :is(h1, h2, h3, h4, h5, h6) * {
     display: none;
   }
 }
+
+/* A simple typographic initial starts the full name. */
+.site-nav[data-site-nav] .brand-name { font-size:22px; font-weight:550; letter-spacing:-.05em; }

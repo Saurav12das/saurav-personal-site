@@ -10,11 +10,13 @@ PAGES = ['index.html','brain-fog.html','brain-fog/automation-and-economics.html'
 class Page(HTMLParser):
     def __init__(self, source):
         super().__init__(convert_charrefs=True)
-        self.ids=[];self.links=[];self.missing_alt=[];self.h1=0;self.metadata={};self.feed(source)
+        self.ids=[];self.links=[];self.styles=[];self.body_classes=[];self.missing_alt=[];self.h1=0;self.metadata={};self.feed(source)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
         if 'id' in a:self.ids.append(a['id'])
         if tag=='h1':self.h1+=1
+        if tag=='body':self.body_classes=a.get('class','').split()
+        if tag=='link' and a.get('rel')=='stylesheet':self.styles.append(a.get('href',''))
         if tag=='img' and 'alt' not in a:self.missing_alt.append(a.get('src'))
         for key in ('href','src'):
             if key in a:self.links.append(a[key])
@@ -31,6 +33,12 @@ for rel in PAGES:
     path=ROOT/rel;page=Page(path.read_text())
     if rel!='writing.html':
         source=path.read_text()
+        assert 'site-system' in page.body_classes, f'{rel}: missing shared design class'
+        assert page.styles[-1].startswith('/design-system.css?'), f'{rel}: shared design must load last'
+        fonts=[href for href in page.styles if 'fonts.googleapis.com/' in href]
+        assert len(fonts)==1 and 'DM+Sans' in fonts[0] and 'DM+Mono' in fonts[0], f'{rel}: use the shared font request'
+        if 'writing__' in rel:
+            assert 'site-article' in page.body_classes and 'class="essay-masthead"' in source, f'{rel}: missing shared essay opening'
         assert source.count('data-site-nav')==1, f'{rel}: expected one shared page navigation'
         header=source.split('<!-- SITE HEADER START -->')[1].split('<!-- SITE HEADER END -->')[0]
         for item in config['navigation']:
