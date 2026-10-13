@@ -8,12 +8,13 @@ import json,re
 
 ROOT=Path(__file__).resolve().parents[1]
 CONFIG=json.loads((ROOT/'site-links.json').read_text())
-MAIN=['index.html','brain-fog.html','brain-fog/automation-and-economics.html','about.html','products.html','experiments.html','apps.html','writings/books.html','writings/research-journey.html','writings/watching.html','follow.html']
+MAIN=['index.html','brain-fog.html','about.html','products.html','experiments.html','apps.html','writings/books.html','writings/research-journey.html','writings/watching.html','follow.html']
+MAIN += sorted(str(p.relative_to(ROOT)) for p in (ROOT/'brain-fog').glob('*.html'))
 MAIN += sorted(str(p.relative_to(ROOT)) for p in (ROOT/'writings').glob('writing__*.html'))
 ESSAYS=sorted(str(p.relative_to(ROOT)) for p in (ROOT/'writings').glob('writing__*.html') if str(p.relative_to(ROOT)) not in MAIN)
 VERSION='20261005-6'
 CHROME_VERSION='20261005-7'
-DESIGN_VERSION='20261005-1'
+DESIGN_VERSION='20261012-2'
 FONTS='https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300..900;1,300..900&amp;family=DM+Mono:wght@400;500&amp;display=swap'
 FEEDS={'research':('Groundwork','groundwork'),'writing':('Brain Fog','brain-fog'),'building':('Building','building'),'watching':('Screen Time','screen-time'),'books':('Bookshelf','bookshelf')}
 

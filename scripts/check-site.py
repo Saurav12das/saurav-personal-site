@@ -6,7 +6,7 @@ import json
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = ['index.html','brain-fog.html','brain-fog/automation-and-economics.html','about.html','writing.html','products.html','experiments.html','apps.html','writings/books.html','writings/research-journey.html','writings/watching.html','follow.html'] + [str(p.relative_to(ROOT)) for p in sorted((ROOT/'writings').glob('writing__*.html'))]
+PAGES = ['index.html','brain-fog.html','brain-fog/automation-and-economics.html','about.html','writing.html','products.html','experiments.html','apps.html','writings/books.html','writings/research-journey.html','writings/watching.html','follow.html'] + [str(p.relative_to(ROOT)) for p in sorted((ROOT/'writings').glob('writing__*.html'))] + [str(p.relative_to(ROOT)) for p in sorted((ROOT/'brain-fog').glob('*.html')) if p.name != 'automation-and-economics.html']
 class Page(HTMLParser):
     def __init__(self, source):
         super().__init__(convert_charrefs=True)
@@ -76,7 +76,7 @@ for rel,section in feed_paths.items():
     for item in items:
         assert item.findtext('title') and item.findtext('description') and item.findtext('link')
 assert 'https://sauravdas.me/brain-fog/automation-and-economics' in [item['id'] for item in updates], 'Preserve the original Brain Fog GUID'
-for rel in PAGES[:3]:
+for rel in ['index.html','brain-fog.html'] + [str(p.relative_to(ROOT)) for p in sorted((ROOT/'brain-fog').glob('*.html'))]:
     import re
     for script in re.findall(r'<script type="application/ld\+json">(.*?)</script>',(ROOT/rel).read_text(),re.S):json.loads(script)
 if errors:

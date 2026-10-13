@@ -63,6 +63,7 @@
   let mode = "output";
   const format = (n) => Number(n.toFixed(2)).toLocaleString("en-US");
   function updateLab() {
+    if (!slider) return;
     const factor = Number(slider.value);
     const minimumHours = 8 / factor;
     const hours =
@@ -88,7 +89,7 @@
           : `Take half the possible time saving: ${format(8 - hours)} hours freed, with output rising to ${format(output)} units.`;
     document.getElementById("lab-explanation").textContent = explanation;
   }
-  slider.addEventListener("input", updateLab);
+  if (slider) slider.addEventListener("input", updateLab);
   document.querySelectorAll("[data-lab-mode]").forEach((button) =>
     button.addEventListener("click", () => {
       mode = button.dataset.labMode;

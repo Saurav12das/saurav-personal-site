@@ -1,0 +1,18 @@
+{
+  "created": "2026-10-12",
+  "method": "Built-in image_gen tool",
+  "images": [
+    {
+      "file": "hope.jpg",
+      "original": "hope-original.png",
+      "prompt": "Use case: illustration-story\nAsset type: editorial cover for Brain Fog issue 002, a long-form essay titled God is for the poor, about faith, hardship, hope and public power.\nPrimary request: a dignified conceptual paper collage: two ordinary human hands cupped around a small glowing warm light, a simple open doorway behind them, and a distant crowd made of fine engraved silhouettes. The light connects private hope to shared belonging. No identifiable religion or religious institution.\nStyle/medium: refined literary magazine illustration, analog cut paper and antique engraved textures on warm ivory paper, charcoal linework and muted burnt-orange accents, restrained and contemplative.\nComposition: landscape 3:2; generous breathing room; hands and light are the main focal point, crowd secondary.\nConstraints: no text, lettering, numbers, logos or watermark; no deity portrait, no specific religious icon; no stereotyped ethnic faces, no caricature of poverty, no luxurious-versus-destitute contrast. Conceptual illustration, not documentary evidence.",
+      "description": "AI-generated conceptual illustration; not documentary evidence."
+    },
+    {
+      "file": "public-language.jpg",
+      "original": "public-language-original.png",
+      "prompt": "Use case: illustration-story\nAsset type: inline editorial illustration in a narrative essay about religious hope and the public use of shared symbols.\nPrimary request: a symbolic scene with a simple candle on a table near an empty chair in a quiet room. Through the room's broad opening, a distant public stage has an empty lectern and a gathering of small human silhouettes. The same warm light quietly links the intimate room and the public gathering. Depict a change of scale from personal refuge to public belonging without implying deceit.\nStyle/medium: tactile paper collage with fine engraved linework and restrained burnt-orange light, warm ivory and charcoal; thoughtful literary magazine art matching an essay cover of hands carrying light.\nComposition: wide 3:2 landscape; coherent scene, private foreground and public background; nuanced atmosphere.\nConstraints: no words, text, logos or watermark; no recognizable politician, no deity, no specific religious icon, no caricature or stereotypes. Conceptual illustration, not a photograph of a real event.",
+      "description": "AI-generated conceptual illustration; not documentary evidence."
+    }
+  ]
+}

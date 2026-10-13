@@ -77,7 +77,8 @@ body.site-system {
 .site-system :is(.chrome-skip, .skip) { z-index: 200; }
 
 /* Essays use the same opening, cover, chapter links, and reading column. */
-/* Edition 001: continuous prose with evidence and portraits along the reading path. */
+/* Weekly editions: continuous prose with evidence and portraits along the reading path. */
+.site-system .story-entry-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .narrative-edition .article-layout { grid-template-columns: 178px minmax(0, 740px); gap: 56px; }
 .narrative-edition .chapter { display: flow-root; padding-bottom: 32px; margin-bottom: 42px; }
 .narrative-edition .chapter > h2 { font-size: clamp(28px, 3.1vw, 36px); line-height: 1.2; }
