@@ -15,7 +15,7 @@ Open http://localhost:8080. Python 3 and Node are needed for these development c
 
 - `index.html` — editorial homepage and featured edition.
 - `brain-fog.html` — the complete writing home: weekly editions, the existing six-essay archive, and the series introduction. `writing.html` redirects here for old links.
-- `brain-fog/automation-and-economics.html` — edition 001, with six timeline entries, historical perspectives, sourced graphics, an interactive productivity experiment, and a private reader notebook.
+- `brain-fog/automation-and-economics.html` — edition 001, a continuous long-form narrative following the saved hour from Smith to AI and scientific curiosity. Historical portraits appear alongside the prose; sourced pin-output and agricultural-employment graphs, an illustrative Keynes week, and the interactive productivity experiment punctuate the reading path. The original section anchors and private reader notebook remain available.
 - `design-system.css` — shared visual tokens and final design layer across all 17 personal-site pages: warm ivory, charcoal, orange, DM Sans for headings and body, and DM Mono for small labels. It loads last and unifies page spacing, article openings, reading columns, figures, and the former dark themes. Keep future visual changes here; content-specific layouts stay in their existing stylesheets. The separate Hop Explorer app pages are outside this editorial system.
 - `brain-fog-index.js` — searches the seven unique pieces on Brain Fog by title, summary, and curated keywords, with three topic groups, shareable query parameters, a live count, and a clear empty state. All content remains visible without JavaScript.
 - `brain-fog.css` — responsive homepage and edition layouts, loaded after `site.css`.

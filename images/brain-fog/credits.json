@@ -7,6 +7,14 @@
     "original": "automation-original.png",
     "description": "AI-generated editorial illustration. Not a historical photograph."
   },
+  "generatedInlineIllustration": {
+    "file": "room-to-think.jpg",
+    "original": "room-to-think-original.png",
+    "method": "Built-in image_gen tool",
+    "date": "2026-10-12",
+    "description": "AI-generated conceptual illustration of saved time and curiosity, not an archival photograph or scientific diagram.",
+    "prompt": "Use case: illustration-story\nAsset type: inline editorial illustration for a long-form essay about automation, saved working time, and freedom to explore.\nPrimary request: depict the moment when time freed by a machine becomes room for human curiosity. A quietly seated person at a desk with an open notebook, a small mechanical gear and an hourglass, looking through a wide window into a night sky with constellations. The sky subtly flows into the notebook as a visual metaphor for an open question.\nStyle/medium: textured paper collage and fine engraved linework, sophisticated literary magazine illustration, matching a site with warm ivory paper, charcoal ink and muted burnt orange accents.\nComposition/framing: landscape 3:2, one coherent scene with generous open space, readable at small widths.\nConstraints: no text, no letters, no logos, no watermark; conceptual illustration rather than an archival photograph or a scientific diagram."
+  },
   "portraits": [
     {
       "file": "adam_smith.jpg",

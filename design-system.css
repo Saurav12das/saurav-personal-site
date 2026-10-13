@@ -77,6 +77,43 @@ body.site-system {
 .site-system :is(.chrome-skip, .skip) { z-index: 200; }
 
 /* Essays use the same opening, cover, chapter links, and reading column. */
+/* Edition 001: continuous prose with evidence and portraits along the reading path. */
+.narrative-edition .article-layout { grid-template-columns: 178px minmax(0, 740px); gap: 56px; }
+.narrative-edition .chapter { display: flow-root; padding-bottom: 32px; margin-bottom: 42px; }
+.narrative-edition .chapter > h2 { font-size: clamp(28px, 3.1vw, 36px); line-height: 1.2; }
+.narrative-edition .chapter > p { max-width: none; font-size: 18px; line-height: 1.85; margin: 0 0 24px; }
+.narrative-edition .chapter > .intro-question { font-size: 26px; line-height: 1.5; margin-bottom: 28px; }
+.narrative-edition .narrative-portrait { float: right; width: 150px; margin: 5px 0 24px 30px; }
+.narrative-edition .narrative-portrait img { display: block; width: 100%; height: 185px; object-fit: cover; object-position: center 22%; filter: grayscale(1); }
+.narrative-edition .narrative-portrait figcaption { padding-top: 10px; font-size: 12px; line-height: 1.6; color: var(--ds-muted); }
+.narrative-edition .narrative-portrait figcaption :is(strong, span) { display: block; }
+.narrative-edition .narrative-portrait figcaption strong { color: var(--ds-ink); font-weight: 600; }
+.narrative-edition :is(.evidence-chart, .narrative-art, .lab, .newton-note, .freed-hour-map, .edition-video, .keynes-quote, .notebook) { clear: both; margin: 36px 0; }
+.narrative-edition .narrative-art img { display: block; width: 100%; height: auto; }
+.narrative-edition .narrative-art figcaption { margin-top: 10px; font-size: 12px; line-height: 1.65; color: var(--ds-muted); }
+.narrative-edition .figure-note { font-size: 12px !important; line-height: 1.7 !important; }
+.narrative-edition .evidence-chart .bar-track { min-height: 20px; border-left: 1px solid var(--ds-muted); }
+.narrative-edition .evidence-chart .bar-label { font-size: 14px; }
+.narrative-edition .chapter > .reader-reply { font-size: 14px; }
+@media (max-width: 1000px) {
+  .narrative-edition .article-layout { display: block; max-width: 740px; margin-inline: auto; }
+  .narrative-edition .contents { position: static; padding: 20px 0; margin-bottom: 36px; border-block: 1px solid var(--ds-line); }
+  .narrative-edition .contents ol { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-bottom: 0; }
+  .narrative-edition .contents li { margin: 0; }
+  .narrative-edition .contents .contents-note { display: none; }
+}
+@media (max-width: 600px) {
+  .narrative-edition .chapter > p { font-size: 17px; line-height: 1.8; }
+  .narrative-edition .narrative-portrait { float: none; display: flex; align-items: center; gap: 20px; width: auto; margin: 24px 0; }
+  .narrative-edition .narrative-portrait img { width: 108px; height: 135px; flex: 0 0 108px; }
+  .narrative-edition .narrative-portrait figcaption { padding-top: 0; }
+  .narrative-edition .contents ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; }
+  .narrative-edition :is(.evidence-chart, .narrative-art, .lab, .newton-note, .freed-hour-map, .edition-video) { margin-block: 28px; }
+}
+@media print {
+  .narrative-edition .narrative-portrait { break-inside: avoid; }
+  .narrative-edition .chapter { break-inside: auto; }
+}
 .site-article .essay-masthead,
 .site-article .essay-cover,
 .site-article .essay-wayfinding { width: min(var(--ds-page-width), calc(100% - 2 * var(--ds-gutter))); }
