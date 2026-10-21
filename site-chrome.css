@@ -1,4 +1,4 @@
-/* Shared site chrome, isolated from the older essays' individual designs. */
+/* Shared site chrome, isolated from the older essays' individual designs. Type comes from the design-system tokens. */
 .site-nav[data-site-nav],
 .site-connect {
   --chrome-paper: #f5f3eb;
@@ -7,7 +7,7 @@
   --chrome-line: #d9d7cc;
   --chrome-accent: #c4502c;
   box-sizing: border-box;
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: var(--ds-font, Georgia, serif);
 }
 .site-nav[data-site-nav] *,
 .site-connect * {
@@ -55,7 +55,7 @@
   position: static;
   grid-column: auto;
   grid-row: auto;
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: var(--ds-font, Georgia, serif);
   font-size: 20px;
   font-weight: 650;
   line-height: 1.4;
@@ -84,12 +84,12 @@
   background: var(--chrome-accent);
   border-radius: 50%;
   color: #262820;
-  font: 650 27px/1 "DM Sans", Arial, sans-serif;
+  font: 650 27px/1 var(--ds-font, Georgia, serif);
   letter-spacing: 0;
 }
 .site-nav[data-site-nav] .brand-note {
   display: inline;
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: var(--ds-font, Georgia, serif);
   font-size: 10px;
   font-weight: 400;
   line-height: 1.4;
@@ -128,9 +128,7 @@
   background: none;
   color: var(--chrome-muted);
   font:
-    600 14px/1.5 "DM Sans",
-    Arial,
-    sans-serif;
+    600 14px/1.5 var(--ds-font, Georgia, serif);
   letter-spacing: 0;
   text-transform: none;
   text-decoration: none;
@@ -162,9 +160,7 @@
   white-space: nowrap;
   color: #f5b58e;
   font:
-    600 13px/1.5 "DM Sans",
-    Arial,
-    sans-serif;
+    600 13px/1.5 var(--ds-font, Georgia, serif);
   letter-spacing: 0;
   text-transform: none;
   grid-column: auto;
@@ -219,16 +215,13 @@
   display: block;
   color: var(--chrome-muted);
   font:
-    9px/1.6 "DM Mono",
-    monospace;
+    9px/1.6 var(--ds-mono, Georgia, serif);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .site-connect .connect-intro h2 {
   font:
-    500 52px/1.08 "DM Sans",
-    Arial,
-    sans-serif;
+    500 52px/1.08 var(--ds-font, Georgia, serif);
   letter-spacing: -0.055em;
   color: var(--chrome-ink);
   margin: 20px 0 22px;
@@ -237,15 +230,13 @@
   text-wrap: initial;
 }
 .site-connect .connect-intro h2 em {
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: var(--ds-font, Georgia, serif);
   font-weight: 400;
   font-style: normal;
 }
 .site-connect .connect-intro p {
   font:
-    400 13px/1.8 "DM Sans",
-    Arial,
-    sans-serif;
+    400 13px/1.8 var(--ds-font, Georgia, serif);
   color: var(--chrome-muted);
   margin: 0 0 17px;
   max-width: 350px;
@@ -286,9 +277,7 @@
 }
 .site-connect .connect-link strong {
   font:
-    500 16px/1.5 "DM Sans",
-    Arial,
-    sans-serif;
+    500 16px/1.5 var(--ds-font, Georgia, serif);
   color: var(--chrome-ink);
   display: block;
   letter-spacing: -0.02em;
@@ -296,18 +285,14 @@
 }
 .site-connect .connect-link small {
   font:
-    400 10px/1.5 "DM Sans",
-    Arial,
-    sans-serif;
+    400 10px/1.5 var(--ds-font, Georgia, serif);
   display: block;
   color: var(--chrome-muted);
   margin-top: 4px;
 }
 .site-connect .connect-mark {
   font:
-    500 21px/1.1 "DM Sans",
-    Arial,
-    sans-serif;
+    500 21px/1.1 var(--ds-font, Georgia, serif);
   color: var(--chrome-accent);
   text-align: center;
   letter-spacing: -0.05em;
@@ -338,9 +323,7 @@
   color: var(--chrome-ink);
   text-decoration: none;
   font:
-    600 14px/1.5 "DM Sans",
-    Arial,
-    sans-serif;
+    600 14px/1.5 var(--ds-font, Georgia, serif);
   letter-spacing: -0.03em;
   white-space: nowrap;
 }
@@ -366,9 +349,7 @@
 }
 .site-connect .connect-navigation a {
   font:
-    400 10px/1.5 "DM Sans",
-    Arial,
-    sans-serif;
+    400 10px/1.5 var(--ds-font, Georgia, serif);
   color: var(--chrome-muted);
   text-decoration: none;
   letter-spacing: 0;
@@ -379,9 +360,7 @@
 }
 .site-connect .connect-copyright {
   font:
-    400 9px/1.5 "DM Sans",
-    Arial,
-    sans-serif;
+    400 9px/1.5 var(--ds-font, Georgia, serif);
   color: var(--chrome-muted);
 }
 .site-connect .connect-follow {
@@ -394,13 +373,13 @@
   border-bottom: 1px solid var(--chrome-line);
 }
 .site-connect .connect-follow h2 {
-  font: 500 30px/1.2 "DM Sans", Arial, sans-serif;
+  font: 500 30px/1.2 var(--ds-font, Georgia, serif);
   letter-spacing: -.04em;
   color: var(--chrome-ink);
   margin: 13px 0 9px;
 }
 .site-connect .connect-follow p {
-  font: 400 13px/1.7 "DM Sans", Arial, sans-serif;
+  font: 400 13px/1.7 var(--ds-font, Georgia, serif);
   color: var(--chrome-muted);
   margin: 0;
 }
@@ -411,7 +390,7 @@
 }
 .site-connect .connect-follow-links a {
   padding: 12px 0;
-  font: 550 12px/1.5 "DM Sans", Arial, sans-serif;
+  font: 550 12px/1.5 var(--ds-font, Georgia, serif);
   color: var(--chrome-ink);
   text-decoration: none;
   border-bottom: 1px solid var(--chrome-line);
@@ -444,7 +423,7 @@
 }
 .cinema-page .site-connect .connect-intro h2,
 .research-page .site-connect .connect-intro h2 {
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: var(--ds-font, Georgia, serif);
 }
 @media (max-width: 1100px) {
   .site-nav[data-site-nav] .nav-inner,
@@ -673,9 +652,7 @@ body:has([data-site-nav]) :is(h1, h2, h3, h4, h5, h6) * {
   background: #24251f;
   color: #fff;
   font:
-    14px "DM Sans",
-    Arial,
-    sans-serif;
+    14px var(--ds-font, Georgia, serif);
   text-decoration: none;
 }
 .chrome-skip:focus {
@@ -703,8 +680,8 @@ body:has([data-site-nav]) :is(h1, h2, h3, h4, h5, h6) * {
 .site-nav[data-site-nav] .nav-explore { min-width: 0; justify-self: end; border: 0; margin: 0; padding: 0; }
 .site-nav[data-site-nav] .nav-explore > summary { display: none; }
 .site-nav[data-site-nav] .nav-links a { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; padding: 8px 11px; }
-.site-nav[data-site-nav] .nav-links small { font: 400 10px/1.5 "DM Sans", sans-serif; letter-spacing: 0; color: inherit; opacity: .85; }
-.site-system .site-trail { display: block; position: static; width: min(1184px, calc(100% - 96px)); max-width: none; height: auto; margin: 22px auto 0; padding: 0; border: 0; background: transparent; box-shadow: none; font: 400 12px/1.7 "DM Sans", sans-serif; color: #696a60; }
+.site-nav[data-site-nav] .nav-links small { font: 400 10px/1.5 var(--ds-font, Georgia, serif); letter-spacing: 0; color: inherit; opacity: .85; }
+.site-system .site-trail { display: block; position: static; width: min(1184px, calc(100% - 96px)); max-width: none; height: auto; margin: 22px auto 0; padding: 0; border: 0; background: transparent; box-shadow: none; font: 400 12px/1.7 var(--ds-font, Georgia, serif); color: #696a60; }
 .site-system .site-trail > div { display: flex; flex-wrap: wrap; gap: 5px 12px; align-items: baseline; }
 .site-system .site-trail a { color: #696a60; text-decoration: underline; text-underline-offset: 4px; }
 .site-system .site-trail [aria-current] { color: #24251f; }
@@ -723,7 +700,7 @@ body:has([data-site-nav]) :is(h1, h2, h3, h4, h5, h6) * {
   .site-nav[data-site-nav] { max-height: 90dvh; overflow-y: auto; }
   .site-nav[data-site-nav] .nav-inner { min-height: 108px; gap: 8px 12px; }
   .site-nav[data-site-nav] .nav-explore { grid-column: 1/-1; grid-row: 2; justify-self: stretch; }
-  .site-nav[data-site-nav] .nav-explore > summary { display: flex; align-items: center; gap: 14px; min-height: 44px; padding: 8px 12px; cursor: pointer; border: 1px solid #474a3e; background: #303329; font: 600 13px/1.5 "DM Sans", sans-serif; list-style: none; }
+  .site-nav[data-site-nav] .nav-explore > summary { display: flex; align-items: center; gap: 14px; min-height: 44px; padding: 8px 12px; cursor: pointer; border: 1px solid #474a3e; background: #303329; font: 600 13px/1.5 var(--ds-font, Georgia, serif); list-style: none; }
   .site-nav[data-site-nav] .nav-explore > summary::-webkit-details-marker { display: none; }
   .site-nav[data-site-nav] .nav-explore > summary:focus-visible { outline: 2px solid var(--chrome-accent); outline-offset: 2px; }
   .site-nav[data-site-nav] .nav-location { font-weight: 400; font-size: 11px; color: var(--chrome-muted); }
@@ -748,3 +725,20 @@ body:has([data-site-nav]) :is(h1, h2, h3, h4, h5, h6) * {
 .site-nav[data-site-nav] .coffee-link { border-color: transparent; }
 .site-nav[data-site-nav] .coffee-link:hover { background: transparent; border-color: #777461; }
 @media (min-width: 981px) { .site-nav[data-site-nav] .nav-links small { display: none; } }
+
+/* Serif chrome: the wordmark in Garamond, and a little more size for the smallest labels. */
+.site-nav[data-site-nav] .brand-name { font-family: var(--ds-display, Georgia, serif); font-size: 24px; font-weight: 600; letter-spacing: -.01em; }
+.site-nav[data-site-nav] .nav-links a { font-size: 15px; font-weight: 500; }
+.site-nav[data-site-nav] .nav-links small { font-size: 11px; }
+.site-nav[data-site-nav] .brand-note { font-size: 11px; }
+.site-connect .connect-eyebrow { font-size: 11px; letter-spacing: .08em; }
+.site-connect .connect-intro h2 { letter-spacing: -.012em; }
+.site-connect .connect-intro p { font-size: 14px; }
+.site-connect .about-link { font-size: 13px; }
+.site-connect .connect-link small { font-size: 12px; }
+.site-connect .connect-navigation a { font-size: 12px; }
+.site-connect .connect-copyright { font-size: 11px; }
+.site-connect .connect-follow p { font-size: 14px; }
+.site-connect .connect-follow-links a { font-size: 13px; }
+.site-connect .connect-signature { font-family: var(--ds-display, Georgia, serif); font-size: 16px; }
+.site-system .site-trail { font-size: 13px; font-family: var(--ds-font, Georgia, serif); }

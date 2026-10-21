@@ -69,7 +69,7 @@
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-weight: 300;
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
@@ -97,7 +97,7 @@
     );
   }
   .masthead-label {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 0.65rem;
     letter-spacing: 0.18em;
     color: var(--ink-faint);
@@ -106,7 +106,7 @@
     position: relative;
   }
   .masthead h1 {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: clamp(2rem, 5vw, 3.6rem);
     font-weight: 400;
     line-height: 1.15;
@@ -129,7 +129,7 @@
     position: relative;
   }
   .byline {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     color: var(--ink-faint);
@@ -161,7 +161,7 @@
     margin-right: auto;
   }
   .abstract-label {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 0.62rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -183,7 +183,7 @@
     border-top: 1px solid var(--paper-rule);
   }
   .section-number {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 0.62rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -192,7 +192,7 @@
     margin-bottom: 0.5rem;
   }
   .section-header h2 {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: clamp(1.3rem, 3vw, 1.9rem);
     font-weight: 400;
     line-height: 1.25;
@@ -205,7 +205,7 @@
     color: var(--ink-mid);
   }
   .prose p:first-child::first-letter {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 3.8rem;
     font-weight: 600;
     float: left;
@@ -215,7 +215,7 @@
   }
 
   .prose h3 {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 1.15rem;
     font-weight: 400;
     font-style: italic;
@@ -230,7 +230,7 @@
     padding: 0.5rem 0 0.5rem 1.5rem;
   }
   .pullquote p {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 1.2rem;
     font-style: italic;
     font-weight: 400;
@@ -239,7 +239,7 @@
     margin-bottom: 0.5rem !important;
   }
   .pullquote cite {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 0.65rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -262,7 +262,7 @@
     text-align: center;
   }
   .data-cell .number {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--accent);
@@ -270,7 +270,7 @@
     display: block;
   }
   .data-cell .label {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 0.6rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -288,7 +288,7 @@
     padding: 1.5rem;
   }
   .figure-label {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 0.6rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -296,7 +296,7 @@
     margin-bottom: 0.4rem;
   }
   .figure-title {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 1rem;
     font-weight: 400;
     color: var(--ink);
@@ -319,7 +319,7 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 1rem;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 0.62rem;
     letter-spacing: 0.05em;
     color: var(--ink-muted);
@@ -357,7 +357,7 @@
     color: rgba(250,248,244,0.45);
     padding: 2.5rem 2rem;
     margin-top: 5rem;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 0.62rem;
     letter-spacing: 0.08em;
     line-height: 1.8;
@@ -377,13 +377,13 @@
     .abstract { margin: 1.5rem 1rem; }
   }
 </style>
-<link rel="stylesheet" href="/site-chrome.css?v=20261005-7">
+<link rel="stylesheet" href="/site-chrome.css?v=20261021-1">
 <link rel="icon" href="/images/brain-fog/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="All updates — Saurav Das" href="/feeds/all.xml">
 <link rel="alternate" type="application/rss+xml" title="Brain Fog — Saurav Das" href="/feeds/brain-fog.xml">
-<link rel="stylesheet" href="/essay-visual.css?v=20261005-1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300..900;1,300..900&amp;family=DM+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="/design-system.css?v=20261005-1">
+<link rel="stylesheet" href="/essay-visual.css?v=20261021-1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/design-system.css?v=20261021-1">
 </head>
 <body class="visual-essay essay-pathology-of-more site-system site-article">
 <a class="chrome-skip" href="#main">Skip to content</a>
@@ -771,8 +771,8 @@ const textColor = '#7a756a';
 const gridColor = 'rgba(122,117,106,0.15)';
 
 const baseScales = {
-  x: { grid:{color:gridColor}, ticks:{color:textColor,font:{size:11,family:'DM Mono, monospace'}} },
-  y: { grid:{color:gridColor}, ticks:{color:textColor,font:{size:11,family:'DM Mono, monospace'}} }
+  x: { grid:{color:gridColor}, ticks:{color:textColor,font:{size:11,family:'Century Schoolbook, Georgia, serif'}} },
+  y: { grid:{color:gridColor}, ticks:{color:textColor,font:{size:11,family:'Century Schoolbook, Georgia, serif'}} }
 };
 const basePlugins = { legend:{display:false} };
 
@@ -933,7 +933,7 @@ new Chart(document.getElementById('fig7'), {
 </script>
 
 <div style="max-width:680px;margin:40px auto 0;padding:0 24px 40px;">
-  <a href="/" style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--ink-muted);text-decoration:none;">&larr; Back home</a>
+  <a href="/" style="font-family:var(--ds-mono);font-size:12px;letter-spacing:0.05em;color:var(--ink-muted);text-decoration:none;">&larr; Back home</a>
 </div>
 <!-- SHARE BAR -->
 <div class="share-bar" id="shareBar">
@@ -996,7 +996,7 @@ new Chart(document.getElementById('fig7'), {
   transform: translateY(-50%);
   background: #1a1814;
   color: #faf8f4;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--ds-mono);
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 4px;

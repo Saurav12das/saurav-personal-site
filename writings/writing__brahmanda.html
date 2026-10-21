@@ -60,7 +60,7 @@
   body {
     background: var(--ink);
     color: var(--paper);
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 17px;
     line-height: 1.8;
     overflow-x: hidden;
@@ -94,7 +94,7 @@
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(to bottom, rgba(14,12,10,0.95), transparent);
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 12px;
     letter-spacing: 0.12em;
     color: var(--dim);
@@ -116,7 +116,7 @@
   }
 
   .hero-tag {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 11px;
     letter-spacing: 0.2em;
     color: var(--gold);
@@ -127,7 +127,7 @@
   }
 
   .hero h1 {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: clamp(52px, 9vw, 108px);
     font-weight: 300;
     line-height: 1.0;
@@ -145,7 +145,7 @@
 
   .hero-sub {
     margin-top: 32px;
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 22px;
     font-style: italic;
     font-weight: 300;
@@ -157,7 +157,7 @@
 
   .hero-meta {
     margin-top: 48px;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 11px;
     letter-spacing: 0.15em;
     color: var(--ash);
@@ -178,7 +178,7 @@
     animation: fadeUp 1s 1.4s forwards;
   }
   .scroll-hint span {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     letter-spacing: 0.2em;
     color: var(--ash);
@@ -204,7 +204,7 @@
     text-align: center;
   }
   .pull-quote blockquote {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: clamp(24px, 3.5vw, 34px);
     font-style: italic;
     font-weight: 300;
@@ -214,7 +214,7 @@
   .pull-quote cite {
     display: block;
     margin-top: 20px;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 11px;
     letter-spacing: 0.15em;
     color: var(--gold);
@@ -230,7 +230,7 @@
   }
 
   .section-number {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 11px;
     letter-spacing: 0.25em;
     color: var(--gold);
@@ -240,7 +240,7 @@
   }
 
   h2 {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: clamp(30px, 4vw, 44px);
     font-weight: 300;
     line-height: 1.2;
@@ -249,7 +249,7 @@
   }
 
   h3 {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 24px;
     font-weight: 600;
     color: var(--cream);
@@ -281,7 +281,7 @@
     background: linear-gradient(to right, transparent, rgba(200,169,110,0.3), transparent);
   }
   .section-break-glyph {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 22px;
     color: var(--gold);
     opacity: 0.6;
@@ -301,7 +301,7 @@
   }
   .stat-card:last-child { border-right: none; }
   .stat-num {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 42px;
     font-weight: 300;
     color: var(--gold);
@@ -310,7 +310,7 @@
     margin-bottom: 8px;
   }
   .stat-label {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     letter-spacing: 0.12em;
     color: var(--dim);
@@ -335,7 +335,7 @@
     pointer-events: none;
   }
   .arch-title {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     letter-spacing: 0.2em;
     color: var(--gold);
@@ -350,7 +350,7 @@
   }
   .arch-layer {
     padding: 12px 20px;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 12px;
     color: var(--cream);
     display: flex;
@@ -387,7 +387,7 @@
 
   .arch-connector {
     text-align: center;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 14px;
     color: rgba(200,169,110,0.25);
     padding: 2px 0;
@@ -416,20 +416,20 @@
   .yuga-dvapara { background: rgba(44,74,110,0.12); border-top: 2px solid #4a7aae; }
   .yuga-kali { background: rgba(139,58,42,0.15); border-top: 2px solid var(--rust); }
   .yuga-name {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 18px;
     font-weight: 600;
     color: var(--paper);
   }
   .yuga-sub {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 9px;
     letter-spacing: 0.12em;
     color: var(--dim);
     text-transform: uppercase;
   }
   .yuga-stat {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     color: var(--ash);
   }
@@ -438,7 +438,7 @@
     margin-top: 4px;
   }
   .yuga-caption {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     letter-spacing: 0.12em;
     color: var(--dim);
@@ -461,14 +461,14 @@
     border-bottom: 1px solid rgba(200,169,110,0.12);
   }
   .disc-header-title {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     letter-spacing: 0.2em;
     color: var(--gold);
     text-transform: uppercase;
   }
   .disc-header-sub {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     color: var(--dim);
   }
@@ -484,7 +484,7 @@
   .disc-row:hover { background: rgba(200,169,110,0.04); }
   .disc-row:last-child { border-bottom: none; }
   .disc-name {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 11px;
     color: var(--cream);
     letter-spacing: 0.04em;
@@ -505,7 +505,7 @@
   }
   @keyframes barGrow { to { transform: scaleX(1); } }
   .disc-pct {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 11px;
     color: var(--dim);
     text-align: right;
@@ -551,20 +551,20 @@
     transition: stroke-dashoffset 1.5s cubic-bezier(0.4,0,0.2,1);
   }
   .vice-label {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 13px;
     font-style: italic;
     color: var(--cream);
   }
   .vice-sanskrit {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 9px;
     letter-spacing: 0.1em;
     color: var(--dim);
     text-transform: uppercase;
   }
   .vice-pct {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 11px;
     color: var(--gold);
   }
@@ -608,7 +608,7 @@
   }
   .prana-x-label {
     flex: 1;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 9px;
     color: var(--dim);
     text-align: center;
@@ -625,7 +625,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     color: var(--dim);
   }
@@ -666,7 +666,7 @@
     display: block;
   }
   .awareness-box h3 {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 32px;
     font-weight: 300;
     font-style: italic;
@@ -684,7 +684,7 @@
     background: rgba(200,169,110,0.1);
     border: 1px solid rgba(200,169,110,0.3);
     padding: 4px 12px;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 13px;
     color: var(--gold);
     letter-spacing: 0.08em;
@@ -702,7 +702,7 @@
   }
   .q-item:first-child { border-top: 1px solid rgba(36,37,31,0.1); }
   .q-num {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 42px;
     font-weight: 300;
     color: rgba(200,169,110,0.25);
@@ -725,7 +725,7 @@
     overflow-x: auto;
   }
   .tree-title {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     letter-spacing: 0.2em;
     color: var(--gold);
@@ -741,7 +741,7 @@
   }
   .tree-node {
     padding: 6px 14px;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 11px;
     border: 1px solid;
     white-space: nowrap;
@@ -752,7 +752,7 @@
   .node-emergent { border-color: rgba(200,169,110,0.2); color: var(--dim); background: transparent; font-style: italic; }
   .node-emergent::before { content: '[S] '; color: var(--rust); opacity: 0.8; }
   .tree-arrow {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 13px;
     color: rgba(200,169,110,0.3);
   }
@@ -770,14 +770,14 @@
     flex-wrap: wrap;
   }
   .footer-left .footer-title {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 24px;
     font-weight: 300;
     color: var(--paper);
     margin-bottom: 8px;
   }
   .footer-meta {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 11px;
     color: var(--dim);
     line-height: 2;
@@ -791,7 +791,7 @@
     align-items: flex-end;
   }
   .footer-links a {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 11px;
     letter-spacing: 0.1em;
     color: var(--dim);
@@ -831,15 +831,15 @@
     .stat-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
-<link rel="stylesheet" href="/site-chrome.css?v=20261005-7">
+<link rel="stylesheet" href="/site-chrome.css?v=20261021-1">
 <link rel="icon" href="/images/brain-fog/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="All updates — Saurav Das" href="/feeds/all.xml">
 <link rel="alternate" type="application/rss+xml" title="Brain Fog — Saurav Das" href="/feeds/brain-fog.xml">
-<link rel="stylesheet" href="/post-art.css?v=20261004-1">
+<link rel="stylesheet" href="/post-art.css?v=20261021-1">
 <meta property="og:image:alt" content="Observers studying the sky inside a giant armillary sphere, with another observer outside it.">
-<link rel="stylesheet" href="/essay-visual.css?v=20261005-1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300..900;1,300..900&amp;family=DM+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="/design-system.css?v=20261005-1">
+<link rel="stylesheet" href="/essay-visual.css?v=20261021-1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/design-system.css?v=20261021-1">
 </head>
 <body class="visual-essay illustrated-post post-brahmanda site-system site-article">
 <a class="chrome-skip" href="#article-start">Skip to content</a>
@@ -1014,8 +1014,8 @@
     <p>Every soul carries the Arishadvarga &mdash; five internal forces that pull toward darkness. They are not moral categories in the simulation; they are <strong>behavioral parameters</strong> with measurable effects on Prana drain, decision-making, and social dynamics.</p>
 
     <div class="vice-section">
-      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">Arishadvarga &mdash; The Five Enemies</div>
-      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);margin-bottom:0;">Kali Yuga amplification: 1.5&times; &nbsp;|&nbsp; Satya Yuga dampening: 0.5&times; &nbsp;|&nbsp; Culture further dampens all</div>
+      <div style="font-family:var(--ds-mono);font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">Arishadvarga &mdash; The Five Enemies</div>
+      <div style="font-family:var(--ds-mono);font-size:11px;color:var(--dim);margin-bottom:0;">Kali Yuga amplification: 1.5&times; &nbsp;|&nbsp; Satya Yuga dampening: 0.5&times; &nbsp;|&nbsp; Culture further dampens all</div>
       <div class="vice-grid" id="viceGrid"></div>
     </div>
 
@@ -1038,7 +1038,7 @@
       <div id="discRows"></div>
     </div>
 
-    <p>Some of these are relatively easy &mdash; <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">vices_drain</code> is discoverable by any soul that survives long enough and notices the pattern. Others are harder: <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">rebirth_pattern</code> requires recognizing that something persists across deaths. <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">knowledge_compounds</code> requires observing the anti-rivalrous property of shared information &mdash; that teaching loses nothing and gains everything.</p>
+    <p>Some of these are relatively easy &mdash; <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:var(--ds-mono);font-size:12px;color:var(--gold)">vices_drain</code> is discoverable by any soul that survives long enough and notices the pattern. Others are harder: <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:var(--ds-mono);font-size:12px;color:var(--gold)">rebirth_pattern</code> requires recognizing that something persists across deaths. <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:var(--ds-mono);font-size:12px;color:var(--gold)">knowledge_compounds</code> requires observing the anti-rivalrous property of shared information &mdash; that teaching loses nothing and gains everything.</p>
     <p>And then there is the last one.</p>
   </section>
 
@@ -1071,7 +1071,7 @@
         <div class="q-num">02</div>
         <div class="q-body">
           <h3>Does prior discovery of other truths predict it?</h3>
-          <p>A soul who has already validated <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">karma_returns</code>, <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">rebirth_pattern</code>, and <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold)">entropy_cycles</code> is one who has noticed that the universe has deep regularities. Do such souls disproportionately arrive at simulation_awareness? Is there a prerequisite tree for the meta-discovery?</p>
+          <p>A soul who has already validated <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:var(--ds-mono);font-size:12px;color:var(--gold)">karma_returns</code>, <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:var(--ds-mono);font-size:12px;color:var(--gold)">rebirth_pattern</code>, and <code style="background:rgba(200,169,110,0.1);padding:2px 6px;font-family:var(--ds-mono);font-size:12px;color:var(--gold)">entropy_cycles</code> is one who has noticed that the universe has deep regularities. Do such souls disproportionately arrive at simulation_awareness? Is there a prerequisite tree for the meta-discovery?</p>
         </div>
       </div>
       <div class="q-item">
@@ -1132,7 +1132,7 @@
         <div class="tree-arrow">&rarr;</div>
         <div class="tree-node node-emergent">Karmic Record-Keeping</div>
       </div>
-      <div style="margin-top:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);display:flex;gap:24px;">
+      <div style="margin-top:20px;font-family:var(--ds-mono);font-size:10px;color:var(--dim);display:flex;gap:24px;">
         <span><span style="color:var(--gold)">&#9632;</span> Base knowledge</span>
         <span><span style="color:#3d7250">&#9632;</span> Derived discovery</span>
         <span><span style="color:var(--rust);">[S]</span> Soul-emergent field</span>
@@ -1228,9 +1228,9 @@
 
   <!-- FOOTER NOTE -->
   <div style="margin-top:64px;padding:32px;border:1px solid rgba(200,169,110,0.15);background:rgba(200,169,110,0.03);" class="reveal">
-    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;">Run It Yourself</div>
+    <div style="font-family:var(--ds-mono);font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;">Run It Yourself</div>
     <p style="font-size:14px;margin-bottom:16px;">Brahmanda runs on Python with the Anthropic API (or local Ollama). Clone, install, and spawn your own universe.</p>
-    <div style="font-family:'DM Mono',monospace;font-size:12px;color:#3d7250;background:var(--ds-paper);padding:16px;line-height:2;">
+    <div style="font-family:var(--ds-mono);font-size:12px;color:#3d7250;background:var(--ds-paper);padding:16px;line-height:2;">
       git clone https://github.com/Saurav12das/Brahmanda.git<br>
       pip install anthropic pydantic rich<br>
       ANTHROPIC_API_KEY=sk-your-key python3 -m brahmanda.main
@@ -1322,7 +1322,7 @@ pranaData.forEach(d => {
 });
 </script>
 <div style="max-width:720px;margin:40px auto 0;padding:0 24px 40px;">
-  <a href="/" style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--dim);text-decoration:none;">&larr; Back home</a>
+  <a href="/" style="font-family:var(--ds-mono);font-size:12px;letter-spacing:0.05em;color:var(--dim);text-decoration:none;">&larr; Back home</a>
 </div>
 <!-- SHARE BAR -->
 <div class="share-bar" id="shareBar">
@@ -1385,7 +1385,7 @@ pranaData.forEach(d => {
   transform: translateY(-50%);
   background: #1a1814;
   color: #faf8f4;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--ds-mono);
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 4px;

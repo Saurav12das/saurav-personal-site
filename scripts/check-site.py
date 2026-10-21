@@ -36,7 +36,7 @@ for rel in PAGES:
         assert 'site-system' in page.body_classes, f'{rel}: missing shared design class'
         assert page.styles[-1].startswith('/design-system.css?'), f'{rel}: shared design must load last'
         fonts=[href for href in page.styles if 'fonts.googleapis.com/' in href]
-        assert len(fonts)==1 and 'DM+Sans' in fonts[0] and 'DM+Mono' in fonts[0], f'{rel}: use the shared font request'
+        assert len(fonts)==1 and 'EB+Garamond' in fonts[0], f'{rel}: use the shared font request'
         if 'writing__' in rel:
             assert 'site-article' in page.body_classes and 'class="essay-masthead"' in source, f'{rel}: missing shared essay opening'
         assert source.count('data-site-nav')==1, f'{rel}: expected one shared page navigation'

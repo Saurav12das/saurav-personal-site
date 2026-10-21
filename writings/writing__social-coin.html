@@ -60,7 +60,7 @@
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--ds-font);
     font-weight: 300;
     line-height: 1.72;
     overflow-x: hidden;
@@ -74,7 +74,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--ds-font);
   }
   .site-nav-inner {
     max-width: 920px;
@@ -99,7 +99,7 @@
   }
   .masthead::after { content: ''; display: block; height: 1px; background: var(--ink); margin-top: 10px; }
   .pub-name {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 0.3em;
@@ -107,7 +107,7 @@
     color: var(--muted);
   }
   .pub-name a { color: inherit; text-decoration: none; }
-  .issue-line { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--muted); margin-top: 3px; }
+  .issue-line { font-family: var(--ds-mono); font-size: 9px; letter-spacing: 0.2em; color: var(--muted); margin-top: 3px; }
 
   /* ── HERO ── */
   .hero {
@@ -120,7 +120,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 9px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -129,7 +129,7 @@
   }
   .series-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent2); }
   h1 {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: clamp(34px, 5.5vw, 68px);
     font-weight: 700;
     line-height: 1.06;
@@ -148,7 +148,7 @@
     margin-bottom: 28px;
     line-height: 1.62;
   }
-  .byline { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; }
+  .byline { font-family: var(--ds-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; }
 
   /* ── LAYOUT ── */
   .content-wrap { max-width: 920px; margin: 0 auto; padding: 0 40px; }
@@ -158,9 +158,9 @@
 
   /* ── SECTION HEADERS ── */
   .section-header { display: flex; align-items: center; gap: 16px; margin: 60px 0 26px; }
-  .section-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--accent2); white-space: nowrap; }
+  .section-num { font-family: var(--ds-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--accent2); white-space: nowrap; }
   h2 {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 27px;
     font-weight: 700;
     border-bottom: 2px solid var(--ink);
@@ -170,7 +170,7 @@
 
   /* ── PULL QUOTE ── */
   .pull-quote {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: clamp(20px, 3.5vw, 34px);
     font-weight: 600;
     font-style: italic;
@@ -183,7 +183,7 @@
   }
   .pull-quote cite {
     display: block;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     font-style: normal;
     letter-spacing: 0.2em;
@@ -213,7 +213,7 @@
     line-height: 1;
   }
   .coin-callout h3 {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--ds-font);
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 14px;
@@ -238,23 +238,23 @@
     align-items: flex-start;
     gap: 12px;
   }
-  .figure-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent2); }
-  .figure-title { font-family: "DM Sans", Arial, sans-serif; font-size: 17px; font-weight: 700; margin-top: 4px; line-height: 1.25; }
-  .figure-source { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); white-space: nowrap; margin-top: 4px; }
+  .figure-label { font-family: var(--ds-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent2); }
+  .figure-title { font-family: var(--ds-font); font-size: 17px; font-weight: 700; margin-top: 4px; line-height: 1.25; }
+  .figure-source { font-family: var(--ds-mono); font-size: 9px; color: var(--muted); white-space: nowrap; margin-top: 4px; }
   .figure-body { padding: 24px; }
   .figure-caption { padding: 10px 24px 16px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--rule); font-style: italic; }
 
   /* ── STAT GRID ── */
   .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); }
   .stat-cell { background: white; padding: 20px 16px; text-align: center; }
-  .stat-num { font-family: "DM Sans", Arial, sans-serif; font-size: 40px; font-weight: 700; line-height: 1; display: block; }
+  .stat-num { font-family: var(--ds-font); font-size: 40px; font-weight: 700; line-height: 1; display: block; }
   .stat-num.green { color: var(--accent); }
   .stat-num.amber { color: var(--accent2); }
   .stat-num.navy { color: var(--accent3); }
   .stat-num.red { color: var(--danger); }
   .stat-num.gold { color: var(--coin); }
   .stat-label { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
-  .stat-source { font-family: 'DM Mono', monospace; font-size: 9px; color: #bbb; margin-top: 4px; }
+  .stat-source { font-family: var(--ds-mono); font-size: 9px; color: #bbb; margin-top: 4px; }
 
   /* ── BAR CHART ── */
   .bar-chart { width: 100%; }
@@ -269,7 +269,7 @@
   .bar-fill.red { background: var(--danger); }
   .bar-fill.gold { background: var(--coin); }
   .bar-fill.dark { background: var(--ink); }
-  .bar-val { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; color: var(--ink); min-width: 52px; text-align: right; }
+  .bar-val { font-family: var(--ds-mono); font-size: 11px; font-weight: 500; color: var(--ink); min-width: 52px; text-align: right; }
 
   /* ── WAFFLE ── */
   .waffle-wrap { display: flex; flex-wrap: wrap; gap: 3px; }
@@ -288,17 +288,17 @@
   .layer-card { padding: 24px; }
   .layer-card.rep { background: #f5f8f5; border-top: 4px solid var(--accent); }
   .layer-card.econ { background: #fdf8ef; border-top: 4px solid var(--coin); }
-  .layer-card h3 { font-family: "DM Sans", Arial, sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+  .layer-card h3 { font-family: var(--ds-font); font-size: 16px; font-weight: 700; margin-bottom: 12px; }
   .layer-card ul { list-style: none; padding: 0; }
   .layer-card ul li { font-size: 13px; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.06); line-height: 1.4; color: #333; }
-  .layer-card ul li::before { content: '→ '; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
+  .layer-card ul li::before { content: '→ '; font-family: var(--ds-mono); font-size: 10px; color: var(--muted); }
 
   /* ── PRECEDENT TABLE ── */
   .prec-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .prec-table th { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; text-align: left; padding: 10px 14px; background: var(--ink); color: var(--paper); }
+  .prec-table th { font-family: var(--ds-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; text-align: left; padding: 10px 14px; background: var(--ink); color: var(--paper); }
   .prec-table td { padding: 10px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.4; }
   .prec-table tr:hover td { background: var(--warm); }
-  .pill { display: inline-block; padding: 2px 8px; border-radius: 2px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 2px; font-family: var(--ds-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
   .pill.success { background: #e8f5e9; color: #2e7d32; }
   .pill.failed { background: #fde8e8; color: #b83232; }
   .pill.partial { background: #fff3e0; color: #e65100; }
@@ -307,8 +307,8 @@
   /* ── DESIGN PRINCIPLES ── */
   .design-grid { display: grid; gap: 12px; }
   .design-item { display: flex; gap: 16px; padding: 16px; background: var(--warm); }
-  .design-num { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; min-width: 36px; }
-  .design-item h4 { font-family: "DM Sans", Arial, sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .design-num { font-family: var(--ds-mono); font-size: 22px; font-weight: 500; min-width: 36px; }
+  .design-item h4 { font-family: var(--ds-font); font-size: 15px; font-weight: 700; margin-bottom: 4px; }
   .design-item p { font-size: 13px; color: #444; line-height: 1.5; margin: 0; }
 
   /* ── INFO BOX ── */
@@ -326,7 +326,7 @@
     margin: 64px auto 44px;
     padding: 24px 40px;
     border-top: 2px solid var(--ink);
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ds-mono);
     font-size: 10px;
     color: var(--muted);
     line-height: 1.8;
@@ -345,13 +345,13 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
   .fade-in { animation: fadeUp 0.7s ease both; }
 </style>
-<link rel="stylesheet" href="/site-chrome.css?v=20261005-7">
+<link rel="stylesheet" href="/site-chrome.css?v=20261021-1">
 <link rel="icon" href="/images/brain-fog/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="All updates — Saurav Das" href="/feeds/all.xml">
 <link rel="alternate" type="application/rss+xml" title="Brain Fog — Saurav Das" href="/feeds/brain-fog.xml">
-<link rel="stylesheet" href="/essay-visual.css?v=20261005-1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300..900;1,300..900&amp;family=DM+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="/design-system.css?v=20261005-1">
+<link rel="stylesheet" href="/essay-visual.css?v=20261021-1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/design-system.css?v=20261021-1">
 </head>
 <body class="visual-essay essay-social-coin site-system site-article">
 <a class="chrome-skip" href="#main">Skip to content</a>
@@ -374,7 +374,7 @@
 <div class="content-wrap">
 
   <div style="background:var(--warm); border-left:3px solid var(--coin); padding:22px 26px; margin:36px 0 28px; border-radius:1px;">
-    <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent2); margin-bottom:10px;">A Personal Note</div>
+    <div style="font-family:var(--ds-mono); font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent2); margin-bottom:10px;">A Personal Note</div>
     <p style="font-size:15px; color:#2a2a2a; margin-bottom:12px; font-style:italic;">I've been sitting on this idea for a while. Watching the AI wave accelerate, reading the policy debates, talking to people in my field and outside it — and feeling like something important was missing from every conversation about what comes next. The UBI proposals are well-intentioned. The retraining programs make sense on paper. But none of them address the thing that keeps bothering me: what happens to <em>people</em> when the structure of daily contribution disappears?</p>
     <p style="font-size:15px; color:#2a2a2a; margin-bottom:12px; font-style:italic;">I think about the farmers and researchers I work with. The people who show up early, who carry knowledge in their hands and their habits, whose contribution to the world doesn't fit neatly into a job title or a salary. I think about what motivates them — and it isn't primarily money. It's the feeling that what they do matters. That someone noticed. That their effort left something behind.</p>
     <p style="font-size:15px; color:#2a2a2a; margin-bottom:0; font-style:italic;">That's what got me thinking about a Social Coin. Not as a technocratic policy instrument, but as an answer to a genuinely human question: in a world where AI is doing more of the work, how do we keep people engaged, purposeful, and economically connected? What if the act of going to the gym, helping a neighbor, making something with your hands, or showing up for your community actually earned you something real?</p>
@@ -459,18 +459,18 @@
     <div class="figure-body">
       <div class="essay-comparison" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--rule); margin-bottom:20px;">
         <div style="background:white; padding:18px; text-align:center;">
-          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Wellbeing</div>
-          <div style="font-size:28px; font-family:"DM Sans", Arial, sans-serif; font-weight:700; color:var(--accent);">↑ Strong</div>
+          <div style="font-family:var(--ds-mono); font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Wellbeing</div>
+          <div style="font-size:28px; font-family:var(--ds-font); font-weight:700; color:var(--accent);">↑ Strong</div>
           <div style="font-size:12px; color:#555; margin-top:6px; line-height:1.4;">Finland: 54.8% good health vs 46.2% control.<br>Stockton: Anxiety fell 28%.<br>GiveDirectly: +0.26 SD happiness</div>
         </div>
         <div style="background:white; padding:18px; text-align:center;">
-          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent2); margin-bottom:10px;">Employment</div>
-          <div style="font-size:28px; font-family:"DM Sans", Arial, sans-serif; font-weight:700; color:var(--accent2);">→ Flat/Mixed</div>
+          <div style="font-family:var(--ds-mono); font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent2); margin-bottom:10px;">Employment</div>
+          <div style="font-size:28px; font-family:var(--ds-font); font-weight:700; color:var(--accent2);">→ Flat/Mixed</div>
           <div style="font-size:12px; color:#555; margin-top:6px; line-height:1.4;">Finland: +6 days/year only.<br>Stockton: Full-time work 28%→40%.<br>OpenResearch: −2 pp employment</div>
         </div>
         <div style="background:white; padding:18px; text-align:center;">
-          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--danger); margin-bottom:10px;">Purpose & Meaning</div>
-          <div style="font-size:28px; font-family:"DM Sans", Arial, sans-serif; font-weight:700; color:var(--danger);">↓ Unaddressed</div>
+          <div style="font-family:var(--ds-mono); font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--danger); margin-bottom:10px;">Purpose & Meaning</div>
+          <div style="font-size:28px; font-family:var(--ds-font); font-weight:700; color:var(--danger);">↓ Unaddressed</div>
           <div style="font-size:12px; color:#555; margin-top:6px; line-height:1.4;">OpenResearch: Benefits fade yrs 2–3.<br>No trial measures contribution identity.<br>Structure &amp; belonging: unmeasured</div>
         </div>
       </div>
@@ -930,7 +930,7 @@
     <div class="figure-body" style="padding:0;">
       <div class="essay-comparison" style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule);">
         <div style="background:#fdf0f0; padding:20px; border-top:4px solid var(--danger);">
-          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--danger); margin-bottom:10px;">What to AVOID — China SCS Model</div>
+          <div style="font-family:var(--ds-mono); font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--danger); margin-bottom:10px;">What to AVOID — China SCS Model</div>
           <ul style="list-style:none; font-size:13px; line-height:1.7; color:#333;">
             <li>❌ Mandatory participation — no opt-out</li>
             <li>❌ Punishments for non-participation (blacklists)</li>
@@ -943,7 +943,7 @@
           </ul>
         </div>
         <div style="background:#f0f7f3; padding:20px; border-top:4px solid var(--accent);">
-          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Social Coin — Democratic Design Principles</div>
+          <div style="font-family:var(--ds-mono); font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Social Coin — Democratic Design Principles</div>
           <ul style="list-style:none; font-size:13px; line-height:1.7; color:#333;">
             <li>✓ Fully voluntary — no penalty for non-participation</li>
             <li>✓ Rewards only, never punishments</li>
@@ -1178,7 +1178,7 @@
   waffleObs.observe(waffle);
 </script>
 <div style="max-width:720px;margin:40px auto 0;padding:0 24px 40px;">
-  <a href="/" style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--muted);text-decoration:none;">&larr; Back home</a>
+  <a href="/" style="font-family:var(--ds-mono);font-size:12px;letter-spacing:0.05em;color:var(--muted);text-decoration:none;">&larr; Back home</a>
 </div>
 <!-- SHARE BAR -->
 <div class="share-bar" id="shareBar">
@@ -1241,7 +1241,7 @@
   transform: translateY(-50%);
   background: #1a1814;
   color: #faf8f4;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--ds-mono);
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 4px;

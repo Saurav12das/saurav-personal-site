@@ -25,9 +25,9 @@
     --blue-pale: #e8f0f9;
     --border: rgba(26,23,20,0.10);
     --border-mid: rgba(26,23,20,0.18);
-    --serif: "DM Sans", Arial, sans-serif;
-    --body: "DM Sans", Arial, sans-serif;
-    --mono: 'DM Mono', monospace;
+    --serif: var(--ds-font);
+    --body: var(--ds-font);
+    --mono: var(--ds-mono);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -645,17 +645,17 @@
     .references { padding: 24px 20px; }
   }
 </style>
-<link rel="stylesheet" href="/site-chrome.css?v=20261005-7">
+<link rel="stylesheet" href="/site-chrome.css?v=20261021-1">
 <link rel="icon" href="/images/brain-fog/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="All updates — Saurav Das" href="/feeds/all.xml">
 <link rel="alternate" type="application/rss+xml" title="Brain Fog — Saurav Das" href="/feeds/brain-fog.xml">
-<link rel="stylesheet" href="/post-art.css?v=20261004-1">
+<link rel="stylesheet" href="/post-art.css?v=20261021-1">
 <meta property="og:image" content="https://sauravdas.me/images/essays/balance-sheet.jpg">
 <meta name="twitter:image" content="https://sauravdas.me/images/essays/balance-sheet.jpg">
 <meta property="og:image:alt" content="An open ledger merging into layers of soil and groundwater beneath a farm and an orange sun.">
-<link rel="stylesheet" href="/essay-visual.css?v=20261005-1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300..900;1,300..900&amp;family=DM+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="/design-system.css?v=20261005-1">
+<link rel="stylesheet" href="/essay-visual.css?v=20261021-1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/design-system.css?v=20261021-1">
 </head>
 <body class="visual-essay illustrated-post post-balance-sheet site-system site-article">
 <a class="chrome-skip" href="#article-start">Skip to content</a>
@@ -1408,7 +1408,7 @@ const LIGHT = '#9e9589';
   transform: translateY(-50%);
   background: #1a1814;
   color: #faf8f4;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--ds-mono);
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 4px;

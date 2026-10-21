@@ -13,7 +13,7 @@
   --green-deep: #174630;
   --green-soft: #eef4ef;
   --tint: #f7f7f5;
-  --font: "DM Sans", Arial, sans-serif;
+  --font: var(--ds-font);
   --radius: 12px;
   --nav-h: 64px;
 }

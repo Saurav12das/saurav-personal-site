@@ -18,11 +18,11 @@
   align-items: baseline;
   gap: 24px;
   padding: 17px 22px;
-  font: 400 12px/1.7 "DM Sans", Arial, sans-serif;
+  font: 400 12px/1.7 var(--ds-font);
   border-bottom: 1px solid #d9d7cc;
 }
 .illustrated-post .post-art-note {
-  font: 400 9px/1.7 "DM Mono", monospace;
+  font: 400 9px/1.7 var(--ds-mono);
   flex-shrink: 0;
 }
 .post-dark .hero { min-height: 0; padding: 62px 24px 38px; }

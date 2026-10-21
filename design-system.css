@@ -1,4 +1,5 @@
-/* One visual system for the personal site. Page files own content-specific layouts. */
+/* One visual system for the personal site. Page files own content-specific layouts.
+   Type: EB Garamond for titles, Century Schoolbook for reading text and labels (Georgia stands in where it is not installed). */
 :root {
   --ds-paper: #f5f3eb;
   --ds-panel: #eeebe1;
@@ -8,8 +9,11 @@
   --ds-line: #d9d7cc;
   --ds-accent: #b94b29;
   --ds-accent-soft: #f0e4d9;
-  --ds-font: "DM Sans", Arial, sans-serif;
-  --ds-mono: "DM Mono", monospace;
+  --ds-serif-display: "EB Garamond", Garamond, "Adobe Garamond Pro", "Garamond Premier Pro", Georgia, serif;
+  --ds-serif-text: "Century Schoolbook", "New Century Schoolbook", "Century Schoolbook L", "TeX Gyre Schola", "C059", Georgia, serif;
+  --ds-display: var(--ds-serif-display);
+  --ds-font: var(--ds-serif-text);
+  --ds-mono: var(--ds-serif-text);
   --ds-page-width: 1184px;
   --ds-reading-width: 840px;
   --ds-gutter: 48px;
@@ -36,22 +40,23 @@ body.site-system {
   font-family: var(--ds-font);
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 .site-system :is(h1, h2, h3, h4, h5, h6) {
-  font-family: var(--ds-font);
+  font-family: var(--ds-display) !important;
   font-style: normal;
-  font-weight: 650;
-  letter-spacing: -.04em;
+  font-weight: 600;
+  letter-spacing: -.012em !important;
+  font-variant-numeric: lining-nums;
 }
 .site-system :is(h1, h2, h3, h4, h5, h6) :is(em, i) {
   font-family: inherit;
   font-weight: inherit;
 }
 .site-system :is(.page-head, .library-hero, .article-title, .essay-masthead, .hero) h1 {
-  font: 650 clamp(42px, 5.5vw, 72px)/1.06 var(--ds-font);
-  letter-spacing: -.055em;
+  font: 500 clamp(46px, 6vw, 80px)/1.02 var(--ds-display);
+  letter-spacing: -.02em;
   color: var(--ds-ink);
 }
 .site-system :is(.page-head, .library-hero, .article-title, .essay-masthead, .hero) h1 :is(em, span) {
@@ -61,7 +66,7 @@ body.site-system {
 }
 .site-system .feature-copy h2 em { font-family: inherit; font-weight: inherit; }
 .site-system :is(.page-head, .library-hero) { padding-top: 64px; padding-bottom: 48px; }
-.site-system :is(.page-head .lede, .library-deck) { font: 400 20px/1.65 var(--ds-font); color: var(--ds-text); letter-spacing: -.015em; }
+.site-system :is(.page-head .lede, .library-deck) { font: 400 clamp(22px, 2.4vw, 28px)/1.35 var(--ds-display); color: var(--ds-ink); letter-spacing: 0; }
 .site-system :is(.wrap, .library-wrap):not(.post-wdma > .wrap) { max-width: var(--ds-page-width); }
 .site-system .research-page { background: var(--ds-paper); }
 .site-system :is(.card, .theme, .pub, .timeline-item, .aside-card) { border-color: var(--ds-line); border-radius: 3px; box-shadow: none; }
@@ -83,7 +88,7 @@ body.site-system {
 .narrative-edition .chapter { display: flow-root; padding-bottom: 32px; margin-bottom: 42px; }
 .narrative-edition .chapter > h2 { font-size: clamp(28px, 3.1vw, 36px); line-height: 1.2; }
 .narrative-edition .chapter > p { max-width: none; font-size: 18px; line-height: 1.85; margin: 0 0 24px; }
-.narrative-edition .chapter > .intro-question { font-size: 26px; line-height: 1.5; margin-bottom: 28px; }
+.narrative-edition .chapter > .intro-question { font-family: var(--ds-display); font-size: 28px; line-height: 1.45; margin-bottom: 28px; }
 .narrative-edition .narrative-portrait { float: right; width: 150px; margin: 5px 0 24px 30px; }
 .narrative-edition .narrative-portrait img { display: block; width: 100%; height: 185px; object-fit: cover; object-position: center 22%; filter: grayscale(1); }
 .narrative-edition .narrative-portrait figcaption { padding-top: 10px; font-size: 12px; line-height: 1.6; color: var(--ds-muted); }
@@ -121,7 +126,7 @@ body.site-system {
 .site-article .essay-masthead { padding: 30px 0 38px; }
 .site-article .essay-heading-grid { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 48px; align-items: end; }
 .site-article .essay-masthead h1 { font-size: clamp(40px, 5.1vw, 68px); max-width: 760px; }
-.site-article .essay-subtitle { font: 500 22px/1.4 var(--ds-font); color: var(--ds-text); }
+.site-article .essay-subtitle { font: 500 24px/1.35 var(--ds-display); color: var(--ds-text); }
 .site-article .essay-deck { font: 400 16px/1.8 var(--ds-font); color: var(--ds-text); }
 .site-article .essay-edition-line { text-transform: uppercase; }
 .site-article .essay-wayfinding { position: static; transform: none; background: none; z-index: auto; }
@@ -139,8 +144,8 @@ body.site-system {
   margin-bottom: 22px;
 }
 .site-article :is(.content-wrap, .article-body, .content, main.wrap, .prose) h2 {
-  font: 650 clamp(25px, 3vw, 32px)/1.22 var(--ds-font);
-  letter-spacing: -.04em;
+  font: 600 clamp(26px, 3vw, 34px)/1.2 var(--ds-display);
+  letter-spacing: -.012em;
   color: var(--ds-ink);
   border: 0;
 }
@@ -153,7 +158,8 @@ body.site-system {
 .site-article :is(.figure-title, .chart-title) { font-family: var(--ds-font); color: var(--ds-ink); font-weight: 600; }
 .site-article :is(.figure-source, .figure-caption, .chart-source) { color: var(--ds-muted); }
 .site-article :is(.pull-quote, .pullquote, .pull-quote blockquote) {
-  font-family: var(--ds-font);
+  font-family: var(--ds-display);
+  font-size: 1.1em;
   font-style: normal;
   color: var(--ds-ink);
   background: var(--ds-panel);
@@ -161,7 +167,7 @@ body.site-system {
   border-left: 3px solid var(--ds-accent);
   padding: 24px 28px;
 }
-.site-article :is(.pullquote p, .pull-quote p) { color: var(--ds-ink); font-family: var(--ds-font); }
+.site-article :is(.pullquote p, .pull-quote p) { color: var(--ds-ink); font-family: var(--ds-display); }
 .site-article .pull-quote blockquote { padding: 0; border: 0; }
 .site-article :is(.pullquote cite, .pull-quote cite) { color: var(--ds-muted); }
 .site-article :is(.lede p, .prose p)::first-letter { float: none; font: inherit; margin: 0; }
@@ -228,6 +234,12 @@ body.post-wdma {
 .research-page .callout { background: var(--ds-panel); border-color: var(--ds-line); }
 .research-page .aside-card { top: calc(var(--nav-h, 91px) + 24px); }
 
+/* Small labels were drawn for a mono face; the serif needs a little more size. */
+.site-system :is(.mono, .intro-line, .eyebrow-label, .edition-divider, .issue-meta, .topic-tags, .reading-time, .section-label > span, .masthead-note > span, .path-category, .path-number, .page-head .kicker, .contents > span, .chapter-number, .chart-subtitle, .chart-axis, .keynes-day span, .range-endpoints, .source-list li::before, .image-stamp, .library-kicker, .library-micro, .shelf-edition, .shelf-number, .shelf-status, .screen-filters button > span, .rating-number, .screen-verdict, .essay-edition-line, .essay-eyebrow, .essay-byline, .essay-art-note, .essay-wayfinding > span, .essay-related-heading, .post-art-note, .abstract-label) { font-size: 11px; letter-spacing: .07em; }
+.site-system :is(.essay-sources, .shelf-author, .follow-page code) { font-size: 12px; }
+.site-system .masthead h1 { font-weight: 500; }
+.site-system .feature-copy h2 { font-weight: 500; }
+
 @media (max-width: 1000px) {
   :root { --ds-gutter: 32px; }
   .site-article .essay-heading-grid { gap: 32px; }
@@ -235,7 +247,7 @@ body.post-wdma {
 @media (max-width: 700px) {
   :root { --ds-gutter: 20px; }
   .site-system :is(.page-head, .library-hero) { padding-top: 40px; padding-bottom: 36px; }
-  .site-system :is(.page-head, .library-hero, .article-title, .essay-masthead, .hero) h1 { font-size: clamp(36px, 9.5vw, 52px); }
+  .site-system :is(.page-head, .library-hero, .article-title, .essay-masthead, .hero) h1 { font-size: clamp(40px, 10.5vw, 56px); }
   .site-article .essay-heading-grid { grid-template-columns: 1fr; gap: 22px; }
   .site-article .essay-heading-aside { max-width: none; justify-self: start; }
   .site-article .essay-cover { width: 100%; }

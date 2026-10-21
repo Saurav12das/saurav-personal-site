@@ -1,11 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap");
 /* Brain Fog index: every piece in one newest-first grid, with topic filters and search. */
-/* Type: Garamond for titles, Century Schoolbook for reading text and labels.
-   Century Schoolbook is used where it is installed; Georgia stands in elsewhere. */
-.site-system.fog-index {
-  --fog-display: "EB Garamond", Garamond, "Adobe Garamond Pro", "Garamond Premier Pro", Georgia, serif;
-  --fog-body: "Century Schoolbook", "New Century Schoolbook", "Century Schoolbook L", "TeX Gyre Schola", "C059", Georgia, serif;
-}
+/* Type comes from the shared design-system tokens: Garamond titles, Century Schoolbook text. */
+.site-system.fog-index { --fog-display: var(--ds-display); --fog-body: var(--ds-font); }
 /* A white ground, so the ivory cover tiles read as distinct cards. */
 body.site-system.fog-index { --bg: #fff; background: #fff; font-family: var(--fog-body); font-size: 16px; line-height: 1.65; }
 .site-system.fog-index :is(h1, h2, h3) { font-family: var(--fog-display); font-weight: 600; letter-spacing: -.012em; font-variant-numeric: lining-nums; }

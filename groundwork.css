@@ -1,10 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap");
-/* Groundwork: the research story as one readable thread. Garamond for titles, Century Schoolbook for text.
-   Century Schoolbook is used where it is installed; Georgia stands in elsewhere. */
-.site-system.ground-page {
-  --gw-display: "EB Garamond", Garamond, "Adobe Garamond Pro", "Garamond Premier Pro", Georgia, serif;
-  --gw-body: "Century Schoolbook", "New Century Schoolbook", "Century Schoolbook L", "TeX Gyre Schola", "C059", Georgia, serif;
-}
+/* Groundwork: the research story as one readable thread. Type comes from the shared design-system tokens. */
+.site-system.ground-page { --gw-display: var(--ds-display); --gw-body: var(--ds-font); }
 body.site-system.ground-page { --bg: #fff; margin: 0; background: #fff; font-family: var(--gw-body); font-size: 16px; line-height: 1.65; }
 .site-system.ground-page .site-connect { --chrome-paper: #fff; }
 .site-system.ground-page :is(h1, h2, h3) { font-family: var(--gw-display); font-weight: 600; letter-spacing: -.012em; font-variant-numeric: lining-nums; }

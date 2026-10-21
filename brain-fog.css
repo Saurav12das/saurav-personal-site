@@ -9,11 +9,11 @@
   --green-deep: #94371c;
   --green-soft: #eee5d7;
   --tint: #efede3;
-  --font: "DM Sans", Arial, sans-serif;
+  --font: var(--ds-font);
   --radius: 3px;
   --orange: #c4502c;
-  --serif: "DM Sans", Arial, sans-serif;
-  --mono: "DM Mono", monospace;
+  --serif: var(--ds-font);
+  --mono: var(--ds-mono);
 }
 body {
   font-size: 16px;
