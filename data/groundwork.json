@@ -1,6 +1,7 @@
 {
   "verified": "2026-10-05",
-  "connectionNote": "A reading path through related ideas, not a citation network. Lines show conceptual connections; years show publication dates.",
+  "connectionNote": "A reading path through related ideas, not a citation network. Connections are conceptual; years are publication dates.",
+  "openQuestion": { "text": "Can a fairer benchmark lead to a better decision in the field?", "href": "/products.html", "link": "Where research meets building" },
   "papers": [
     {
       "id": "gap", "short": "Soil Health Gap", "year": "2020", "stage": "Define improvement", "x": 15, "y": 30,
@@ -84,6 +85,44 @@
       "body": "The journey now connects long-term farming systems research with practical indicators, attainable targets, and tools that make evidence easier to use. The same curiosity extends into building: how can careful science travel beyond a paper and become part of an everyday decision?",
       "carry": "Connect ecological potential, present condition, and the next useful action.",
       "href": "/products.html", "link": "See what I’m building", "tags": ["Farming systems", "Attainable targets", "Research into tools"]
+    }
+  ],
+  "otherWork": [
+    {
+      "year": "2026", "venue": "Position paper",
+      "title": "Soil Health in Practice: Principles, Proof, and the Path Forward",
+      "summary": "A systems-oriented look at how soil health moved from niche concept to organizing framework, and what kinds of evidence are still needed to connect management practices to measurable outcomes.",
+      "url": "https://rodaleinstitute.org/science/articles/soil-health-in-practice-principles-proof-and-the-path-forward/"
+    },
+    {
+      "year": "2025", "venue": "Sustainability",
+      "title": "Soil Carbon Sequestration: A Mechanistic Perspective on Limitations and Future Possibilities",
+      "summary": "Examines where soil carbon narratives are scientifically strong, where they become overstated, and what mechanistic understanding is required for credible long-term sequestration claims.",
+      "url": "https://www.mdpi.com/2071-1050/17/13/6015"
+    },
+    {
+      "year": "2024", "venue": "Agrosystems, Geosciences & Environment",
+      "title": "Soil Health Cycle",
+      "summary": "A framework for thinking about soil health as an iterative management cycle linking practices, indicators, functions, and human decision-making rather than as a one-time score.",
+      "url": "https://digitalcommons.unl.edu/agronomyfacpub/1773/"
+    },
+    {
+      "year": "2024", "venue": "PLOS One",
+      "title": "Nitrogen Dynamics as a Function of Soil Types, Compaction, and Moisture",
+      "summary": "Investigates how compaction and moisture regimes shape nitrogen transformations, leaching, volatilization, and emissions across contrasting soil textures.",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0301296"
+    },
+    {
+      "year": "2018", "venue": "BMC Microbiology",
+      "title": "Characterization of Siderophore Producing Arsenic-Resistant Staphylococcus sp. Strain TA6",
+      "summary": "A study of arsenic-resistant bacteria from contaminated groundwater in Assam and their possible role in the local arsenic geocycle.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30180796/"
+    },
+    {
+      "year": "2017", "venue": "Genomics Data",
+      "title": "A Metagenomic Approach to Decipher the Indigenous Microbial Communities of Arsenic Contaminated Groundwater of Assam",
+      "summary": "An early metagenomic investigation into the microbial communities inhabiting arsenic-affected groundwater systems, reflecting the foundation of my research journey.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5379903/"
     }
   ]
 }
