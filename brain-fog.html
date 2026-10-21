@@ -6,7 +6,7 @@
     <title>Brain Fog — Writing & weekly explorations</title>
     <meta
       name="description"
-      content="Every edition of Brain Fog, a visual weekly notebook by Saurav Das."
+      content="Every piece of Brain Fog in one place: weekly visual issues and longer essays by Saurav Das on work, faith, food, and machines."
     />
     <meta name="theme-color" content="#f5f3eb" />
     <link rel="canonical" href="https://sauravdas.me/brain-fog" />
@@ -17,7 +17,7 @@
     />
     <meta
       property="og:description"
-      content="Every edition of Brain Fog, a visual weekly notebook by Saurav Das."
+      content="Every piece of Brain Fog in one place: weekly visual issues and longer essays by Saurav Das on work, faith, food, and machines."
     />
     <meta property="og:url" content="https://sauravdas.me/brain-fog" />
     <meta
@@ -43,10 +43,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="/site.css?v=20261005-1" />
-    <link rel="stylesheet" href="/brain-fog.css?v=20261005-2" />
+    <link rel="stylesheet" href="/brain-fog.css?v=20261021-1" />
+    <link rel="stylesheet" href="/brain-fog-index.css?v=20261021-1" />
     <script defer src="/site.js?v=20261005-6"></script>
-    <script defer src="/brain-fog.js?v=20261004"></script>
-    <script defer src="/brain-fog-index.js?v=20261005-1"></script>
+    <script defer src="/brain-fog-index.js?v=20261021-1"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Brain Fog",
+      "url": "https://sauravdas.me/brain-fog",
+      "description": "Weekly visual issues and longer essays by Saurav Das on work, faith, food, and machines.",
+      "author": { "@type": "Person", "name": "Saurav Das", "url": "https://sauravdas.me/about" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListOrder": "https://schema.org/ItemListOrderDescending",
+        "numberOfItems": 8,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "God is for the poor.", "url": "https://sauravdas.me/brain-fog/god-is-for-the-poor" },
+          { "@type": "ListItem", "position": 2, "name": "The machines were never the whole story.", "url": "https://sauravdas.me/brain-fog/automation-and-economics" },
+          { "@type": "ListItem", "position": 3, "name": "The Pathology of More", "url": "https://sauravdas.me/writings/writing__pathology-of-more" },
+          { "@type": "ListItem", "position": 4, "name": "The Balance Sheet We Never Audited", "url": "https://sauravdas.me/writings/writing__balance-sheet" },
+          { "@type": "ListItem", "position": 5, "name": "The Economics of a Post-AI World", "url": "https://sauravdas.me/writings/writing__post-ai-economics" },
+          { "@type": "ListItem", "position": 6, "name": "Social Coin: A Contribution Economy", "url": "https://sauravdas.me/writings/writing__social-coin" },
+          { "@type": "ListItem", "position": 7, "name": "Brahmanda: Can Agents Discover Science?", "url": "https://sauravdas.me/writings/writing__brahmanda" },
+          { "@type": "ListItem", "position": 8, "name": "WDMA: Weighted Developmental Memory Architecture", "url": "https://sauravdas.me/writings/writing__wdma" }
+        ]
+      }
+    }
+    </script>
     <link rel="stylesheet" href="/site-chrome.css?v=20261005-7" />
   <link rel="alternate" type="application/rss+xml" title="All updates — Saurav Das" href="/feeds/all.xml">
 <link rel="alternate" type="application/rss+xml" title="Brain Fog — Saurav Das" href="/feeds/brain-fog.xml">
@@ -61,171 +86,164 @@
 <!-- SITE HEADER END -->
     <main id="main">
       <div class="wrap">
-        <header class="archive-head">
-          <span class="mono">WRITING, VISUAL ESSAYS & WEEKLY EXPLORATIONS</span>
-          <h1>Brain <em>Fog.</em></h1>
-          <p>
-            A place to think out loud, connect the dots, and leave room to
-            change my mind. Weekly visual explorations and longer essays live
-            here.
-          </p>
-          <div class="fog-page-links" role="navigation" aria-label="Explore Brain Fog">
-            <a href="#latest-issue" data-fog-start>Start with the latest issue <span aria-hidden="true">↗</span></a>
-            <a href="#browse">Browse the writing <span aria-hidden="true">↓</span></a>
-            <a href="/follow.html?topic=brain-fog#subscribe">Follow Brain Fog <span aria-hidden="true">↗</span></a>
+        <header class="fog-masthead">
+          <p class="fog-kicker mono">ESSAYS &amp; WEEKLY VISUAL EXPLORATIONS · BY SAURAV DAS</p>
+          <div class="fog-masthead-grid">
+            <div>
+              <h1>Brain Fog.</h1>
+              <p class="fog-lede">
+                A notebook for thinking out loud. Each piece takes one question
+                about work, faith, food, or machines and follows it through
+                pictures, history, and evidence, with the sources left open.
+              </p>
+            </div>
+            <dl class="fog-facts" aria-label="The notebook at a glance">
+              <div><dt>Pieces</dt><dd data-fog-total>8</dd></div>
+              <div><dt>Weekly issues</dt><dd data-fog-issues>2</dd></div>
+              <div><dt>Longer essays</dt><dd data-fog-essays>6</dd></div>
+              <div><dt>Latest</dt><dd><a href="#latest-issue">Oct 12, 2026</a></dd></div>
+            </dl>
           </div>
         </header>
-        <section class="fog-finder" id="browse" aria-labelledby="fog-finder-title">
-          <div class="fog-finder-heading"><h2 id="fog-finder-title">What are you curious about?</h2><p>Explore work and economics, faith and society, food and ecology, or AI and discovery.</p></div>
-          <div class="fog-search-tools" role="search" aria-label="Find writing" data-fog-tools hidden>
-            <div class="fog-search-field"><label for="fog-search">Search titles, summaries, or topics</label><input id="fog-search" type="search" placeholder="Try faith, automation, soil…" autocomplete="off" aria-controls="fog-reading-list"></div>
-            <div class="fog-topic-field"><label for="fog-topic">Topic</label><select id="fog-topic" aria-controls="fog-reading-list"><option value="">All topics</option value="work-economics">Work &amp; economics</option><option value="faith-society">Faith &amp; society</option><option value="food-ecology">Food &amp; ecology</option><option value="ai-discovery">AI &amp; discovery</option></select></div>
-            <div class="fog-search-meta"><p data-fog-count role="status" aria-live="polite"></p><button type="button" data-fog-clear hidden>Clear search &amp; topic</button></div>
-          </div>
-          <p class="fog-no-results" data-fog-empty hidden>No matching pieces yet. Try a broader phrase, another topic, or clear the search to see all the writing.</p>
-        </section>
-        <div id="fog-reading-list">
-        <section class="feature-issue" id="latest-issue" data-fog-item data-topics="faith-society" data-keywords="god religion faith poverty income financial insecurity class society politics hope belonging solidarity power" aria-labelledby="feature-title">
-<div class="feature-copy"><div class="issue-meta"><span class="orange-dot"></span><span>ISSUE 002</span><span>OCT 12, 2026</span></div>
-<div class="topic-tags"><span>FAITH</span><span>INEQUALITY</span><span>POWER</span></div>
-<h2 id="feature-title">God is for <em>the poor.</em></h2>
-<p>When life becomes insecure, faith can offer something to hold onto. A story about hope, belonging, and what happens when power learns to speak their language.</p>
-<div class="feature-actions"><a class="button-primary" href="/brain-fog/god-is-for-the-poor.html">Read this week’s story <span aria-hidden="true">↗</span></a><span class="reading-time">17 MIN READ</span></div></div>
-<a class="feature-image" href="/brain-fog/god-is-for-the-poor.html" aria-label="Read issue 002: God is for the poor"><img class="cover-art" src="/images/brain-fog/god-and-the-poor/hope.jpg" width="1536" height="1024" alt="Cupped hands carrying a warm light beside an open doorway and a distant crowd." fetchpriority="high"><span class="image-stamp">HOPE HELD CLOSE.<br>POWER IN PUBLIC.</span></a></section>
-        <section class="essay-library" id="previous-editions" data-fog-group aria-labelledby="previous-editions-title"><div class="section-label"><div><span class="mono">EARLIER IN THE NOTEBOOK</span><h2 id="previous-editions-title">Follow an earlier question.</h2></div><span>PREVIOUS EDITIONS</span></div><div class="essays"><a class="card essay" href="/brain-fog/automation-and-economics.html" data-fog-item data-topics="work-economics ai-discovery" data-keywords="work economics history automation AI artificial intelligence Newton curiosity cognitive offloading"><span class="essay-thumb-wrap"><img class="essay-thumb" src="/images/brain-fog/automation.jpg" width="1536" height="1024" alt="Editorial collage connecting industrial machinery and human work." loading="lazy"></span><span class="body"><span class="meta">ISSUE 001 · OCTOBER 4, 2026</span><h3>The machines were never the whole story.</h3><p>From Smith’s pin factory to AI: who gets the gains, the saved hour, and the room to explore?</p><span class="meta">22 min read</span></span><span class="go" aria-hidden="true">↗</span></a></div></section>
-<section
-          class="essay-library"
-          id="essays"
-          aria-labelledby="essay-library-title"
-        >
-          <div class="section-label">
-            <div>
-              <span class="mono">THE LONGER THREADS</span>
-              <h2 id="essay-library-title">Explore a longer thread.</h2>
-            </div>
-            <span>FROM THE WRITING ARCHIVE</span>
-          </div>
-          <p class="library-intro">
-            Brain Fog is also the home for my longer writing. These essays trace
-            the questions that led here: what we choose to measure, who benefits
-            from progress, and whether machines can discover something new.
-          </p>
-          <section class="section" data-fog-group aria-labelledby="s-pathology">
-            <div class="series-head">
-              <h3 id="s-pathology">Food &amp; ecology</h3>
-              <span>The Pathology of More · Read Parts I and II in order</span>
-            </div>
-            <div class="essays">
-              <a
-                class="card essay"
-                href="/writings/writing__pathology-of-more.html"
-               data-fog-item data-topics="food-ecology" data-keywords="agriculture farming soil health yield metrics sustainability food ecology">
-                <img class="essay-thumb" src="/images/essays/pathology-of-more-thumb.jpg" width="384" height="256" alt="" loading="lazy" decoding="async">
-                <span
-                  ><h3>The Pathology of More <span>· Part I</span></h3>
-                  <p>
-                    How single-metric maximization became the organizing
-                    ideology of modern food systems.
-                  </p>
-                  <span class="meta"><span>20 min</span></span></span
-                >
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-              <a
-                class="card essay"
-                href="/writings/writing__balance-sheet.html"
-               data-fog-item data-topics="food-ecology" data-keywords="agriculture soil carbon biodiversity fertilizer sustainability food ecology">
-                <img class="essay-thumb" src="/images/essays/balance-sheet-thumb.jpg" width="384" height="256" alt="" loading="lazy" decoding="async">
-                <span
-                  ><h3>
-                    The Balance Sheet We Never Audited <span>· Part II</span>
-                  </h3>
-                  <p>
-                    The innovation loop that fed eight billion people was
-                    debt-financed by ecological capital.
-                  </p>
-                  <span class="meta"><span>16 min</span></span></span
-                >
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </section>
 
-          <section class="section" data-fog-group aria-labelledby="s-postai">
-            <div class="series-head">
-              <h3 id="s-postai">Work &amp; economics</h3>
-              <span>Post-AI Economics · From the problem to a possible response</span>
-            </div>
-            <div class="essays">
-              <a
-                class="card essay"
-                href="/writings/writing__post-ai-economics.html"
-               data-fog-item data-topics="work-economics ai-discovery" data-keywords="jobs labor automation AI artificial intelligence economics UBI">
-                <img class="essay-thumb" src="/images/essays/post-ai-economics-thumb.jpg" width="384" height="256" alt="" loading="lazy" decoding="async">
-                <span
-                  ><h3>
-                    The Economics of a Post-AI World <span>· Part I</span>
-                  </h3>
-                  <p>
-                    92 million jobs displaced by 2030, a K-shaped economy, and
-                    how to distribute AI's gains broadly.
-                  </p>
-                  <span class="meta"><span>9 min</span></span></span
-                >
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-              <a class="card essay" href="/writings/writing__social-coin.html" data-fog-item data-topics="work-economics" data-keywords="care creativity community purpose value UBI economics">
-                <img class="essay-thumb" src="/images/essays/social-coin-thumb.jpg" width="384" height="256" alt="" loading="lazy" decoding="async">
-                <span
-                  ><h3>
-                    Social Coin: A Contribution Economy <span>· Part II</span>
-                  </h3>
-                  <p>
-                    A two-layer reward system for the $12 trillion in invisible
-                    care, creativity, and community work.
-                  </p>
-                  <span class="meta"><span>18 min</span></span></span
-                >
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </section>
-
-          <section class="section" data-fog-group aria-labelledby="s-standalone">
-            <div class="series-head">
-              <h3 id="s-standalone">AI &amp; discovery</h3>
-              <span>Agents, memory, and whether machines can do science</span>
-            </div>
-            <div class="essays">
-              <a class="card essay" href="/writings/writing__brahmanda.html" data-fog-item data-topics="ai-discovery" data-keywords="AI agents science research discovery simulation">
-                <img class="essay-thumb" src="/images/essays/brahmanda-thumb.jpg" width="384" height="256" alt="" loading="lazy" decoding="async">
-                <span
-                  ><h3>Brahmanda: Can Agents Discover Science?</h3>
-                  <p>
-                    A living Vedic universe where LLM-powered souls observe,
-                    theorize, and validate truths about their world.
-                  </p>
-                  <span class="meta"><span>10 min</span></span></span
-                >
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-              <a class="card essay" href="/writings/writing__wdma.html" data-fog-item data-topics="ai-discovery" data-keywords="AI agents memory cognition learning architecture">
-                <img class="essay-thumb" src="/images/essays/wdma-thumb.jpg" width="384" height="256" alt="" loading="lazy" decoding="async">
-                <span
-                  ><h3>WDMA: Weighted Developmental Memory Architecture</h3>
-                  <p>
-                    Salience-gated memory for AI agents &mdash; jolt-driven
-                    encoding, thermodynamic decay, developmental plasticity.
-                  </p>
-                  <span class="meta"><span>17 min</span></span></span
-                >
-                <span class="go" aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </section>
-        </section>
+        <div class="fog-toolbar" id="browse" data-fog-tools hidden>
+          <div class="fog-topics" role="group" aria-label="Filter by topic">
+            <button type="button" data-fog-topic="" aria-pressed="true">All <span data-fog-topic-count>8</span></button>
+            <button type="button" data-fog-topic="work-economics" aria-pressed="false">Work &amp; economics <span data-fog-topic-count>3</span></button>
+            <button type="button" data-fog-topic="faith-society" aria-pressed="false">Faith &amp; society <span data-fog-topic-count>1</span></button>
+            <button type="button" data-fog-topic="food-ecology" aria-pressed="false">Food &amp; ecology <span data-fog-topic-count>2</span></button>
+            <button type="button" data-fog-topic="ai-discovery" aria-pressed="false">AI &amp; discovery <span data-fog-topic-count>4</span></button>
+          </div>
+          <div class="fog-search" role="search">
+            <label class="visually-hidden" for="fog-search">Search titles, summaries, or topics</label>
+            <input id="fog-search" type="search" placeholder="Search the notebook" autocomplete="off" aria-controls="fog-reading-list">
+          </div>
         </div>
-        <section class="why-section" id="about-series">
+
+        <section class="fog-library" id="essays" aria-labelledby="fog-library-title">
+          <div class="fog-section-head">
+            <h2 id="fog-library-title">Everything in the notebook</h2>
+            <p class="fog-count"><span data-fog-count role="status" aria-live="polite">8 pieces · newest first</span><button type="button" class="fog-clear" data-fog-clear hidden>Clear filters</button></p>
+          </div>
+          <p class="fog-no-results" data-fog-empty hidden>No matching pieces yet. Try a broader phrase, another topic, or clear the filters to see everything.</p>
+          <ol class="fog-grid" id="fog-reading-list">
+            <li class="fog-card fog-card-feature" id="latest-issue" data-fog-item data-kind="issue" data-topics="faith-society" data-keywords="god religion faith poverty income financial insecurity class society politics hope belonging solidarity power">
+              <div class="fog-card-art">
+                <img src="/images/brain-fog/god-and-the-poor/hope.jpg" width="1536" height="1024" alt="Cupped hands carrying a warm light beside an open doorway and a distant crowd." fetchpriority="high">
+                <span class="image-stamp" aria-hidden="true">HOPE HELD CLOSE.<br>POWER IN PUBLIC.</span>
+              </div>
+              <div class="fog-card-body">
+                <p class="fog-card-kind"><span>Issue 002</span><time datetime="2026-10-12">October 12, 2026</time><span class="fog-latest-flag">Latest</span></p>
+                <p class="fog-tags" aria-label="Themes"><span>Faith</span><span>Inequality</span><span>Power</span></p>
+                <h3><a href="/brain-fog/god-is-for-the-poor.html">God is for the poor.</a></h3>
+                <p class="fog-card-summary">When life becomes insecure, faith can offer something to hold onto. A story about hope, belonging, and what happens when power learns to speak their language.</p>
+                <p class="fog-card-meta"><span>Faith &amp; society</span><span>17 min read</span></p>
+                <p class="fog-card-actions"><a class="button-primary" href="/brain-fog/god-is-for-the-poor.html">Read issue 002 <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </li>
+            <li class="fog-card" data-fog-item data-kind="issue" data-topics="work-economics ai-discovery" data-keywords="work economics history automation AI artificial intelligence Newton curiosity cognitive offloading Smith pin factory">
+              <div class="fog-card-art"><img src="/images/brain-fog/automation-thumb.jpg" width="768" height="512" alt="" loading="lazy" decoding="async"></div>
+              <div class="fog-card-body">
+                <p class="fog-card-kind"><span>Issue 001</span><time datetime="2026-10-04">October 4, 2026</time></p>
+                <h3><a href="/brain-fog/automation-and-economics.html">The machines were never the whole story.</a></h3>
+                <p class="fog-card-summary">From Smith’s pin factory to AI: who gets the gains, the saved hour, and the room to explore?</p>
+                <p class="fog-card-meta"><span>Work &amp; economics</span><span>22 min read</span></p>
+              </div>
+            </li>
+            <li class="fog-card" data-fog-item data-kind="essay" data-topics="food-ecology" data-keywords="agriculture farming soil health yield metrics sustainability food ecology">
+              <div class="fog-card-art"><img src="/images/essays/pathology-of-more-thumb.jpg" width="768" height="512" alt="" loading="lazy" decoding="async"></div>
+              <div class="fog-card-body">
+                <p class="fog-card-kind"><span>Essay</span><span>The Pathology of More · Part I</span><time datetime="2026-04">April 2026</time></p>
+                <h3><a href="/writings/writing__pathology-of-more.html">The Pathology of More</a></h3>
+                <p class="fog-card-summary">How single-metric maximization became the organizing ideology of modern food systems.</p>
+                <p class="fog-card-meta"><span>Food &amp; ecology</span><span>20 min read</span></p>
+              </div>
+            </li>
+            <li class="fog-card" data-fog-item data-kind="essay" data-topics="food-ecology" data-keywords="agriculture soil carbon biodiversity fertilizer sustainability food ecology">
+              <div class="fog-card-art"><img src="/images/essays/balance-sheet-thumb.jpg" width="768" height="512" alt="" loading="lazy" decoding="async"></div>
+              <div class="fog-card-body">
+                <p class="fog-card-kind"><span>Essay</span><span>The Pathology of More · Part II</span><time datetime="2026">2026</time></p>
+                <h3><a href="/writings/writing__balance-sheet.html">The Balance Sheet We Never Audited</a></h3>
+                <p class="fog-card-summary">The innovation loop that fed eight billion people was debt-financed by ecological capital.</p>
+                <p class="fog-card-meta"><span>Food &amp; ecology</span><span>16 min read</span></p>
+              </div>
+            </li>
+            <li class="fog-card" data-fog-item data-kind="essay" data-topics="work-economics ai-discovery" data-keywords="jobs labor automation AI artificial intelligence economics UBI policy">
+              <div class="fog-card-art"><img src="/images/essays/post-ai-economics-thumb.jpg" width="768" height="512" alt="" loading="lazy" decoding="async"></div>
+              <div class="fog-card-body">
+                <p class="fog-card-kind"><span>Essay</span><span>Post-AI Economics · Part I</span><time datetime="2026">2026</time></p>
+                <h3><a href="/writings/writing__post-ai-economics.html">The Economics of a Post-AI World</a></h3>
+                <p class="fog-card-summary">92 million jobs displaced by 2030, a K-shaped economy, and how to distribute AI’s gains broadly.</p>
+                <p class="fog-card-meta"><span>Work &amp; economics</span><span>9 min read</span></p>
+              </div>
+            </li>
+            <li class="fog-card" data-fog-item data-kind="essay" data-topics="work-economics" data-keywords="care creativity community purpose value UBI economics contribution">
+              <div class="fog-card-art"><img src="/images/essays/social-coin-thumb.jpg" width="768" height="512" alt="" loading="lazy" decoding="async"></div>
+              <div class="fog-card-body">
+                <p class="fog-card-kind"><span>Essay</span><span>Post-AI Economics · Part II</span><time datetime="2026">2026</time></p>
+                <h3><a href="/writings/writing__social-coin.html">Social Coin: A Contribution Economy</a></h3>
+                <p class="fog-card-summary">A two-layer reward system for the $12 trillion in invisible care, creativity, and community work.</p>
+                <p class="fog-card-meta"><span>Work &amp; economics</span><span>18 min read</span></p>
+              </div>
+            </li>
+            <li class="fog-card" data-fog-item data-kind="essay" data-topics="ai-discovery" data-keywords="AI agents science research discovery simulation Vedic universe">
+              <div class="fog-card-art"><img src="/images/essays/brahmanda-thumb.jpg" width="768" height="512" alt="" loading="lazy" decoding="async"></div>
+              <div class="fog-card-body">
+                <p class="fog-card-kind"><span>Essay</span><span>Simulation research</span><time datetime="2026">2026</time></p>
+                <h3><a href="/writings/writing__brahmanda.html">Brahmanda: Can Agents Discover Science?</a></h3>
+                <p class="fog-card-summary">A living Vedic universe where LLM-powered souls observe, theorize, and validate truths about their world.</p>
+                <p class="fog-card-meta"><span>AI &amp; discovery</span><span>10 min read</span></p>
+              </div>
+            </li>
+            <li class="fog-card" data-fog-item data-kind="essay" data-topics="ai-discovery" data-keywords="AI agents memory cognition learning architecture preprint">
+              <div class="fog-card-art"><img src="/images/essays/wdma-thumb.jpg" width="768" height="512" alt="" loading="lazy" decoding="async"></div>
+              <div class="fog-card-body">
+                <p class="fog-card-kind"><span>Essay</span><span>Preprint</span><time datetime="2026">2026</time></p>
+                <h3><a href="/writings/writing__wdma.html">WDMA: Weighted Developmental Memory Architecture</a></h3>
+                <p class="fog-card-summary">Salience-gated memory for AI agents: jolt-driven encoding, thermodynamic decay, and developmental plasticity.</p>
+                <p class="fog-card-meta"><span>AI &amp; discovery</span><span>17 min read</span></p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="fog-paths" id="reading-paths" aria-labelledby="fog-paths-title" data-fog-aside>
+          <div class="fog-section-head">
+            <h2 id="fog-paths-title">Read in order</h2>
+            <p>Two essays run in parts, and the weekly issues keep a running thread.</p>
+          </div>
+          <div class="fog-path-grid">
+            <article class="fog-path">
+              <span class="mono">THE WEEKLY ISSUES</span>
+              <h3>One question a week</h3>
+              <ol>
+                <li><a href="/brain-fog/automation-and-economics.html"><span>001</span>The machines were never the whole story.</a></li>
+                <li><a href="/brain-fog/god-is-for-the-poor.html"><span>002</span>God is for the poor.</a></li>
+              </ol>
+              <p class="fog-path-note">Each issue stands on its own. Start anywhere.</p>
+            </article>
+            <article class="fog-path">
+              <span class="mono">FOOD &amp; ECOLOGY · TWO PARTS</span>
+              <h3>The Pathology of More</h3>
+              <ol>
+                <li><a href="/writings/writing__pathology-of-more.html"><span>I</span>The Pathology of More</a></li>
+                <li><a href="/writings/writing__balance-sheet.html"><span>II</span>The Balance Sheet We Never Audited</a></li>
+              </ol>
+              <p class="fog-path-note">Why “more” became agriculture’s answer, then the bill nobody audited.</p>
+            </article>
+            <article class="fog-path">
+              <span class="mono">WORK &amp; ECONOMICS · TWO PARTS</span>
+              <h3>Post-AI Economics</h3>
+              <ol>
+                <li><a href="/writings/writing__post-ai-economics.html"><span>I</span>The Economics of a Post-AI World</a></li>
+                <li><a href="/writings/writing__social-coin.html"><span>II</span>Social Coin: A Contribution Economy</a></li>
+              </ol>
+              <p class="fog-path-note">From the problem to a possible response.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="why-section" id="about-series" data-fog-aside>
           <div class="why-mark" aria-hidden="true">✳</div>
           <div>
             <span class="mono">WHY BRAIN FOG?</span>
@@ -247,7 +265,7 @@
             >
           </div>
         </section>
-        <section class="follow-band">
+        <section class="follow-band" data-fog-aside>
           <div>
             <span class="mono">THE NEXT PAGE IS STILL BLANK</span>
             <h2>Come back curious.</h2>
