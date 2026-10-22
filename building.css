@@ -1,0 +1,34 @@
+/* Building: five product doors, room to experiment, and an open invitation. */
+.product-grid { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; }
+.product-tile { position: relative; display: flex; flex-direction: column; min-height: 176px; padding: 22px 24px 20px; border: 1px solid var(--ds-line); border-radius: 3px; background: var(--ds-paper); text-decoration: none; transition: border-color .18s, transform .2s ease; }
+.product-tile:hover { border-color: var(--ds-accent); transform: translateY(-2px); }
+.product-status { display: inline-flex; align-items: center; gap: 8px; font: 400 11px/1.6 var(--ds-font); letter-spacing: .1em; text-transform: uppercase; color: var(--ds-accent); }
+.product-status i { width: 8px; height: 8px; border-radius: 50%; background: var(--ds-accent); }
+.product-tile strong { margin-top: auto; padding-top: 28px; font: 600 27px/1.15 var(--ds-display); color: var(--ds-ink); }
+.product-tile:hover strong { color: var(--ds-accent); }
+.product-domain { margin-top: 6px; font-size: 13.5px; color: var(--ds-muted); }
+.product-go { position: absolute; top: 18px; right: 20px; font-size: 20px; color: var(--ds-muted); }
+.product-tile:hover .product-go { color: var(--ds-accent); }
+
+/* Experiments and apps */
+.building-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.building-path { display: flex; flex-direction: column; padding: 26px 28px 24px; border: 1px solid var(--ds-line); border-radius: 3px; background: #fff; text-decoration: none; transition: border-color .18s; }
+.building-path:hover { border-color: var(--ds-accent); }
+.building-path h3 { margin: 0 0 10px; font-size: 28px; line-height: 1.15; }
+.building-path:hover h3 { color: var(--ds-accent); }
+.building-path p:not(.ed-kicker) { margin: 0 0 18px; font-size: 15px; line-height: 1.6; color: var(--ds-text); }
+.building-path-link { margin-top: auto; font-size: 14px; color: var(--ds-accent); }
+.building-cross { margin: 26px 0 0; max-width: 640px; font-size: 14.5px; line-height: 1.6; color: var(--ds-muted); }
+.building-cross a { color: var(--ds-accent); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 1000px) {
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+@media (max-width: 700px) {
+  .product-grid { grid-template-columns: 1fr; gap: 12px; }
+  .product-tile { min-height: 0; padding: 18px 20px; }
+  .product-tile strong { padding-top: 16px; font-size: 24px; }
+  .building-paths { grid-template-columns: 1fr; gap: 14px; }
+  .building-path { padding: 20px; }
+  .building-path h3 { font-size: 24px; }
+}

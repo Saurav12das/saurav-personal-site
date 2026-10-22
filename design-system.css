@@ -1,4 +1,5 @@
 /* One visual system for the personal site. Page files own content-specific layouts.
+   The ground is white; --ds-paper is the ivory tone for tiles, panels, and covers.
    Type: EB Garamond for titles, Century Schoolbook for reading text and labels (Georgia stands in where it is not installed). */
 :root {
   --ds-paper: #f5f3eb;
@@ -24,7 +25,7 @@
 }
 html:has(.site-system) { color-scheme: light; }
 body.site-system {
-  --bg: var(--ds-paper);
+  --bg: #fff;
   --ink: var(--ds-ink);
   --ink-2: var(--ds-text);
   --muted: var(--ds-muted);
@@ -35,7 +36,7 @@ body.site-system {
   --library-line: var(--ds-line);
   --library-accent: var(--ds-accent);
   color-scheme: light;
-  background: var(--ds-paper);
+  background: #fff;
   color: var(--ds-ink);
   font-family: var(--ds-font);
   font-size: 16px;
@@ -68,11 +69,10 @@ body.site-system {
 .site-system :is(.page-head, .library-hero) { padding-top: 64px; padding-bottom: 48px; }
 .site-system :is(.page-head .lede, .library-deck) { font: 400 clamp(22px, 2.4vw, 28px)/1.35 var(--ds-display); color: var(--ds-ink); letter-spacing: 0; }
 .site-system :is(.wrap, .library-wrap):not(.post-wdma > .wrap) { max-width: var(--ds-page-width); }
-.site-system .research-page { background: var(--ds-paper); }
 .site-system :is(.card, .theme, .pub, .timeline-item, .aside-card) { border-color: var(--ds-line); border-radius: 3px; box-shadow: none; }
 .site-system :is(.btn, .library-button, .button-primary) { border-radius: 3px; font-family: var(--ds-font); }
 .site-system .site-connect {
-  --chrome-paper: var(--ds-paper);
+  --chrome-paper: #fff;
   --chrome-ink: var(--ds-ink);
   --chrome-muted: var(--ds-muted);
   --chrome-line: var(--ds-line);
@@ -227,12 +227,16 @@ body.post-wdma {
 .site-system.cinema-page .screen-review { color: var(--ds-text); }
 .site-system.cinema-page :is(.screen-rating, .screen-verdict) { color: var(--ds-accent); }
 .site-system.cinema-page .screen-search input::placeholder { color: var(--ds-muted); }
-.site-system.research-page { --moss: var(--ds-accent); --rust: var(--ds-accent); --gold: var(--ds-accent); background: var(--ds-paper); }
+.site-system.research-page { --moss: var(--ds-accent); --rust: var(--ds-accent); --gold: var(--ds-accent); }
 .research-page .hero { max-width: var(--ds-page-width); width: calc(100% - 2 * var(--ds-gutter)); padding: 64px 0 32px; }
 .research-page .main { max-width: var(--ds-page-width); width: calc(100% - 2 * var(--ds-gutter)); padding-inline: 0; }
 .research-page .deck { border: 0; padding: 0; font-size: 20px; color: var(--ds-text); }
 .research-page .callout { background: var(--ds-panel); border-color: var(--ds-line); }
 .research-page .aside-card { top: calc(var(--nav-h, 91px) + 24px); }
+
+/* A small, visible invitation at the end of an edition. */
+.site-system .support-note { margin: 14px 0 0; font-size: 14px; color: var(--ds-text); }
+.site-system .support-note a { color: var(--ds-accent); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Small labels were drawn for a mono face; the serif needs a little more size. */
 .site-system :is(.mono, .intro-line, .eyebrow-label, .edition-divider, .issue-meta, .topic-tags, .reading-time, .section-label > span, .masthead-note > span, .path-category, .path-number, .page-head .kicker, .contents > span, .chapter-number, .chart-subtitle, .chart-axis, .keynes-day span, .range-endpoints, .source-list li::before, .image-stamp, .library-kicker, .library-micro, .shelf-edition, .shelf-number, .shelf-status, .screen-filters button > span, .rating-number, .screen-verdict, .essay-edition-line, .essay-eyebrow, .essay-byline, .essay-art-note, .essay-wayfinding > span, .essay-related-heading, .post-art-note, .abstract-label) { font-size: 11px; letter-spacing: .07em; }

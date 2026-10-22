@@ -742,3 +742,12 @@ body:has([data-site-nav]) :is(h1, h2, h3, h4, h5, h6) * {
 .site-connect .connect-follow-links a { font-size: 13px; }
 .site-connect .connect-signature { font-family: var(--ds-display, Georgia, serif); font-size: 16px; }
 .site-system .site-trail { font-size: 13px; font-family: var(--ds-font, Georgia, serif); }
+
+/* The coffee button reads as an invitation, not an icon. */
+.site-nav[data-site-nav] .coffee-link { width: auto; flex-basis: auto; gap: 8px; min-height: 40px; height: auto; padding: 6px 14px 6px 10px; border: 1px solid var(--chrome-accent); border-radius: 999px; color: var(--chrome-accent); font: 500 13.5px/1.2 var(--ds-font, Georgia, serif); white-space: nowrap; text-decoration: none; transition: background .18s, color .18s; }
+.site-nav[data-site-nav] .coffee-link:hover { background: var(--chrome-accent); color: #262820; border-color: var(--chrome-accent); }
+.site-nav[data-site-nav] .coffee-link svg { width: 20px; height: 20px; }
+@media (max-width: 600px) {
+  .site-nav[data-site-nav] .coffee-link { padding: 6px 9px; }
+  .site-nav[data-site-nav] .coffee-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}

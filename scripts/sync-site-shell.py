@@ -13,8 +13,8 @@ MAIN += sorted(str(p.relative_to(ROOT)) for p in (ROOT/'brain-fog').glob('*.html
 MAIN += sorted(str(p.relative_to(ROOT)) for p in (ROOT/'writings').glob('writing__*.html'))
 ESSAYS=sorted(str(p.relative_to(ROOT)) for p in (ROOT/'writings').glob('writing__*.html') if str(p.relative_to(ROOT)) not in MAIN)
 VERSION='20261005-6'
-CHROME_VERSION='20261021-1'
-DESIGN_VERSION='20261021-1'
+CHROME_VERSION='20261021-2'
+DESIGN_VERSION='20261021-2'
 FONTS='https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;display=swap'
 FEEDS={'research':('Groundwork','groundwork'),'writing':('Brain Fog','brain-fog'),'building':('Building','building'),'watching':('Screen Time','screen-time'),'books':('Bookshelf','bookshelf')}
 
@@ -29,7 +29,7 @@ def section_for(path):
 def header(path):
     links=''.join(f'<li><a href="{escape(item["href"])}" title="{escape(item["description"])}"'+(' aria-current="page"' if item['section']==section_for(path) else '')+f'><span>{escape(item["label"])}</span><small>{escape(item["description"])}</small></a></li>' for item in CONFIG['navigation'])
     support=next(item for item in CONFIG['connections'] if item.get('kind')=='support')
-    coffee=f'<a class="coffee-link" href="{escape(support["href"])}" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee (opens in a new tab)" title="Buy me a coffee"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h12v6a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9Z"/><path d="M17 10h1a3 3 0 1 1 0 6h-1M3 22h17M8 3v3M12 2v4M16 3v3"/></svg></a>'
+    coffee=f'<a class="coffee-link" href="{escape(support["href"])}" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee (opens in a new tab)" title="Buy me a coffee"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h12v6a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9Z"/><path d="M17 10h1a3 3 0 1 1 0 6h-1M3 22h17M8 3v3M12 2v4M16 3v3"/></svg><span class="coffee-label">Buy me a coffee</span></a>'
     current=next((item for item in CONFIG['navigation'] if item['section']==section_for(path)),None)
     location=current['label'] if current else 'the notebook'
     trail=''
