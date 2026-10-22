@@ -6,7 +6,15 @@
     <description>Science, research, and field notes.</description>
     <language>en-us</language>
     <atom:link href="https://sauravdas.me/feeds/groundwork.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sun, 04 Oct 2026 18:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 18:00:00 -0400</lastBuildDate>
+    <item>
+      <title>Groundwork: the Farming Systems Trial, read five ways</title>
+      <link>https://sauravdas.me/writings/research-journey#field-trial</link>
+      <guid isPermaLink="false">https://sauravdas.me/updates/2026-10-22-groundwork-farming-systems-trial</guid>
+      <pubDate>Thu, 22 Oct 2026 18:00:00 -0400</pubDate>
+      <category>Groundwork</category>
+      <description>One field since 1981, three ways to farm it. Five papers from the Farming Systems Trial at Rodale Institute on soil carbon, emissions, grain nutrition, and farm economics, with two sourced figures and the patterns that connect them to my soil health benchmarking work.</description>
+    </item>
     <item>
       <title>Groundwork: the research behind the questions</title>
       <link>https://sauravdas.me/writings/research-journey</link>

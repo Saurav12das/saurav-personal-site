@@ -80,46 +80,155 @@
       "href": "#paper-gap", "link": "Follow the benchmarking thread", "tags": ["Soil health", "Carbon & nitrogen", "Reference sites"]
     },
     {
-      "id": "systems", "years": "2024–present", "place": "Long-term systems", "label": "Making the knowledge useful", "word": "Systems",
-      "institution": "Long-term farming systems research", "question": "How does evidence become something a farmer can use?",
-      "body": "The journey now connects long-term farming systems research with practical indicators, attainable targets, and tools that make evidence easier to use. The same curiosity extends into building: how can careful science travel beyond a paper and become part of an everyday decision?",
+      "id": "systems", "years": "2024–present", "place": "Pennsylvania", "label": "Making the knowledge useful", "word": "Systems",
+      "institution": "Rodale Institute, Farming Systems Trial", "question": "How does evidence become something a farmer can use?",
+      "body": "Directing the Farming Systems Trial put a four-decade record of organic and conventional systems, side by side in one field, at the centre of my work. I connect it with practical indicators, attainable targets, and tools that make evidence easier to use: how can careful science travel beyond a paper and become part of an everyday decision?",
       "carry": "Connect ecological potential, present condition, and the next useful action.",
-      "href": "/products.html", "link": "See what I’m building", "tags": ["Farming systems", "Attainable targets", "Research into tools"]
+      "href": "#field-trial", "link": "Read the field trial", "tags": ["Farming systems", "Long-term evidence", "Research into tools"]
     }
   ],
+  "fst": {
+    "heading": "One field since 1981. Three ways to farm it.",
+    "intro": "I direct the Farming Systems Trial at Rodale Institute in Kutztown, Pennsylvania: the longest-running side-by-side comparison of organic and conventional grain cropping in North America. Same field, same weather, replicated plots, different management, for more than four decades.",
+    "aside": "The benchmarking thread keeps asking “compared with what?” The trial is one long, carefully kept answer.",
+    "tillage": "Since 2008, each system has also been split into full and reduced tillage.",
+    "systems": [
+      { "id": "cnv", "name": "Conventional", "model": "A typical grain farm", "rotation": "Corn and soybean", "fertility": "Synthetic nitrogen and herbicides" },
+      { "id": "leg", "name": "Legume-based organic", "model": "An organic cash-grain farm without livestock", "rotation": "Corn, soybean, and wheat with cover crops", "fertility": "Legume cover crops and rotation" },
+      { "id": "mnr", "name": "Manure-based organic", "model": "An organic dairy or beef farm", "rotation": "Feed grains with a perennial clover–hay phase", "fertility": "Composted manure and legume cover crops" }
+    ],
+    "readings": [
+      {
+        "id": "snapshot", "short": "Year-34 snapshot", "year": "2025",
+        "question": "After 34 years, is there more carbon under organic management?",
+        "finding": "Soil organic carbon and total nitrogen were measured to 30 cm in the trial’s 34th year. Only the manure-based organic system had higher carbon concentrations and stocks, and only in the 0–10 and 10–20 cm layers. Compared on an equivalent-soil-mass basis to 30 cm, that advantage did not hold.",
+        "caution": "A single year, to a single depth. A snapshot can understate a difference that builds slowly or sits in a narrow layer.",
+        "title": "Soil organic carbon and total nitrogen after 34 years under conventional and organic management practices at the Rodale Institute Farming Systems Trial",
+        "authors": "Lorenz, Omondi, Lal, Das & Smith", "journal": "Soil Science Society of America Journal", "status": "Published paper",
+        "url": "https://doi.org/10.1002/saj2.70000"
+      },
+      {
+        "id": "record", "short": "Forty-year carbon record", "year": "2026", "figure": "carbon",
+        "question": "What does the whole record say, down to a metre?",
+        "finding": "Seven sampling campaigns from 1984 to 2023, three of them through the full metre. Corrected to equivalent soil mass, the organic systems stored clearly more carbon than the conventional system. Rotation diversity and organic inputs mattered far more than tillage: reduced tillage, compared since 2008, had no significant overall or system-dependent effect.",
+        "caution": "Preprint under review. Most of the difference is shallow: 91–94% of the extra carbon under the organic systems sat in the top 30 cm in the 2021 and 2023 profiles.",
+        "title": "Cropping-system diversification drives long-term soil carbon gains more strongly than reduced tillage",
+        "authors": "Das, Spell, Smith & Garrity", "journal": "EGUsphere · under review in SOIL", "status": "Preprint · not peer reviewed",
+        "url": "https://egusphere.copernicus.org/preprints/2026/egusphere-2026-4553/"
+      },
+      {
+        "id": "footprint", "short": "Carbon footprint", "year": "2025", "figure": "footprint",
+        "question": "Counted as emissions, how do the systems compare?",
+        "finding": "Carbon footprints for the three systems were built with two models, COMET-Farm (Tier 3) and the Cool Farm Tool (Tier 2). Conventional had the highest area-scaled emissions, 1.25–1.72 t CO₂-eq per hectare per year. The manure-based system was 25–37% lower and the legume-based system 52–74% lower. Maize yield-scaled emissions were also highest under conventional management.",
+        "caution": "The boundary changes the answer: the Tier 3 model ran about 27% higher, and counting CO₂ released while composting manure raised the manure system’s emissions by roughly 103–122%.",
+        "title": "Carbon footprint of organic and conventional arable crop production systems in a long-term trial",
+        "authors": "Graham, Ghalehgolabbehbahani, Das, Carr & Smith", "journal": "Renewable Agriculture and Food Systems", "status": "Published paper",
+        "url": "https://www.cambridge.org/core/journals/renewable-agriculture-and-food-systems/article/carbon-footprint-of-organic-and-conventional-arable-crop-production-systems-in-a-longterm-trial/1FB8D9BC34B4F295A02D948CD3C0359C"
+      },
+      {
+        "id": "grain", "short": "Soil to grain", "year": "2026",
+        "question": "Does soil management reach the grain we eat?",
+        "finding": "Ergothioneine is a dietary antioxidant closely tied to soil microbes. Reduced tillage raised grain ergothioneine across all three systems, consistent with more arbuscular mycorrhizal activity. The organic systems held more microbial biomass and residual soil ergothioneine, yet moved less of it into grain; microbial biomass correlated only weakly with grain levels.",
+        "caution": "The highest grain levels came from conventional reduced-tillage plots, where herbicide use raised oxidative stress. More biology in the soil did not automatically mean more in the food.",
+        "title": "Ergothioneine dynamics in a long-term farming systems trial: Effects of tillage, management, and oxidative stress on grain and soil ergothioneine",
+        "authors": "Das, Omondi, Hinson, et al.", "journal": "Journal of Agriculture and Food Research", "status": "Published paper",
+        "url": "https://pure.psu.edu/en/publications/ergothioneine-dynamics-in-a-long-term-farming-systems-trial-effec/"
+      },
+      {
+        "id": "economics", "short": "The farm budget", "year": "2026",
+        "question": "Can a farm afford the system?",
+        "finding": "A review of six long-term comparisons, the Farming Systems Trial and trials in Minnesota, Wisconsin, Iowa, Maryland, and California, spanning more than four decades. Conventional systems keep a yield edge early, especially during the transition. Over the long term, organic systems frequently match or exceed conventional profitability, and rotation design decides it: organic rotations with a perennial or forage phase competed even without price premiums; short, annual-only organic rotations did not.",
+        "caution": "Position paper, not peer reviewed. Diversified organic systems carried lower downside risk, though not uniformly lower year-to-year variability.",
+        "title": "The Economic Performance and Profitability of Organic and Conventional Farming Systems: A Review of Long-Term Comparative Research",
+        "authors": "Das & Smith", "journal": "Rodale Institute", "status": "Position paper",
+        "url": "https://rodaleinstitute.org/science/articles/the-economic-performance-and-profitability-of-organic-and-conventional-farming-systems-a-review-of-long-term-comparative-research/"
+      }
+    ],
+    "carbon": {
+      "title": "Soil organic carbon by system", "unit": "Mg C/ha", "scale": 120,
+      "groups": [
+        { "label": "Top 20 cm, equivalent soil mass", "values": { "mnr": 70.3, "leg": 65.7, "cnv": 54.7 } },
+        { "label": "Whole profile, 0–100 cm", "values": { "mnr": 119.0, "leg": 108.9, "cnv": 92.9 } }
+      ],
+      "note": "Differences are against the conventional system. One scale for both depths, so the bars compare directly.",
+      "source": "Das, Spell, Smith & Garrity (2026), EGUsphere preprint; values as reported in the abstract."
+    },
+    "footprint": {
+      "title": "Area-scaled emissions relative to conventional", "unit": "% of conventional",
+      "rows": [
+        { "system": "cnv", "low": 100, "high": 100, "label": "1.25–1.72 t CO₂-eq/ha/yr" },
+        { "system": "mnr", "low": 63, "high": 75, "label": "25–37% lower" },
+        { "system": "leg", "low": 26, "high": 48, "label": "52–74% lower" }
+      ],
+      "note": "The pale segment spans the reported range. Not shown: counting composting CO₂ raised the manure system by about 103–122%.",
+      "source": "Graham, Ghalehgolabbehbahani, Das, Carr & Smith (2025), Renewable Agriculture and Food Systems."
+    },
+    "dots": [
+      {
+        "title": "The trial is a benchmark built into the ground.",
+        "text": "Across farms, the benchmarking thread has to separate what a field inherits, its soil and climate, from what management did. Ecological units and reference sites exist for that. In the trial the separation is designed in: the systems share one field and one weather record in replicated plots, so the distance between them is management. The conventional system is a working baseline, and the gap can be read directly.",
+        "from": ["snapshot", "record"], "to": [["Soil Health Gap", "#paper-gap"], ["Ecological units", "#paper-creu"]]
+      },
+      {
+        "title": "How you count decides what you see.",
+        "text": "Measured once to 30 cm, the carbon difference shrank to the manure system’s upper layers and did not hold on an equivalent-soil-mass basis. Measured across forty years, seven campaigns, and a full metre, an 11–16 Mg C/ha gap appeared in the top 20 cm. The same systems’ emissions moved by about a quarter with the choice of model, and roughly doubled for the manure system once compost was counted. The readings differ in year, depth, and design, which is exactly the lesson: measure consistently, then interpret.",
+        "from": ["snapshot", "record", "footprint"], "to": [["Two-Tier framework", "#paper-tier"]]
+      },
+      {
+        "title": "Soil carbon keeps time in decades.",
+        "text": "Spread across the 42 years since the plots began, the topsoil gap works out to about 0.26–0.37 Mg C/ha a year. That is my arithmetic, assuming the systems started level in 1981. Real, durable, and mostly within the top 30 cm. Targets for working farms have to be paced to that clock, which is why intermediate, attainable states matter more than a distant ideal.",
+        "from": ["record"], "to": [["Hierarchical targets", "#paper-hlc"], ["Soil carbon sequestration", "#work-sequestration"]]
+      },
+      {
+        "title": "One practice can move one outcome and not another.",
+        "text": "Reduced tillage did not significantly change soil carbon in the forty-year record, yet it raised grain ergothioneine in every system. The organic systems carried more microbial biomass, yet moved less ergothioneine into grain. An indicator is only as useful as its pathway to the function you care about.",
+        "from": ["record", "grain"], "to": [["Soil Health Cycle", "#work-cycle"], ["Two-Tier framework", "#paper-tier"]]
+      },
+      {
+        "title": "Rotation is the lever that keeps showing up.",
+        "text": "Carbon tracked rotation diversity and organic inputs more than tillage. Across six long-term trials, profit tracked rotation design more than the organic label: rotations with a perennial or forage phase held their own without premiums. In this field, the manure-based system, with compost and a perennial clover–hay phase, held the most carbon. Different currencies, one lever: what grows in the field, and for how long.",
+        "from": ["record", "economics"], "to": [["The open question", "#open-question"]]
+      }
+    ],
+    "next": {
+      "question": "Which part of a system, its rotation, its inputs, or its disturbance, moves which outcome, and does the answer travel beyond one field in Pennsylvania?",
+      "caution": "One site, one climate: the trial is a deep record, not a wide one. That is where the benchmarking thread’s regional question comes back in.",
+      "href": "#paper-hlc", "link": "Back to the regional question"
+    }
+  },
   "otherWork": [
     {
-      "year": "2026", "venue": "Position paper",
+      "id": "practice", "year": "2026", "venue": "Position paper",
       "title": "Soil Health in Practice: Principles, Proof, and the Path Forward",
       "summary": "A systems-oriented look at how soil health moved from niche concept to organizing framework, and what kinds of evidence are still needed to connect management practices to measurable outcomes.",
       "url": "https://rodaleinstitute.org/science/articles/soil-health-in-practice-principles-proof-and-the-path-forward/"
     },
     {
-      "year": "2025", "venue": "Sustainability",
+      "id": "sequestration", "year": "2025", "venue": "Sustainability",
       "title": "Soil Carbon Sequestration: A Mechanistic Perspective on Limitations and Future Possibilities",
       "summary": "Examines where soil carbon narratives are scientifically strong, where they become overstated, and what mechanistic understanding is required for credible long-term sequestration claims.",
       "url": "https://www.mdpi.com/2071-1050/17/13/6015"
     },
     {
-      "year": "2024", "venue": "Agrosystems, Geosciences & Environment",
+      "id": "cycle", "year": "2024", "venue": "Agrosystems, Geosciences & Environment",
       "title": "Soil Health Cycle",
       "summary": "A framework for thinking about soil health as an iterative management cycle linking practices, indicators, functions, and human decision-making rather than as a one-time score.",
       "url": "https://digitalcommons.unl.edu/agronomyfacpub/1773/"
     },
     {
-      "year": "2024", "venue": "PLOS One",
+      "id": "nitrogen", "year": "2024", "venue": "PLOS One",
       "title": "Nitrogen Dynamics as a Function of Soil Types, Compaction, and Moisture",
       "summary": "Investigates how compaction and moisture regimes shape nitrogen transformations, leaching, volatilization, and emissions across contrasting soil textures.",
       "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0301296"
     },
     {
-      "year": "2018", "venue": "BMC Microbiology",
+      "id": "siderophore", "year": "2018", "venue": "BMC Microbiology",
       "title": "Characterization of Siderophore Producing Arsenic-Resistant Staphylococcus sp. Strain TA6",
       "summary": "A study of arsenic-resistant bacteria from contaminated groundwater in Assam and their possible role in the local arsenic geocycle.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/30180796/"
     },
     {
-      "year": "2017", "venue": "Genomics Data",
+      "id": "metagenome", "year": "2017", "venue": "Genomics Data",
       "title": "A Metagenomic Approach to Decipher the Indigenous Microbial Communities of Arsenic Contaminated Groundwater of Assam",
       "summary": "An early metagenomic investigation into the microbial communities inhabiting arsenic-affected groundwater systems, reflecting the foundation of my research journey.",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5379903/"
