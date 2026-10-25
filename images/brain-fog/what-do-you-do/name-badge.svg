@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" width="1536" height="1024">
+  <!-- Brain Fog 003 cover: a name badge with the name written in and the title line left blank. Hand-coded; no text. -->
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="7" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0.14  0 0 0 0 0.14  0 0 0 0 0.12  0 0 0 0.07 0"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-38)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#24251f" stroke-width="1.1" stroke-opacity="0.22"/>
+    </pattern>
+    <clipPath id="halo-clip"><circle cx="820" cy="600" r="340"/></clipPath>
+  </defs>
+
+  <rect width="1536" height="1024" fill="#f5f3eb"/>
+
+  <!-- Halo and engraved shade behind the badge -->
+  <circle cx="820" cy="600" r="340" fill="#f0e4d9"/>
+  <rect x="470" y="250" width="700" height="700" fill="url(#hatch)" clip-path="url(#halo-clip)" opacity="0.55"/>
+  <circle cx="820" cy="600" r="340" fill="none" stroke="#24251f" stroke-opacity="0.35" stroke-width="1.5"/>
+
+  <!-- Lanyard -->
+  <path d="M600 -20 L748 318" stroke="#b94b29" stroke-width="30" fill="none"/>
+  <path d="M936 -20 L788 318" stroke="#b94b29" stroke-width="30" fill="none"/>
+  <path d="M600 -20 L748 318 M936 -20 L788 318" stroke="#24251f" stroke-opacity="0.18" stroke-width="2" fill="none" transform="translate(9 0)"/>
+
+  <!-- Clip -->
+  <rect x="738" y="300" width="60" height="42" rx="8" fill="#24251f"/>
+  <rect x="758" y="334" width="20" height="30" rx="4" fill="none" stroke="#24251f" stroke-width="5"/>
+
+  <g transform="rotate(-4 768 360)">
+    <!-- Shadow -->
+    <rect x="604" y="378" width="360" height="480" rx="20" fill="#24251f" opacity="0.16" filter="url(#soft)" transform="translate(16 20)"/>
+    <!-- Card -->
+    <rect x="588" y="360" width="360" height="480" rx="20" fill="#fffdf8" stroke="#24251f" stroke-width="3"/>
+    <rect x="738" y="378" width="60" height="12" rx="6" fill="none" stroke="#24251f" stroke-width="2.5"/>
+    <!-- Header band -->
+    <path d="M591 410 H945 V500 H591 Z" fill="#24251f"/>
+    <circle cx="634" cy="455" r="11" fill="#b94b29"/>
+    <path d="M664 455 H780" stroke="#f5f3eb" stroke-opacity="0.45" stroke-width="5" stroke-linecap="round"/>
+    <!-- The name, written in -->
+    <path d="M634 616 C644 576 664 552 674 566 C684 582 660 612 648 604 C638 596 668 572 690 584 C704 592 704 612 716 606 C728 600 730 578 742 580 C754 582 744 606 754 610 C766 614 778 572 790 548 C798 534 806 540 800 560 C792 588 782 614 792 614 C804 614 812 590 826 588 C840 586 832 610 846 610 C862 610 870 592 884 596 C896 600 900 606 912 600" fill="none" stroke="#24251f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M700 628 C760 622 830 620 900 626" fill="none" stroke="#24251f" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M628 650 H908" stroke="#d9d7cc" stroke-width="2.5"/>
+    <!-- The title line, left blank -->
+    <path d="M628 750 H908" stroke="#696a60" stroke-width="2.5" stroke-dasharray="12 12"/>
+    <rect x="626" y="716" width="3" height="30" fill="#b94b29"/>
+    <path d="M628 790 H760" stroke="#d9d7cc" stroke-width="2.5"/>
+  </g>
+
+  <rect width="1536" height="1024" filter="url(#grain)"/>
+</svg>

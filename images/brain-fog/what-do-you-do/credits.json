@@ -1,0 +1,12 @@
+{
+  "created": "2026-10-24",
+  "method": "Hand-coded SVG illustration, rendered at 1536x1024 with headless Chrome and saved as JPEG with sips",
+  "images": [
+    {
+      "file": "name-badge.jpg",
+      "thumbnail": "name-badge-thumb.jpg",
+      "source": "name-badge.svg",
+      "description": "Original vector illustration for Brain Fog issue 003: a lanyard name badge with the name written in and the job-title line left blank, on warm ivory paper with a hatched halo. Not AI-generated and not a photograph. Contains no text."
+    }
+  ]
+}
